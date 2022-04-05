@@ -2,60 +2,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Kontakformular</title>
-<style>
-h1 {
-	font-size: 150%;
-	display: block;
-	font-family: verdana;
-	color: black;
-	background-color: lightgrey;
-	border: 1px solid black;
-	padding: 30px;
-	width:500px;
-	text-align:center;
-}
 
-.kontaktformular{
-border: 1px solid black;
-text-align:center;
-width:560px;
-font-family: verdana;
+	<!-- Stylesheet Test TP-->
+	<link rel="stylesheet" href="../css/kontakt_formular_css.css">
 
-}
-
-
-
-
-
-</style>
-
+	<title>Kontakformular</title>
 
 </head>
+
 <body>
 	<header>
-		<h1>Kontaktformular</h1>
-
-
+	<p class="willkommen"></p>	
+	<h1>Kontaktformular</h1>	
 	</header>
+	
 <main>
 
 <form action ="URL" method="get">
 <div class="kontaktformular">
   <p><label for="vorname">Vorname:</label></p>
   <p><input type="text" id="vname" name="vname" placeholder="Ihr Vorname"></p>
+  
   <p><label for="nachname">Nachname:</label></p>
   <p><input type="text" id="nname" name="nname" placeholder="Ihr Nachname"></p>
-  <p><label for="telefon">Telefon/Handynummer:</label></p>
+  
+  <p><label for="telefon">Telefon:</label></p>
   <p><input type="tel" id="telefon" name="telefon" placeholder="+49"></p> 
+  
   <p><label for for="email">E-Mail:</label></p>
   <p><input type="email" id="email" name="email"  placeholder="Ihre E-Mail"></p>
+  
   <p><label for="anliegen">Anliegen:</label></p>
-  <p><textarea rows="15" cols="30" maxlength="2000"></textarea></p>
+  <p><textarea rows="10" cols="25" maxlength="500"></textarea></p>
+  
   <p>  
   <button type="submit" name="absenden" value="absenden">Absenden</button>
   <button type="reset" name="reset" value="reset">Zurücksetzen</button>
+  <input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = 'homepage.html'">
   </p>
+
 
   
   

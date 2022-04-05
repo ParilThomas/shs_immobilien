@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+h1 {
+	font-size: 150%;
+	display: block;
+	font-family: verdana;
+	color: black;
+	background-color: lightgrey;
+	border: 1px solid black;
+	padding: 30px;
+	width:500px;
+	text-align:center;
+}
+
+.kontaktformular{
+border: 1px solid black;
+text-align:center;
+width:560px;
+font-family: verdana;
+
+}
+
+.willkommen {
+	width: 100%;
+	height: 350px;
+	background:url(../img/hauptbild_homepage.jpg) 
+}
+
+.abbrechen {
+	background-color: red;
+	opacity: 0.5;
+}
