@@ -6,6 +6,19 @@
 	
 }
 
+nav {
+	color: yellow;
+	font-size: 100%;
+	text-align: right;
+	font-family: verdana;
+}
+
+.zurueck{
+	padding: 10px;
+	width: 110px;
+	font-size: 125%;
+}
+
 h2 {
 	font-family: verdana;
 	font-size: 110%;
@@ -25,7 +38,7 @@ h2 {
 
 
 .trenner{
-	width: 100px;
+	width: 650px;
 	color: black;
 }
 
@@ -40,12 +53,9 @@ h2 {
 
 th{
 	height:50px;
-	width: 150px;	
-	
-	
+	width: 150px;		
 }
 
 td{
 width: 150px;	
-	
 }

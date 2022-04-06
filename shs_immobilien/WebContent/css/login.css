@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+.willkommen {
+	width: 100%;
+	height: 350px;
+	background:url(../img/willkommen_img.jpg) 
+}
+
+.html_hintergrund {
+	background-color: grey;
+}
+
+nav {
+	color: yellow;
+	font-size: 100%;
+	text-align: right;
+	font-family: verdana;
+}
+
+.zurueck{
+	padding: 10px;
+	width: 110px;
+	font-size: 125%;
+}
