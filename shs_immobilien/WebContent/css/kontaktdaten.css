@@ -1,0 +1,51 @@
+@charset "ISO-8859-1";
+
+.hintergrund{
+	background-color: lightgrey;
+	width:100%;
+	
+}
+
+h2 {
+	font-family: verdana;
+	font-size: 110%;
+	text-align: center;
+}
+
+.allgemein {
+	width: 100%;
+	height: 350px;
+	background: url(../img/team_img.jpg)
+}
+
+.infotext {
+	text-align: center;
+	font-family: verdana;
+}
+
+
+.trenner{
+	width: 100px;
+	color: black;
+}
+
+.table{
+	
+	font-family: verdana;
+	text-align: center;
+	margin: 0 auto;
+	
+	
+}
+
+th{
+	height:50px;
+	width: 150px;	
+	
+	
+}
+
+td{
+width: 150px;	
+	
+}
