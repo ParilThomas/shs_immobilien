@@ -56,6 +56,23 @@ th{
 	width: 150px;		
 }
 
+.th2{
+	width: 50px;		
+}
+
 td{
-width: 150px;	
+width: 10px;	
+}
+
+.profilthomass {
+	height: 150px;
+	background: url(../img/profil_thomass.jpg)
+}
+
+.profilthomasp {
+	background: url(../img/profil_thomasp.jpg)
+}
+
+.profilsimons {
+	background: url(../img/profil_simons.jpg)
 }
