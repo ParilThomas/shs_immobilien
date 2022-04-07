@@ -13,7 +13,7 @@
 		<nav>
 		<form>
 			<div>
-				<input class="zurueck" type="button" value="Zurück"  onclick="location.href = 'homepage.html'">
+				<input class="zurueck" type="button" value="Zurück"  onclick="location.href = '../html/homepage.html'">
 			</div>
 		</form>
 	</nav>		
@@ -23,6 +23,7 @@
 			final String nachname = request.getParameter("nachname");
 			final String vorname = request.getParameter("vorname");
 			final String telefon = request.getParameter("telefon");
+			final String email = request.getParameter("email");
 			final String anliegen = request.getParameter("anliegen");
 		%>
 		
@@ -31,6 +32,7 @@
 		<br><b>Nachname: </b><%= nachname %>
 		<br><b>Vorname: </b><%= vorname %>
 		<br><b>Telefon: </b><%= telefon %>
+		<br><b>Telefon: </b><%= email %>
 		<br><b>Anliegen: </b><br><%= anliegen %>
 	</body>
 </html>
