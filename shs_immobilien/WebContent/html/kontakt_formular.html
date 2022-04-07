@@ -17,22 +17,22 @@
 	</header>
 	
 <main>
-<form action ="URL" method="get">
+<form action ="../jsp/kontakt_formular.jsp" method="get">
 <div class="kontaktformular">
   <p><label for="vorname">Vorname:</label><br>
-  <input type="text" id="vname" name="vname" placeholder="Ihr Vorname"></p>
+  <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required></p>
   
   <p><label for="nachname">Nachname:</label><br>
-  <input type="text" id="nname" name="nname" placeholder="Ihr Nachname"></p>
+  <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" required></p>
   
   <p><label for="telefon">Telefon:</label><br>
-  <input type="tel" id="telefon" name="telefon" placeholder="+49"></p> 
+  <input type="tel" id="telefon" name="telefon" placeholder="+49" required></p> 
   
   <p><label for="email">E-Mail:</label><br>
-  <input type="email" id="email" name="email"  placeholder="Ihre E-Mail"></p>
+  <input type="email" id="email" name="email"  placeholder="Ihre E-Mail" required></p>
   
   <p><label for="anliegen">Anliegen:</label></p>
-  <p><textarea rows="5" cols="50" maxlength="500"></textarea></p>
+  <p><textarea rows="5" cols="50" maxlength="500" name="anliegen" required></textarea></p>
   
   <p>  
   <button type="submit" name="absenden" value="absenden">Absenden</button>
