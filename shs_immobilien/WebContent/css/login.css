@@ -22,3 +22,19 @@ nav {
 	width: 110px;
 	font-size: 125%;
 }
+
+.log-button{
+	padding: 10px;
+	width: 110px;
+	font-size: 125%;
+}
+
+.login{
+	background-color: #ffffff;
+	border: 1px solid black;
+	text-align:center;
+	width:500px;
+	font-family: verdana;
+	max-width: 500px;
+	margin: auto;
+}
