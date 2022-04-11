@@ -22,3 +22,16 @@ nav {
 	text-align: right;
 	font-family: verdana;
 }
+
+.ausgabe{
+	background-color: lightgrey;
+	font-familiy: verdana;
+	border: 1px solid black;
+	text-align: center;
+	margin: auto;
+	width: 500px;
+	
+}
+.block{
+	text-align: center;
+}

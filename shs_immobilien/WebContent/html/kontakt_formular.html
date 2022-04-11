@@ -15,26 +15,29 @@
 	<header>
 	<div class="center"><h1>Kontaktformular</h1></div>
 	</header>
-	
+
 <main>
-<form action ="../jsp/kontakt_formular.jsp" method="get">
+<form action ="../jsp/kontakt_formular.jsp" method="post" entctype="multipart/from-data">
 <div class="kontaktformular">
   <p><label for="vorname">Vorname:</label><br>
-  <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required></p>
+  <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required /></p>
   
   <p><label for="nachname">Nachname:</label><br>
-  <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" required></p>
+  <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" required /></p>
   
   <p><label for="telefon">Telefon:</label><br>
-  <input type="tel" id="telefon" name="telefon" placeholder="+49" required></p> 
+  <input type="tel" id="telefon" name="telefon" placeholder="+49" required /></p> 
   
   <p><label for="email">E-Mail:</label><br>
-  <input type="email" id="email" name="email"  placeholder="Ihre E-Mail" required></p>
+  <input type="email" id="email" name="email"  placeholder="Ihre E-Mail" required /></p>
   
   <p><label for="anliegen">Anliegen:</label></p>
   <p><textarea rows="5" cols="50" maxlength="500" name="anliegen" required></textarea></p>
   
-  <p>  
+  <p><label for="file">Immobilie hochladen:</label></p>
+  <p> <input type="file" id="file" name="file"/></p>
+  
+  <p>
   <button type="submit" name="absenden" value="absenden">Absenden</button>
   <button type="reset" name="reset" value="reset">Zurücksetzen</button>
   <input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = 'homepage.html'">
