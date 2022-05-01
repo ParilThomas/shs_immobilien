@@ -24,6 +24,14 @@ h1 {
 	margin: auto;
 }
 
+
+input[type='radio']{   
+    float:left;
+    display:inline-block;
+    margin-right:-100 px;
+ }
+
+ 
 .verkaufsformular{
 	background-color: #ffffff;
 	border: 1px solid black;
@@ -31,9 +39,9 @@ h1 {
 	width:500px;
 	font-family: verdana;
 	max-width: 500px;
-	margin: auto;
-
+	margin:auto;
 }
+
 
 .willkommen {
 	width: 100%;

@@ -39,29 +39,6 @@ function check(browser) {
   
   <p><label for="wunschpreis">Startgebot in Euro:</label><br>
   	<input type="number" id="wpreis" name="wpreis" placeholder="500000" required /></p>
-  
-  <p><label for="auktionsdauer">Auktionsdauer:</label><br>
-	<select name="auktionsdauer" id="auktionsdauer" size="3">
-		<option value="auktyp_01" selected>30 Tage</option>
-		<option value="auktyp_02">60 Tage</option>
-		<option value="auktyp_03">90 Tage</option>
-	</select></p>
-	
-	<p><label for="bautyp">Bautyp:</label><br>
-	<select name="bautyp" id="bautyp" size="3">
-		<option value="bautyp_01">Massivbau Fertighaus</option>
-		<option value="bautyp_02">Holz Fertighaus</option>
-		<option value="bautyp_03">Massivbauweise</option>
-		<option value="bautyp_04">Ytongbauweise</option>
-	</select></p>
-	
-<form>
-<input type="radio" name="haustyp" onclick="check(this.value)" value="Eigentumswohnung">Eigentumswohnung<br>
-<input type="radio" name="haustyp" onclick="check(this.value)" value="Einfamilienhaus">Einfamilienhaus<br>
-<input type="radio" name="haustyp" onclick="check(this.value)" value="Zweifamilienhaus">Zweifamilienhaus<br>
-<input type="radio" name="haustyp" onclick="check(this.value)" value="Mehrfamilienhaus">Mehrfamilienhaus<br>
-<input type="radio" name="haustyp" onclick="check(this.value)" value="Bungalow">Bungalow<br>
-</form>
 
   <p><label for="anliegen">Objektbeschreibung</label></p>
   <p><textarea rows="5" cols="50" maxlength="500"  name="objbeschreibung" required></textarea></p>

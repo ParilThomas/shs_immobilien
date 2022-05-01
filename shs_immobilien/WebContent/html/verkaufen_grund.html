@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="html_hintergrund">
+<head>
+<meta charset="UTF-8">
+<!-- Stylesheet Test TP-->
+<link rel="stylesheet" href="../css/verkaufen.css">
+
+<title>sps-immobilien.de/verkaufen</title>
+</head>
+<body>
+	<header>
+		<p class="willkommen"></p>
+	</header>
+	<main>
+
+		<div class="verkaufsformular">
+
+			<form>
+				<input  type="radio" id= eigentumswohnung name="haustyp" onclick="check(this.value)"
+					value="Eigentumswohnung">
+					<label for="eigentumswohnung">Eigentumswohnung</label><br>
+					
+					<input type="radio" id=einfamilienhaus name="haustyp" onclick="check(this.value)"
+					value="Einfamilienhaus">
+					<label for="einfamilienhaus">Einfamilienhaus</label><br>
+					
+					<input	type="radio" id=zweifamilienhaus name="haustyp" onclick="check(this.value)"
+					value="Zweifamilienhaus">
+					<label for=zweifamilienhaus>Zweifamilienhaus</label><br>
+
+				 	<input type="radio" id=mehrfamilienhaus name="haustyp" onclick="check(this.value)"
+					value="Mehrfamilienhaus">
+					<label for=mehrfamilienhaus>Mehrfamilienhaus</label><br>
+
+					<input type="radio" id=bungalow name="haustyp" onclick="check(this.value)"
+					value="Bungalow">
+					<label for="bungalow">Bungalow</label><br>
+					
+			</form>
+
+			<p>
+				<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
+					id="bautyp" size="3">
+					<option value="bautyp_01">Massivbau Fertighaus</option>
+					<option value="bautyp_02">Holz Fertighaus</option>
+					<option value="bautyp_03">Massivbauweise</option>
+					<option value="bautyp_04">Ytongbauweise</option>
+				</select>
+			</p>
+
+			<p>
+				<label for="auktionsdauer">Auktionsdauer:</label><br> <select
+					name="auktionsdauer" id="auktionsdauer" size="3">
+					<option value="auktyp_01" selected>30 Tage</option>
+					<option value="auktyp_02">60 Tage</option>
+					<option value="auktyp_03">90 Tage</option>
+				</select>
+			</p>
+
+			<div>
+			
+				<button type="submit" name="absenden" value="absenden" onclick="location.href='verkaufen.html'">Weiter</button>
+				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = 'homepage.html'">
+				
+			</div>
+			<br>
+	</main>
+
+
+
+
+
+</body>
+</html>

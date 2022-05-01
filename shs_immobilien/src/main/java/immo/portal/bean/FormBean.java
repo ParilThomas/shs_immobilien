@@ -1,7 +1,7 @@
 package immo.portal.bean;
 
 import java.io.Serializable;
-
+// Bean-Test-- TS
 public class FormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 

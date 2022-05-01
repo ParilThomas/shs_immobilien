@@ -1,6 +1,6 @@
 package immo.portal.servlets;
 
-
+//Servlet-Test--TS
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -57,7 +57,7 @@ public class immo_servlet extends HttpServlet {
 				
 			//Redirect -> Änderung auf Datenbankeinträge durch Reload
 			
-			response.sendRedirect("jsp/kontakt_formular1.jsp"); // Wie komm ich vom root Verzeichnis in den ordner JSP ?
+			response.sendRedirect("jsp/kontakt_formular1.jsp");
 				
 				
 	}
@@ -69,7 +69,7 @@ public class immo_servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response); // ist das richtig?
+		doGet(request, response); 
 	}
 
 }
