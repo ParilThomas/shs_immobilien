@@ -43,7 +43,7 @@ public class immo_servlet extends HttpServlet {
 				FormBean form = new FormBean();
 				form.setVorname(request.getParameter("vorname"));
 				form.setNachname(request.getParameter("nachname"));
-				form.setTelefon(request.getParameter("telefon"));
+				form.setTelefon(Integer.valueOf(request.getParameter("telefon")));
 				form.setEmail(request.getParameter("mail"));
 				form.setAnliegen(request.getParameter("anliegen"));
 //				form.setFile(request.getParameter(file));  -> funktioniert noch nicht

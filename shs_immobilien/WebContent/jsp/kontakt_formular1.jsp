@@ -12,13 +12,13 @@
 </header>
 <main>
 <h2>Ihre Formulareingaben:</h2>
-<br><b>Vorname:</b>${form.vorname}
-<br><b>Nachname: </b>${form.nachname}
-<br><b>Telefon:</b>${form.telefon}
-<br><b>E-Mail: </b>${form.email}
-<br><b>Anliegen:</b>${form.anliegen}
+<br><b>Vorname:</b>${form1.vorname}
+<br><b>Nachname: </b>${form1.nachname}
+<br><b>Telefon:</b>${form1.telefon}
+<br><b>E-Mail: </b>${form1.email}
+<br><b>Anliegen:</b>${form1.anliegen}
+<br><b>Bild:</b><img src="../kaufen_bild_servlet?id=${form1.id}">
 
-<%-- "noch nicht richtig implementiert" <br><b>File:</b>${form.file} --%>
 
 </main>
 </body>
