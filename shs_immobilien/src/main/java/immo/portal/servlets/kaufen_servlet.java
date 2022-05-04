@@ -80,16 +80,14 @@ public class kaufen_servlet extends HttpServlet {
 		//DB-Zugriff
 		try (Connection con = ds.getConnection();
 				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM objekte WHERE haustyp=?")){
-			for(int i = 1; i<10; i++) {
-		
-				pstmt.setString(i, haustyp);
-			
-			}
+			pstmt.setString(1, haustyp);
 			
 			try(ResultSet rs= pstmt.executeQuery()) {
 				if(rs !=null & rs.next()) {
+				
 					kform.setHaustyp(rs.getString("haustyp"));
 					kform.setStartgebot(rs.getInt("startgebot"));
+					
 				}
 			}
 		}catch(Exception e) {
