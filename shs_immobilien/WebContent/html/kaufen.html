@@ -18,14 +18,18 @@
 	<nav>
 		<form>
 			<div>
-				<input class="zurueck" type="button" value="Zurück"  onclick="location.href = 'homepage.html'">
+				<input class="zurueck" type="button" value="Zurück">
 			</div>
 		</form>
 	</nav>
 	<main>
-	<label for="titel">Titel</label>
-	<input type="text" id="titel" name="titel" placeholder="Name der Immobilie" required>
-	
+	<form action ="../kaufen_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
+	<button type="submit" name="haustyp" value="Eigentumswohnung">Eigentumswohnung</button>
+	<button type="submit" name="haustyp" value="Einfamilienhaus">Einfamilienhaus</button>
+	<button type="submit" name="haustyp" value="Mehrfamilienhaus">Mehrfamilienhaus</button>
+	<button type="submit" name="haustyp" value="Zweifamilienhaus">Zweifamilienhaus</button>
+	<button type="submit" name="haustyp" value="Bungalow">Bungalow</button>
+	</form>
 	</main>
 	
 </body>

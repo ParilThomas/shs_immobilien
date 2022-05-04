@@ -41,11 +41,11 @@ public class kaufen_bild_servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		Long id = Long.valueOf(request.getParameter("id"));
+		String haustyp = (request.getParameter("haustyp"));
 		
 		try(Connection con = ds.getConnection(); 
-				PreparedStatement pstmt = con.prepareStatement("Select file FROM customer WHERE id=?")){
-			pstmt.setLong(1, id);
+				PreparedStatement pstmt = con.prepareStatement("Select bilder FROM objekte WHERE haustyp= ?")){
+			pstmt.setString(1, haustyp);
 			try(ResultSet rs= pstmt.executeQuery()){
 				if(rs!=null && rs.next()) {
 					Blob bild = rs.getBlob("bilder"); //Zugriff auf Spalte "bilder"
