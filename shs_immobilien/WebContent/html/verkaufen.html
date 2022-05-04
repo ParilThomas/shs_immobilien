@@ -10,9 +10,9 @@
 <title>sps-immobilien.de/verkaufen</title>
 
 <script>
-function check(browser) {
-  document.getElementById("answer").value=browser;
-}
+	function check(browser) {
+		document.getElementById("answer").value = browser;
+	}
 </script>
 </head>
 
@@ -20,38 +20,98 @@ function check(browser) {
 	<header>
 		<p class="willkommen"></p>
 	</header>
+
+	<div class="verkaufsformular">
+
+
+
+		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
+			
+			
+			<input type="radio" id=eigentumswohnung name="haustyp"
+				onclick="check(this.value)" value="Eigentumswohnung"> <label
+				for="eigentumswohnung">Eigentumswohnung</label><br> <input
+				type="radio" id=einfamilienhaus name="haustyp"
+				onclick="check(this.value)" value="Einfamilienhaus"> <label
+				for="einfamilienhaus">Einfamilienhaus</label><br> <input
+				type="radio" id=zweifamilienhaus name="haustyp"
+				onclick="check(this.value)" value="Zweifamilienhaus"> <label
+				for=zweifamilienhaus>Zweifamilienhaus</label><br> <input
+				type="radio" id=mehrfamilienhaus name="haustyp"
+				onclick="check(this.value)" value="Mehrfamilienhaus"> <label
+				for=mehrfamilienhaus>Mehrfamilienhaus</label><br> <input
+				type="radio" id=bungalow name="haustyp" onclick="check(this.value)"
+				value="Bungalow"> <label for="bungalow">Bungalow</label><br>
+
+
+		<p>
+			<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
+				id="bautyp" size="3">
+				<option value="Massivbau Fertighaus">Massivbau Fertighaus</option>
+				<option value="Holz Fertighaus">Holz Fertighaus</option>
+				<option value="Massivbauweise">Massivbauweise</option>
+				<option value="Ytongbauweise">Ytongbauweise</option>
+			</select>
+		</p>
+		<br>
+		<hr class="trennung"> 
+		<br>
+		<p>
+			<label for="titel">Titel:</label><br> <input type="text"
+				id="titel" name="titel" placeholder="Objekttitel" required />
+		</p>
+
+		<p>
+			<label for="baujahr">Baujahr:</label><br> <input type="number"
+				id="baujahr" name="baujahr" placeholder="Baujahr" required />
+		</p>
+
+		<p>
+			<label for="wohnflaeche">Wohnfläche in m²:</label><br> <input
+				type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125"
+				required />
+		</p>
+
+		<p>
+			<label for="grundstuecksflaeche">Grundstückfläche in m²:</label><br>
+			<input type="number" id="grundstuecksflaeche"
+				name="grundstuecksflaeche" placeholder="250" required />
+		</p>
+
+		<p>
+			<label for="standort">Objektstandort:</label><br> <input
+				type="text" id="standort" name="standort"
+				placeholder="PLZ,Straße,Hausn." required />
+		</p>
+
+		<p>
+			<label for="startgebot">Startgebot in Euro:</label><br> <input
+				type="number" id="startgebot" name="startgebot" placeholder="500000"
+				required />
+		</p>
+
+		<p>
+			<label for="beschreibung">Objektbeschreibung</label>
+		</p>
+		<p>
+			<textarea rows="5" cols="50" maxlength="500" name="beschreibung"
+				required></textarea>
+		</p>
+
+		<p>
+			<label for="bilder">Objektbilder:</label>
+		</p>
+		<p>
+			<input type="file" id="bilder" name="bilder" accept="image/*" required multiple />
+		</p>
+
+		<p>
+			<button type="submit" name="absenden" value="absenden">Absenden</button>
+			<input class="abbrechen" type="button" value="Abbrechen"
+				onclick="location.href = 'homepage.html'">
+		</p>
+
 	
-<div class="verkaufsformular">
-  <p><label for="titel">Titel:</label><br>
-  	<input type="text" id="titel" name="titel" placeholder="Objekttitel" required /></p>
-  
-  <p><label for="Baujahr">Baujahr:</label><br>
-  	<input type="number" id="Baujahr" name="Baujahr" placeholder="Baujahr" required /></p>
-  
-  <p><label for="wohnfläche">Wohnfläche in m²:</label><br>
-  	<input type="number" id="wohnfläche" name="wohnfläche" placeholder="125" required /></p> 
-  	
-  <p><label for="grundstücksgröße">Grundstückfläche in m²:</label><br>
-  	<input type="number" id="grundstücksgröße" name="grundstücksgröße" placeholder="250" required/></p> 
-   
-  <p><label for="standort">Objektstandort:</label><br>
-  	<input type="text" id="standort" name="standort" placeholder="PLZ,Straße,Hausn." required /></p>
-  
-  <p><label for="wunschpreis">Startgebot in Euro:</label><br>
-  	<input type="number" id="wpreis" name="wpreis" placeholder="500000" required /></p>
-
-  <p><label for="anliegen">Objektbeschreibung</label></p>
-  <p><textarea rows="5" cols="50" maxlength="500"  name="objbeschreibung" required></textarea></p>
-  
-  <p><label for="file">Objektbilder:</label></p>
-  <p> <input type="file" id="file" name="objbilder"/></p>
-  
-  <p>
-  <button type="submit" name="absenden" value="absenden">Absenden</button>
-  <input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = 'homepage.html'">
-  </p>
-
-
-</div>
-	
+	</div>
+</form>
 </body>

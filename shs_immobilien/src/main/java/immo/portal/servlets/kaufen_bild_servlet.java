@@ -48,7 +48,7 @@ public class kaufen_bild_servlet extends HttpServlet {
 			pstmt.setLong(1, id);
 			try(ResultSet rs= pstmt.executeQuery()){
 				if(rs!=null && rs.next()) {
-					Blob bild = rs.getBlob("file"); //Zugriff auf Spalte "file"
+					Blob bild = rs.getBlob("bilder"); //Zugriff auf Spalte "bilder"
 				    response.reset();
 				    long length = bild.length();
 				    response.setHeader("Content-Length", String.valueOf(length)); //Header setzen -> Headerlänge setzen
