@@ -17,15 +17,16 @@ nav {
 	font-family: verdana;
 }
 
-.zurueck{
+.buttoncss{
 	padding: 10px;
-	width: 110px;
+	width: 200px;
 	font-size: 125%;
 }
 .tabelle, th, tr, td{
 	border: 1px solid black;
 	border-collapse: collapse;
 	width: 400px;
+	background-color: yellow;
 }
  img{
    max-width: 150px;

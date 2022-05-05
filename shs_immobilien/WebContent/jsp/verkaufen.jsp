@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html class="html_hintergrund">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/verkaufen.css">
 <title>Verkaufen</title>
 </head>
 <body>
 	<header>
-		<h1>Verkauf:</h1>
+	<p class="willkommen"></p>
 	</header>
 	<main>
 		<h2>Ihre Verkaufseingaben:</h2>
