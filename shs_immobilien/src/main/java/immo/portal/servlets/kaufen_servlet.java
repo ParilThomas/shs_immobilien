@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -52,11 +54,11 @@ public class kaufen_servlet extends HttpServlet {
 		String haustyp = request.getParameter("haustyp");
 		
 		
-        //Filebehandlung
-		Part filepart = request.getPart("bilder");
+//        //Filebehandlung
+//		Part filepart = request.getPart("bilder");
 
         //DB-Zugriff
-		kaufen_bean kform =read(haustyp);
+		List<kaufen_bean> kform =search(haustyp);
 		
 		
         // Scope -Session
@@ -71,36 +73,80 @@ public class kaufen_servlet extends HttpServlet {
 	}
 
 	
-	//Lesen
-	private kaufen_bean read(String haustyp) throws ServletException{
+//	//Lesen
+//	private kaufen_bean read(String haustyp) throws ServletException{
+//		
+//		kaufen_bean kform = new kaufen_bean();
+//		kform.setHaustyp(haustyp);
+//		
+//		//DB-Zugriff
+//		try (Connection con = ds.getConnection();
+//				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM objekte WHERE haustyp=?")){
+//			pstmt.setString(1, haustyp);
+//			
+//			try(ResultSet rs= pstmt.executeQuery()) {
+//				if(rs !=null & rs.next()) {
+//				
+//					kform.setHaustyp(rs.getString("haustyp"));
+//					kform.setStartgebot(rs.getInt("startgebot"));
+//					
+//				}
+//			}
+//		}catch(Exception e) {
+//			throw new ServletException(e.getMessage());
+//		}
+//				
+//		return kform;
+//	}
+//	
+	
+	private List <kaufen_bean> search(String haustyp) throws ServletException{
+//		haustyp=(haustyp==null || haustyp=="") ? "%" : "%" + haustyp + "%";
+		List <kaufen_bean> kform = new ArrayList<kaufen_bean>();
+	
+	try (Connection con = ds.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM objekte WHERE haustyp LIKE?")){
+		pstmt.setString(1, haustyp);
+		try(ResultSet rs= pstmt.executeQuery()) {
+			while(rs.next()) {
+				kaufen_bean objekt = new kaufen_bean();
+				
+				String htyp = rs.getString("haustyp");
+				objekt.setHaustyp(htyp);
 		
-		kaufen_bean kform = new kaufen_bean();
-		kform.setHaustyp(haustyp);
-		
-		//DB-Zugriff
-		try (Connection con = ds.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM objekte WHERE haustyp=?")){
-			pstmt.setString(1, haustyp);
+				String btyp = rs.getString("bautyp");
+				objekt.setBautyp(btyp);
+				
+				String titel = rs.getString("titel");
+				objekt.setTitel(titel);
+				
+				Integer baujahr = Integer.valueOf(rs.getInt("baujahr"));
+				objekt.setBaujahr(baujahr);
+				
+				Integer wohnflaeche = Integer.valueOf(rs.getInt("wohnflaeche"));
+				objekt.setWohnflaeche(wohnflaeche);
+				
+				Integer grundstuecksflaeche = Integer.valueOf(rs.getInt("grundstuecksflaeche"));
+				objekt.setGrundstuecksflaeche(grundstuecksflaeche);
+				
+				String standort = rs.getString("standort");
+				objekt.setStandort(standort);
+				
+				Integer startgebot = Integer.valueOf(rs.getInt("startgebot"));
+				objekt.setStartgebot(startgebot);
 			
-			try(ResultSet rs= pstmt.executeQuery()) {
-				if(rs !=null & rs.next()) {
 				
-					kform.setHaustyp(rs.getString("haustyp"));
-					kform.setStartgebot(rs.getInt("startgebot"));
-					
-				}
+				String beschreibung = rs.getString("beschreibung");
+				objekt.setBeschreibung(beschreibung);
+				
+				kform.add(objekt);
 			}
-		}catch(Exception e) {
-			throw new ServletException(e.getMessage());
 		}
-				
+	}catch(Exception e) {
+		throw new ServletException(e.getMessage());
+	}
 		return kform;
 	}
-	
-	
-	
-	
-	
 	
 	
 	

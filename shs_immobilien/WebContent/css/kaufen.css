@@ -22,3 +22,13 @@ nav {
 	width: 110px;
 	font-size: 125%;
 }
+.tabelle, th, tr, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 400px;
+}
+ img{
+   max-width: 150px;
+   max-height: 150px;
+   
+}

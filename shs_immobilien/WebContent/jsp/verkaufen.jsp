@@ -23,7 +23,7 @@
 		<b>Startgebot: </b>${vform.startgebot} <br>
 		<b>Beschreibung: </b>${vform.beschreibung} <br>
 		<b>Dateiname: </b>${vform.dateiname} <br>
-<%-- 		<b>Bild:</b><img src="../kaufen_bild_servlet?id=${vform.id}"> --%>
+
 	</main>
 
 
