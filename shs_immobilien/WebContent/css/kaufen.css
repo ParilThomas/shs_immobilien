@@ -17,6 +17,22 @@ nav {
 	font-family: verdana;
 }
 
+h1 {
+	font-size: 150%;
+	font-family: verdana;
+	color: black;
+	background-color: lightgrey;
+	border: 1px solid black;
+	width:500px;
+	height: 50px;
+	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	max-width: 500px;
+	margin: auto;
+}
+
+
 .zurueck{
 	color: red;
 	opacity: 0.7;
@@ -31,7 +47,7 @@ nav {
 	border: 1px solid black;
 	border-collapse: collapse;
 	width: 400px;
-	background-color: yellow;
+	background-color: lightgrey;
 }
  img{
    max-width: 150px;
