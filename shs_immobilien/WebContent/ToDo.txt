@@ -1,0 +1,12 @@
+1. Funktionierenden "Gebot abgeben" Button -> objekte.startgebot soll mit dem neuen Gebot überschrieben werden
+	-> Ablaufdatum der Angebote evtl. mit automatischem Ablauf (Wenn Zeit abgelaufen dann nicht mehr in Liste anzeigen?)
+
+2. LogIn Funktion -> "verkaufen.html" erst sichtbar wenn eingeloggt und "Gebot abgeben"-Button nur aktiv wenn eingeloggt
+
+3. Generische Suche auf der Hauptseite anlegen ???
+
+4. Administrative Bautypen und Haustypen (Evtl. in Datenbank auslagern und per JSP abrufen)
+	-> Tabelle bautypen anlegen
+	-> Tabelle haustypen anlegen
+	-> Button unter Haustypen anlegen für neuen DB Eintrag -> html Seite nötig?
+	-> Button unter Bautypen anlegen für neuen DB Eintrag -> html Seite nötig?
