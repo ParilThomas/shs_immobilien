@@ -1,7 +1,6 @@
 package immo.portal.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class kaufen_bean implements Serializable {
 	private static final long serialVersionUID = 1L;

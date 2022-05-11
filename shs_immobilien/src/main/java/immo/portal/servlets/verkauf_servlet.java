@@ -1,10 +1,14 @@
 package immo.portal.servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.sql.DataSource;
 
@@ -146,8 +150,113 @@ public class verkauf_servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		if(request.getParameter("htyp_edit_absenden") != null) {
+			String hausTyp = request.getParameter("htyp_edit");
+			if (hausTyp.isEmpty())
+				return;
+			
+			HausTypHinzufuegen(hausTyp);
+		}
+		if (request.getParameter("btyp_edit_absenden") != null) {
+			String bauTyp = request.getParameter("btyp_edit");
+			if (bauTyp.isEmpty())
+				return;
+			
+			BauTypHinzufuegen(bauTyp);
+		}
+		
+		if (request.getParameter("vformular_absenden") != null) {
+			DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			String fhaustyp = request.getParameter("haustyp");
+			String fbautyp = request.getParameter("bautyp");
+			String ftitel = request.getParameter("titel");
+			String fbaujahr = request.getParameter("baujahr");
+			Integer fwohnflaeche = (Integer.valueOf(request.getParameter("wohnflaeche")));
+			Integer fgrundstuecksflaeche = (Integer.valueOf(request.getParameter("grundstuecksflaeche")));
+			java.sql.Date fdatum = null;
+			try {
+				fdatum = new java.sql.Date(dateFormat.parse(request.getParameter("datum")).getTime());
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String fstandort = request.getParameter("standort");
+			Integer fstartgebot = (Integer.valueOf(request.getParameter("startgebot")));
+			String fbeschreibung = request.getParameter("beschreibung");
+			Part fbilder = request.getPart("bilder");
+
+			
+			if (fhaustyp.isEmpty() || fbautyp.isEmpty() || ftitel.isEmpty() || fbaujahr.isEmpty() || fwohnflaeche < 0 || fgrundstuecksflaeche < 0 || fstandort.isEmpty() || fbilder == null)
+					return;
+			
+			VerkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum);
+		}
+		
+		response.sendRedirect("jsp/verkaufen.jsp");
+		
+	}
+	
+	private void BauTypHinzufuegen(String bauTyp) throws ServletException {
+		try (
+				Connection con = ds.getConnection();
+				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM bautyp WHERE typ LIKE?")){
+				pstmt.setString(1, bauTyp);
+				try(ResultSet rs= pstmt.executeQuery()) {
+					while(rs.next()) {
+						return;
+					}
+					PreparedStatement statement = con.prepareStatement("INSERT INTO bautyp (typ) VALUES (?)");
+						statement.setString(1, bauTyp);
+						statement.executeUpdate();
+					}
+				}
+			catch(Exception e) {
+				throw new ServletException(e.getMessage());
+			}
+	}
+	
+	private void HausTypHinzufuegen(String hausTyp) throws ServletException {
+		try (
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM haustyp WHERE typ LIKE?")){
+			pstmt.setString(1, hausTyp);
+			try(ResultSet rs= pstmt.executeQuery()) {
+				while(rs.next()) {
+					return;
+				}
+				PreparedStatement statement = con.prepareStatement("INSERT INTO haustyp (typ) VALUES (?)");
+					statement.setString(1, hausTyp);
+					statement.executeUpdate();
+				}
+			}
+		catch(Exception e) {
+			throw new ServletException(e.getMessage());
+		}
+	}
+	
+	private void VerkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr, Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot, 
+			String fbeschreibung, Part fbilder, java.sql.Date fdatum) throws ServletException {
+		try (
+				Connection con = ds.getConnection();
+				InputStream is = fbilder.getInputStream();
+				PreparedStatement pstmt = con.prepareStatement("INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?)")){
+				pstmt.setString(1, fhaustyp);
+				pstmt.setString(2, fbautyp);	
+				pstmt.setString(3, ftitel);
+				pstmt.setString(4, fbaujahr);
+				pstmt.setInt(5, fwohnflaeche);
+				pstmt.setInt(6, fgrundstuecksflaeche);
+				pstmt.setString(7, fstandort);
+				pstmt.setDate(8, fdatum);
+				pstmt.setInt(9, fstartgebot);
+				pstmt.setString(10, fbeschreibung);
+				pstmt.setBlob(11, is);
+				pstmt.executeUpdate();
+				}
+			catch(Exception e) {
+				throw new ServletException(e.getMessage());
+			}
 	}
 
 }

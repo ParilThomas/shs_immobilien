@@ -1,32 +1,126 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="html_hintergrund">
+
 <head>
 <meta charset="UTF-8">
+
+<!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/verkaufen.css">
-<title>Verkaufen</title>
+
+<title>sps-immobilien.de/verkaufen</title>
+
+<script>
+	function check(browser) {
+		document.getElementById("answer").value = browser;
+	}
+</script>
 </head>
+
 <body>
 	<header>
 		<p class="willkommen"></p>
+	
+	<div class="center"><h1>Verkaufsformular</h1>
+	
+	</div>
+	
 	</header>
-	<main>
-		<h2>Ihre Verkaufseingaben:</h2>
-		<br> <b>Haustyp:</b>${vform.haustyp} <br> <b>Bautyp: </b>${vform.bautyp}
-		<br> <b>Titel: </b>${vform.titel} <br> <b>Baujahr: </b>${vform.baujahr}
-		<br> <b>Wohnfl√§che:</b>${vform.wohnflaeche} <br> <b>Grundst√ºcksfl√§che:
-		</b>${vform.grundstuecksflaeche} <br> <b>Standort: </b>${vform.standort}
-<%-- 		<br> <b>Datum: </b>${vform.datum} --%>
-		<br><b>Startgebot: </b>${vform.startgebot} <br> <b>Beschreibung:
-		</b>${vform.beschreibung} <br> <b>Dateiname: </b>${vform.dateiname} <br>
-		
-		<input class="zurueck" type="button" value="Zur√ºck zur Homepage"
-			onclick="location.href = '../html/homepage.html'">
-	</main>
+	<div class="verkaufsformular">
 
 
 
+		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
+		<p>
+			<label for="haustyp">Haustyp:</label><br> <select name="haustyp"
+				id="haustyp" size="5">
+				<option value="Eigentumswohnung">Eigentumswohnung</option>
+				<option value="Einfamilienhaus">Einfamilienhaus</option>
+				<option value="Zweifamilienhaus">Zweifamilienhaus</option>
+				<option value="Mehrfamilienhaus">Mehrfamilienhaus</option>
+				<option value="Bungalow">Bungalow</option>
+			</select>
+				<label for="htyp_edit"></label><br> <input type="text"
+				id="htyp_edit" name="htyp_edit" placeholder="Haustyp hinzuf¸gen"/>
+				<button type="submit" name="htyp_edit_absenden" value="absenden">Absenden</button>
+		</p>
 
+		<p>
+			<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
+				id="bautyp" size="4">
+				<option value="Massivbau Fertighaus">Massivbau Fertighaus</option>
+				<option value="Holz Fertighaus">Holz Fertighaus</option>
+				<option value="Massivbauweise">Massivbauweise</option>
+				<option value="Ytongbauweise">Ytongbauweise</option>
+			</select>
+				<label for="btyp_edit"></label><br> <input type="text"
+				id="btyp_edit" name="btyp_edit" placeholder="Bautyp hinzuf¸gen"/>
+				<button type="submit" name="btyp_edit_absenden" value="absenden">Absenden</button>
+		</p>
+		<br>
+		<hr class="trennung"> 
+		<br>
+				
+			<p>
+				<label for="titel">Titel:</label><br> <input type="text"
+					id="titel" name="titel" placeholder="Objekttitel" required />
+			</p>
+	
+			<p>
+				<label for="baujahr">Baujahr:</label><br> <input type="number"
+					id="baujahr" name="baujahr" placeholder="Baujahr" required />
+			</p>
+	
+			<p>
+				<label for="wohnflaeche">Wohnfl‰che in m≤:</label><br> <input
+					type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125"
+					required />
+			</p>
+	
+			<p>
+				<label for="grundstuecksflaeche">Grundst¸ckfl‰che in m≤:</label><br>
+				<input type="number" id="grundstuecksflaeche"
+					name="grundstuecksflaeche" placeholder="250" required />
+			</p>
+	
+			<p>
+				<label for="standort">Objektstandort:</label><br> <input
+					type="text" id="standort" name="standort"
+					placeholder="PLZ,Straﬂe,Hausn." required />
+			</p>
+	
+	
+			<p>
+			<label for="datum">Ende der Auktion:</label><br> <input
+					type="date" id="datum" name="datum" placeholder="01.01.2023"
+					required />
+			<p>
+				<label for="startgebot">Startgebot in Euro:</label><br> <input
+					type="number" id="startgebot" name="startgebot" placeholder="500000"
+					required />
+			</p>
+	
+			<p>
+				<label for="beschreibung">Objektbeschreibung</label>
+			</p>
+			<p>
+				<textarea rows="5" cols="50" maxlength="500" name="beschreibung"
+					required></textarea>
+			</p>
+	
+			<p>
+				<label for="bilder">Objektbilder:</label>
+			</p>
+			<p>
+				<input type="file" id="bilder" name="bilder" accept="image/*" required />
+			</p>
+	
+			<p>
+				<button type="submit" name="vformular_absenden" value="absenden">Absenden</button>
+				<input class="abbrechen" type="button" value="Abbrechen"
+					onclick="location.href = '../html/homepage.html'">
+			</p>
+		</form>
+
+	
+	</div>
 </body>
-</html>

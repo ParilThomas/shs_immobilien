@@ -32,25 +32,19 @@
 		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
 			
 			<br>
-			<input type="radio" id=eigentumswohnung name="haustyp"
-				onclick="check(this.value)" value="Eigentumswohnung"> <label
-				for="eigentumswohnung">Eigentumswohnung</label><br> <input
-				type="radio" id=einfamilienhaus name="haustyp"
-				onclick="check(this.value)" value="Einfamilienhaus"> <label
-				for="einfamilienhaus">Einfamilienhaus</label><br> <input
-				type="radio" id=zweifamilienhaus name="haustyp"
-				onclick="check(this.value)" value="Zweifamilienhaus"> <label
-				for=zweifamilienhaus>Zweifamilienhaus</label><br> <input
-				type="radio" id=mehrfamilienhaus name="haustyp"
-				onclick="check(this.value)" value="Mehrfamilienhaus"> <label
-				for=mehrfamilienhaus>Mehrfamilienhaus</label><br> <input
-				type="radio" id=bungalow name="haustyp" onclick="check(this.value)"
-				value="Bungalow"> <label for="bungalow">Bungalow</label><br>
-
-
+		<p>
+			<label for="haustyp">Haustyp:</label><br> <select name="haustyp"
+				id="haustyp" size="5">
+				<option value="Eigentumswohnung">Eigentumswohnung</option>
+				<option value="Einfamilienhaus">Einfamilienhaus</option>
+				<option value="Zweifamilienhaus">Zweifamilienhaus</option>
+				<option value="Mehrfamilienhaus">Mehrfamilienhaus</option>
+				<option value="Bungalow">Bungalow</option>
+			</select>
+		</p>
 		<p>
 			<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
-				id="bautyp" size="3">
+				id="bautyp" size="4">
 				<option value="Massivbau Fertighaus">Massivbau Fertighaus</option>
 				<option value="Holz Fertighaus">Holz Fertighaus</option>
 				<option value="Massivbauweise">Massivbauweise</option>
