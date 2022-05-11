@@ -1,7 +1,9 @@
 package immo.portal.servlets;
 
+import java.awt.Image;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -132,12 +134,19 @@ public class kaufen_servlet extends HttpServlet {
 				String standort = rs.getString("standort");
 				objekt.setStandort(standort);
 				
+				
+//				Date datum = rs.getDate("datum");
+//				objekt.setDatum(datum);
+				
+				
 				Integer startgebot = Integer.valueOf(rs.getInt("startgebot"));
 				objekt.setStartgebot(startgebot);
 			
 				
 				String beschreibung = rs.getString("beschreibung");
 				objekt.setBeschreibung(beschreibung);
+				
+				
 				
 				kform.add(objekt);
 			}

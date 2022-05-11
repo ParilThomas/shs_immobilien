@@ -17,7 +17,8 @@
 		<br> <b>Titel: </b>${vform.titel} <br> <b>Baujahr: </b>${vform.baujahr}
 		<br> <b>Wohnfläche:</b>${vform.wohnflaeche} <br> <b>Grundstücksfläche:
 		</b>${vform.grundstuecksflaeche} <br> <b>Standort: </b>${vform.standort}
-		<br> <b>Startgebot: </b>${vform.startgebot} <br> <b>Beschreibung:
+<%-- 		<br> <b>Datum: </b>${vform.datum} --%>
+		<br><b>Startgebot: </b>${vform.startgebot} <br> <b>Beschreibung:
 		</b>${vform.beschreibung} <br> <b>Dateiname: </b>${vform.dateiname} <br>
 		
 		<input class="zurueck" type="button" value="Zurück zur Homepage"

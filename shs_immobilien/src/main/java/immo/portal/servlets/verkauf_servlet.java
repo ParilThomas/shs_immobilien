@@ -2,9 +2,9 @@ package immo.portal.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Calendar;
 
 import javax.sql.DataSource;
 
@@ -73,6 +73,19 @@ public class verkauf_servlet extends HttpServlet {
 		
 		//DB-Zugriff
 		persist(vform,filepart);
+//		
+//		// Datumsfeld auswerten - Eingangsformat yyyy-mm-dd
+//				String dateString = request.getParameter("datum");
+//				String[] dateArray = dateString.split("-");
+//				Calendar cal = Calendar.getInstance();
+//				int day = Integer.parseInt(dateArray[0]);
+//				int month = Integer.parseInt(dateArray[1])-1;
+//				int year = Integer.parseInt(dateArray[2]);
+//				cal.set(year, month, day);
+//				vform.setDatum(cal.getTime());
+//		
+//		
+//		
 		
 		// Scope -Session
 				final HttpSession session = request.getSession();
@@ -104,10 +117,11 @@ public class verkauf_servlet extends HttpServlet {
 			pstmt.setInt(5, vform.getWohnflaeche());
 			pstmt.setInt(6, vform.getGrundstuecksflaeche());
 			pstmt.setString(7, vform.getStandort());
-			pstmt.setInt(8, vform.getStartgebot());
-			pstmt.setString(9, vform.getBeschreibung());
-			pstmt.setString(10,vform.getDateiname());
-			pstmt.setBinaryStream(11, filepart.getInputStream());
+//			pstmt.setDate(8, new java.sql.Date(vform.getDatum().getTime()));
+			pstmt.setInt(9, vform.getStartgebot());
+			pstmt.setString(10, vform.getBeschreibung());
+			pstmt.setString(11,vform.getDateiname());
+			pstmt.setBinaryStream(12, filepart.getInputStream());
 			pstmt.executeUpdate();
 
 			// Generierten Schlüssel auslesen

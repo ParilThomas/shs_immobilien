@@ -33,6 +33,7 @@
 					<th>Wohn m²</th>
 					<th>Grund m²</th>
 					<th>Ort</th>
+<!-- 					<th>Ende der Auktion</th> -->
 					<th>Akt. Preis</th>
 					<th>Beschreibung</th>
 					<th>Angebot abgeben</th>
@@ -50,6 +51,7 @@
 						<td>${haus.wohnflaeche}</td>
 						<td>${haus.grundstuecksflaeche}</td>
 						<td>${haus.standort}</td>
+<%-- 						<td>${haus.datum}</td> --%>
 						<td>${haus.startgebot}</td>
 						<td>${haus.beschreibung}</td>
 						<td><label for="startgebot">Ihr Gebot (€):</label><br> <input
