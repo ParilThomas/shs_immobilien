@@ -13,3 +13,15 @@ create table objekte
     dateiname varchar(100),
     bilder mediumblob
     );
+    
+    
+    create table benutzer
+    (id int primary key auto_increment,
+    vorname varchar(30),
+    nachname varchar(30),
+    postleitzahl int(5),
+    ort varchar(30),
+    straße varchar(30),
+    email varchar(80),
+    passwort varchar(128)
+    );

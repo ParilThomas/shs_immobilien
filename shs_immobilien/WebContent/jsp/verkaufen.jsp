@@ -21,17 +21,14 @@
 		<p class="willkommen"></p>
 	
 	<div class="center"><h1>Verkaufsformular</h1>
-	
 	</div>
 	
 	</header>
 	<div class="verkaufsformular">
-
-
-
+		<br>
 		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
 		<p>
-			<label for="haustyp">Haustyp:</label><br> <select name="haustyp"
+		<label for="haustyp">Haustyp:</label><br> <select name="haustyp"
 				id="haustyp" size="5">
 				<option value="Eigentumswohnung">Eigentumswohnung</option>
 				<option value="Einfamilienhaus">Einfamilienhaus</option>
@@ -39,27 +36,16 @@
 				<option value="Mehrfamilienhaus">Mehrfamilienhaus</option>
 				<option value="Bungalow">Bungalow</option>
 			</select>
-				<label for="htyp_edit"></label><br> <input type="text"
-				id="htyp_edit" name="htyp_edit" placeholder="Haustyp hinzufügen"/>
-				<button type="submit" name="htyp_edit_absenden" value="absenden">Absenden</button>
 		</p>
-
 		<p>
-			<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
+		<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
 				id="bautyp" size="4">
 				<option value="Massivbau Fertighaus">Massivbau Fertighaus</option>
 				<option value="Holz Fertighaus">Holz Fertighaus</option>
 				<option value="Massivbauweise">Massivbauweise</option>
 				<option value="Ytongbauweise">Ytongbauweise</option>
 			</select>
-				<label for="btyp_edit"></label><br> <input type="text"
-				id="btyp_edit" name="btyp_edit" placeholder="Bautyp hinzufügen"/>
-				<button type="submit" name="btyp_edit_absenden" value="absenden">Absenden</button>
 		</p>
-		<br>
-		<hr class="trennung"> 
-		<br>
-				
 			<p>
 				<label for="titel">Titel:</label><br> <input type="text"
 					id="titel" name="titel" placeholder="Objekttitel" required />
@@ -85,7 +71,7 @@
 			<p>
 				<label for="standort">Objektstandort:</label><br> <input
 					type="text" id="standort" name="standort"
-					placeholder="PLZ,Straße,Hausn." required />
+					placeholder="Ort" required />
 			</p>
 	
 	
@@ -119,8 +105,24 @@
 				<input class="abbrechen" type="button" value="Abbrechen"
 					onclick="location.href = '../html/homepage.html'">
 			</p>
+<hr class="trennung"> 
 		</form>
-
+		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
+		<p>
+			
+				<label for="htyp_edit">Ihr Haustyp ist nicht dabei?</label><br> <input type="text"
+				id="htyp_edit" name="htyp_edit" placeholder="Haustyp hinzufügen"/>
+				<button type="submit" name="htyp_edit_absenden" value="absenden">Absenden</button>
+		</p>
+		</form>
+		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
+		<p>
+			
+				<label for="btyp_edit">Ihr Bautyp ist nicht dabei?</label><br> <input type="text"
+				id="btyp_edit" name="btyp_edit" placeholder="Bautyp hinzufügen"/>
+				<button type="submit" name="btyp_edit_absenden" value="absenden">Absenden</button>
+		</p>
+		</form>
 	
 	</div>
 </body>
