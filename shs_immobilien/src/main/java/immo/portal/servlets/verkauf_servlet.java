@@ -9,11 +9,15 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
+import immo.portal.bean.kaufen_bean;
 import immo.portal.bean.verkauf_bean;
 import jakarta.annotation.Resource;
+import jakarta.persistence.PersistenceContextType;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,47 +33,51 @@ import jakarta.servlet.http.Part;
 @WebServlet("/verkauf_servlet")
 //Test Filebehandlung - Thomas Schwarzmeier
 //location tmp -> erst anlegen ?
-@MultipartConfig(maxFileSize = 1024*1024*5, maxRequestSize = 1024*1024*5*5, location = "/tmp", fileSizeThreshold = 1024*1024)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5
+		* 5, location = "/tmp", fileSizeThreshold = 1024 * 1024)
 public class verkauf_servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource ds;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public verkauf_servlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	public verkauf_servlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
 
-		if(request.getParameter("htyp_edit_absenden") != null) {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		if (request.getParameter("htyp_edit_absenden") != null) {
 			String hausTyp = request.getParameter("htyp_edit");
 			if (hausTyp.isEmpty())
 				return;
-			
+
 			HausTypHinzufuegen(hausTyp);
 		}
 		if (request.getParameter("btyp_edit_absenden") != null) {
 			String bauTyp = request.getParameter("btyp_edit");
 			if (bauTyp.isEmpty())
 				return;
-			
+
 			BauTypHinzufuegen(bauTyp);
 		}
-		
+
 		if (request.getParameter("vformular_absenden") != null) {
 			DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 			String fhaustyp = request.getParameter("haustyp");
@@ -92,77 +100,75 @@ public class verkauf_servlet extends HttpServlet {
 
 			java.util.Date date = new java.util.Date();
 			java.sql.Date aktdatum = new Date(date.getTime());
-			
-			if (fhaustyp.isEmpty() || fbautyp.isEmpty() || ftitel.isEmpty() || fbaujahr.isEmpty() || fwohnflaeche < 0 || fgrundstuecksflaeche < 0 || fdatum.before(aktdatum)  || fstandort.isEmpty() || fbilder == null)
-					return;
-			
-			VerkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum);
+
+			if (fhaustyp.isEmpty() || fbautyp.isEmpty() || ftitel.isEmpty() || fbaujahr.isEmpty() || fwohnflaeche < 0
+					|| fgrundstuecksflaeche < 0 || fdatum.before(aktdatum) || fstandort.isEmpty() || fbilder == null)
+				return;
+
+			VerkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche,
+					fstandort, fstartgebot, fbeschreibung, fbilder, fdatum);
 		}
-		
+
 		response.sendRedirect("jsp/verkaufen.jsp");
-		
+
 	}
-	
+
 	private void BauTypHinzufuegen(String bauTyp) throws ServletException {
-		try (
-				Connection con = ds.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM bautyp WHERE typ LIKE?")){
-				pstmt.setString(1, bauTyp);
-				try(ResultSet rs= pstmt.executeQuery()) {
-					while(rs.next()) {
-						return;
-					}
-					PreparedStatement statement = con.prepareStatement("INSERT INTO bautyp (typ) VALUES (?)");
-						statement.setString(1, bauTyp);
-						statement.executeUpdate();
-					}
-				}
-			catch(Exception e) {
-				throw new ServletException(e.getMessage());
-			}
-	}
-	
-	private void HausTypHinzufuegen(String hausTyp) throws ServletException {
-		try (
-			Connection con = ds.getConnection();
-			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM haustyp WHERE typ LIKE?")){
-			pstmt.setString(1, hausTyp);
-			try(ResultSet rs= pstmt.executeQuery()) {
-				while(rs.next()) {
+		try (Connection con = ds.getConnection();
+				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM bautyp WHERE typ LIKE?")) {
+			pstmt.setString(1, bauTyp);
+			try (ResultSet rs = pstmt.executeQuery()) {
+				while (rs.next()) {
 					return;
 				}
-				PreparedStatement statement = con.prepareStatement("INSERT INTO haustyp (typ) VALUES (?)");
-					statement.setString(1, hausTyp);
-					statement.executeUpdate();
-				}
+				PreparedStatement statement = con.prepareStatement("INSERT INTO bautyp (typ) VALUES (?)");
+				statement.setString(1, bauTyp);
+				statement.executeUpdate();
 			}
-		catch(Exception e) {
+		} catch (Exception e) {
 			throw new ServletException(e.getMessage());
 		}
 	}
-	
-	private void VerkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr, Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot, 
-			String fbeschreibung, Part fbilder, java.sql.Date fdatum) throws ServletException {
-		try (
-				Connection con = ds.getConnection();
-				InputStream is = fbilder.getInputStream();
-				PreparedStatement pstmt = con.prepareStatement("INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?)")){
-				pstmt.setString(1, fhaustyp);
-				pstmt.setString(2, fbautyp);	
-				pstmt.setString(3, ftitel);
-				pstmt.setString(4, fbaujahr);
-				pstmt.setInt(5, fwohnflaeche);
-				pstmt.setInt(6, fgrundstuecksflaeche);
-				pstmt.setString(7, fstandort);
-				pstmt.setDate(8, fdatum);
-				pstmt.setInt(9, fstartgebot);
-				pstmt.setString(10, fbeschreibung);
-				pstmt.setBlob(11, is);
-				pstmt.executeUpdate();
+
+	private void HausTypHinzufuegen(String hausTyp) throws ServletException {
+		try (Connection con = ds.getConnection();
+				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM haustyp WHERE typ LIKE?")) {
+			pstmt.setString(1, hausTyp);
+			try (ResultSet rs = pstmt.executeQuery()) {
+				while (rs.next()) {
+					return;
 				}
-			catch(Exception e) {
-				throw new ServletException(e.getMessage());
+				PreparedStatement statement = con.prepareStatement("INSERT INTO haustyp (typ) VALUES (?)");
+				statement.setString(1, hausTyp);
+				statement.executeUpdate();
 			}
+		} catch (Exception e) {
+			throw new ServletException(e.getMessage());
+		}
+	}
+
+	private void VerkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr,
+			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
+			String fbeschreibung, Part fbilder, java.sql.Date fdatum) throws ServletException {
+		try (Connection con = ds.getConnection();
+				InputStream is = fbilder.getInputStream();
+				PreparedStatement pstmt = con.prepareStatement(
+						"INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?)")) {
+			pstmt.setString(1, fhaustyp);
+			pstmt.setString(2, fbautyp);
+			pstmt.setString(3, ftitel);
+			pstmt.setString(4, fbaujahr);
+			pstmt.setInt(5, fwohnflaeche);
+			pstmt.setInt(6, fgrundstuecksflaeche);
+			pstmt.setString(7, fstandort);
+			pstmt.setDate(8, fdatum);
+			pstmt.setInt(9, fstartgebot);
+			pstmt.setString(10, fbeschreibung);
+			pstmt.setBlob(11, is);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			throw new ServletException(e.getMessage());
+		}
 	}
 
 }
