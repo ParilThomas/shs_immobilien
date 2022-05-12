@@ -56,43 +56,45 @@ public class verkauf_servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String typ = request.getParameter("typ");
 		
-		List<Haustyp_Bean> ListHaustyp_Bean = search(typ);
+
 		
-		final HttpSession session = request.getSession();
-		session.setAttribute("ListHaustyp_Bean", ListHaustyp_Bean);
-		
-		response.sendRedirect("jst/verkaufen.jsp");
-		
+		try {
+			List<Haustyp_Bean> listHaustyp_Bean = list();
+			request.setAttribute("listHaustyp_Bean", listHaustyp_Bean);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/verkaufen.jsp");
+			dispatcher.forward(request, response);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
 	}
 	
-	public List <Haustyp_Bean> search(String typ) throws ServletException {
-		List<Haustyp_Bean> ListHaustyp_Bean = new ArrayList<>();
+	
+	public List<Haustyp_Bean> list() throws SQLException {
+		ArrayList<Haustyp_Bean> listHaustyp_Bean = new ArrayList<>();
 		
-		try (Connection con = ds.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM haustyp ORDER BY typ")){
-			pstmt.setString(1, typ);
-			try(ResultSet rs = pstmt.executeQuery()){
-				while(rs.next()) {
-					Haustyp_Bean hobjekt = new Haustyp_Bean();
-					
-					String htyp = rs.getString("typ");
-					hobjekt.setTyp(htyp);
-					
-					ListHaustyp_Bean.add(hobjekt);
-				}
-				
-			}
-			} catch (Exception e) {
-				throw new ServletException(e.getMessage());
-			}
-			return ListHaustyp_Bean;
-		}
-
+		try (Connection con = ds.getConnection()){
+			String sql = "SELECT * FROM haustyp ORDER BY typ";
+			Statement statement = con.createStatement();
+			ResultSet result = statement.executeQuery(sql);
 			
+			while (result.next()) {
+				int id = result.getInt("id");
+				String typ = result.getString("typ");
+				Haustyp_Bean haustyp_bean = new Haustyp_Bean(id, typ);
 				
-
+				listHaustyp_Bean.add(haustyp_bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+		return listHaustyp_Bean;
+	}
 	
 	
 	/**
