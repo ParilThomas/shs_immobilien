@@ -25,3 +25,13 @@ create table objekte
     email varchar(80),
     passwort varchar(128)
     );
+    
+    create table haustyp
+    (id int primary key auto_increment,
+    typ varchar(255)
+    );
+    
+    create table bautyp
+    (id int primary key auto_increment,
+    typ varchar(255)
+    );

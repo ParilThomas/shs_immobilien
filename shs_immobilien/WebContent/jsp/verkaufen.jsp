@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html class="html_hintergrund">
 
@@ -28,14 +31,12 @@
 		<br>
 		<form action ="../verkauf_servlet" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
 		<p>
-		<label for="haustyp">Haustyp:</label><br> <select name="haustyp"
-				id="haustyp" size="5">
-				<option value="Eigentumswohnung">Eigentumswohnung</option>
-				<option value="Einfamilienhaus">Einfamilienhaus</option>
-				<option value="Zweifamilienhaus">Zweifamilienhaus</option>
-				<option value="Mehrfamilienhaus">Mehrfamilienhaus</option>
-				<option value="Bungalow">Bungalow</option>
-			</select>
+		<label for="haustyp">Haustyp:</label><br> 
+		<select name="haustyp">
+			<c:forEach items="${ListHaustyp_Bean}" var="haustyp">
+				<option value="${haustyp.typ}">${haustyp.typ}</option>
+			</c:forEach>
+		</select>
 		</p>
 		<p>
 		<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
