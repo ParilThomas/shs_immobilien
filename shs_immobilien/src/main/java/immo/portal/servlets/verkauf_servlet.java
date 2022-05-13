@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.directory.SearchControls;
 import javax.sql.DataSource;
 
 import immo.portal.bean.Haustyp_Bean;
@@ -47,32 +48,18 @@ public class verkauf_servlet extends HttpServlet {
 		super();
 	}
 
-	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		listCategory(request, response);
 
-		
-		try {
-			List<Haustyp_Bean> listHaustyp_Bean = list();
-			request.setAttribute("listHaustyp_Bean", listHaustyp_Bean);
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/verkaufen.jsp");
-			dispatcher.forward(request, response);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new ServletException(e);
-		}
 	}
 	
-	
 	public List<Haustyp_Bean> list() throws SQLException {
-		ArrayList<Haustyp_Bean> listHaustyp_Bean = new ArrayList<>();
+		List<Haustyp_Bean> listCategory = new ArrayList<>();
 		
 		try (Connection con = ds.getConnection()){
 			String sql = "SELECT * FROM haustyp ORDER BY typ";
@@ -82,26 +69,123 @@ public class verkauf_servlet extends HttpServlet {
 			while (result.next()) {
 				int id = result.getInt("id");
 				String typ = result.getString("typ");
-				Haustyp_Bean haustyp_bean = new Haustyp_Bean(id, typ);
+				Haustyp_Bean category = new Haustyp_Bean(id, typ);
 				
-				listHaustyp_Bean.add(haustyp_bean);
+				listCategory.add(category);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
 		}
 		
-		return listHaustyp_Bean;
-	}
-	
-	
+		return listCategory;
+		
+//		response.setCharacterEncoding("UTF-8");
+//		
+//		String typ = request.getParameter("typ");
+//		
+//		//DB Zugriff
+//		
+//		List<Haustyp_Bean> vform = search(typ);
+//		
+//		//Requestscope
+//		
+//		request.setAttribute("vform", vform);
+//		
+//		response.sendRedirect("jsp/verkaufen.jsp");
+		
+		
+	}	
+
+// SEARCH-FUNKTION -------------------------------------------------------------------	
+//		private List <Haustyp_Bean> search (String typ) throws ServletException{
+//		 List <Haustyp_Bean> vform = new ArrayList<Haustyp_Bean>();
+//		
+//		try(Connection con= ds.getConnection();
+//				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM haustyp ORDER BY typ" )){
+//			
+//			
+//			pstmt.setString(1, typ);
+//			try(ResultSet rs = pstmt.executeQuery()){
+//				while(rs.next()) {
+//					Haustyp_Bean objekt = new Haustyp_Bean();
+//					
+//					String htyp = rs.getString("typ");
+//					objekt.setTyp(htyp);
+//					
+//					
+//					vform.add(objekt);
+//					
+//				}
+//			}
+//			
+//		}catch( Exception e) {
+//			throw new ServletException(e.getMessage());
+//			
+//		}
+//		return vform;
+//		}
+//		
+// READ-FUNKTION -------------------------------------------------------------------			
+//		private Haustyp_Bean read(String typ) throws ServletException{
+//			Haustyp_Bean veform = new Haustyp_Bean();
+//			veform.setTyp(typ);
+//			
+//			try(Connection con= ds.getConnection();
+//					PreparedStatement pstmt = con.prepareStatement("SELECT * FROM haustyp")){
+//				pstmt.setString(1, typ);
+//				try(ResultSet rs = pstmt.executeQuery()){
+//					if(rs!=null & rs.next()) {
+//						veform.setTyp(rs.getString("typ"));
+//					}
+//				}
+//			}catch( Exception e) {
+//				throw new ServletException(e.getMessage());
+//			
+//			}
+//			return veform;
+//			
+//		}
+//		
+		// Versuch Beispiel Internet
+		
+	 private void listCategory(HttpServletRequest request, HttpServletResponse response)
+	            throws ServletException, IOException {
+	 
+	 
+	        try {
+	 
+	            List<Haustyp_Bean> listCategory = list();
+	            request.setAttribute("listCategory", listCategory);
+	 
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/verkaufen.jsp");
+	            dispatcher.forward(request, response);
+	 
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            throw new ServletException(e);
+	        }
+	    }
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	
+	
+	 protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+//		doGet(request, response); // Braucht man das nicht ??????
+		
+		// Versuch BSP Internet
+		
+		 int categoryId = Integer.parseInt(request.getParameter("haustyp"));
+		request.setAttribute("categoryId", categoryId);
+		listCategory(request, response);
+		
+	
+		
 		if (request.getParameter("htyp_edit_absenden") != null) {
 			String hausTyp = request.getParameter("htyp_edit");
 			if (hausTyp.isEmpty())
@@ -209,5 +293,6 @@ public class verkauf_servlet extends HttpServlet {
 			throw new ServletException(e.getMessage());
 		}
 	}
+
 
 }
