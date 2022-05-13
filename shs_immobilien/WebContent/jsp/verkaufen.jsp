@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="immo.portal.bean.Haustyp_Bean"%>
-<%@page import="immo.portal.servlets.verkauf_servlet"%>
+<%@page import="immo.portal.bean.HaustypBean"%>
+<%@page import="immo.portal.servlets.VerkaufServlet"%>
 <!DOCTYPE html>
 <html class="html_hintergrund">
 
@@ -31,84 +31,62 @@
 		</div>
 
 	</header>
+	<div class="center">
+	<!-- Bautyp check ob schon vorhanden -->
+	<c:if test="${bautypExistiert == true}"><h1 class="fehlerbutton">Bautyp existiert bereits!</h1></c:if>
+	
+	<!-- Bautyp check ob schon vorhanden -->
+	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
+	</div>
 	<div class="verkaufsformular">
 		<br>
-		<form action="../verkauf_servlet" method=post accept-charset="utf-8"
+		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
 			enctype="multipart/form-data">
 
 			<p>
+			<!-- In haustpy ist die Haustyp_Bean; haustyplist Arraylist aus Methode alleHaustypen() gespeichert -->
 				<label for="typ">Haustyp</label><br>
 				<select name="haustyp" id="typ">
-					<c:forEach items="${listCategory}" var="haustyp">
-						<option value="${haustyp.id}"
-							<c:if test="${haustyp.id eq categoryId}">selected="selected</c:if>>${haustyp.typ}
-						</option>
+					<c:forEach items="${haustyplist}" var="haustyp">
+						<option value="${haustyp.typ}">${haustyp.typ}</option>
 					</c:forEach>
 
-				</select>
-			</p>
+				</select><br><br>
+				
+			<!-- In bautyp ist die Bautyp_Bean; bautyplist Arraylist aus Methode alleBautypen() gespeichert -->
+				<label for="bautyp">Bautyp:</label><br> 
+				<select name="bautyp" id="typ">
+					<c:forEach items="${bautyplist}" var="bautyp">
+						<option value="${bautyp.typ}">${bautyp.typ}</option>
+					</c:forEach>
+				</select><br><br>
+				
+				<label for="titel">Titel:</label><br>
+				<input type="text" id="titel" name="titel" placeholder="Objekttitel" required /><br><br>
+			
+				<label for="baujahr">Baujahr:</label><br>
+				<input type="number" id="baujahr" name="baujahr" placeholder="Baujahr" required /><br><br>
+			
+				<label for="wohnflaeche">Wohnfläche in m²:</label><br>
+				<input type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125" required /><br><br>
 
-			<p>
-				<label for="bautyp">Bautyp:</label><br> <select name="bautyp"
-					id="bautyp" size="4">
-					<option value="Massivbau Fertighaus">Massivbau Fertighaus</option>
-					<option value="Holz Fertighaus">Holz Fertighaus</option>
-					<option value="Massivbauweise">Massivbauweise</option>
-					<option value="Ytongbauweise">Ytongbauweise</option>
-				</select>
-			</p>
-
-			<p>
-				<label for="titel">Titel:</label><br> <input type="text"
-					id="titel" name="titel" placeholder="Objekttitel" required />
-			</p>
-
-			<p>
-				<label for="baujahr">Baujahr:</label><br> <input type="number"
-					id="baujahr" name="baujahr" placeholder="Baujahr" required />
-			</p>
-
-			<p>
-				<label for="wohnflaeche">Wohnfläche in m²:</label><br> <input
-					type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125"
-					required />
-			</p>
-
-			<p>
 				<label for="grundstuecksflaeche">Grundstückfläche in m²:</label><br>
-				<input type="number" id="grundstuecksflaeche"
-					name="grundstuecksflaeche" placeholder="250" required />
-			</p>
+				<input type="number" id="grundstuecksflaeche" name="grundstuecksflaeche" placeholder="250" required /><br><br>
 
-			<p>
-				<label for="standort">Objektstandort:</label><br> <input
-					type="text" id="standort" name="standort" placeholder="Ort"
-					required />
-			</p>
+				<label for="standort">Objektstandort:</label><br> 
+				<input type="text" id="standort" name="standort" placeholder="Ort"	required /><br><br>
 
+				<label for="datum">Ende der Auktion:</label><br> 
+				<input type="date" id="datum" name="datum" placeholder="01.01.2023"	required /><br><br>
 
-			<p>
-				<label for="datum">Ende der Auktion:</label><br> <input
-					type="date" id="datum" name="datum" placeholder="01.01.2023"
-					required />
-			<p>
-				<label for="startgebot">Startgebot in Euro:</label><br> <input
-					type="number" id="startgebot" name="startgebot"
-					placeholder="500000" required />
-			</p>
+				<label for="startgebot">Startgebot in Euro:</label><br>
+				<input type="number" id="startgebot" name="startgebot" placeholder="500000" required /><br><br>
 
-			<p>
-				<label for="beschreibung">Objektbeschreibung</label>
-				<textarea rows="5" cols="50" maxlength="500" name="beschreibung"
-					required></textarea>
-			</p>
+				<label for="beschreibung">Objektbeschreibung</label><br>
+				<textarea rows="5" cols="50" maxlength="500" name="beschreibung" required></textarea><br><br>
 
-			<p>
-				<label for="bilder">Objektbilder:</label> <input type="file"
-					id="bilder" name="bilder" accept="image/*" required />
-			</p>
+				<label for="bilder">Objektbilder:</label> <input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
 
-			<p>
 				<button type="submit" name="vformular_absenden" value="absenden">Absenden</button>
 				<input class="abbrechen" type="button" value="Abbrechen"
 					onclick="location.href = '../html/homepage.html'">
@@ -117,7 +95,7 @@
 		</form>
 
 		<hr class="trennung">
-		<form action="../verkauf_servlet" method=post accept-charset="utf-8"
+		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
 			enctype="multipart/form-data">
 			<p>
 				<label for="htyp_edit">Ihr Haustyp ist nicht dabei?</label><br>
@@ -128,7 +106,7 @@
 
 		</form>
 
-		<form action="../verkauf_servlet" method=post accept-charset="utf-8"
+		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
 			enctype="multipart/form-data">
 			<p>
 				<label for="btyp_edit">Ihr Bautyp ist nicht dabei?</label><br>

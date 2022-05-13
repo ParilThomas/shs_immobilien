@@ -46,11 +46,11 @@ public class kaufen_bild_servlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		String haustyp = (request.getParameter("haustyp"));
+		Long id = Long.valueOf(request.getParameter("id"));
 		List<kaufen_bean> bildliste = new ArrayList<kaufen_bean>();
 		try (Connection con = ds.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("Select bilder FROM objekte WHERE haustyp= ?")) {
-			pstmt.setString(1, haustyp);
+				PreparedStatement pstmt = con.prepareStatement("Select bilder FROM objekte WHERE id = ?")) {
+			pstmt.setLong(1, id);
 		
 			try (ResultSet rs = pstmt.executeQuery()) {
 

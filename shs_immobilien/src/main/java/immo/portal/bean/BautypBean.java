@@ -2,17 +2,17 @@ package immo.portal.bean;
 
 import java.io.Serializable;
 
-public class Bautyp_Bean implements Serializable{
+public class BautypBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
 	private String typ;
 	
-	public Bautyp_Bean() {
+	public BautypBean() {
 		
 	}
 	
-	public Bautyp_Bean(int id, String typ) {
+	public BautypBean(int id, String typ) {
 		super();
 		this.id = id;
 		this.typ = typ;

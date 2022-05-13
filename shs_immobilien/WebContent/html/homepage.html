@@ -18,18 +18,11 @@
 
 	<nav>
 		<form>
-			<div>
 				<div>
-				<input class="kaufen" type="button" value="Kaufen" onclick="location.href = 'kaufen.html'">
-				<input class="verkaufen" type="button" value="Verkaufen" onclick="location.href = '../jsp/verkaufen.jsp'">
-				<div class="dropdown">
-					<button class="kontaktbutton">Kontakt</button>
-					<div class="dropdown-content">
-						<a href="./ueber_uns.html">Unser Team</a>
-						<a href="./kontakt_formular.html">Kontaktformular</a>
-					</div>
-				</div>
-				<input class="loginbutton" type="button" value="Login" onclick="location.href = 'login.html'">
+				<a href="../KaufenServlet"><button type="button" class="verkaufen">Kaufen</button></a>
+				<a href="../VerkaufServlet"><button type="button" class="verkaufen">Verkaufen</button></a>
+				<a href="./ueberuns.html"><button type="button" class="unserteam">Unser Team</button></a>
+				<a href="./login.html"><button type="button" class="loginbutton">Login</button></a>
 			</div>
 		</form>
 	</nav>

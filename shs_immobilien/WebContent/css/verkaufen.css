@@ -19,19 +19,27 @@ h1 {
 	margin: auto;
 }
 
+.fehlerbutton{
+	font-size: 150%;
+	font-family: verdana;
+	color: red;
+	background-color: lightgrey;
+	border: 1px solid black;
+	width:500px;
+	height: 50px;
+	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	max-width: 500px;
+	margin: auto;
+}
+
 .center{
 	max-width: 500px;
 	margin: auto;
 }
 
 
-input[type='radio']{   
-    float:left;
-    display:inline-block;
-    margin-right:-100 px;
- }
-
- 
 .verkaufsformular{
 	background-color: #ffffff;
 	border: 1px solid black;
@@ -52,9 +60,7 @@ input[type='radio']{
 .abbrechen {
 	background-color: red;
 	opacity: 0.7;
-
 }
-
 
 .trennung{
 	width: 495px;

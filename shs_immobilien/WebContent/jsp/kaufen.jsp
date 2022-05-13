@@ -1,79 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" 
-	uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html class="html_hintergrund">
+
 <head>
 <meta charset="UTF-8">
+
+<!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/kaufen.css">
-<title>Kaufübersicht</title>
+
+<title>sps-immobilien.de/verkaufen</title>
+
 </head>
+
 <body>
 	<header>
-	<p class="willkommen"></p>
-		<h1>Objektübersicht</h1>
-		<form>
-			<div>
-				<input class="zurueck" type="button" value="Zurück" onclick="location.href = '../html/kaufen.html'">
-			</div>
-		</form>
+		<p class="willkommen"></p>
 	</header>
-	<main>
+	
 
+			<form action="../KaufenServlet" method=post accept-charset="utf-8"
+			enctype="multipart/form-data">
 
-		<table class="tabelle">
-			<thead>
-				<tr>
-					<th>Bild</th>
-					<th>Haustyp</th>
-					<th>Bautyp</th>
-					<th>Titel</th>
-					<th>Baujahr</th>
-					<th>Wohn m²</th>
-					<th>Grund m²</th>
-					<th>Ort</th>
-<!-- 					<th>Ende der Auktion</th> -->
-					<th>Akt. Preis</th>
-					<th>Beschreibung</th>
-					<th>Angebot abgeben</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="haus" items="${kform}">
-					<tr>
-						<td><img src="../kaufen_bild_servlet?haustyp=${haus.haustyp}"></td> 
-						<td>${haus.haustyp}</td>
-						<td>${haus.bautyp}</td>
-						<td>${haus.titel}</td>
-						<td>${haus.baujahr}</td>
-						<td>${haus.wohnflaeche}</td>
-						<td>${haus.grundstuecksflaeche}</td>
-						<td>${haus.standort}</td>
-<%-- 						<td>${haus.datum}</td> --%>
-						<td>${haus.startgebot}</td>
-						<td>${haus.beschreibung}</td>
-						<td><label for="startgebot">Ihr Gebot (€):</label><br> <input
-							type="number" id="startgebot" name="startgebot" placeholder="Ihr Gebot"/>
-							<button type="submit" name="absenden" value="absenden">Gebot absenden</button>
-						</td>
-  					
-					</tr>
-				</c:forEach>
+				<h1>W�hlen Sie Ihren gew�nschten Haustyp!</h1>
+				<input class="zurueck" type="button" value="Zur�ck" onclick="location.href = '../html/homepage.html'"><br>
 
+					<c:forEach items="${haustyplist}" var="haustyp">
+						<a href=""><button type="submit" class="button" value="${haustyp.typ}">${haustyp.typ}</button></a>
+					</c:forEach>
+			</form>
 
-
-
-
-
-			</tbody>
-
-		</table>
-
-
-
-	</main>
-
-</body>
+	</body>
 </html>
+
