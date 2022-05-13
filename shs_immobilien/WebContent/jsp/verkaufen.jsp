@@ -1,5 +1,8 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="immo.portal.bean.Haustyp_Bean"%>
+<%@page import="immo.portal.servlets.verkauf_servlet"%>
 <!DOCTYPE html>
 <html class="html_hintergrund">
 
@@ -28,7 +31,7 @@
 	</header>
 	<div class="verkaufsformular">
 		<br>
-		<form action ="list" method="post" accept-charset="utf-8"   enctype="multipart/form-data">
+		<form action ="../verkauf_servlet" method=post accept-charset="utf-8"   enctype="multipart/form-data">
 		
 		<p>
 		<select name="haustyp_bean">
@@ -100,10 +103,10 @@
 			<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/homepage.html'">
 		</p>
 		
-
+	</form>
 	
 <hr class="trennung"> 
-
+	<form action ="../verkauf_servlet" method=post accept-charset="utf-8"   enctype="multipart/form-data">	
 		<p>
 			<label for="htyp_edit">Ihr Haustyp ist nicht dabei?</label><br> <input type="text"
 					id="htyp_edit" name="htyp_edit" placeholder="Haustyp hinzufügen"/>
@@ -112,7 +115,7 @@
 		
 	</form>
 	
-
+	<form action ="../verkauf_servlet" method=post accept-charset="utf-8"   enctype="multipart/form-data">
 		<p>
 			<label for="btyp_edit">Ihr Bautyp ist nicht dabei?</label><br> <input type="text"
 					id="btyp_edit" name="btyp_edit" placeholder="Bautyp hinzufügen"/>

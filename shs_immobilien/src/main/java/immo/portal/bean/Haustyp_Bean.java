@@ -34,4 +34,5 @@ public class Haustyp_Bean implements Serializable{
 		this.typ = typ;
 	}
 	
+	
 }

@@ -33,8 +33,6 @@ import jakarta.servlet.http.Part;
  * Servlet implementation class verkauf_servlet
  */
 @WebServlet("/verkauf_servlet")
-//Test Filebehandlung - Thomas Schwarzmeier
-//location tmp -> erst anlegen ?
 @MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5
 		* 5, location = "/tmp", fileSizeThreshold = 1024 * 1024)
 public class verkauf_servlet extends HttpServlet {

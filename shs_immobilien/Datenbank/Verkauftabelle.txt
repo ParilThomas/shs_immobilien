@@ -16,13 +16,7 @@ create table objekte
     
     
     create table benutzer
-    (id int primary key auto_increment,
-    vorname varchar(30),
-    nachname varchar(30),
-    postleitzahl int(5),
-    ort varchar(30),
-    straﬂe varchar(30),
-    email varchar(80),
+    (loginname varchar(80) primary key,
     passwort varchar(128)
     );
     
