@@ -2,7 +2,7 @@ package immo.portal.bean;
 
 import java.io.Serializable;
 // Bean-Test-- TS
-public class FormBean implements Serializable {
+public class Formular_Bean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -14,11 +14,11 @@ public class FormBean implements Serializable {
 	private String filename;
 	private byte[] image;
 
-	public FormBean() {
+	public Formular_Bean() {
 		
 	}
 	
-	public FormBean(String vorname, String nachname, Integer telefon, String email, String anliegen,String filename, byte[] image) {
+	public Formular_Bean(String vorname, String nachname, Integer telefon, String email, String anliegen,String filename, byte[] image) {
 		super();
 		this.vorname=vorname;
 		this.nachname= nachname;

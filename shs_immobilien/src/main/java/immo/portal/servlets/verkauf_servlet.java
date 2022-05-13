@@ -158,10 +158,12 @@ public class verkauf_servlet extends HttpServlet {
 	            List<Haustyp_Bean> listCategory = list();
 	            
 	 
-	         // Scope -Session
+//	         // Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also erst servlet dann html gestartet wird -> unknown datum in field list 
 	    		final HttpSession session = request.getSession();
 	    		session.setAttribute("listCategory", listCategory);
-
+	    		
+	    		
+	    		
 	            response.sendRedirect("jsp/verkaufen.jsp");
 	 
 	        } catch (SQLException e) {

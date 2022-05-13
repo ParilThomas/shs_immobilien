@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
-import immo.portal.bean.FormBean;
+import immo.portal.bean.Formular_Bean;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -40,7 +40,7 @@ public class immo_servlet extends HttpServlet {
 				
 				
 				
-				FormBean form = new FormBean();
+				Formular_Bean form = new Formular_Bean();
 				form.setVorname(request.getParameter("vorname"));
 				form.setNachname(request.getParameter("nachname"));
 				form.setTelefon(Integer.valueOf(request.getParameter("telefon")));

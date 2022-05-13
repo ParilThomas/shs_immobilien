@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import immo.portal.bean.FormBean;
+import immo.portal.bean.Formular_Bean;
 import immo.portal.bean.kaufen_bean;
 import immo.portal.bean.verkauf_bean;
 import jakarta.annotation.Resource;
