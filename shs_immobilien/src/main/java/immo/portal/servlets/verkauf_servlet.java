@@ -156,10 +156,13 @@ public class verkauf_servlet extends HttpServlet {
 	        try {
 	 
 	            List<Haustyp_Bean> listCategory = list();
-	            request.setAttribute("listCategory", listCategory);
+	            
 	 
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/verkaufen.jsp");
-	            dispatcher.forward(request, response);
+	         // Scope -Session
+	    		final HttpSession session = request.getSession();
+	    		session.setAttribute("listCategory", listCategory);
+
+	            response.sendRedirect("jsp/verkaufen.jsp");
 	 
 	        } catch (SQLException e) {
 	            e.printStackTrace();
