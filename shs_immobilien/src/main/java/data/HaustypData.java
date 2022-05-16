@@ -56,6 +56,7 @@ public class HaustypData {
 	
 	public void neuenHaustypHinzufuegen(String haustyp) {
 		try {
+			System.out.println(haustyp);
 			Connection connection = dataSource.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO haustyp (typ) VALUES (?)");
 			//1 -> 1. Fragezeichen aus SQL Abfrage

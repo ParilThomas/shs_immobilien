@@ -52,7 +52,7 @@ public class VerkaufServlet extends HttpServlet {
 	 
 	    		session.setAttribute("haustyplist", haustyplist);
 	    		session.setAttribute("bautyplist", bautyplist);
-	    			
+	    		
 	            response.sendRedirect("jsp/verkaufen.jsp");
 	 
 	    }
@@ -62,10 +62,6 @@ public class VerkaufServlet extends HttpServlet {
 				throws ServletException, IOException {
 	        // Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also erst servlet dann html gestartet wird -> unknown datum in field list 
 	   		session = request.getSession();
-	   		//Bautyp check ob schon vorhanden
-	   		session.setAttribute("bautypExistiert", false);
-	   		//Haustyp check ob schon vorhanden
-	  		session.setAttribute("haustypExistiert", false);
 			
 	  		verkaufsSeiteAnzeigen(request, response);
 
@@ -81,14 +77,15 @@ public class VerkaufServlet extends HttpServlet {
        // Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also erst servlet dann html gestartet wird -> unknown datum in field list 
   		session = request.getSession();
   		
-  		
-  		//Haustyp check ob schon vorhanden
   		session.setAttribute("bautypExistiert", false);
+  		session.setAttribute("haustypExistiert", false);
+  		
   		//Check ob ein Haustyp hinzugefügt werden soll
 		if (request.getParameter("htyp_edit_absenden") != null) {
 			String hausTyp = request.getParameter("htyp_edit");
-			if (hausTyp.isEmpty())
-				return;
+			if (hausTyp.isEmpty()) {
+				return;	
+			}
 			//Check ob Haustyp bereits vorhanden
 			if(haustypData.istHaustypVorhanden(hausTyp)) {
 				session.setAttribute("haustypExistiert", true);
@@ -101,8 +98,9 @@ public class VerkaufServlet extends HttpServlet {
 		//Bautyp check ob schon vorhanden
 		if (request.getParameter("btyp_edit_absenden") != null) {
 			String bauTyp = request.getParameter("btyp_edit");
-			if (bauTyp.isEmpty())
-				return;
+			if (bauTyp.isEmpty()) {
+				return;	
+			}
 			//Check ob Bautyp bereits vorhanden
 			if(bautypData.istBautypVorhanden(bauTyp)) {
 				session.setAttribute("bautypExistiert", true);

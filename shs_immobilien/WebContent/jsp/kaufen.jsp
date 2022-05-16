@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="immo.portal.bean.HaustypBean"%>
+<%@page import="immo.portal.bean.ObjektBean"%>
+<%@page import="immo.portal.servlets.KaufenServlet"%>
 <!DOCTYPE html>
 <html class="html_hintergrund">
 
@@ -12,23 +16,65 @@
 <title>sps-immobilien.de/verkaufen</title>
 
 </head>
-
 <body>
 	<header>
 		<p class="willkommen"></p>
 	</header>
 	
+	<input class="zurueck" type="button" value="Zurück" onclick="location.href = '../html/homepage.html'"></input>
+	<c:if test="${haustypSelektiert == false}">
+		<form action="../KaufenServlet" method=post>
 
-			<form action="../KaufenServlet" method=post accept-charset="utf-8"
-			enctype="multipart/form-data">
-
-				<h1>W�hlen Sie Ihren gew�nschten Haustyp!</h1>
-				<input class="zurueck" type="button" value="Zur�ck" onclick="location.href = '../html/homepage.html'"><br>
-
+				<h1>Wählen Sie Ihren gewünschten Haustyp!</h1>
 					<c:forEach items="${haustyplist}" var="haustyp">
-						<a href=""><button type="submit" class="button" value="${haustyp.typ}">${haustyp.typ}</button></a>
+						<button type="submit" class="button" name="${haustyp.typ}">${haustyp.typ}</button>
 					</c:forEach>
-			</form>
+		</form>
+	
+	</c:if>
+	<c:if test="${haustypSelektiert == true}">
+		<table class="tabelle">
+			<thead>
+				<tr>
+					<th>Bild</th>
+					<th>Haustyp</th>
+					<th>Bautyp</th>
+					<th>Titel</th>
+					<th>Baujahr</th>
+					<th>Wohn m²</th>
+					<th>Grund m²</th>
+					<th>Ort</th>
+					<th>Ende der Auktion</th>
+					<th>Akt. Preis</th>
+					<th>Beschreibung</th>
+					<th>Angebot abgeben</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="haus" items="${objekte}">
+					<tr>
+						<td><img src="data:image/jpeg;base64,${haus.getBild()}"></img></td> 
+						<td>${haus.haustyp}</td>
+						<td>${haus.bautyp}</td>
+						<td>${haus.titel}</td>
+						<td>${haus.baujahr}</td>
+						<td>${haus.wohnflaeche}</td>
+						<td>${haus.grundstuecksflaeche}</td>
+						<td>${haus.standort}</td>
+ 						<td>${haus.datum}</td>
+						<td>${haus.startgebot}</td>
+						<td>${haus.beschreibung}</td>
+						<td><label for="startgebot">Ihr Gebot (€):</label><br> <input
+							type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/>
+							<button type="submit" name="${haus.id}" value="${haus.id}">Details</button>
+						</td>
+  					
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</c:if>
+	
 
 	</body>
 </html>

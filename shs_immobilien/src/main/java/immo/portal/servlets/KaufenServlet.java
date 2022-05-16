@@ -6,7 +6,9 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import data.HaustypData;
+import data.ObjektData;
 import immo.portal.bean.HaustypBean;
+import immo.portal.bean.ObjektBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,16 +27,19 @@ public class KaufenServlet extends HttpServlet {
 	private DataSource dataSource;	
 	private HttpSession session;
 	private HaustypData haustypData;
+	private ObjektData objektData;
        
 
 	private void kaufenSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
     		this.haustypData = new HaustypData(dataSource);
+    		this.objektData = new ObjektData(dataSource);
 		
-            List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
+    		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
  
     		session.setAttribute("haustyplist", haustyplist);
+    		session.setAttribute("haustypSelektiert", false);
     			
             response.sendRedirect("jsp/kaufen.jsp");
  
@@ -51,8 +56,25 @@ public class KaufenServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
+		//ArrayList<HaustypBean> haustyplist = (ArrayList<HaustypBean>)session.getAttribute("haustyplist");
+		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
+		for (HaustypBean bean : haustyplist) {
+			if (request.getParameter(bean.getTyp()) != null) {
+				List<ObjektBean> objekte = this.objektData.getObjekte(bean.getTyp());
+				session.setAttribute("objekte", objekte);
+				session.setAttribute("haustypSelektiert", true);
+				response.sendRedirect("jsp/kaufen.jsp");	
+				return;
+			}
+		}
 		
-		response.sendRedirect("jsp/kaufen.jsp");	
+		for (HaustypBean bean : haustyplist) {
+			if (request.getParameter(Integer.toString(bean.getId())) != null) {
+				// do fancy shit
+				return;
+			}
+		}
 	}
+	
 
 }
