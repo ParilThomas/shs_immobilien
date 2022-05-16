@@ -58,7 +58,7 @@
 				<label for="bautyp">Bautyp:</label><br> 
 				<select name="bautyp" id="typ">
 					<c:forEach items="${bautyplist}" var="bautyp">
-						<option value="${bautyp.typ}">${bautyp.typ}</option>
+						<option name="${bautyp.typ}" value="${bautyp.id}">${bautyp.typ}</option>
 					</c:forEach>
 				</select><br><br>
 				
