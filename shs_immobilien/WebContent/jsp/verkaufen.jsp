@@ -34,7 +34,8 @@
 	<div class="center">
 	<!-- Bautyp check ob schon vorhanden -->
 	<c:if test="${bautypExistiert == true}"><h1 class="fehlerbutton">Bautyp existiert bereits!</h1></c:if>
-	
+	</div>
+	<div class="center">
 	<!-- Bautyp check ob schon vorhanden -->
 	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
 	</div>
@@ -48,7 +49,7 @@
 				<label for="typ">Haustyp</label><br>
 				<select name="haustyp" id="typ">
 					<c:forEach items="${haustyplist}" var="haustyp">
-						<option value="${haustyp.typ}">${haustyp.typ}</option>
+						<option name="${haustyp.typ}" value="${haustyp.id}">${haustyp.typ}</option>
 					</c:forEach>
 
 				</select><br><br>
@@ -91,7 +92,6 @@
 				<input class="abbrechen" type="button" value="Abbrechen"
 					onclick="location.href = '../html/homepage.html'">
 			</p>
-
 		</form>
 
 		<hr class="trennung">
@@ -103,7 +103,6 @@
 					placeholder="Haustyp hinzufügen" />
 				<button type="submit" name="htyp_edit_absenden" value="absenden">Absenden</button>
 			</p>
-
 		</form>
 
 		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
