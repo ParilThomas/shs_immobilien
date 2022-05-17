@@ -17,7 +17,7 @@ import jakarta.servlet.ServletOutputStream;
 public class ObjektBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private Long id;
 	private String haustyp;
 	private String bautyp;
 	private String titel;
@@ -34,7 +34,7 @@ public class ObjektBean implements Serializable {
 		
 	}
 	
-	public ObjektBean(int id, String haustyp, String bautyp, String titel, int baujahr, int wohnflaeche, int grundstuecksflaeche, String standort, Date datum,
+	public ObjektBean(Long id, String haustyp, String bautyp, String titel, int baujahr, int wohnflaeche, int grundstuecksflaeche, String standort, Date datum,
 						int startgebot, String beschreibung, byte[] bilder) {
 		super();
 		this.id = id;
@@ -52,10 +52,10 @@ public class ObjektBean implements Serializable {
 	}
 
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getHaustyp() {

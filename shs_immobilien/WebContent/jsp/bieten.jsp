@@ -31,9 +31,9 @@
 				onclick="location.href = 'kaufen.jsp'"></input>
 
 			<form action="../BietenServlet" method=post>
-			<c:forEach var="bieten" items="${objekt}">
+				<c: var="bieten" items="${objekte}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
-			</c:forEach>
+				</c:>
 			<br>
 			<br>	
 				<label

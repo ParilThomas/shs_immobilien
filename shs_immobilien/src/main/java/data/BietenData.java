@@ -22,17 +22,17 @@ private DataSource dataSource;
 
 
 	
-	public List<ObjektBean> getObjekt(Integer id){
+	public List<ObjektBean> getObjekt(Long id){
 		List<ObjektBean> objekte = new ArrayList<ObjektBean>();
 		try {
 			
 			Connection con = dataSource.getConnection();
 			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id LIKE ?");
-			prsmt.setInt(1, id);
+			prsmt.setLong(1, id);
 			ResultSet resultSet = prsmt.executeQuery();
 			while (resultSet.next()) {
 				objekte.add(new ObjektBean(
-						resultSet.getInt("id"),
+						resultSet.getLong("id"),
 						resultSet.getString("haustyp"),
 						resultSet.getString("bautyp"),
 						resultSet.getString("titel"),

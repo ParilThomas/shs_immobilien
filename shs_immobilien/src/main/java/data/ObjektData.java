@@ -59,7 +59,7 @@ public class ObjektData {
 			ResultSet resultSet = prsmt.executeQuery();
 			while (resultSet.next()) {
 				objekte.add(new ObjektBean(
-						resultSet.getInt("id"),
+						resultSet.getLong("id"),
 						resultSet.getString("haustyp"),
 						resultSet.getString("bautyp"),
 						resultSet.getString("titel"),

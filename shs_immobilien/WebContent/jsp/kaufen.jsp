@@ -65,11 +65,12 @@
 						<td>${haus.startgebot}</td>
 						<td>${haus.beschreibung}</td>
 						<td>
-<!-- 						<label for="startgebot">Ihr Gebot (€):</label><br> <input -->
-<!-- 							type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/> -->
-							<form action="../BietenServlet" method=post>
-							<button type="submit" name="hausid=${haus.id}" value="${haus.id}">Details</button>
-							</form>
+
+<!-- 							Ist das nötig über das Servlet auf die Jsp zuzugreifen -->
+<%--                                   Warum name= hausid=${haus.id} ???? und value= ${haus.id}--%>
+
+							<a href="bieten.jsp"><button type="submit" name="details" value="absenden">Details</button></a>
+						
 						</td>
   					
 					</tr>

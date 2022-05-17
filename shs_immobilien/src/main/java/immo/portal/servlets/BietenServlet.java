@@ -1,6 +1,8 @@
 package immo.portal.servlets;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -31,6 +33,7 @@ public class BietenServlet extends HttpServlet {
 	private HttpSession session;
 	private ObjektData objektData;
 	private BietenData bietenData;
+	private HaustypData haustypData;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -45,15 +48,17 @@ public class BietenServlet extends HttpServlet {
  
     		this.objektData = new ObjektData(dataSource);
     		this.bietenData = new BietenData(dataSource);
-	
+    		
             response.sendRedirect("jsp/bieten.jsp");
- 
+
     }
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
 		bietenSeiteAnzeigen(request, response);
+		
+		
 	}
 
 	/**
@@ -61,22 +66,24 @@ public class BietenServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.objektData = new ObjektData(dataSource);
-		
 		session = request.getSession();
-		
+		// if abfragen funktionieren nicht hausid sowie id findet er nicht 
 		if (request.getParameter("hausid") != null) {
-			Integer hid = Integer.valueOf(request.getParameter("hausid"));
+            Long hid = Long.valueOf(request.getParameter("hausid"));
 			if (hid != null) {
-				List<ObjektBean> objekt = this.bietenData.getObjekt(hid);
-				session.setAttribute("objekt", objekt);
+				List<ObjektBean> objekt1 = this.bietenData.getObjekt(hid);
+				session.setAttribute("objekt1", objekt1);
 				response.sendRedirect("jsp/bieten.jsp");
 				return;	
 			
-			} else {
+			} 
+			
+			else {
 				return;
 			}
 		
 	}
- doGet(request, response);
+// doGet(request, response);
 }
+
 }
