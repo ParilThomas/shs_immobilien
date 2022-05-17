@@ -30,10 +30,10 @@
 			<input class="zurueck" type="button" value="Zurück"
 				onclick="location.href = 'kaufen.jsp'"></input>
 
-			<form action="../KaufenServlet" method=post>
-			<c:forEach var="bieten" items="${objekte}">
-				<c:if test="${bieten.id eq objekte.id}"><img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
-			</c:if></c:forEach>
+			<form action="../BietenServlet" method=post>
+			<c:forEach var="bieten" items="${objekt}">
+				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
+			</c:forEach>
 			<br>
 			<br>	
 				<label

@@ -67,7 +67,9 @@
 						<td>
 <!-- 						<label for="startgebot">Ihr Gebot (€):</label><br> <input -->
 <!-- 							type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/> -->
-							<a href="bieten.jsp"><button type="submit" name="${haus.id}" value="${haus.id}">Details</button></a>
+							<form action="../BietenServlet" method=post>
+							<button type="submit" name="hausid=${haus.id}" value="${haus.id}">Details</button>
+							</form>
 						</td>
   					
 					</tr>
