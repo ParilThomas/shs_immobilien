@@ -53,7 +53,7 @@
 			<tbody>
 				<c:forEach var="haus" items="${objekte}">
 					<tr>
-						<td><img src="data:image/jpeg;base64,${haus.getBild()}"></img></td> 
+						<td><img src="../kaufen_bild_servlet?id=${haus.id}"></img></td> 
 						<td>${haus.haustyp}</td>
 						<td>${haus.bautyp}</td>
 						<td>${haus.titel}</td>
@@ -64,9 +64,10 @@
  						<td>${haus.datum}</td>
 						<td>${haus.startgebot}</td>
 						<td>${haus.beschreibung}</td>
-						<td><label for="startgebot">Ihr Gebot (€):</label><br> <input
-							type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/>
-							<button type="submit" name="${haus.id}" value="${haus.id}">Details</button>
+						<td>
+<!-- 						<label for="startgebot">Ihr Gebot (€):</label><br> <input -->
+<!-- 							type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/> -->
+							<a href="bieten.jsp"><button type="submit" name="${haus.id}" value="${haus.id}">Details</button></a>
 						</td>
   					
 					</tr>

@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import immo.portal.bean.ObjektBean;
 import immo.portal.bean.kaufen_bean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -46,10 +47,16 @@ public class kaufen_bild_servlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
+	
+		
+//		String htyp = (request.getParameter("haustyp"));
 		Long id = Long.valueOf(request.getParameter("id"));
-		List<kaufen_bean> bildliste = new ArrayList<kaufen_bean>();
+		
+			
 		try (Connection con = ds.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("Select bilder FROM objekte WHERE id = ?")) {
+				//Problem könnte sein dass die dynamischen Haustypen in der Tabelle haustypen sind !!!!!
+				PreparedStatement pstmt = con.prepareStatement("Select bilder FROM objekte WHERE id=?")) {
+//			pstmt.setString(1, htyp);
 			pstmt.setLong(1, id);
 		
 			try (ResultSet rs = pstmt.executeQuery()) {

@@ -42,3 +42,17 @@ h1 {
 	max-width: 500px;
 	margin: auto;
 }
+
+.tabelle, th, tr, td{
+	
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 400px;
+	background-color:lightgrey;
+	font-familiy: verdana;
+	}
+	
+	img{
+	max-width: 200px;
+	max-height: 200px;
+	}

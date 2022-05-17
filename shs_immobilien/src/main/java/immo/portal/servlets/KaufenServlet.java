@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
 
 /**
  * Servlet implementation class KaufenServlet
@@ -35,7 +36,8 @@ public class KaufenServlet extends HttpServlet {
  
     		this.haustypData = new HaustypData(dataSource);
     		this.objektData = new ObjektData(dataSource);
-		
+		    		
+    		
     		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
  
     		session.setAttribute("haustyplist", haustyplist);
@@ -68,12 +70,12 @@ public class KaufenServlet extends HttpServlet {
 			}
 		}
 		
-		for (HaustypBean bean : haustyplist) {
-			if (request.getParameter(Integer.toString(bean.getId())) != null) {
-				// do fancy shit
-				return;
-			}
-		}
+//		for (HaustypBean bean : haustyplist) {
+//			if (request.getParameter(Integer.toString(bean.getId())) != null) {
+//				
+//				return;
+//			}
+//		}
 	}
 	
 

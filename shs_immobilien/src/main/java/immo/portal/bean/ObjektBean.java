@@ -28,14 +28,15 @@ public class ObjektBean implements Serializable {
 	private Date datum;
 	private Integer startgebot;
 	private String beschreibung;
-	private Blob bilder;
+	private String dateiname;
+	private byte[] bilder;
 	
 	public ObjektBean() {
 		
 	}
 	
 	public ObjektBean(int id, String haustyp, String bautyp, String titel, int baujahr, int wohnflaeche, int grundstuecksflaeche, String standort, Date datum,
-						int startgebot, String beschreibung, Blob bilder) {
+						int startgebot, String beschreibung,String dateiname, byte[] bilder) {
 		super();
 		this.id = id;
 		this.haustyp = haustyp;
@@ -48,6 +49,7 @@ public class ObjektBean implements Serializable {
 		this.datum = datum;
 		this.startgebot = startgebot;
 		this.beschreibung = beschreibung;
+		this.dateiname= dateiname;
 		this.bilder = bilder;
 	}
 
@@ -118,18 +120,28 @@ public class ObjektBean implements Serializable {
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
-	public Blob getBilder() {
+	
+	
+	public String getDateiname() {
+		return dateiname;
+	}
+
+	public void setDateiname(String dateiname) {
+		this.dateiname = dateiname;
+	}
+
+	public byte[] getBilder() {
 		return bilder;
 	}
-	public void setBilder(Blob bilder) {
+	public void setBilder(byte[] bilder) {
 		this.bilder = bilder;
 	}
 	
-	public BufferedImage getBild() throws SQLException, IOException {
-		Blob b = this.getBilder();
-		InputStream is = b.getBinaryStream();
-	    return ImageIO.read(is);
-	}
+//	public BufferedImage getBild() throws SQLException, IOException {
+//		Blob b = bilder.getBilder();
+//		InputStream is = b.getBinaryStream();
+//	    return ImageIO.read(is);
+//	}
 	
 	
 }
