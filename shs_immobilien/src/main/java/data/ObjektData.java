@@ -30,7 +30,7 @@ public class ObjektData {
 			Connection connection = dataSource.getConnection();
 			InputStream inputStream = fbilder.getInputStream();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, "
-					+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+					+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 					
 			preparedStatement.setString(1, fhaustyp);
 			preparedStatement.setString(2, fbautyp);
