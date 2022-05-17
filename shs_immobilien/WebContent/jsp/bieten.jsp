@@ -32,8 +32,8 @@
 
 			<form action="../KaufenServlet" method=post>
 			<c:forEach var="bieten" items="${objekte}">
-				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
-			</c:forEach>
+				<c:if test="${bieten.id eq objekte.id}"><img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
+			</c:if></c:forEach>
 			<br>
 			<br>	
 				<label
