@@ -32,7 +32,7 @@
 
 			<form action="../KaufenServlet" method=post>
 			<c:forEach var="bieten" items="${objekte}">
-				<img src="../kaufen_bild_servlet?id?${bieten.id}"></img> 
+				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
 			</c:forEach>
 			<br>
 			<br>	

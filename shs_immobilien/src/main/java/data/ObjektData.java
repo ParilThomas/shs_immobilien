@@ -25,12 +25,12 @@ public class ObjektData {
 	//dateiname hinzugefügt 
 	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr,
 			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
-			String fbeschreibung, String fdateiname,Part fbilder, java.sql.Date fdatum) {
+			String fbeschreibung,Part fbilder, java.sql.Date fdatum) {
 		try {
 			Connection connection = dataSource.getConnection();
 			InputStream inputStream = fbilder.getInputStream();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, "
-					+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung,dateiname, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+					+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 					
 			preparedStatement.setString(1, fhaustyp);
 			preparedStatement.setString(2, fbautyp);
@@ -70,7 +70,6 @@ public class ObjektData {
 						resultSet.getDate("datum"),
 						resultSet.getInt("startgebot"),
 						resultSet.getString("beschreibung"),
-						resultSet.getString("dateiname"),
 						resultSet.getBytes("bilder")	
 						));	
 			}

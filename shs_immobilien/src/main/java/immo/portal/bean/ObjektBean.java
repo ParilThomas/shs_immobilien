@@ -28,7 +28,6 @@ public class ObjektBean implements Serializable {
 	private Date datum;
 	private Integer startgebot;
 	private String beschreibung;
-	private String dateiname;
 	private byte[] bilder;
 	
 	public ObjektBean() {
@@ -36,7 +35,7 @@ public class ObjektBean implements Serializable {
 	}
 	
 	public ObjektBean(int id, String haustyp, String bautyp, String titel, int baujahr, int wohnflaeche, int grundstuecksflaeche, String standort, Date datum,
-						int startgebot, String beschreibung,String dateiname, byte[] bilder) {
+						int startgebot, String beschreibung, byte[] bilder) {
 		super();
 		this.id = id;
 		this.haustyp = haustyp;
@@ -49,7 +48,6 @@ public class ObjektBean implements Serializable {
 		this.datum = datum;
 		this.startgebot = startgebot;
 		this.beschreibung = beschreibung;
-		this.dateiname= dateiname;
 		this.bilder = bilder;
 	}
 
@@ -120,16 +118,6 @@ public class ObjektBean implements Serializable {
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
-	
-	
-	public String getDateiname() {
-		return dateiname;
-	}
-
-	public void setDateiname(String dateiname) {
-		this.dateiname = dateiname;
-	}
-
 	public byte[] getBilder() {
 		return bilder;
 	}
