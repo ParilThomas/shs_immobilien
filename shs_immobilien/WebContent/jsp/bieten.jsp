@@ -1,9 +1,11 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="immo.portal.bean.HaustypBean"%>
+<%@page import="immo.portal.bean.ObjektBean"%>
 <%@page import="immo.portal.servlets.VerkaufServlet"%>
+<%@page import="immo.portal.servlets.BietenServlet"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <html class="html_hintergrund"><head>
@@ -31,9 +33,9 @@
 				onclick="location.href = 'kaufen.jsp'"></input>
 
 			<form action="../BietenServlet" method=post>
-				<c: var="bieten" items="${objekte}">
+				<c:forEach var="bieten" items="${objekt1}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
-				</c:>
+				</c:forEach>
 			<br>
 			<br>	
 				<label
