@@ -29,3 +29,16 @@ create table objekte
     (id int primary key auto_increment,
     typ varchar(255)
     );
+    
+    
+    create table benutzer 
+    (id int primary key auto_increment,
+    vorname varchar(30),
+    nachname varchar(30),
+    anschrift varchar(50),
+    plz int(10),
+    wohnort varchar(30),
+    telefon int(20),
+    email varchar(50),
+    passwort1 varchar(20)
+    );
