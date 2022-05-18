@@ -30,8 +30,9 @@
 						<button type="submit" class="button" name="${haustyp.typ}">${haustyp.typ}</button>
 					</c:forEach>
 		</form>
-	
 	</c:if>
+	
+	<form action="../BietenServlet" method=post>
 	<c:if test="${haustypSelektiert == true}">
 		<table class="tabelle">
 			<thead>
@@ -69,9 +70,9 @@
 <!-- 							Ist das nötig über das Servlet auf die Jsp zuzugreifen -->
 <%--                                   Warum name= hausid=${haus.id} ???? und value= ${haus.id}--%>
 
-							<form action="../BietenServlet" method=post>
-							<button type="submit" name="${haus.id}" value="${haus.id}">Details</button></a>
-						</form>
+							<Button type="submit" name="detailid" value="${haus.id}">${haus.id}</Button>
+							<%-- <button type="submit" name="${haus.id}" value="${haus.id}">Details</button> --%>
+						
 						</td>
   					
 					</tr>
@@ -79,6 +80,7 @@
 			</tbody>
 		</table>
 	</c:if>
+	</form>
 	
 
 	</body>

@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import immo.portal.bean.BautypBean;
 import immo.portal.bean.ObjektBean;
 
 public class BietenData {
@@ -22,16 +23,17 @@ private DataSource dataSource;
 
 
 	
-	public List<ObjektBean> getObjekt(Long id){
-		List<ObjektBean> objekte = new ArrayList<ObjektBean>();
+	public List<ObjektBean> getObjekt(String detailid){
+		List<ObjektBean> objektIdDaten = new ArrayList<ObjektBean>();
 		try {
 			
 			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id LIKE ?");
-			prsmt.setLong(1, id);
+			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id ?");
+			prsmt.setString(1, detailid);
+			
 			ResultSet resultSet = prsmt.executeQuery();
 			while (resultSet.next()) {
-				objekte.add(new ObjektBean(
+				objektIdDaten.add(new ObjektBean(
 						resultSet.getLong("id"),
 						resultSet.getString("haustyp"),
 						resultSet.getString("bautyp"),
@@ -48,10 +50,10 @@ private DataSource dataSource;
 			}
 		}
 		catch (Exception e){
-			return objekte;
+			return objektIdDaten;
 		}
 		
-		return objekte;
+		return objektIdDaten;
 	}
 	
 	
