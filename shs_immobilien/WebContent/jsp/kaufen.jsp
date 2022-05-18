@@ -69,8 +69,9 @@
 <!-- 							Ist das nötig über das Servlet auf die Jsp zuzugreifen -->
 <%--                                   Warum name= hausid=${haus.id} ???? und value= ${haus.id}--%>
 
-							<a href="bieten.jsp"><button type="submit" name="details" value="absenden">Details</button></a>
-						
+							<form action="../BietenServlet" method=post>
+							<button type="submit" name="${haus.id}" value="${haus.id}">Details</button></a>
+						</form>
 						</td>
   					
 					</tr>

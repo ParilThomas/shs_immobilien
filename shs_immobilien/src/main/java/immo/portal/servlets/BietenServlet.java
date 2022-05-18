@@ -67,13 +67,13 @@ public class BietenServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.objektData = new ObjektData(dataSource);
 		session = request.getSession();
+				response.sendRedirect("jsp/bieten.jsp");
 		// if abfragen funktionieren nicht hausid sowie id findet er nicht 
 		if (request.getParameter("hausid") != null) {
             Long hid = Long.valueOf(request.getParameter("hausid"));
 			if (hid != null) {
 				List<ObjektBean> objekt1 = this.bietenData.getObjekt(hid);
 				session.setAttribute("objekt1", objekt1);
-				response.sendRedirect("jsp/bieten.jsp");
 				return;	
 			
 			} 

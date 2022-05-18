@@ -9,12 +9,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import data.BautypData;
-import data.HaustypData;
-import data.ObjektData;
+
 import data.RegistrierenData;
-import immo.portal.bean.BautypBean;
-import immo.portal.bean.HaustypBean;
 import immo.portal.bean.RegistrierenBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -37,7 +33,6 @@ public class RegistrierenServlet extends HttpServlet {
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
 	private HttpSession session;
-	
 	private RegistrierenData registrierenData;
 	
 	
@@ -65,7 +60,7 @@ public class RegistrierenServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		 
+		this.registrierenData = new RegistrierenData(dataSource);
 		
   		session = request.getSession();
   		
