@@ -15,6 +15,7 @@ import data.ObjektData;
 import immo.portal.bean.BautypBean;
 import immo.portal.bean.HaustypBean;
 import jakarta.annotation.Resource;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -54,7 +55,7 @@ public class VerkaufServlet extends HttpServlet {
 	    		session.setAttribute("bautyplist", bautyplist);
 	    		
 	            response.sendRedirect("jsp/verkaufen.jsp");
-	 
+	    		
 	    }
 
 	
