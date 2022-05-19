@@ -34,7 +34,9 @@
 
 			<form action="../BietenServlet" method=post>
 				<c:forEach var="bieten" items="${objekte}">
-				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
+				<c:if test="${val eq bieten.id}">
+				<img src="../kaufen_bild_servlet?id=${val}"></img>
+				</c:if> 
 				</c:forEach>
 
 			
@@ -46,8 +48,7 @@
 				<h1>VALUE OF BUTTON IS : ${val}</h1>
 					</c:forEach> --%>
 			<h1>VALUE OF BUTTON IST: ${val}</h1>	
-
-				
+		
 			<br>
 			<br>	
 				<label
