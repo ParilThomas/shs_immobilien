@@ -35,6 +35,7 @@
 			<form action="../BietenServlet" method=post>
 				<c:forEach var="bieten" items="${objekt1}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
+				<p>${bieten.startgebot}</p>
 				</c:forEach>
 
 
@@ -43,8 +44,8 @@
 			<br>	
 				<label
 					for="startgebot">Ihr Gebot (€):</label><br> <input
-					type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/> 
-					<button type="submit" name="gebot_absenden" value="absenden">Absenden</button>
+					type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/> 
+					<button type="submit" name="gebot_absenden" value="${bieten.id}">Absenden</button>
 			</form>
 		</div>
 

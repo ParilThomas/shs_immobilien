@@ -67,13 +67,6 @@ public class BietenServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.bietenData = new BietenData(dataSource);
 		session = request.getSession();
-
-			//Name aus SubmitButton von Detail Button abholen und Value auslesen.
-			String detailwert = request.getParameter("detailid");
-			request.setAttribute("val", detailwert);
-			
-			//BLEIBT IM SERVLET HÄNGEN??? WENN response.sendRedirect("jsp/bieten.jsp"); und das hier auskommentiert zeigt 3 Bilder ohne detailID???
-//			request.getRequestDispatcher("jsp/bieten.jsp").forward(request, response);
 				
 			// if abfragen funktionieren nicht hausid sowie id findet er nicht 
 		if (request.getParameter("detailid") != null) {
@@ -89,8 +82,21 @@ public class BietenServlet extends HttpServlet {
 				return;
 			}	
 	}
+		
+		if (request.getParameter("gebot_absenden") != null) {
+			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
+			Integer id = (Integer.valueOf(request.getParameter("gebot_absenden")));
+			if (gebot < 0) {
+				return ;	
+			
+			} else {
+				bietenData.gebotAktualisieren(id, gebot);
+				
+			}
+
+
+}
 
 		response.sendRedirect("jsp/bieten.jsp");
 }
-
 }

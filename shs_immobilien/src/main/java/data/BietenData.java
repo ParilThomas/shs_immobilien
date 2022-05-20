@@ -57,5 +57,21 @@ private DataSource dataSource;
 	}
 	
 	
+	public void gebotAktualisieren (Integer id, Integer gebot) {
+		try {
+			
+			Connection con = dataSource.getConnection();
+			PreparedStatement prsmt = con.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id = ");
+			prsmt.setInt(1, gebot);
+			prsmt.setInt(2, id);
+			prsmt.executeUpdate();
+
+		}
+		catch (Exception e){
+			return ;
+		}
+	}
+	
+	
 	
 }
