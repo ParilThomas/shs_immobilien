@@ -58,7 +58,6 @@ public class KaufenServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
-		//ArrayList<HaustypBean> haustyplist = (ArrayList<HaustypBean>)session.getAttribute("haustyplist");
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
 		for (HaustypBean bean : haustyplist) {
 			if (request.getParameter(bean.getTyp()) != null) {
@@ -70,12 +69,6 @@ public class KaufenServlet extends HttpServlet {
 			}
 		}
 		
-//		for (HaustypBean bean : haustyplist) {
-//			if (request.getParameter(Integer.toString(bean.getId())) != null) {
-//				
-//				return;
-//			}
-//		}
 	}
 	
 

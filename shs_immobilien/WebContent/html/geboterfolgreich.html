@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="html_hintergrund">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- Stylesheet Test TP-->
+<link rel="stylesheet" href="../css/verkaufen.css">
+<title></title>
+
+<script>
+	window.setTimeout("location.href='homepage.html';", 6000);
+	
+</script>
+		<script>
+			
+			timeLeft = 5;
+			function countdown() {
+				timeLeft--;
+				document.getElementById("seconds").innerHTML = String(timeLeft);
+				if (timeLeft > 0) {
+					setTimeout(countdown, 1000);
+				}
+			};
+
+			setTimeout(countdown, 1000);
+		</script>
+
+</head>
+<body>
+	<header>
+		<p class="willkommen"></p>
+
+		<div class="center" id="clock>
+			<h1 class="text-center" id="count-down-timer">Herzlichen Glückwunsch Ihr Gebot wurde übermittelt!</h1>
+			<p>Sie werden in <span id="seconds">5</span> automatisch weitergeleitet</p>
+		</div>
+
+
+	</header>
+</body>
+</html>

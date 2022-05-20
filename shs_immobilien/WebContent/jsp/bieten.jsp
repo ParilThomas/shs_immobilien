@@ -32,20 +32,17 @@
 			<input class="zurueck" type="button" value="Zurück"
 				onclick="location.href = 'kaufen.jsp'"></input>
 
-			<form action="../BietenServlet" method=post>
+			<form action="../GebotServlet" method=post>
 				<c:forEach var="bieten" items="${objekt1}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
 				<p>${bieten.startgebot}</p>
-				</c:forEach>
-
-
-				
 			<br>
 			<br>	
-				<label
-					for="startgebot">Ihr Gebot (€):</label><br> <input
-					type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/> 
+				<label for="startgebot">Ihr Gebot (€):</label><br>
+				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/> 
 					<button type="submit" name="gebot_absenden" value="${bieten.id}">Absenden</button>
+				
+				</c:forEach>
 			</form>
 		</div>
 

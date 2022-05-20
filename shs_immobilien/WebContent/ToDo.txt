@@ -1,3 +1,20 @@
+Eingegebenes Gebot überprüfen ob > startgebot in der Tabelle objekte 
+	-> Wenn ja ok 
+	-> Wenn nein Rückmeldung Gebot nicht hoch genug
+	
+bieten.jsp Ausgabe erstelen wie die einzelnen Objekte angezeigt werden sollen
+	-> Daten Darstellung
+	-> Bildgröße festlegen (Wichtig!)
+	
+
+EVTL WICHTIG WELCHER BENUTZER (WENN EINGELOGGT) DAS AKTUELLE HÖCHSTGEBOT HAT! MIT SICHERHEIT EIN KRITERIUM VOM STIEHL IN DER ABFRAGE
+WOHER SOLLEN WIR ALS BETREIBER WISSEN WER AM ENDE DAS HAUS BEKOMMT
+EVTL SOGAR NOCH WICHTIG OB WIR ANZEIGEN MÜSSEN WER AKTUELL HÖCHSTBIETENDER IST (USER ID bspw.) UND WENN EINGELOGGT WIRD EINEM DIE USER ID
+VON EINEM SELBST ANGEZEIGT???
+Evtl kommt das noch auf uns zu vom Stiehl bin ich mir ziemlich sicher, wenn er schon gesagt hat die Seite muss so sein, dass Ihr danach
+arbeiten könntet
+	
+
 
 2. Beim verlinken auf die Bietenfunktion -> Link hernehemen oder Button aber dann durch Expression Handling (Java) Daten bekommen
 3. generische Suche 

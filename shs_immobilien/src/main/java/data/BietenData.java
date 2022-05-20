@@ -28,7 +28,7 @@ private DataSource dataSource;
 		try {
 			
 			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id=?");
+			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id = ?");
 			prsmt.setString(1, detailid);
 			
 			ResultSet resultSet = prsmt.executeQuery();
@@ -57,13 +57,13 @@ private DataSource dataSource;
 	}
 	
 	
-	public void gebotAktualisieren (Integer id, Integer gebot) {
+	public void gebotAktualisieren (Integer gebot, String id) {
 		try {
 			
 			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id = ");
+			PreparedStatement prsmt = con.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id LIKE ?");
 			prsmt.setInt(1, gebot);
-			prsmt.setInt(2, id);
+			prsmt.setString(2, id);
 			prsmt.executeUpdate();
 
 		}
