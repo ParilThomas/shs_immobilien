@@ -33,19 +33,10 @@
 				onclick="location.href = 'kaufen.jsp'"></input>
 
 			<form action="../BietenServlet" method=post>
-				<c:forEach var="bieten" items="${objekte}">
+				<c:forEach var="bieten" items="${objekt1}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
 				</c:forEach>
 
-			
-<%-- 			<form action="../BietenServlet" method=post>
-				<c:forEach var="objektdaten" items="${objektIdDaten}">
-						<h1>${objektdaten.typ}</h1>
-						
-				<h1>VALUE OF BUTTON IS : ${objektIdDaten.id}</h1>
-				<h1>VALUE OF BUTTON IS : ${val}</h1>
-					</c:forEach> --%>
-			<h1>VALUE OF BUTTON IST: ${val}</h1>	
 
 				
 			<br>
@@ -53,7 +44,7 @@
 				<label
 					for="startgebot">Ihr Gebot (€):</label><br> <input
 					type="number" id="startgebot" name="gebot" placeholder="Ihr Gebot"/> 
-
+					<button type="submit" name="gebot_absenden" value="absenden">Absenden</button>
 			</form>
 		</div>
 

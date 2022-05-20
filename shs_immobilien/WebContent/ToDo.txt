@@ -1,1 +1,21 @@
-Branch ersellt
+
+2. Beim verlinken auf die Bietenfunktion -> Link hernehemen oder Button aber dann durch Expression Handling (Java) Daten bekommen
+3. generische Suche 
+
+
+
+
+
+
+
+5. Registrieren -> Expression Handling 
+
+
+
+
+
+
+
+
+1. Bau und Haustypvergleich bei Automatischer weiterleitung
+4. Css -> Padding/ Schrift -> "Stellen Sie sich eine Website vor, ich bin selbst kein Designer, aber sie sollten mit der Seite arbeiten wollen"

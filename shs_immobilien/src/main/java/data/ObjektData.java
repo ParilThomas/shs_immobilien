@@ -25,7 +25,7 @@ public class ObjektData {
 	//dateiname hinzugefügt 
 	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr,
 			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
-			String fbeschreibung,Part fbilder, java.sql.Date fdatum) {
+			String fbeschreibung,Part fbilder,java.sql.Date fdatum) {
 		try {
 			Connection connection = dataSource.getConnection();
 			InputStream inputStream = fbilder.getInputStream();

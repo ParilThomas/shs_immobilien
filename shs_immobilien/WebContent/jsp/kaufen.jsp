@@ -70,9 +70,9 @@
 <!-- 							Ist das nötig über das Servlet auf die Jsp zuzugreifen -->
 <%--                                   Warum name= hausid=${haus.id} ???? und value= ${haus.id}--%>
 
-							<Button type="submit" name="detailid" value="${haus.id}">${haus.id}</Button>
+						<Button type="submit" name="detailid" value="${haus.id}">${haus.id}</Button> 
 							<%-- <button type="submit" name="${haus.id}" value="${haus.id}">Details</button> --%>
-						
+<%-- 						<a href="../BietenServlet" name="detailid" value="${haus.id}">${haus.id}</a> --%>
 						</td>
   					
 					</tr>

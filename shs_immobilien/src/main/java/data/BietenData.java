@@ -28,7 +28,7 @@ private DataSource dataSource;
 		try {
 			
 			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id ?");
+			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id=?");
 			prsmt.setString(1, detailid);
 			
 			ResultSet resultSet = prsmt.executeQuery();

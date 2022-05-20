@@ -140,7 +140,8 @@ public class VerkaufServlet extends HttpServlet {
 			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum);
 		}
 
-		response.sendRedirect("jsp/verkaufen.jsp");		
+		response.sendRedirect("html/veingabeerfolgreich.html");	
+//		request.getRequestDispatcher("jsp/verkaufen.jsp").forward(request, response);
 		
 	}
 
