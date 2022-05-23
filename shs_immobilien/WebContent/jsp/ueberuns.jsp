@@ -1,26 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="hintergrund">
 <head>
 <meta charset="UTF-8">
-<title>sps-immobilien.de/über-uns</title>
+<title>sps-immobilien.de/Über-Uns</title>
 
 <!-- Test- Kontakdaten SHS - TS -->
 <link rel="stylesheet" href="../css/ueberuns.css">
 </head>
 <body>
 	<header>
-		<p class="allgemein">
-		</p>
+		<p class="allgemein"></p>
 	</header>
-
-	<nav>
-		<form>
-			<div>
-				<input class="zurueck" type="button" value="Zurück" onclick="location.href = 'homepage.html'">
-			</div>
-		</form>
-	</nav>
-
+    
+	<%@ include file="../jspf/allgbutton.jspf"%>
+	
 	<main>
 		<br>
 		<h2>Ihr Ansprechpartner rund um Immoblilien</h2>

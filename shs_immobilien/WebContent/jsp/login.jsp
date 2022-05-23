@@ -8,10 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/verkaufen.css">
-<title>Login</title>
+<title>sps-immobilien.de/Login</title>
 </head>
 <body>
     <p class="willkommen"></p>
+    	<%@ include file="../jspf/allgbutton.jspf"%>
+    	<br>
+    
     <header>
         <div class="center">
             <h1>Login</h1>

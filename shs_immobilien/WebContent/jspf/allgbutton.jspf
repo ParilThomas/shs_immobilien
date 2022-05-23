@@ -3,7 +3,7 @@
 		<div>
 			<a href="../KaufenServlet">Kaufen</a>
 			<a href="../VerkaufServlet">Verkaufen</a>
-			<a href="../html/ueberuns.html">Unser Team</a>
+			<a href="./ueberuns.jsp">Unser Team</a>
 			<a href="./login.jsp">Login</a>
 		</div>
 	</form>

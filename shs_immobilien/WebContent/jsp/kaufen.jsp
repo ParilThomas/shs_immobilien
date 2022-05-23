@@ -14,7 +14,7 @@
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/kaufen.css">
 
-<title>sps-immobilien.de/verkaufen</title>
+<title>sps-immobilien.de/Kaufen</title>
 
 </head>
 <body>

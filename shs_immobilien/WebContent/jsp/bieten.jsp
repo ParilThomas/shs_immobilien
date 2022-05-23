@@ -15,7 +15,7 @@
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/kaufen.css">
 
-<title>Bietfunktion</title>
+<title>sps-immobilien.de/Kaufen/Details</title>
 </head>
 <body>
 	<header>

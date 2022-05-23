@@ -11,7 +11,7 @@
 
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/registrieren.css">
-<title>Registrierung</title>
+<title>sps-immobilien.de/Registrierung</title>
 </head>
 <body>
 <header>
@@ -80,7 +80,7 @@
 				<br>
 				<hr>
 				<p>
-				<button type="submit" name="rformular_absenden" value="absenden">Absenden</button>
+				<button type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
 				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/homepage.html'">
 				</p>
 				
