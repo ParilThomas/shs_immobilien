@@ -6,31 +6,23 @@
 	background:url(../img/willkommen_img.jpg) 
 }
 
-.html_hintergrund {
-	background-color: grey;
-}
 
 h1 {
 	font-size: 150%;
 	font-family: verdana;
 	color: black;
 	background-color: lightgrey;
-	border: 1px solid black;
 	text-align:center;
 	vertical-align: middle;
 	margin: auto;
-}
-
-
-.zurueck{
-	color: red;
-	opacity: 0.7;
 }
 
 .button{
 	padding: 10px;
 	width: 250px;
 	font-size: 125%;
+	border: none;
+
 }
 
 .style{
@@ -44,15 +36,84 @@ h1 {
 }
 
 .tabelle, th, tr, td{
-	
-	border: 1px solid black;
-	border-collapse: collapse;
-	width: 400px;
-	background-color:lightgrey;
+	width: 600px;
 	font-familiy: verdana;
 	}
+
 	
-	img{
+.detailbutton{
+	text-align:center;
+}
+	
+img{
 	max-width: 400px;
 	max-height: 400px;
 	}
+
+	
+	
+	
+.nav {
+  list-style-type: none;
+  text-align: center;
+  margin: 20;
+  padding: 20;
+  cursor:pointer;
+  font-size: 150%;
+  font-family: verdana;
+
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+a {
+  color: black;
+  padding-top: 40px;
+  margin: 40px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 1.0s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

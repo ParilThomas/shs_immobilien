@@ -4,6 +4,7 @@
 <%@page import="immo.portal.bean.HaustypBean"%>
 <%@page import="immo.portal.bean.ObjektBean"%>
 <%@page import="immo.portal.servlets.KaufenServlet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="html_hintergrund">
 
@@ -20,67 +21,66 @@
 	<header>
 		<p class="willkommen"></p>
 	</header>
+	<%@ include file="../jspf/allgbutton.jspf"%>
+	<br>
 	
-	<input class="zurueck" type="button" value="Zurück" onclick="location.href = '../html/homepage.html'"></input>
+	
+	
 	<c:if test="${haustypSelektiert == false}">
-		<form action="../KaufenServlet" method=post>
-
+	<form action="../KaufenServlet" method=post>	
+	<div class="center">
+	<!-- Bautyp check ob schon vorhanden -->
+	<c:if test="${GebotZuNiedrig == true}"><h1 class="fehlerbutton">Gebot wurde nicht akzeptiert, da es zu niedrig ist!</h1></c:if>
+	</div>
+	<div class="center">
+	<!-- Haustyp check ob schon vorhanden -->
+	<c:if test="${GebotIstOk == true}"><h1 class="fehlerbutton">Herzlichen Glückwunsch Ihr Gebot wurde akzeptiert!</h1></c:if>
+	</div>
+	
 				<h1>Wählen Sie Ihren gewünschten Haustyp!</h1>
 					<c:forEach items="${haustyplist}" var="haustyp">
-						<button type="submit" class="button" name="${haustyp.typ}">${haustyp.typ}</button>
+						<button type="submit" class="button" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
 					</c:forEach>
 		</form>
 	</c:if>
 	
-	<form action="../BietenServlet" method=post>
+	
+	
 	<c:if test="${haustypSelektiert == true}">
-		<table class="tabelle">
-			<thead>
-				<tr>
-					<th>Bild</th>
-					<th>Haustyp</th>
-					<th>Bautyp</th>
-					<th>Titel</th>
-					<th>Baujahr</th>
-					<th>Wohn m²</th>
-					<th>Grund m²</th>
-					<th>Ort</th>
-					<th>Ende der Auktion</th>
-					<th>Akt. Preis</th>
-					<th>Beschreibung</th>
-					<th>Angebot abgeben</th>	
-				</tr>
-			</thead>
-			<tbody>
+	<table>
+	<tr><td colspan="2"><h1>Wählen Sie Ihren gewünschten Haustyp!</h1></td></tr>
+	<tr>
+	<td>
+		<form action="../KaufenServlet" method=post>	
+			<c:forEach items="${haustyplist}" var="haustyp">
+				<button type="submit" class="button" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
+			</c:forEach>
+		</form>
+	</td>
+	<td>
+		<form action="../BietenServlet" method=post>
 				<c:forEach var="haus" items="${objekte}">
-					<tr>
-						<td><img src="../kaufen_bild_servlet?id=${haus.id}"></img></td> 
-						<td>${haus.haustyp}</td>
-						<td>${haus.bautyp}</td>
-						<td>${haus.titel}</td>
-						<td>${haus.baujahr}</td>
-						<td>${haus.wohnflaeche}</td>
-						<td>${haus.grundstuecksflaeche}</td>
-						<td>${haus.standort}</td>
- 						<td>${haus.datum}</td>
-						<td>${haus.startgebot}</td>
-						<td>${haus.beschreibung}</td>
-						<td>
-
-<!-- 							Ist das nötig über das Servlet auf die Jsp zuzugreifen -->
-<%--                                   Warum name= hausid=${haus.id} ???? und value= ${haus.id}--%>
-
-						<Button type="submit" name="detailid" value="${haus.id}">${haus.id}</Button> 
-							<%-- <button type="submit" name="${haus.id}" value="${haus.id}">Details</button> --%>
-<%-- 						<a href="../BietenServlet" name="detailid" value="${haus.id}">${haus.id}</a> --%>
-						</td>
-  					
-					</tr>
+				<table class="tabelle">
+				<tr><td colspan="3">${haus.titel}</td></tr>
+				<tr><td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}"></img></td><td>Baujahr: </td><td>${haus.baujahr}</td></tr>
+				<tr>			<td>Wohnfläche: </td><td>${haus.wohnflaeche} m²</td></tr>
+				<tr>			<td>Grundstück: </td><td>${haus.grundstuecksflaeche} m²</td></tr>
+				<tr>			<td>Standort: </td><td>${haus.standort}</td></tr>
+				<tr>			<td>Angebotsende: </td><td>${haus.datum}</td></tr>
+				<tr>			<td>Aktuelles Gebot: </td><td>${haus.startgebot} €</td></tr>
+				<tr>			<td colspan="2" class="detailbutton"><Button type="submit" name="detailid" value="${haus.id}">Details ansehen</Button></td></tr>
+				</table>
+				<br>				
 				</c:forEach>
-			</tbody>
-		</table>
-	</c:if>
+
 	</form>
+	</td>
+	</tr>
+	</table>
+
+
+	</c:if>
+
 	
 
 	</body>

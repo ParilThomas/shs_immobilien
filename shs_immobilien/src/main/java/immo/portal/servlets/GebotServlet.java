@@ -49,17 +49,6 @@ public class GebotServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.gebotData = new GebotData(dataSource);
 		session = request.getSession();
-				
-//		if (request.getParameter("gebot_absenden") != null) {
-//			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
-//			String id = request.getParameter("gebot_absenden");
-//			if (gebot < 0) {
-//				return ;	
-//			
-//			} else {
-//				gebotData.gebotAktualisieren(gebot, id);
-//			}
-//		}
 		
 		session.setAttribute("GebotZuNiedrig", false);
 		session.setAttribute("GebotIstOk", false);
@@ -77,7 +66,7 @@ public class GebotServlet extends HttpServlet {
 			}
 			if(gebotData.istGebotOk(gebot, id)) {
 				gebotData.gebotAktualisieren(gebot, id);
-//				session.setAttribute("GebotIstOk", true);
+				session.setAttribute("GebotIstOk", true);
 			}
 		}
 

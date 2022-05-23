@@ -32,6 +32,7 @@
 		</div>
 
 	</header>
+	
 	<div class="center">
 	<!-- Bautyp check ob schon vorhanden -->
 	<c:if test="${bautypExistiert == true}"><h1 class="fehlerbutton">Bautyp existiert bereits!</h1></c:if>
@@ -40,6 +41,8 @@
 	<!-- Haustyp check ob schon vorhanden -->
 	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
 	</div>
+	
+	
 	<div class="verkaufsformular">
 		<br>
 		

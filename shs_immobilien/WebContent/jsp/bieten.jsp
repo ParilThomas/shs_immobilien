@@ -33,7 +33,7 @@
 				onclick="location.href = 'kaufen.jsp'"></input>
 
 			<form action="../GebotServlet" method=post>
-				<c:forEach var="bieten" items="${objekt1}">
+				<c:forEach var="bieten" items="${objekt}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
 				<table class="tabelle">
 			

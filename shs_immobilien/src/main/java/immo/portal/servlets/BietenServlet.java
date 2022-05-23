@@ -1,18 +1,13 @@
 package immo.portal.servlets;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import data.BautypData;
 import data.BietenData;
 import data.HaustypData;
 import data.ObjektData;
-import immo.portal.bean.BautypBean;
-import immo.portal.bean.HaustypBean;
 import immo.portal.bean.ObjektBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -31,9 +26,7 @@ public class BietenServlet extends HttpServlet {
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
 	private HttpSession session;
-	private ObjektData objektData;
 	private BietenData bietenData;
-	private HaustypData haustypData;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -73,8 +66,8 @@ public class BietenServlet extends HttpServlet {
 		if (request.getParameter("detailid") != null) {
             String hid = request.getParameter("detailid");
 			if (hid != null) {
-				List<ObjektBean> objekt1 = this.bietenData.getObjekt(hid);
-				session.setAttribute("objekt1", objekt1);
+				List<ObjektBean> objekt = this.bietenData.getObjekt(hid);
+				session.setAttribute("objekt", objekt);
 				
 			
 			} 
