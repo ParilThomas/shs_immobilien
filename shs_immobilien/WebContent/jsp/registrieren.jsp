@@ -10,22 +10,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <!-- Stylesheet Test TP-->
-<link rel="stylesheet" href="../css/verkaufen.css">
+<link rel="stylesheet" href="../css/registrieren.css">
 <title>Registrierung</title>
 </head>
 <body>
 <header>
 		<p class="willkommen"></p>
-
-		<div class="center">
-			<h1>Registrierung</h1>
-		</div>
+		
+<!-- 		<div class="center"> -->
+<!-- 			<h1>Registrierung</h1> -->
+<!-- 		</div> -->
 	</header>
+	<%@ include file="../jspf/allgbutton.jspf"%>
+	<br>
 	<main>
-
+	
 		<form action="../RegistrierenServlet" method="post"
 			accept-charset="utf-8">
-			<div class="verkaufsformular">
+			<div class="registrieren">
 				<p>
 					<label for="vorname">Vorname:</label><br> <input type="text"
 						id="vorname" name="vorname" placeholder="Ihr Vorname" required />

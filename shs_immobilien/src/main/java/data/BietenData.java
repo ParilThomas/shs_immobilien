@@ -19,6 +19,7 @@ private DataSource dataSource;
 	
 	public BietenData(DataSource dataSource) {
 		this.dataSource = dataSource;
+		
 	}
 
 

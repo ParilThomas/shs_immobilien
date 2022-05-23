@@ -64,6 +64,9 @@ public class RegistrierenServlet extends HttpServlet {
 		
   		session = request.getSession();
   		
+  		//Anfänglich auf false setzen 
+//  		session.setAttribute("IstRegistriert", false);
+  		
   		
 
 		if (request.getParameter("rformular_absenden") != null) {
@@ -76,7 +79,14 @@ public class RegistrierenServlet extends HttpServlet {
 			String remail = request.getParameter("email");
 			String rpasswort1 = request.getParameter("passwort1");
 			
+			//Check ob Benutzer bereits registriert
 			
+//			if(registrierenData.istRegistriert(remail, rpasswort1)) {
+//				session.setAttribute("istRegistriert", true);
+//			}else {
+//				//Was passiert wenn der Benutzer noch nicht registriert ist 
+//			}
+//			
 
 			if (rvorname.isEmpty() || rnachname.isEmpty() || ranschrift.isEmpty() || rplz <0 || rwohnort.isEmpty()
 					|| rtelefon < 0 || remail.isEmpty() || rpasswort1.isEmpty())
@@ -84,7 +94,8 @@ public class RegistrierenServlet extends HttpServlet {
 
 			registrierenData.registrierenFormularabschicken(rvorname, rnachname, ranschrift, rplz, rwohnort, rtelefon, remail, rpasswort1);
 		}
-
+		//Wieder eine HTML Seite damit Seite wieder aktualisert wird -> Es wird geprüft ob Benutzer registriert ist 
+		
 		response.sendRedirect("jsp/registrieren.jsp");		
 		
 	}
