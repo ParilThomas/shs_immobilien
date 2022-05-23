@@ -9,7 +9,7 @@
 <title></title>
 
 <script>
-	window.setTimeout("location.href='homepage.html';", 6000);
+	window.setTimeout("location.href='../BietenServlet';", 6000);
 	
 </script>
 		<script>
@@ -31,12 +31,23 @@
 	<header>
 		<p class="willkommen"></p>
 
-		<div class="center" id="clock>
+		
+	</header>
+	<div class="center" id="clock>
 			<h1 class="text-center" id="count-down-timer">Herzlichen Glückwunsch Ihr Gebot wurde übermittelt!</h1>
 			<p>Sie werden in <span id="seconds">5</span> automatisch weitergeleitet</p>
 		</div>
-
-
-	</header>
+	
+	
+<!-- 	<div class="center"> -->
+<!-- 	<!-- Bautyp check ob schon vorhanden --> -->
+<!-- 	<c:if test="${GebotZuNiedrig == true}"><h1 class="fehlerbutton">Gebot nicht zulässig!!</h1></c:if> -->
+<!-- 	</div> -->
+	<div class="center">
+	<!-- Bautyp check ob schon vorhanden -->
+	<c:if test="${GebotIstOk == true}"><h1 class="fehlerbutton">Ihr Gebot wird übernommen!!!</h1></c:if>
+	</div>
+	
 </body>
+
 </html>

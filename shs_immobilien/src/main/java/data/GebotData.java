@@ -31,23 +31,42 @@ private DataSource dataSource;
 		}
 	}
 	
-//	public boolean istGebotOk(Integer gebot, String id) {
-//		try {
-//			Connection connection = dataSource.getConnection();
-//			PreparedStatement preparedStatement = connection.prepareStatement("SELECT startgebot FROM objekte WHERE id LIKE ?");
-//			preparedStatement.setString(1, id);			 
-//			ResultSet resultSet = preparedStatement.executeQuery();
-//			while (resultSet.next()) {
-//			if(resultSet.getInt(2) < gebot) {
-//				return true;
-//			}
-//			}
-//
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//	}
-//	return false;
-//	
-//	
-//	}	
+	public boolean istGebotZuKlein(Integer gebot, String id) {
+		try {
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT startgebot FROM objekte WHERE id LIKE ?");
+			preparedStatement.setString(1, id);			 
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+			if(resultSet.getInt(1) >= gebot) {
+				return true;
+			}
+			}
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return false;
+	
+	
+	}	
+	public boolean istGebotOk(Integer gebot, String id) {
+		try {
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT startgebot FROM objekte WHERE id LIKE ?");
+			preparedStatement.setString(1, id);			 
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+			if(resultSet.getInt(1) < gebot) {
+				return true;
+			}
+			}
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return false;
+	
+	
+	}	
 }

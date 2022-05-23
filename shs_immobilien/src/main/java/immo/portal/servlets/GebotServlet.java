@@ -50,31 +50,36 @@ public class GebotServlet extends HttpServlet {
 		this.gebotData = new GebotData(dataSource);
 		session = request.getSession();
 				
-		if (request.getParameter("gebot_absenden") != null) {
-			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
-			String id = request.getParameter("gebot_absenden");
-			if (gebot < 0) {
-				return ;	
-			
-			} else {
-				gebotData.gebotAktualisieren(gebot, id);
-			}
-		}
-		
 //		if (request.getParameter("gebot_absenden") != null) {
 //			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
 //			String id = request.getParameter("gebot_absenden");
 //			if (gebot < 0) {
-//				return;	
-//			}
-//			//Check ob Haustyp bereits vorhanden
-//			if(gebotData.istGebotOk(gebot, id)) {
-////				session.setAttribute("haustypExistiert", true);
-//			//Falls nicht neuen Haustyp hinzufügen
+//				return ;	
+//			
 //			} else {
 //				gebotData.gebotAktualisieren(gebot, id);
 //			}
 //		}
+		
+		session.setAttribute("GebotZuNiedrig", false);
+		session.setAttribute("GebotIstOk", false);
+		
+		if (request.getParameter("gebot_absenden") != null) {
+			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
+			String id = request.getParameter("gebot_absenden");
+			if (gebot < 0) {
+				return;	
+			}
+			//Check ob Haustyp bereits vorhanden
+			if(gebotData.istGebotZuKlein(gebot, id)) {
+				session.setAttribute("GebotZuNiedrig", true);
+			//Falls nicht neuen Haustyp hinzufügen
+			}
+			if(gebotData.istGebotOk(gebot, id)) {
+				gebotData.gebotAktualisieren(gebot, id);
+//				session.setAttribute("GebotIstOk", true);
+			}
+		}
 
 		response.sendRedirect("html/geboterfolgreich.html");
 }

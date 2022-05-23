@@ -21,7 +21,7 @@ arbeiten könntet
 
 
 
-
+->Warum wirft er einen Fehler bei externen Browser fehler beim abschicken von Kommentaren 
 
 
 

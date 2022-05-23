@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <!-- Stylesheet Test TP-->
-<link rel="stylesheet" href="../css/verkaufen.css">
+<link rel="stylesheet" href="../css/bieten.css">
 
 <title>Bietfunktion</title>
 </head>
@@ -28,14 +28,51 @@
 	</header>
 
 
-		<div class="verkaufsformular">
+		<div class="bietenseite">
 			<input class="zurueck" type="button" value="Zurück"
 				onclick="location.href = 'kaufen.jsp'"></input>
 
 			<form action="../GebotServlet" method=post>
 				<c:forEach var="bieten" items="${objekt1}">
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
-				<p>${bieten.startgebot}</p>
+				<table class="tabelle">
+			
+				<tr>
+					
+					<td class="thead">Haustyp</td>
+					<td class="tbody">${bieten.haustyp}</td>
+					</tr>
+					<tr>
+					<td class="thead">Bautyp</td>
+					<td class="tbody">${bieten.bautyp}</td>
+					</tr>
+					<tr>
+					<td class="thead">Titel</td>
+					<td class="tbody">${bieten.titel}</td>
+					</tr>
+					<tr>
+					<td class="thead">Baujahr</td>
+					<td class="tbody">${bieten.baujahr}</td>
+					</tr>
+					<tr>
+					<td class="thead">Wohn m²</td>
+					<td class="tbody">${bieten.wohnflaeche}m²</td>
+					</tr>
+					<tr>
+					<td class="thead">Grund m²</td>
+					<td class="tbody">${bieten.grundstuecksflaeche}m²</td>
+					</tr>
+					<tr>
+					<td class="thead">Ort</td>
+					<td class="tbody">${bieten.standort}</td>
+					</tr>
+					<tr>
+					<td class="thead">Ende der Auktion</td>
+					<td class="tbody">${bieten.datum}</td>
+					</tr>
+			</table>
+				<p class="beschreibung">${bieten.beschreibung}</p>
+				<p class="gebot">${bieten.startgebot}€</p>
 			<br>
 			<br>	
 				<label for="startgebot">Ihr Gebot (€):</label><br>
