@@ -29,15 +29,13 @@
 	<c:if test="${haustypSelektiert == false}">
 	<form action="../KaufenServlet" method=post>	
 	<div class="center">
-	<!-- Bautyp check ob schon vorhanden -->
-	<c:if test="${GebotZuNiedrig == true}"><h1 class="fehlerbutton">Gebot wurde nicht akzeptiert, da es zu niedrig ist!</h1></c:if>
+	<c:if test="${GebotZuNiedrig == true}"><h1 class="gebotfehlermeldung">Ihr Gebot konnte nicht akzeptiert werden, da es unter dem aktuellen Höchstpreis liegt!</h1></c:if>
 	</div>
 	<div class="center">
-	<!-- Haustyp check ob schon vorhanden -->
-	<c:if test="${GebotIstOk == true}"><h1 class="fehlerbutton">Herzlichen Glückwunsch Ihr Gebot wurde akzeptiert!</h1></c:if>
+	<c:if test="${GebotIstOk == true}"><h1 class="gebotakzeptiert">Herzlichen Glückwunsch Ihr Gebot wurde akzeptiert!</h1></c:if>
 	</div>
 	
-				<h1>Wählen Sie Ihren gewünschten Haustyp!</h1>
+
 					<c:forEach items="${haustyplist}" var="haustyp">
 						<button type="submit" class="button" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
 					</c:forEach>
@@ -47,8 +45,7 @@
 	
 	
 	<c:if test="${haustypSelektiert == true}">
-	<table>
-	<tr><td colspan="2"><h1>Wählen Sie Ihren gewünschten Haustyp!</h1></td></tr>
+	<table class="tabelle">
 	<tr>
 	<td>
 		<form action="../KaufenServlet" method=post>	
@@ -60,7 +57,7 @@
 	<td>
 		<form action="../BietenServlet" method=post>
 				<c:forEach var="haus" items="${objekte}">
-				<table class="tabelle">
+				<table class="objekttabelle">
 				<tr><td colspan="3">${haus.titel}</td></tr>
 				<tr><td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}"></img></td><td>Baujahr: </td><td>${haus.baujahr}</td></tr>
 				<tr>			<td>Wohnfläche: </td><td>${haus.wohnflaeche} m²</td></tr>
@@ -78,10 +75,7 @@
 	</tr>
 	</table>
 
-
 	</c:if>
-
-	
 
 	</body>
 </html>

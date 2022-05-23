@@ -27,11 +27,10 @@
 	<header>
 		<p class="willkommen"></p>
 
-		<div class="center">
-			<h1>Verkaufsformular</h1>
-		</div>
-
+		
 	</header>
+	<%@ include file="../jspf/allgbutton.jspf"%>
+	<br>
 	
 	<div class="center">
 	<!-- Bautyp check ob schon vorhanden -->
@@ -42,7 +41,9 @@
 	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
 	</div>
 	
-	
+	<div class="center">
+			<h1>Anzeige Aufgeben</h1>
+		</div>
 	<div class="verkaufsformular">
 		<br>
 		

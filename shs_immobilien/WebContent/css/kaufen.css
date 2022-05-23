@@ -6,17 +6,6 @@
 	background:url(../img/willkommen_img.jpg) 
 }
 
-
-h1 {
-	font-size: 150%;
-	font-family: verdana;
-	color: black;
-	background-color: lightgrey;
-	text-align:center;
-	vertical-align: middle;
-	margin: auto;
-}
-
 .button{
 	padding: 10px;
 	width: 250px;
@@ -37,7 +26,15 @@ h1 {
 
 .tabelle, th, tr, td{
 	width: 600px;
-	font-familiy: verdana;
+	font: verdana;
+	vertical-align: top;
+	}
+
+.objekttabelle, th, tr, td{
+	width: 600px;
+	font: verdana;
+	text-align: left;
+	vertical-align: center;
 	}
 
 	
@@ -46,12 +43,9 @@ h1 {
 }
 	
 img{
-	max-width: 400px;
-	max-height: 400px;
-	}
-
-	
-	
+	max-width: 300px;
+	max-height: 300px;
+}
 	
 .nav {
   list-style-type: none;
@@ -116,4 +110,41 @@ a:active {
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.beschreibung{
+	text-align: justify;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+
+.bietentabelle{
+	width: 200px;
+	font: verdana;
+	}
+
+.gebot{
+	font-size: 150%;
+	font-family: verdana;
+	color: blue;
+	background-color: lightgrey;
+	border: 1px solid black;
+	width:230px;
+	height: 50px;
+	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	max-width: 230px;
+	margin: auto;
+}
+
+.gebotfehlermeldung{
+	font: verdana;
+	color: red;
+}
+
+.gebotakzeptiert{
+	font: verdana;
+	color: green;
 }

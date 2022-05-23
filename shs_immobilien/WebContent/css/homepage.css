@@ -1,9 +1,9 @@
 @charset "ISO-8859-1";
 
 .willkommen {
-	width: 20.8%;
-	height: 90px;
-	background:url(../img/willkommen_img2.jpg) 
+	width: 100%;
+	height: 350px;
+	background:url(../img/willkommen_img.jpg) 
 }
 
 .html_hintergrund {

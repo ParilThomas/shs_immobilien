@@ -1,0 +1,5 @@
+<form action="../KaufenServlet" method=post>	
+	<c:forEach items="${haustyplist}" var="haustyp">
+		<button type="submit" class="button" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
+	</c:forEach>
+</form>

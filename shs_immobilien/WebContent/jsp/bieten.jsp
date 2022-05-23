@@ -13,74 +13,74 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <!-- Stylesheet Test TP-->
-<link rel="stylesheet" href="../css/bieten.css">
+<link rel="stylesheet" href="../css/kaufen.css">
 
 <title>Bietfunktion</title>
 </head>
 <body>
 	<header>
 		<p class="willkommen"></p>
-
-		<div class="center">
-			<h1>Details</h1>
-		</div>
-
+			<%@ include file="../jspf/allgbutton.jspf"%>
+			<br>
 	</header>
-
-
 		<div class="bietenseite">
-			<input class="zurueck" type="button" value="Zurück"
-				onclick="location.href = 'kaufen.jsp'"></input>
 
-			<form action="../GebotServlet" method=post>
+<table class="bietentabelle">
+	<tr>
+		<td>
+		<%@ include file="../jspf/hausauswahl.jspf"%>
+		</td>
+	<td>
+<form action="../GebotServlet" method=post>
 				<c:forEach var="bieten" items="${objekt}">
-				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img> 
-				<table class="tabelle">
-			
-				<tr>
-					
-					<td class="thead">Haustyp</td>
-					<td class="tbody">${bieten.haustyp}</td>
+				<p>${bieten.titel}</p>
+				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img>
+				<table>
+					<tr>
+					<td>Haustyp</td>
+					<td>${bieten.haustyp}</td>
 					</tr>
 					<tr>
-					<td class="thead">Bautyp</td>
-					<td class="tbody">${bieten.bautyp}</td>
+					<td>Bautyp</td>
+					<td>${bieten.bautyp}</td>
 					</tr>
 					<tr>
-					<td class="thead">Titel</td>
-					<td class="tbody">${bieten.titel}</td>
+					<td>Baujahr</td>
+					<td>${bieten.baujahr}</td>
 					</tr>
 					<tr>
-					<td class="thead">Baujahr</td>
-					<td class="tbody">${bieten.baujahr}</td>
+					<td>Wohnfläche</td>
+					<td>${bieten.wohnflaeche} m²</td>
 					</tr>
 					<tr>
-					<td class="thead">Wohn m²</td>
-					<td class="tbody">${bieten.wohnflaeche}m²</td>
+					<td>Grundstück</td>
+					<td>${bieten.grundstuecksflaeche} m²</td>
 					</tr>
 					<tr>
-					<td class="thead">Grund m²</td>
-					<td class="tbody">${bieten.grundstuecksflaeche}m²</td>
+					<td>Ort</td>
+					<td>${bieten.standort}</td>
 					</tr>
 					<tr>
-					<td class="thead">Ort</td>
-					<td class="tbody">${bieten.standort}</td>
-					</tr>
-					<tr>
-					<td class="thead">Ende der Auktion</td>
-					<td class="tbody">${bieten.datum}</td>
+					<td>Angebotsende</td>
+					<td>${bieten.datum}</td>
 					</tr>
 			</table>
+				<p>Beschreibung</p>
 				<p class="beschreibung">${bieten.beschreibung}</p>
+				<br>
+				
 				<p class="gebot">${bieten.startgebot}€</p>
-			<br>
-			<br>	
 				<label for="startgebot">Ihr Gebot (€):</label><br>
 				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/> 
-					<button type="submit" name="gebot_absenden" value="${bieten.id}">Absenden</button>
+					<button type="submit" name="gebot_absenden" value="${bieten.id}" onclick="myFunction()">Absenden</button>
 				
 				</c:forEach>
 			</form>
+	</td>
+	</tr>
+	</table>
+
+			
 		</div>
 
 </body>
