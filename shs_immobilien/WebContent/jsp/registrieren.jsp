@@ -81,7 +81,7 @@
 				<hr>
 				<p>
 				<button type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
-				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/homepage.html'">
+				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/startseite.html'">
 				</p>
 				
 				
