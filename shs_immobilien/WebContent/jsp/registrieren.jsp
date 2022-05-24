@@ -1,6 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@page import="immo.portal.bean.RegistrierenBean"%>
 <%@page import="immo.portal.servlets.RegistrierenServlet"%>
 <!DOCTYPE html>
@@ -11,6 +10,8 @@
 
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/registrieren.css">
+<link rel="stylesheet" href="../css/dropdownNavBar.css">
+
 <title>sps-immobilien.de/Registrierung</title>
 </head>
 <body>
@@ -81,7 +82,7 @@
 				<hr>
 				<p>
 				<button type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
-				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/startseite.html'">
+				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/hauptseite.html'">
 				</p>
 				
 				

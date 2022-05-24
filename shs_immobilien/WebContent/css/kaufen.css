@@ -45,48 +45,9 @@
 img{
 	max-width: 300px;
 	max-height: 300px;
+	border-radius: 10px;
 }
 	
-.nav {
-  list-style-type: none;
-  text-align: center;
-  margin: 20;
-  padding: 20;
-  cursor:pointer;
-  font-size: 150%;
-  font-family: verdana;
-
-}
-
-.nav li {
-  display: inline-block;
-  font-size: 20px;
-  padding: 20px;
-}
-
-a {
-  color: black;
-  padding-top: 40px;
-  margin: 40px;
-}
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:active {
-  text-decoration: underline;
-}
-
-
 .button span {
   cursor: pointer;
   display: inline-block;
@@ -137,6 +98,7 @@ a:active {
 	vertical-align: middle;
 	max-width: 230px;
 	margin: auto;
+	border-radius: 10px;
 }
 
 .gebotfehlermeldung{

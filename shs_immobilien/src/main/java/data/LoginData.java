@@ -65,7 +65,7 @@ public class LoginData {
 		
 		try {
 			Connection connection = dataSource.getConnection();
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM benutzer WHERE email LIKE ? AND passwort1 LIKE ?");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM benutzer WHERE email = ? AND passwort1 = ?");
 			preparedStatement.setString(1, email);
 			preparedStatement.setString(2, passwort);
 			ResultSet resultSet = preparedStatement.executeQuery();

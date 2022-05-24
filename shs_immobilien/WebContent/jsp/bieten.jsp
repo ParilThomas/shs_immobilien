@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="immo.portal.bean.HaustypBean"%>
 <%@page import="immo.portal.bean.ObjektBean"%>
@@ -12,8 +11,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/kaufen.css">
+<link rel="stylesheet" href="../css/dropdownNavBar.css">
 
 <title>sps-immobilien.de/Kaufen/Details</title>
 </head>
@@ -70,9 +69,16 @@
 				<br>
 				
 				<p class="gebot">${bieten.startgebot}€</p>
+				
+				<c:if test="${email != null}">
 				<label for="startgebot">Ihr Gebot (€):</label><br>
 				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/> 
 					<button type="submit" name="gebot_absenden" value="${bieten.id}" onclick="myFunction()">Absenden</button>
+				</c:if>
+				<c:if test="${email == null}">
+				Bitte loggen Sie sich ein um ein Gebot abzugeben!
+				<input class="abbrechen" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
+				</c:if>
 				
 				</c:forEach>
 			</form>

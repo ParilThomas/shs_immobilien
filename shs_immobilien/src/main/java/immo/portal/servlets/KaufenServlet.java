@@ -32,15 +32,17 @@ public class KaufenServlet extends HttpServlet {
 
 	private void kaufenSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
+			
     		this.haustypData = new HaustypData(dataSource);
     		this.objektData = new ObjektData(dataSource);
-		    		
     		
     		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
- 
+    		  		    		
     		session.setAttribute("haustyplist", haustyplist);
-    		session.setAttribute("haustypSelektiert", false);
+    		session.setAttribute("haustypSelektiert", false);  		
+
+    		
+
     			
             response.sendRedirect("jsp/kaufen.jsp");
  
@@ -49,8 +51,7 @@ public class KaufenServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
-		
-		
+
 		kaufenSeiteAnzeigen(request, response);
 	}
 

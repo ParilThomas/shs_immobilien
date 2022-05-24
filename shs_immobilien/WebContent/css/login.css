@@ -7,64 +7,77 @@
 }
 
 
-.log-button{
-	padding: 10px;
-	width: 110px;
-	font-size: 125%;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
 }
 
-.login{
-	background-color: #ffffff;
-	border: 1px solid black;
-	text-align:center;
-	width:500px;
-	font-family: verdana;
-	max-width: 500px;
+.loginfenster{
+  width: 400px;
+  background: #ffff80;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 5px;
+  margin: auto;
+}
+.title{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300px;
+}
+.icon{
+  justify-content: center;
+}
+form {
+  margin-top: 25px;
+}
+form .textfeld{
+  height: 50px;
+  width: 100%;
+  position: relative;
+  margin-top: 15px;
+}
+.textfeld input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 50px;
+  font-size: 15px;
+}
+.textfeld input:focus{
+  border-color: #0080ff;
+}
+.textfeld .icon{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: grey;
+}
+
+form .registrieren{
+  text-align: left;
+  margin-top: 25px;
+}
+.registrieren a{
+  color: #ff0000;
+}
+
+.aregistrieren{
 	margin: auto;
 }
 
-.reg-button{
-	padding: 10px;
-	width: 125px;
-	font-size: 125%;
-	background-color: red;
-	opacity: 0.7;
-}
-
-.nav {
-  list-style-type: none;
-  text-align: center;
-  margin: 20;
-  padding: 20;
-  cursor:pointer;
-  font-size: 150%;
-  font-family: verdana;
-}
-
-.nav li {
-  display: inline-block;
+.loginbutton{
+  background: #96b892;
+  color: #000000;
+  border: 1px solid black;
+  border-radius: 7px;
   font-size: 20px;
-  padding: 20px;
+  width:30%;
 }
 
-a {
-  color: black;
-  padding-top: 40px;
-  margin: 40px;
-}
 
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:active {
-  text-decoration: underline;
-}

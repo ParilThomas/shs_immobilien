@@ -1,6 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="immo.portal.bean.HaustypBean"%>
 <%@page import="immo.portal.servlets.VerkaufServlet"%>
@@ -13,6 +12,7 @@
 
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/verkaufen.css">
+<link rel="stylesheet" href="../css/dropdownNavBar.css">
 
 <title>sps-immobilien.de/Verkaufen</title>
 
@@ -31,7 +31,7 @@
 	</header>
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
-	
+<c:if test="${email != null}">	
 	<div class="center">
 	<!-- Bautyp check ob schon vorhanden -->
 	<c:if test="${bautypExistiert == true}"><h1 class="fehlerbutton">Bautyp existiert bereits!</h1></c:if>
@@ -44,6 +44,8 @@
 	<div class="center">
 			<h1>Anzeige Aufgeben</h1>
 		</div>
+		
+
 	<div class="verkaufsformular">
 		<br>
 		
@@ -122,6 +124,10 @@
 				<button type="submit" name="btyp_edit_absenden" value="absenden">Absenden</button>
 			</p>
 		</form>
-
 	</div>
+</c:if>
+<c:if test="${email == null}">
+Bitte loggen Sie sich ein um ein Gebot abzugeben!
+<input class="abbrechen" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
+</c:if>
 </body>

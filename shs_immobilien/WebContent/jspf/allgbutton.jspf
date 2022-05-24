@@ -1,10 +1,26 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <nav class="nav">
 	<form>
-		<div>
-			<a href="../KaufenServlet">Kaufen</a>
-			<a href="../VerkaufServlet">Verkaufen</a>
-			<a href="./ueberuns.jsp">Unser Team</a>
-			<a href="./login.jsp">Login</a>
+		<div class="icon-bar">
+			<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a> 
+  			<a href="../VerkaufServlet"><i class="fa fa-dollar"></i> Verkaufen</a>
+ 			<a href="./ueberuns.jsp"><i class="fa fa-globe"></i> Unser Team</a> 
+			<a href="./login.jsp"><i class="fa fa-user"></i> Login</a>
+			<a href="#"><i class="fa fa-search"></i> Suchen</a>
+					
+		<c:if test="${email != null}">
+			
+			<div class="dropdown">
+  				<button class="dropbtn">Profil</button>
+  					<div class="dropdown-content">
+    					<a href="#">Ihre Angebote</a>
+    					<a href="#">Ihre Gebote</a>
+						<a href="../LogoutServlet" ><Button class="logoutbutton" type="button" name="logout" value="logout">Logout</Button></a>		
+  					</div>
+
+			</div>			
+		</c:if>
 		</div>
 	</form>
 </nav>

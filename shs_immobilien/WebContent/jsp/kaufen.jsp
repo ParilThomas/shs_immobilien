@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="immo.portal.bean.HaustypBean"%>
 <%@page import="immo.portal.bean.ObjektBean"%>
@@ -13,6 +12,7 @@
 
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/kaufen.css">
+<link rel="stylesheet" href="../css/dropdownNavBar.css">
 
 <title>sps-immobilien.de/Kaufen</title>
 
@@ -23,7 +23,6 @@
 	</header>
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
-	
 	
 	
 	<c:if test="${haustypSelektiert == false}">

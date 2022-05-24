@@ -36,20 +36,22 @@ public class BietenServlet extends HttpServlet {
     }
 
 
-    private void bietenSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
- 
-    		this.bietenData = new BietenData(dataSource);
-
-            response.sendRedirect("jsp/bieten.jsp");
-
-    }
+//    private void bietenSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+// 
+//    		this.bietenData = new BietenData(dataSource);
+//    		
+//    		session = request.getSession();
+//    		
+//            response.sendRedirect("jsp/bieten.jsp");
+//
+//    }
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
 		
-		bietenSeiteAnzeigen(request, response);
+//		bietenSeiteAnzeigen(request, response);
 		
 		
 	}
