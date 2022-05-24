@@ -113,6 +113,7 @@ public class VerkaufServlet extends HttpServlet {
 
 		if (request.getParameter("vformular_absenden") != null) {
 			DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			Integer fbesitzer = (Integer.valueOf(request.getParameter("vformular_absenden")));
 			String fhaustyp = request.getParameter("haustyp");
 			String fbautyp = request.getParameter("bautyp");
 			String ftitel = request.getParameter("titel");
@@ -137,7 +138,7 @@ public class VerkaufServlet extends HttpServlet {
 					|| fgrundstuecksflaeche < 0 || fdatum.before(aktdatum) || fstandort.isEmpty() || fbilder == null)
 				return;
 
-			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum);
+			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum, fbesitzer);
 		}
 
 		response.sendRedirect("html/veingabeerfolgreich.html");	

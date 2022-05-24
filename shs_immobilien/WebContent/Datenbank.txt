@@ -10,10 +10,13 @@ create table objekte
     datum date,
     startgebot int(10),
     beschreibung varchar(500),
-    dateiname varchar(100),
-    bilder mediumblob
+    bilder mediumblob,
+    besitzer int(10),
+    hoechstbietender int(10)
     );
     
+    ALTER TABLE objkete ADD besitzer int(10) AFTER bilder;
+    ALTER TABLE objkete ADD hoechstbietender int(10) AFTER besitzer;
     
     create table benutzer
     (loginname varchar(80) primary key,

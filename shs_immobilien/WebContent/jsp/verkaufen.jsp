@@ -51,21 +51,13 @@
 		
 		<form action="../VerkaufServlet" method=post accept-charset="utf-8"	enctype="multipart/form-data">
 			<p>
-			<!-- 
-			In haustpy ist die Haustyp_Bean; haustyplist Arraylist aus Methode alleHaustypen() gespeichert 
-			value wird in DB gespeichert
-			-->
 				<label for="typ">Haustyp</label><br>
 				<select name="haustyp" id="typ">
 					<c:forEach items="${haustyplist}" var="haustyp">
 						<option name="${haustyp.typ}" value="${haustyp.typ}">${haustyp.typ}</option>
 					</c:forEach>
 				</select><br><br>
-				
-			<!--
-			In bautyp ist die Bautyp_Bean; bautyplist Arraylist aus Methode alleBautypen() gespeichert
-			value wird in DB gespeichert
-			-->
+
 				<label for="bautyp">Bautyp:</label><br> 
 				<select name="bautyp" id="typ">
 					<c:forEach items="${bautyplist}" var="bautyp">
@@ -98,8 +90,9 @@
 				<textarea rows="5" cols="50" maxlength="500" name="beschreibung" required></textarea><br><br>
 
 				<label for="bilder">Objektbilder:</label> <input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
-
-				<button type="submit" name="vformular_absenden" value="absenden">Absenden</button>
+				<c:forEach items="${benutzer}" var="benutzer">
+				<button type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
+				</c:forEach>
 				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/homepage.html'">
 			</p>
 		</form>

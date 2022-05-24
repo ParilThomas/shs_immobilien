@@ -25,12 +25,12 @@ public class ObjektData {
 	//dateiname hinzugefügt 
 	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr,
 			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
-			String fbeschreibung,Part fbilder,java.sql.Date fdatum) {
+			String fbeschreibung,Part fbilder,java.sql.Date fdatum, Integer fbesitzer) {
 		try {
 			Connection connection = dataSource.getConnection();
 			InputStream inputStream = fbilder.getInputStream();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, "
-					+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+					+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder, besitzer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 					
 			preparedStatement.setString(1, fhaustyp);
 			preparedStatement.setString(2, fbautyp);
@@ -43,6 +43,7 @@ public class ObjektData {
 			preparedStatement.setInt(9, fstartgebot);
 			preparedStatement.setString(10, fbeschreibung);
 			preparedStatement.setBinaryStream(11, inputStream); //setter geändert 
+			preparedStatement.setInt(12, fbesitzer);
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,7 +71,9 @@ public class ObjektData {
 						resultSet.getDate("datum"),
 						resultSet.getInt("startgebot"),
 						resultSet.getString("beschreibung"),
-						resultSet.getBytes("bilder")	
+						resultSet.getBytes("bilder"),
+						resultSet.getInt("besitzer"),
+						resultSet.getInt("hoechstbietender")
 						));	
 			}
 		}

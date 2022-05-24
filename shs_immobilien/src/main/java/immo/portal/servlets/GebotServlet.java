@@ -39,14 +39,16 @@ public class GebotServlet extends HttpServlet {
 		if (request.getParameter("gebot_absenden") != null) {
 			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
 			String id = request.getParameter("gebot_absenden");
+			Integer benutzerid = (Integer.valueOf(request.getParameter("benutzer")));
+			System.out.println(benutzerid);
 			if (gebot < 0) {
 				return;	
 			}
 			if(gebotData.istGebotZuKlein(gebot, id)) {
 				session.setAttribute("GebotZuNiedrig", true);
 			}
-			if(gebotData.istGebotOk(gebot, id)) {
-				gebotData.gebotAktualisieren(gebot, id);
+			if(gebotData.istGebotOk(gebot, id)) {		
+				gebotData.gebotAktualisieren(gebot, id, benutzerid);
 				session.setAttribute("GebotIstOk", true);
 			}
 		}

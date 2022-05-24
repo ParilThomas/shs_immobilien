@@ -29,13 +29,15 @@ public class ObjektBean implements Serializable {
 	private Integer startgebot;
 	private String beschreibung;
 	private byte[] bilder;
+	private Integer besitzer;
+	private Integer hoechstbietender;
 	
 	public ObjektBean() {
 		
 	}
 	
 	public ObjektBean(Long id, String haustyp, String bautyp, String titel, int baujahr, int wohnflaeche, int grundstuecksflaeche, String standort, Date datum,
-						int startgebot, String beschreibung, byte[] bilder) {
+						int startgebot, String beschreibung, byte[] bilder, Integer besitzer, Integer hoechstbietender) {
 		super();
 		this.id = id;
 		this.haustyp = haustyp;
@@ -49,9 +51,27 @@ public class ObjektBean implements Serializable {
 		this.startgebot = startgebot;
 		this.beschreibung = beschreibung;
 		this.bilder = bilder;
+		this.besitzer = besitzer;
+		this.hoechstbietender = hoechstbietender;
 	}
 
 	
+	public Integer getHoechstbietender() {
+		return hoechstbietender;
+	}
+
+	public void setHoechstbietender(Integer hoechstbietender) {
+		this.hoechstbietender = hoechstbietender;
+	}
+
+	public Integer getBesitzer() {
+		return besitzer;
+	}
+
+	public void setBesitzer(Integer besitzer) {
+		this.besitzer = besitzer;
+	}
+
 	public Long getId() {
 		return id;
 	}

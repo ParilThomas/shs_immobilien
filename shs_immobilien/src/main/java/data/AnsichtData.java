@@ -3,38 +3,34 @@ package data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import immo.portal.bean.BautypBean;
 import immo.portal.bean.ObjektBean;
 
-public class BietenData {
+public class AnsichtData {
 	
 private DataSource dataSource;
 	
 	
-	public BietenData(DataSource dataSource) {
+	public AnsichtData(DataSource dataSource) {
 		this.dataSource = dataSource;
-		
 	}
-
-
 	
-	public List<ObjektBean> getObjekt(String detailid){
-		List<ObjektBean> objektIdDaten = new ArrayList<ObjektBean>();
+	public List<ObjektBean> eigeneObjekte(Hier noch die besitzer id eigentlich von jsp auf servlet über button um die id zu bekommen
+			hier aber icht möglich, da wir bei Klick auf die Button im Drop down die Liste der eigenen Häuser oder höchstgebote direkt
+			anzeigen müssten weiß ich noch nicht wie das geht){
+		List<ObjektBean> eigeneobjekte = new ArrayList<ObjektBean>();
 		try {
 			
 			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id = ?");
-			prsmt.setString(1, detailid);
-			
+			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE besitzer LIKE ?");
+			prsmt.setString(1, haustyp);
 			ResultSet resultSet = prsmt.executeQuery();
 			while (resultSet.next()) {
-				objektIdDaten.add(new ObjektBean(
+				eigeneobjekte.add(new ObjektBean(
 						resultSet.getLong("id"),
 						resultSet.getString("haustyp"),
 						resultSet.getString("bautyp"),
@@ -53,28 +49,10 @@ private DataSource dataSource;
 			}
 		}
 		catch (Exception e){
-			return objektIdDaten;
+			return eigeneobjekte;
 		}
 		
-		return objektIdDaten;
+		return eigeneobjekte;
 	}
-	
-	
-	public void gebotAktualisieren (Integer gebot, String id) {
-		try {
-			
-			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id LIKE ?");
-			prsmt.setInt(1, gebot);
-			prsmt.setString(2, id);
-			prsmt.executeUpdate();
 
-		}
-		catch (Exception e){
-			return ;
-		}
-	}
-	
-	
-	
 }

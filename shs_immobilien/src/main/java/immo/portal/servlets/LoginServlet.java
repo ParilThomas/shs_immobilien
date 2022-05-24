@@ -1,10 +1,13 @@
 package immo.portal.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
 import data.LoginData;
+import immo.portal.bean.ObjektBean;
+import immo.portal.bean.RegistrierenBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -53,6 +56,9 @@ public class LoginServlet extends HttpServlet {
 				return;
 			}
 			if (loginData.istRegistriert(email,passwort)) {
+				loginData.holeBenutzer(email, passwort);
+				List<RegistrierenBean> benutzer = this.loginData.holeBenutzer(email, passwort);
+				session.setAttribute("benutzer", benutzer );
 				session.setAttribute("istRegistriert", true);
 				session.setAttribute("email", email);
 			} else {

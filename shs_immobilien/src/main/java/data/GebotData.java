@@ -16,7 +16,7 @@ private DataSource dataSource;
 		this.dataSource = dataSource;
 	}
 	
-	public void gebotAktualisieren (Integer gebot, String id) {
+	public void gebotAktualisieren (Integer gebot, String id, Integer benutzerid) {
 		try {
 			
 			Connection con = dataSource.getConnection();
@@ -24,6 +24,11 @@ private DataSource dataSource;
 			prsmt.setInt(1, gebot);
 			prsmt.setString(2, id);
 			prsmt.executeUpdate();
+			
+			PreparedStatement prsmt2 = con.prepareStatement("UPDATE objekte SET hoechstbietender = ? WHERE id LIKE ?");
+			prsmt2.setInt(1, benutzerid);
+			prsmt2.setString(2, id);
+			prsmt2.executeUpdate();
 
 		}
 		catch (Exception e){
