@@ -22,33 +22,49 @@ import jakarta.servlet.http.HttpSession;
 public class AnsichtServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
-	private DataSource dataSource;	
+	private DataSource dataSource;
 	private HttpSession session;
 	private AnsichtData ansichtData;
 
-       
-	
-	
-	private void kaufenSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-			
-    		this.ansichtData = new AnsichtData(dataSource);
 
-    		// Hier irgendwie aus dem Session objekt "benutzer" die ID ziehen dann in eigeneObjekte(id) übergeben
-    		List<ObjektBean> eigeneObjekte = ansichtData.eigeneObjekte(null)
-
-    				
-            response.sendRedirect("jsp/ansicht.jsp");
- 
-    }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		session = request.getSession();
 	}
 
+	
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
+		this.ansichtData = new AnsichtData(dataSource);
+		session = request.getSession();
+		
+		if (request.getParameter("ihrangebot") != null) {
+			Integer benutzerid = Integer.valueOf(request.getParameter("ihrangebot"));
+			if (benutzerid != null) {
+				List<ObjektBean> eigeneobjekte = ansichtData.eigeneAngebote(benutzerid);
+				session.setAttribute("eigeneobjekte", eigeneobjekte);
+				
+			}
+
+		}
+		
+
+		if (request.getParameter("ihrgebot") != null) {
+			Integer benutzerid = Integer.valueOf(request.getParameter("ihrgebot"));
+			if (benutzerid != null) {
+				List<ObjektBean> eigeneobjekte = ansichtData.eigeneGebote(benutzerid);
+				session.setAttribute("eigeneobjekte", eigeneobjekte);
+				
+			}
+
+		}
+		
+		
+		
+		
+		response.sendRedirect("jsp/ansicht.jsp");
 	}
-
+		
 }

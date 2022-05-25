@@ -89,7 +89,16 @@ a:active {
   color: #000000;
   border: 1px solid black;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 15px;
   width:95%;
+  cursor: pointer;
+}
+.ansichtbutton{
+  background: #0080ff;
+  color: #000000;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 15px;
+  width:80%;
   cursor: pointer;
 }

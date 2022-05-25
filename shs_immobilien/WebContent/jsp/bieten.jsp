@@ -4,6 +4,7 @@
 <%@page import="immo.portal.bean.ObjektBean"%>
 <%@page import="immo.portal.servlets.VerkaufServlet"%>
 <%@page import="immo.portal.servlets.BietenServlet"%>
+<%@page import="immo.portal.servlets.LogoutServlet"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 

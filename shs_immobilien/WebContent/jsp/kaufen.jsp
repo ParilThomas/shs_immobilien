@@ -3,9 +3,10 @@
 <%@page import="immo.portal.bean.HaustypBean"%>
 <%@page import="immo.portal.bean.ObjektBean"%>
 <%@page import="immo.portal.servlets.KaufenServlet"%>
+<%@page import="immo.portal.servlets.LogoutServlet"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html class="html_hintergrund">
+<html lang="de">
 
 <head>
 <meta charset="UTF-8">
@@ -58,7 +59,7 @@
 				<c:forEach var="haus" items="${objekte}">
 				<table class="objekttabelle">
 				<tr><td colspan="3">${haus.titel}</td></tr>
-				<tr><td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}"></img></td><td>Baujahr: </td><td>${haus.baujahr}</td></tr>
+				<tr><td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}" alt=""/></td><td>Baujahr: </td><td>${haus.baujahr}</td></tr>
 				<tr>			<td>Wohnfläche: </td><td>${haus.wohnflaeche} m²</td></tr>
 				<tr>			<td>Grundstück: </td><td>${haus.grundstuecksflaeche} m²</td></tr>
 				<tr>			<td>Standort: </td><td>${haus.standort}</td></tr>

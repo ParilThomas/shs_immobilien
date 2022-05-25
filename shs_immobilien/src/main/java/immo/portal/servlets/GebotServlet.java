@@ -40,7 +40,7 @@ public class GebotServlet extends HttpServlet {
 			Integer gebot = (Integer.valueOf(request.getParameter("gebot")));
 			String id = request.getParameter("gebot_absenden");
 			Integer benutzerid = (Integer.valueOf(request.getParameter("benutzer")));
-			System.out.println(benutzerid);
+			
 			if (gebot < 0) {
 				return;	
 			}

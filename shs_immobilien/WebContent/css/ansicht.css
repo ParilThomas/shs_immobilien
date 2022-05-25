@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+.willkommen {
+	width: 100%;
+	height: 350px;
+	background:url(../img/willkommen_img.jpg) 
+}
+
+.tabelle, th, tr, td{
+	width: 200px;
+	font: verdana;
+	vertical-align: top;
+	}
+
+.objekttabelle, th, tr, td{
+	width: 200px;
+	font: verdana;
+	text-align: left;
+	vertical-align: center;
+	}
+	
+img{
+	max-width: 300px;
+	max-height: 300px;
+	border-radius: 10px;
+}
+	
+
+
+
+
+
+
+
+

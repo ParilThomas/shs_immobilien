@@ -2,12 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="immo.portal.servlets.LoginServlet"%>
 <%@page import="immo.portal.servlets.LogoutServlet"%>
+<%@page import="immo.portal.servlets.AnsichtServlet"%>
 <%@page import="immo.portal.bean.RegistrierenBean"%>
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 <link rel="stylesheet" href="../css/login.css">

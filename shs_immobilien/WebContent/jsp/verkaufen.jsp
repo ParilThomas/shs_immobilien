@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="immo.portal.bean.HaustypBean"%>
+<%@page import="immo.portal.servlets.LogoutServlet"%>
 <%@page import="immo.portal.servlets.VerkaufServlet"%>
 <!DOCTYPE html>
-<html class="html_hintergrund">
+<html lang="de">
 
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <!-- Stylesheet Test TP-->
 <link rel="stylesheet" href="../css/verkaufen.css">
@@ -51,17 +51,17 @@
 		
 		<form action="../VerkaufServlet" method=post accept-charset="utf-8"	enctype="multipart/form-data">
 			<p>
-				<label for="typ">Haustyp</label><br>
-				<select name="haustyp" id="typ">
+				<label for="htyp">Haustyp</label><br>
+				<select name="haustyp" id="htyp">
 					<c:forEach items="${haustyplist}" var="haustyp">
-						<option name="${haustyp.typ}" value="${haustyp.typ}">${haustyp.typ}</option>
+						<option  id="${haustyp.typ}" value="${haustyp.typ}">${haustyp.typ}</option>
 					</c:forEach>
 				</select><br><br>
 
-				<label for="bautyp">Bautyp:</label><br> 
-				<select name="bautyp" id="typ">
+				<label for="btyp">Bautyp:</label><br> 
+				<select name="bautyp" id="btyp">
 					<c:forEach items="${bautyplist}" var="bautyp">
-						<option name="${bautyp.typ}" value="${bautyp.typ}">${bautyp.typ}</option>
+						<option  id="${bautyp.typ}" value="${bautyp.typ}">${bautyp.typ}</option>
 					</c:forEach>
 				</select><br><br>
 				
@@ -81,13 +81,13 @@
 				<input type="text" id="standort" name="standort" placeholder="Ort"	required /><br><br>
 
 				<label for="datum">Ende der Auktion:</label><br> 
-				<input type="date" id="datum" name="datum" placeholder="01.01.2023"	required /><br><br>
+				<input type="date" id="datum" name="datum" 	required /><br><br>
 
 				<label for="startgebot">Startgebot in Euro:</label><br>
 				<input type="number" id="startgebot" name="startgebot" placeholder="500000" required /><br><br>
 
 				<label for="beschreibung">Objektbeschreibung</label><br>
-				<textarea rows="5" cols="50" maxlength="500" name="beschreibung" required></textarea><br><br>
+				<textarea rows="5" cols="50" maxlength="500" id="beschreibung" name="beschreibung" required></textarea><br><br>
 
 				<label for="bilder">Objektbilder:</label> <input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
 				<c:forEach items="${benutzer}" var="benutzer">

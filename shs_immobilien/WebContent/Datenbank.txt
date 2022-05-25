@@ -15,8 +15,8 @@ create table objekte
     hoechstbietender int(10)
     );
     
-    ALTER TABLE objkete ADD besitzer int(10) AFTER bilder;
-    ALTER TABLE objkete ADD hoechstbietender int(10) AFTER besitzer;
+    ALTER TABLE objekte ADD besitzer int(10) AFTER bilder;
+    ALTER TABLE objekte ADD hoechstbietender int(10) AFTER besitzer;
     
     create table benutzer
     (loginname varchar(80) primary key,
