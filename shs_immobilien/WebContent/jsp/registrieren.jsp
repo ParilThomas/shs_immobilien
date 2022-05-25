@@ -18,75 +18,55 @@
 <header>
 		<p class="willkommen"></p>
 		
-<!-- 		<div class="center"> -->
-<!-- 			<h1>Registrierung</h1> -->
-<!-- 		</div> -->
 	</header>
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
 	<main>
-	
-		<form action="../RegistrierenServlet" method="post"
-			accept-charset="utf-8">
-			<div class="registrieren">
-				<p>
-					<label for="vorname">Vorname:</label><br> <input type="text"
-						id="vorname" name="vorname" placeholder="Ihr Vorname" required />
-				</p>
-
-				<p>
-					<label for="nachname">Nachname:</label><br> <input type="text"
-						id="nachname" name="nachname" placeholder="Ihr Nachname" required />
-				</p>
-
-
-				<p>
-					<label for="anschrift">Anschrift</label><br> <input
-						type="text" id="anschrift" name="anschrift"
-						placeholder="Ihre Anschrift" required />
-				</p>
-
-				<p>
-					<label for="plz">Postleitzahl</label><br> <input
-						type="number" id="plz" name="plz"
-						placeholder="Ihre Postleitzahl" required />
-				</p>
-
-				<p>
-					<label for="wohnort">Wohnort</label><br> <input
-						type="text" id="wohnort" name="wohnort"
-						placeholder="Ihr Wohnort" required />
-				</p>
+		
+		<div class="registrierenfenster">
+			<div class="center">
+			  <div class="title">Registrierung</div>
+		        </div>
+		        
+		        <div class="textfeld">
+			<form action="../RegistrierenServlet" method="post">
+			
+					<label for="vorname">Vorname:</label><br>  
+					<input type="text"id="vorname" name="vorname" placeholder="Ihr Vorname" required /><br><br>  
 				
-
-				<p>
-					<label for="telefon">Telefon</label><br> <input type="number"
-						id="telefon" name="telefon" placeholder="Ihre Telefonnummer"
-						required />
-				</p>
-
-				<p>
-					<label for="mail">E-Mail</label><br> <input type="email"
-						id="mail" name="email" placeholder="Ihre E-Mail" required />
-				</p>
-				<hr>
-				<p>
-					<label for="passwort">Passwort</label><br> <input type="password"
-						id="passwort" name="passwort1" placeholder="Ihr Passwort" required />
-				</p>
-					<p>
-					<label for="passwort">Passwort wiederholen</label><br> <input type="password"
-						id="passwort" name="passwort2" placeholder="Ihr Passwort wiederholen" required />
-				</p>
-				<br>
-				<hr>
-				<p>
-				<button type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
-				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/hauptseite.html'">
-				</p>
+					<label for="nachname">Nachname:</label><br>  
+					<input type="text"id="nachname" name="nachname" placeholder="Ihr Nachname" required /><br><br>  
 				
+					<label for="anschrift">Anschrift:</label><br>  
+					<input type="text" id="anschrift" name="anschrift" placeholder="Ihre Anschrift" required /><br><br>  
 				
-		</div>	</form>	
+					<label for="plz">Postleitzahl:</label><br>
+					<input type="number" id="plz" name="plz" placeholder="Ihre Postleitzahl" required /><br><br>  
+				
+					<label for="wohnort">Wohnort:</label><br>  
+					<input type="text" id="wohnort" name="wohnort" placeholder="Ihr Wohnort" required /><br><br>  
+				
+					<label for="telefon">Telefon:</label><br> 
+					<input type="number" id="telefon" name="telefon" placeholder="Ihre Telefonnummer" required /><br><br>  
+				
+					<label for="mail">E-Mail:</label><br> 
+					<input type="email" id="mail" name="email" placeholder="Ihre E-Mail" required /><br><br>  
+				
+					<label for="passwort">Passwort:</label><br>
+					<input type="password" id="passwort" name="passwort1" placeholder="Ihr Passwort" required /><br><br>  
+				
+					
+					<label for="passwort">Passwort wiederholen:</label><br>  
+					<input type="password" id="passwort" name="passwort2" placeholder="Ihr Passwort wiederholen" required /><br><br>  
+				
+					
+				<button class="registrieren" type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
+				<button class="abbrechen" type="button" name="abbrechen" value="abbrechen" onclick="location.href = '../html/hauptseite.html'">Abbrechen</button>
+				</form>
+				
+				</div>
+				
+		</div>
 	</main>
 </body>
 </html>

@@ -41,16 +41,17 @@
 	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
 	</div>
 	
-	<div class="center">
-			<h1>Anzeige Aufgeben</h1>
-		</div>
+	
 		
 
-	<div class="verkaufsformular">
-		<br>
+	<div class="verkauffenster">
 		
-		<form action="../VerkaufServlet" method=post accept-charset="utf-8"	enctype="multipart/form-data">
-			<p>
+		<div class="center">
+			  <div class="title">Anzeige Aufgeben</div>
+		</div>
+		
+		<form action="../VerkaufServlet" class="textfeld" method=post accept-charset="utf-8"	enctype="multipart/form-data">
+			<div class="dropbox">
 				<label for="htyp">Haustyp</label><br>
 				<select name="haustyp" id="htyp">
 					<c:forEach items="${haustyplist}" var="haustyp">
@@ -64,7 +65,7 @@
 						<option  id="${bautyp.typ}" value="${bautyp.typ}">${bautyp.typ}</option>
 					</c:forEach>
 				</select><br><br>
-				
+				</div>
 				<label for="titel">Titel:</label><br>
 				<input type="text" id="titel" name="titel" placeholder="Objekttitel" required /><br><br>
 			
@@ -85,19 +86,22 @@
 
 				<label for="startgebot">Startgebot in Euro:</label><br>
 				<input type="number" id="startgebot" name="startgebot" placeholder="500000" required /><br><br>
-
-				<label for="beschreibung">Objektbeschreibung</label><br>
+				
+				
+				<label for="beschreibung">Objektbeschreibung:</label><br>
 				<textarea rows="5" cols="50" maxlength="500" id="beschreibung" name="beschreibung" required></textarea><br><br>
-
-				<label for="bilder">Objektbilder:</label> <input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
+				
+				<label for="bilder">Objektbilder:</label><br>
+				<input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
+				
 				<c:forEach items="${benutzer}" var="benutzer">
-				<button type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
+				<button class="verkaufenbutton" type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
 				</c:forEach>
-				<input class="abbrechen" type="button" value="Abbrechen" onclick="location.href = '../html/homepage.html'">
-			</p>
-		</form>
-
+				<button class="abbrechen" type="submit" value="Abbrechen" onclick="location.href = '../html/hauptseite.html'">Abbrechen</button>
+			
+			</form>
 		<hr class="trennung">
+		<div class="textfeld">
 		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
 			enctype="multipart/form-data">
 			<p>
@@ -117,6 +121,8 @@
 				<button type="submit" name="btyp_edit_absenden" value="absenden">Absenden</button>
 			</p>
 		</form>
+		
+		</div>
 	</div>
 </c:if>
 <c:if test="${email == null}">
@@ -124,3 +130,4 @@ Bitte loggen Sie sich ein um ein Gebot abzugeben!
 <input class="abbrechen" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
 </c:if>
 </body>
+</html>
