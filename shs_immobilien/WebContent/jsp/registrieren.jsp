@@ -61,7 +61,7 @@
 				
 					
 				<button class="registrieren" type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
-				<button class="abbrechen" type="button" name="abbrechen" value="abbrechen" onclick="location.href = '../html/hauptseite.html'">Abbrechen</button>
+				<button class="abbrechen" type="button" name="abbrechen" value="abbrechen" onclick="location.href = '../html/startseite.html'">Abbrechen</button>
 				</form>
 				
 				</div>

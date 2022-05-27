@@ -16,7 +16,7 @@
 						<br><button class="ansichtbutton" type="submit" name="ihrangebot" value="${benutzer.id}">Angebote</button>
 						<br>
 						<br>
-    					<button class="ansichtbutton" type="submit" name="ihrgebot" value="${benutzer.id}">Gebote</button>
+    					<button class="ansichtbutton" type="submit" name="ihrgebot" value="${benutzer.id}">Gebote</button><br><br>
 						</c:forEach>
 						</form>
 						<form action="../LogoutServlet" method="post">

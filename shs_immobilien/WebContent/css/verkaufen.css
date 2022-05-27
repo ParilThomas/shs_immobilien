@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 .verkauffenster{
-  width: 400px;
+  width: 500px;
   background: #ffff80;
   border: 1px solid black;
   padding: 30px;
@@ -84,4 +84,12 @@ textarea {
   width:100px;
 }
 
+.anlegenbutton{
+	background: #ff8000;
+  	color: #000000;
+  	border: 1px solid black;
+  	border-radius: 7px;
+  	font-size: 15px;
+  	width:100px;
+}
 

@@ -17,7 +17,8 @@
 <title>sps-immobilien.de/Login</title>
 </head>
 <body>
-    <p class="willkommen"></p>
+    <p class="willkommen">
+    </p>
     	<%@ include file="../jspf/allgbutton.jspf"%>
     	<br>
     
