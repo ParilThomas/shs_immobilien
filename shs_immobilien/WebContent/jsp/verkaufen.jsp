@@ -27,132 +27,145 @@
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
 <c:if test="${email != null}">	
-	<div class="center">
+	
 	<c:if test="${bautypExistiert == true}"><h1 class="fehlerbutton">Bautyp existiert bereits!</h1></c:if>
-	</div>
-	<div class="center">
+	
+	
 	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
-	</div>
+	
 	
 	
 		
 
-	<div class="verkauffenster">
-		
-		<div class="center">
-			  <div class="title">Anzeige Aufgeben</div>
-		</div>
-		
-		<form action="../VerkaufServlet" class="textfeld" method=post accept-charset="utf-8"	enctype="multipart/form-data">
+	<div class="hintergrund">
+		<div class="textfeld">
+		<form class="ansicht" action="../VerkaufServlet"  method=post accept-charset="utf-8"	enctype="multipart/form-data">
 		<table>	
 		<tr>
-		<td><div class="dropbox">
-			<label for="htyp">Haustyp</label><br>
+		<td>
+			<label for="htyp">Haustyp:</label><br>
 				<select name="haustyp" id="htyp">
 					<c:forEach items="${haustyplist}" var="haustyp">
 						<option  id="${haustyp.typ}" value="${haustyp.typ}">${haustyp.typ}</option>
 					</c:forEach>
 				</select>
-			</div>
 		</td>
-		<td><div class="dropbox">
+		<td>
 			<label for="btyp">Bautyp:</label><br> 
 				<select name="bautyp" id="btyp">
 					<c:forEach items="${bautyplist}" var="bautyp">
 						<option  id="${bautyp.typ}" value="${bautyp.typ}">${bautyp.typ}</option>
 					</c:forEach>
 				</select>
-			</div>
 		</td>
 		</tr>
 		<tr>
 		<td colspan="2">
 			<label for="titel">Titel:</label><br>
-			<input type="text" id="titel" name="titel" placeholder="Objekttitel" required />
+			<input type="text" id="titel" name="titel" placeholder="Objekttitel" required /><br><br>  
 		</td>
 		</tr>
 		<tr>
 		<td>
 			<label for="baujahr">Baujahr:</label><br>
-			<input type="number" id="baujahr" name="baujahr" placeholder="Baujahr" required />
+			<input type="number" id="baujahr" name="baujahr" placeholder="Baujahr" required /><br><br>  
 		</td>
 		<td>
 			<label for="standort">Objektstandort:</label><br> 
-			<input type="text" id="standort" name="standort" placeholder="Ort"	required />
+			<input type="text" id="standort" name="standort" placeholder="Ort"	required /><br><br>  
 		</td>
 		</tr>
 		<tr>
 		<td>
-			<label for="wohnflaeche">Wohnfläche:</label><br>
-			<input type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125" required /> m²
+			<label for="wohnflaeche">Wohnfläche in m²:</label><br>
+			<input type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125" required /><br><br>   
 		</td>
 		<td>
-			<label for="grundstuecksflaeche">Grundstück:</label><br>
-			<input type="number" id="grundstuecksflaeche" name="grundstuecksflaeche" placeholder="250" required /> m²
+			<label for="grundstuecksflaeche">Grundstück in m²:</label><br>
+			<input type="number" id="grundstuecksflaeche" name="grundstuecksflaeche" placeholder="250" required /><br><br>  
 		</td>
 		</tr>
 		<tr>
 		<td>
 			<label for="datum">Ende der Auktion:</label><br> 
-			<input type="date" id="datum" name="datum" 	required />
+			<input type="date" id="datum" name="datum" 	required /><br><br>  
 		</td>
 		<td>
-			<label for="startgebot">Startgebot:</label><br>
-			<input type="number" id="startgebot" name="startgebot" placeholder="500000" required /> €
+			<label for="startgebot">Startgebot in €:</label><br>
+			<input type="number" id="startgebot" name="startgebot" placeholder="500000" required /><br><br>  
 		</td>
 		</tr>
 		
-		</table>
-		
-				<label for="beschreibung">Objektbeschreibung:</label><br>
+		<tr>
+		<td colspan="2">
+		<label for="beschreibung">Objektbeschreibung:</label><br>
 				<textarea rows="5" cols="50" maxlength="500" id="beschreibung" name="beschreibung" required></textarea><br><br>
-				
-				<label for="bilder">Objektbilder:</label><br>
+		
+		</td>
+		</tr>
+		
+		<tr>
+		<td colspan="2">
+		<label for="bilder">Objektbilder:</label><br>
 				<input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
-				
-				<c:forEach items="${benutzer}" var="benutzer">
-				<button class="verkaufenbutton" type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
-				</c:forEach>
-				<button class="abbrechen" type="submit" value="Abbrechen" onclick="location.href = '../html/hauptseite.html'">Abbrechen</button>
-			
-			</form>
-		<hr class="trennung">
-		<table>
+		</td>
+		</tr>
+		
 		<tr>
 		<td>
-		<div class="textfeld">
-		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
-			enctype="multipart/form-data">
-			<p>
+		<c:forEach items="${benutzer}" var="benutzer">
+				<button class="abschicken" type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
+				</c:forEach>
+		</td>
+		<td>
+		<button class="abbrechen" type="submit" value="Abbrechen" onclick="location.href = '../html/hauptseite.html'">Abbrechen</button>
+		</td>
+		</tr>
+		
+		</table>	
+		</form>
+		<form class="ansicht" action="../VerkaufServlet" method=post>
+		<table>
+		<tr>
+		
+		<td>
+		
+		
 				<label for="htyp_edit">Ihr Haustyp ist nicht dabei?</label><br>
 				<input type="text" id="htyp_edit" name="htyp_edit"
 					placeholder="Haustyp" /><br><br>
 				<button class="anlegenbutton" type="submit" name="htyp_edit_absenden" value="absenden">Absenden</button>
-			</p>
-		</form>
-		</div>
+			
+		
+		
 		</td>
 		<td>
-		<div class="textfeld">
-		<form action="../VerkaufServlet" method=post accept-charset="utf-8"
-			enctype="multipart/form-data">
-			<p>
+			
 				<label for="btyp_edit">Ihr Bautyp ist nicht dabei?</label><br>
 				<input type="text" id="btyp_edit" name="btyp_edit"
 					placeholder="Bautyp" /><br><br>
 				<button class="anlegenbutton" type="submit" name="btyp_edit_absenden" value="absenden">Absenden</button>
-			</p>
-		</form>	
-		</div>
-		</td>
-		</tr>
+			
+		
+		
+	</td>
+	</tr>
 		</table>
-
+	</form>
+	</div>
 	</div>
 </c:if>
 <c:if test="${email == null}">
-Bitte loggen Sie sich ein um ein Gebot abzugeben!
-<input class="abbrechen" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
+<table class="meldung">
+<tr>
+<td>Bitte loggen Sie sich ein um ein Gebot abzugeben!</td>
+</tr>
+<tr>
+<td>
+<input class="login" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
+</td>
+</tr>
+</table>
 </c:if>
 </body>
 </html>

@@ -7,7 +7,7 @@
   padding: 10;
   cursor:pointer;
   font-size: 100%;
-  font-family: verdana;
+  font-family: 'Poppins',sans-serif;
 
 }
 
@@ -40,13 +40,13 @@ a:active {
 }
 
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #ff0000;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius:8px;
 
 }
 
@@ -59,46 +59,36 @@ a:active {
   display: none;
   position: absolute;
   background-color: #c0c0c0;
-  min-width: 200px;
+  width: 100px;
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 7px;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 6px 6px;
-  text-decoration: none;
-  display: block;
-  border-radius: 7px;
-  background-color: #c0c0c0;
-}
-
-.dropdown-content a:hover{background-color: #c0c0c0}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #ff8000;
+  background-color:#222831;
 }
 
 .logoutbutton{
-  background: #ff8080;
-  color: #000000;
+  background: #ff0000;
+  color: #ffffff;
   border: 1px solid black;
   border-radius: 5px;
   font-size: 15px;
-  width:95%;
+  width:90%;
   cursor: pointer;
 }
 .ansichtbutton{
-  background: #0080ff;
-  color: #000000;
+  background:#222831;
+  color: #ffffff;
   border: 1px solid black;
   border-radius: 5px;
   font-size: 15px;
-  width:80%;
+  width:90%;
   cursor: pointer;
 }

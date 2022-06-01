@@ -21,52 +21,103 @@
 	</header>
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
+	
 	<main>
-		
-		<div class="registrierenfenster">
-			<div class="center">
-			  <div class="title">Registrierung</div>
-		        </div>
-		        
-		        <div class="textfeld">
-			<form action="../RegistrierenServlet" method="post">
+	<div class="hintergrund">
 			
-					<label for="vorname">Vorname:</label><br>  
-					<input type="text"id="vorname" name="vorname" placeholder="Ihr Vorname" required /><br><br>  
-				
-					<label for="nachname">Nachname:</label><br>  
-					<input type="text"id="nachname" name="nachname" placeholder="Ihr Nachname" required /><br><br>  
-				
-					<label for="anschrift">Anschrift:</label><br>  
-					<input type="text" id="anschrift" name="anschrift" placeholder="Ihre Anschrift" required /><br><br>  
-				
-					<label for="plz">Postleitzahl:</label><br>
-					<input type="number" id="plz" name="plz" placeholder="Ihre Postleitzahl" required /><br><br>  
-				
+		        
+		     <div class="textfeld">
+			<form class="ansicht" action="../RegistrierenServlet" method="post">
+			<table>
+			<tr>
+			<td>
+			<label for="vorname">Vorname:</label><br>  
+					<input type="text"id="vorname" name="vorname" placeholder="Vorname" required /><br><br>  
+			</td>
+			<td>
+			<label for="nachname">Nachname:</label><br>  
+					<input type="text"id="nachname" name="nachname" placeholder="Nachname" required /><br><br> 
+			</td>
+			</tr>
+			<tr>
+		    <td>
+			
+			<label for="anschrift">Anschrift:</label><br>  
+					<input type="text" id="anschrift" name="anschrift" placeholder="Anschrift" required /><br><br>  
+			
+			</td>
+			<td> 
+			<label for="plz">Postleitzahl:</label><br>
+					<input type="number" id="plz" name="plz" placeholder="Postleitzahl" required /><br><br>  
+			</td>
+			
+			
+			</tr>
+			<tr>
+			<td>
+			
 					<label for="wohnort">Wohnort:</label><br>  
-					<input type="text" id="wohnort" name="wohnort" placeholder="Ihr Wohnort" required /><br><br>  
+					<input type="text" id="wohnort" name="wohnort" placeholder="Wohnort" required /><br><br>  
+			</td>
+			<td>
+			<label for="telefon">Telefon:</label><br> 
+					<input type="number" id="telefon" name="telefon" placeholder="Telefonnummer" required /><br><br>  
 				
-					<label for="telefon">Telefon:</label><br> 
-					<input type="number" id="telefon" name="telefon" placeholder="Ihre Telefonnummer" required /><br><br>  
+			
+			</td>
+			
+			</tr>
+			<tr>
+			<td colspan="2">
+			<label for="mail">E-Mail:</label><br> 
+					<input type="email" id="mail" name="email" placeholder="E-Mail" required /><br><br>  
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2">
+			<label for="passwort">Passwort:</label><br>
+					<input type="password" id="passwort" name="passwort1" placeholder="Passwort" required /><br><br>  
 				
-					<label for="mail">E-Mail:</label><br> 
-					<input type="email" id="mail" name="email" placeholder="Ihre E-Mail" required /><br><br>  
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2">
+			<label for="passwort">Passwort wiederholen:</label><br>  
+					<input type="password" id="passwort" name="passwort2" placeholder="Passwort wiederholen" required /><br><br> 
+			</td>
+			</tr>
+			
+			<tr>
+			<td>
+			<button class="registrieren" type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
+			
+			</td>
+			<td>
+			<button class="abbrechen" type="button" name="abbrechen" value="abbrechen" onclick="location.href = '../html/startseite.html'">Abbrechen</button>
+			</td>
+			</tr>	
 				
-					<label for="passwort">Passwort:</label><br>
-					<input type="password" id="passwort" name="passwort1" placeholder="Ihr Passwort" required /><br><br>  
 				
-					
-					<label for="passwort">Passwort wiederholen:</label><br>  
-					<input type="password" id="passwort" name="passwort2" placeholder="Ihr Passwort wiederholen" required /><br><br>  
+				<!-- 	Versuch wenn Passwörter != eine AlertBox zu werfen !!!!!!!!!!!!!!!!!!!  Funktioniert du beim Klick eines Buttons der nicht sumit ist  -->
+<%-- 					<c:if test="${passwortCheck == true}"> --%>
+<!-- 					<script> -->
+<!-- 					document.writln("Passwort falsch!!!"); -->
+<!-- 					</script> -->
+<%-- 					</c:if> --%>
 				
-					
-				<button class="registrieren" type="submit" name="rformular_absenden" value="absenden">Registrieren</button>
-				<button class="abbrechen" type="button" name="abbrechen" value="abbrechen" onclick="location.href = '../html/startseite.html'">Abbrechen</button>
+				
+				
+				
+				
+				
+				
+				</table>
 				</form>
 				
 				</div>
 				
 		</div>
+		
 	</main>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../css/kaufen.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
-<title>Insert title here</title>
+<title>sps-immobilien.de/Übersicht</title>
 </head>
 <body>
 	<header>
@@ -27,13 +27,14 @@
 	<td>
 				<c:forEach var="haus" items="${eigeneobjekte}">
 				<table class="objekttabelle">
-				<tr><td colspan="3">${haus.titel}</td></tr>
+				<tr><td class="titel" colspan="3">${haus.titel}</td></tr>
 				<tr><td rowspan="6"><img src="../kaufen_bild_servlet?id=${haus.id}" alt="" /></td><td>Baujahr: </td><td>${haus.baujahr}</td></tr>
 				<tr>			<td>Wohnfläche: </td><td>${haus.wohnflaeche} m²</td></tr>
 				<tr>			<td>Grundstück: </td><td>${haus.grundstuecksflaeche} m²</td></tr>
 				<tr>			<td>Standort: </td><td>${haus.standort}</td></tr>
 				<tr>			<td>Angebotsende: </td><td>${haus.datum}</td></tr>
 				<tr>			<td>Aktuelles Gebot: </td><td>${haus.startgebot} €</td></tr>
+				<tr>            <td colspan="3"><hr></td></tr>
 				</table>
 				<br>				
 				</c:forEach>

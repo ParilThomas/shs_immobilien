@@ -24,19 +24,23 @@
 	margin: auto;
 }
 
-.tabelle, th, tr, td{
+table, th, tr, td{
 	width: 600px;
-	font: verdana;
+	font-family: 'Poppins',sans-serif;
 	vertical-align: top;
 	}
 
 .objekttabelle, th, tr, td{
 	width: 600px;
-	font: verdana;
+	font-family: 'Poppins',sans-serif;
 	text-align: left;
 	vertical-align: center;
 	}
-
+	
+.titel{
+	color:black;
+	font-weight: bold;
+}	
 	
 .detailbutton{
 	text-align:center;
@@ -82,23 +86,10 @@ img{
 
 .bietentabelle{
 	width: 200px;
-	font: verdana;
+	font-family: 'Poppins',sans-serif;
 	}
-
-.gebot{
-	font-size: 150%;
-	font-family: verdana;
-	color: blue;
-	background-color: lightgrey;
-	border: 1px solid black;
-	width:230px;
-	height: 50px;
-	text-align:center;
-	display: table-cell;
-	vertical-align: middle;
-	max-width: 230px;
-	margin: auto;
-	border-radius: 10px;
+.trennung{
+	width:100px;
 }
 
 .gebotfehlermeldung{
@@ -107,6 +98,6 @@ img{
 }
 
 .gebotakzeptiert{
-	font: verdana;
+	font-family: 'Poppins',sans-serif;
 	color: green;
 }

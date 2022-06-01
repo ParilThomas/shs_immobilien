@@ -10,8 +10,8 @@
 		<c:if test="${email != null}">
 			<div class="dropdown">
   				<button class="dropbtn">Profil</button>
-  					<div class="dropdown-content">
-  					<form action="../AnsichtServlet" method="post">
+  				<div class="dropdown-content">
+  					<form  action="../AnsichtServlet" method="post">
     					<c:forEach var="benutzer" items="${benutzer}">    					
 						<br><button class="ansichtbutton" type="submit" name="ihrangebot" value="${benutzer.id}">Angebote</button>
 						<br>
@@ -23,7 +23,6 @@
 						<button class="logoutbutton" type="submit" name="logout" value="logout">Logout</button>	
 						</form>
   					</div>
-
 			</div>			
 		</c:if>
 		</div>

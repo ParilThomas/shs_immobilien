@@ -5,8 +5,9 @@
 
 ->Warum wirft er einen Fehler bei externen Browser fehler beim abschicken von Objekten 
 
+5. Bei Überprüfung des PW in der Registrieren jsp evtl mit Java Script arbeiten und Ausgabe "Passwort falsch" erzeugen
 
-
+7. Wenn Überschrift Gebot akzeptiert/ oder nicht akzeptiert ausgegeben wird  -> nicht dynamisch ist immer da 
 
 6. Cookies !!!!!!!
 

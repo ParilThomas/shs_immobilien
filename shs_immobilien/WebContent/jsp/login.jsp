@@ -23,10 +23,9 @@
     	<br>
     
 
-<div class="loginfenster">
-    <div class="title">Login</div>
+<div class="hintergrund">
     
-    <form action="../LoginServlet" method="post" accept-charset="utf-8">
+    <form class="ansicht" action="../LoginServlet" method="post" accept-charset="utf-8">
     
       <div class="textfeld">
         <input type="email" id="mail" name="email" placeholder="Ihre Email" required>

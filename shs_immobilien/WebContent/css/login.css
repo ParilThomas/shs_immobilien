@@ -14,28 +14,35 @@
 /*   font-family: 'Poppins',sans-serif; */
 /* } */
 
-.loginfenster{
-  width: 400px;
-  background: #ffff80;
-  border: 1px solid black;
-  padding: 30px;
-  border-radius: 5px;
-  margin: auto;
-  box-sizing: border-box;
+.hintergrund{
+  background:#ffffff;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
   font-family: 'Poppins',sans-serif;
 }
-.title{
-  text-align: center;
-  font-size: 30px;
-  font-weight: 300px;
-}
+
 .icon{
   justify-content: center;
+  
 }
-form {
+.ansicht {
   margin-top: 25px;
+  width: 400px;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: #222831;
+  box-shadow: 4px 4px 1px rgba(0,0,0,0.404);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
-form .textfeld{
+.textfeld{
   height: 50px;
   width: 92%;
   position: relative;
@@ -61,7 +68,11 @@ form .textfeld{
   color: grey;
 }
 
-form .registrieren{
+.registrieren{
+	color: white;
+}
+
+.ansicht .registrieren{
   text-align: left;
   margin-top: 25px;
 }
@@ -74,12 +85,12 @@ form .registrieren{
 }
 
 .loginbutton{
-  background: #96b892;
+  background: #c0c0c0;
   color: #000000;
   border: 1px solid black;
   border-radius: 7px;
-  font-size: 20px;
-  width:30%;
+  font-size: 17px;
+  width:20%;
 }
 
 

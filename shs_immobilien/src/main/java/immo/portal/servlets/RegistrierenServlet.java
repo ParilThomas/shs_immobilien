@@ -78,6 +78,7 @@ public class RegistrierenServlet extends HttpServlet {
 			Integer rtelefon = (Integer.valueOf(request.getParameter("telefon")));
 			String remail = request.getParameter("email");
 			String rpasswort1 = request.getParameter("passwort1");
+			String rpasswort2 = request.getParameter("passwort2");
 			
 			//Check ob Benutzer bereits registriert
 			
@@ -91,12 +92,18 @@ public class RegistrierenServlet extends HttpServlet {
 			if (rvorname.isEmpty() || rnachname.isEmpty() || ranschrift.isEmpty() || rplz <0 || rwohnort.isEmpty()
 					|| rtelefon < 0 || remail.isEmpty() || rpasswort1.isEmpty())
 				return;
-
-			registrierenData.registrierenFormularabschicken(rvorname, rnachname, ranschrift, rplz, rwohnort, rtelefon, remail, rpasswort1);
+			
+			if(rpasswort1.equals(rpasswort2)) {
+				session.setAttribute("passwortCheck", false);				
+				registrierenData.registrierenFormularabschicken(rvorname, rnachname, ranschrift, rplz, rwohnort, rtelefon, remail, rpasswort1);
+			} if(!rpasswort1.equals(rpasswort2)){
+				session.setAttribute("passwortCheck", true);
+			}
+			
 		}
 		//Wieder eine HTML Seite damit Seite wieder aktualisert wird -> Es wird geprüft ob Benutzer registriert ist 
 		
-		response.sendRedirect("jsp/registrieren.jsp");		
+		response.sendRedirect("RegistrierenServlet");		
 		
 	}
 

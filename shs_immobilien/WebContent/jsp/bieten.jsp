@@ -33,7 +33,7 @@
 	<td>
 <form action="../GebotServlet" method=post>
 				<c:forEach var="bieten" items="${objekt}">
-				<p>${bieten.titel}</p>
+				<p class="titel">${bieten.titel}</p>
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img>
 				<table>
 					<tr>
@@ -64,12 +64,23 @@
 					<td>Angebotsende</td>
 					<td>${bieten.datum}</td>
 					</tr>
+					<tr>
+			        <td>Beschreibung</td>
+			        <td class="beschreibung">${bieten.beschreibung}</td>
+					</tr>
+					<tr>
+					<td colspan="2" class="trennung"><hr></td>
+					</tr>
+					<tr>
+					<td>Aktuelles Gebot</td>
+					<td>${bieten.startgebot}€</td>
+					</tr>
+					<tr>
+					<td colspan="2" class="trennung"><hr></td>
+					</tr>
 			</table>
-				<p>Beschreibung</p>
-				<p class="beschreibung">${bieten.beschreibung}</p>
-				<br>
+
 				
-				<p class="gebot">${bieten.startgebot}€</p>
 				
 				<c:if test="${email != null}">
 				<c:forEach items="${benutzer}" var="benutzer">

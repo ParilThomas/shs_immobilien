@@ -32,7 +32,9 @@
 	<c:if test="${GebotZuNiedrig == true}"><h1 class="gebotfehlermeldung">Ihr Gebot konnte nicht akzeptiert werden, da es unter dem aktuellen Höchstpreis liegt!</h1></c:if>
 	</div>
 	<div class="center">
-	<c:if test="${GebotIstOk == true}"><h1 class="gebotakzeptiert">Herzlichen Glückwunsch Ihr Gebot wurde akzeptiert!</h1></c:if>
+	<c:if test="${GebotIstOk == true}">
+	<h1 class="gebotakzeptiert">Ihr Gebot wurde Akzeptiert!!</h1>
+	</c:if>
 	</div>
 	
 
@@ -58,7 +60,7 @@
 		<form action="../BietenServlet" method=post>
 				<c:forEach var="haus" items="${objekte}">
 				<table class="objekttabelle">
-				<tr><td colspan="3">${haus.titel}</td></tr>
+				<tr><td class="titel" colspan="3">${haus.titel}</td></tr>
 				<tr><td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}" alt=""/></td><td>Baujahr: </td><td>${haus.baujahr}</td></tr>
 				<tr>			<td>Wohnfläche: </td><td>${haus.wohnflaeche} m²</td></tr>
 				<tr>			<td>Grundstück: </td><td>${haus.grundstuecksflaeche} m²</td></tr>
@@ -66,6 +68,7 @@
 				<tr>			<td>Angebotsende: </td><td>${haus.datum}</td></tr>
 				<tr>			<td>Aktuelles Gebot: </td><td>${haus.startgebot} €</td></tr>
 				<tr>			<td colspan="2" class="detailbutton"><Button type="submit" name="detailid" value="${haus.id}">Details ansehen</Button></td></tr>
+				<tr>             <td><hr></td>
 				</table>
 				<br>				
 				</c:forEach>
