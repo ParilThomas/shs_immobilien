@@ -42,7 +42,8 @@ public class KaufenServlet extends HttpServlet {
     		session.setAttribute("haustypSelektiert", false);  		
 
     		
-
+//    		session.setAttribute("GebotZuNiedrig", false);
+//    		session.setAttribute("GebotIstOk", false);
     			
             response.sendRedirect("jsp/kaufen.jsp");
  

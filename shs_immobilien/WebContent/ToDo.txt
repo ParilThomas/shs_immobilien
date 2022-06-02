@@ -1,17 +1,22 @@
+ToDo:
 
-3. generische Suche 
+1. generische Suche (In welchen Tabellen müssen wir suchen bzw. Spalten ?)
+
+2. Bei Überprüfung des PW in der Registrieren jsp evtl mit Java Script arbeiten und Ausgabe "Passwort falsch" erzeugen
+   Gleicher Fall beim Haustyp hinzufügen check/ Bautyp hinzufügen check und bei der Überprüfung ob Gebot akzeptiert wird oder nicht 
+    
+   -> Akutell anzeige auf jsp ... Anzeige geht nur durch server neustart weg !!!
+
+3. Cookies !!!!!!!
+
+4. Css
 
 
+Fragen?
 
-->Warum wirft er einen Fehler bei externen Browser fehler beim abschicken von Objekten 
 
-5. Bei Überprüfung des PW in der Registrieren jsp evtl mit Java Script arbeiten und Ausgabe "Passwort falsch" erzeugen
+- Warum wirft er einen Fehler bei externen Browser fehler beim abschicken von Objekten 
 
-7. Wenn Überschrift Gebot akzeptiert/ oder nicht akzeptiert ausgegeben wird  -> nicht dynamisch ist immer da 
-
-6. Cookies !!!!!!!
-
-4. Css -> Padding/ Schrift -> "Stellen Sie sich eine Website vor, ich bin selbst kein Designer, aber sie sollten mit der Seite arbeiten wollen"
 
 
 

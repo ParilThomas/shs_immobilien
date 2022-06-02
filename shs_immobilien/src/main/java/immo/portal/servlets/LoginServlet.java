@@ -11,6 +11,7 @@ import immo.portal.bean.RegistrierenBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -65,6 +66,44 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("istNichtRegistriert", true);
 			}
 		}
+		
+//		
+//		//Cookies
+//		
+//		String action = request.getParameter("login_absenden");
+//		String email = null;
+//		String passwort = null;
+//		
+//		switch (action) {
+//		case "absenden":
+//			email = request.getParameter("email");
+//			passwort = request.getParameter("passwort");
+//			Cookie cookie1 = new Cookie("email", email);
+//			cookie1.setMaxAge(60 * 60 * 24 * 7);
+//			cookie1.setPath("/");
+//			response.addCookie(cookie1);
+//			
+//			Cookie cookie2 = new Cookie("passwort", passwort);
+//			cookie2.setMaxAge(60 * 60 * 24 * 7);
+//			cookie2.setPath("/");
+//			response.addCookie(cookie2);
+//			
+//		case "readFromCookies":
+//			Cookie[] cookies = request.getCookies();
+//			for (Cookie cookie:cookies) {
+//				switch (cookie.getName()) {
+//				case "email":
+//					email = cookie.getValue();
+//					break;
+//				case "passwort":
+//					passwort = cookie.getValue();
+//					break;
+//				}
+//			}
+//		
+//		}
+		
+		
 		response.sendRedirect("jsp/login.jsp");
 	}
 
