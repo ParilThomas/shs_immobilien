@@ -28,11 +28,11 @@
     <form class="ansicht" action="../LoginServlet" method="post" accept-charset="utf-8">
     
       <div class="textfeld">
-        <input type="email" id="mail" name="email" placeholder="Ihre Email" required>
+        <input type="email" id="mail" name="email" placeholder="Ihre Email" required/>
         <div class="icon"><i class="fas fa-user"></i></div>
       </div>
       <div class="textfeld">
-        <input type="password" id="passwort" name="passwort" placeholder="Ihr Passwort" required>
+        <input type="password" id="passwort" name="passwort" placeholder="Ihr Passwort" required/>
         <div class="icon"><i class="fas fa-lock"></i></div>
       </div>
       <br>

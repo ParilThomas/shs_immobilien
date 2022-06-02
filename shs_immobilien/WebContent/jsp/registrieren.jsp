@@ -3,7 +3,7 @@
 <%@page import="immo.portal.bean.RegistrierenBean"%>
 <%@page import="immo.portal.servlets.RegistrierenServlet"%>
 <!DOCTYPE html>
-<html class="html_hintergrund">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

@@ -3,32 +3,122 @@
 .willkommen {
 	width: 100%;
 	height: 350px;
-	background:url(../img/willkommen_img.jpg) 
+	background: url(../img/willkommen_img.jpg);
 }
 
-.html_hintergrund {
-	background-color: light-grey;
+.suchen {
+	width: 60%;
+	height: 500px;
+	margin: auto;
+	background: url(../img/Suchen.jpg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 35px;
 }
 
-h2{
+html, body {
+	height: 100%;
+}
+section{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.ansicht {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+ table, tr{
+ text-align: center;
+ width: 80%;
+
+ }
+.textfeld {
+	margin: auto;
+	height: 50px;
+	width: 80%;
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	
+}
+
+.textfeld input {
+	height: 100%;
+	width: 92%;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-left: 50px;
+	font-size: 15px;
+}
+
+.textfeld .icon {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+	color: grey;
+}
+
+.suchenbutton {
+	background: #ff0000;
+	color: #ffffff;
+	border-radius: 7px;
+	border: none;
+	font-size: 17px;
+	width: 15%;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100%;
+	flex-grow: 1;
+}
+
+h2 {
 	text-align: center;
 	font-size: 100%;
 	color: grey;
-	font-family: 'Poppins',sans-serif;
-} 
+	font-family: 'Poppins', sans-serif;
+}
 
-h1{
+h1 {
 	font-size: 150%;
-	font-family: 'Poppins',sans-serif;
+	font-family: 'Poppins', sans-serif;
 	text-align: center;
-}
-.infotext{
-	text-align: center;
-	font-family: 'Poppins',sans-serif;
 }
 
-.trennung{
-	width:50px;
+h3{
+	font-size: 200%;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+}
+
+.infotext {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+.trennung {
+	width: 50px;
 	background-color: red;
 	padding: 1.5px;
+}
+
+footer {
+	text-align: center;
+	margin: auto;
+	font-family: 'Poppins', sans-serif;
+	flex-grow: 0;
+	background-color: #26272b;
+	padding: 45px 0 20px;
+	font-size: 20px;
+	line-height: 20px;
+	color: #ffffff;
 }
