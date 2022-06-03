@@ -31,7 +31,9 @@
 	<c:if test="${bautypExistiert == true}"><h1 class="fehlerbutton">Bautyp existiert bereits!</h1></c:if>
 	
 	
-	<c:if test="${haustypExistiert == true}"><h1 class="fehlerbutton">Haustyp existiert bereits!</h1></c:if>
+	<c:if test="${haustypExistiert == true}">
+	<h1 class="fehlerbutton">Haustyp existiert bereits!</h1>
+	</c:if>
 	
 	
 	
@@ -135,9 +137,6 @@
 				<input type="text" id="htyp_edit" name="htyp_edit"
 					placeholder="Haustyp" /><br><br>
 				<button class="anlegenbutton" type="submit" name="htyp_edit_absenden" value="absenden">Absenden</button>
-			
-		
-		
 		</td>
 		<td>
 			
