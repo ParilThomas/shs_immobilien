@@ -21,7 +21,7 @@
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
 
-	<c:if test="${email != null}">
+	<c:if test="${benutzer != null}">
 	<table class="tabelle">
 	<tr>
 	<td>

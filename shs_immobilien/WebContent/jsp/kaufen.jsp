@@ -80,6 +80,15 @@
 
 	</c:if>
 
+	<%
+		if (session.getAttribute("GebotZuNiedrig") != null) {
+			session.removeAttribute("GebotZuNiedrig");
+		}
+		if (session.getAttribute("GebotIstOk") != null) {
+			session.removeAttribute("GebotIstOk");
+		}
+	%>
+
 	</body>
 </html>
 

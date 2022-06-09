@@ -82,15 +82,13 @@
 
 				
 				
-				<c:if test="${email != null}">
-				<c:forEach items="${benutzer}" var="benutzer">
+				<c:if test="${benutzer != null}">
 				<label for="startgebot">Ihr Gebot (€):</label><br>
 				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/><br>
 				<input type="hidden" name="benutzer" value="${benutzer.id}"/><br>
 				<button type="submit" name="gebot_absenden" value="${bieten.id}" onclick="myFunction()">Absenden</button>
-				</c:forEach>
 				</c:if>
-				<c:if test="${email == null}">
+				<c:if test="${benutzer == null}">
 				Bitte loggen Sie sich ein um ein Gebot abzugeben!
 				<input class="abbrechen" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
 				</c:if>

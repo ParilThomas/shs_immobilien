@@ -28,32 +28,20 @@ public class KaufenServlet extends HttpServlet {
 	private HttpSession session;
 	private HaustypData haustypData;
 	private ObjektData objektData;
-       
 
-	private void kaufenSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-			
-    		this.haustypData = new HaustypData(dataSource);
-    		this.objektData = new ObjektData(dataSource);
-    		
-    		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
-    		  		    		
-    		session.setAttribute("haustyplist", haustyplist);
-    		session.setAttribute("haustypSelektiert", false);  		
-
-    		
-//    		session.setAttribute("GebotZuNiedrig", false);
-//    		session.setAttribute("GebotIstOk", false);
-    			
-            response.sendRedirect("jsp/kaufen.jsp");
- 
-    }
-
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
 
-		kaufenSeiteAnzeigen(request, response);
+		this.haustypData = new HaustypData(dataSource);
+		this.objektData = new ObjektData(dataSource);
+		
+		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
+		  		    		
+		session.setAttribute("haustyplist", haustyplist);
+		session.setAttribute("haustypSelektiert", false);  		
+			
+        response.sendRedirect("jsp/kaufen.jsp");
 	}
 
 

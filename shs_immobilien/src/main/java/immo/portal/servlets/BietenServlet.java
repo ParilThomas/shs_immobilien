@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import data.BietenData;
 import data.HaustypData;
 import data.ObjektData;
+import immo.portal.bean.HaustypBean;
 import immo.portal.bean.ObjektBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -28,22 +29,13 @@ public class BietenServlet extends HttpServlet {
 	private HttpSession session;
 	private BietenData bietenData;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BietenServlet() {
-        super();
-    }
-   
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
 		
+        response.sendRedirect("jsp/bieten.jsp");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.bietenData = new BietenData(dataSource);
 		session = request.getSession();
@@ -62,6 +54,6 @@ public class BietenServlet extends HttpServlet {
 			}	
 	}
 
-		response.sendRedirect("jsp/bieten.jsp");
+		response.sendRedirect("BietenServlet");
 }
 }

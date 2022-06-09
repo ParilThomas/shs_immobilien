@@ -17,19 +17,8 @@
 <body>
 	<header>
 		<p class="willkommen"></p>
+		<%@ include file="../jspf/allgbutton.jspf"%>
 	</header>
-
-
-	<nav class="nav">
-		<form>
-			<div class="icon-bar">
-				<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a> 
-  				<a href="../VerkaufServlet"><i class="fa fa-dollar"></i> Verkaufen</a>
- 				<a href="../jsp/ueberuns.jsp"><i class="fa fa-globe"></i> Unser Team</a> 
-				<a href="../LoginServlet"><i class="fa fa-user"></i> Login</a>
-			</div>
-		</form>
-	</nav>	
 	
 <main>
 <div class="header">
@@ -54,10 +43,10 @@
 
 <section>
 <hr class="trennung">
-<h2>Erfahren Sie mehr Ã¼ber uns</h2>
-<h1>IMMOBILIEN, WOHNUNGEN &amp; HÃ„USER KAUFEN</h1>
+<h2>Erfahren Sie mehr über uns</h2>
+<h1>IMMOBILIEN, WOHNUNGEN &amp; HÄUSER KAUFEN</h1>
 <p class="infotext">
-SPS Immobilien ist ein weltweit fÃ¼hrendes Dienstleistungsunternehmen <br>
+SPS Immobilien ist ein weltweit führendes Dienstleistungsunternehmen <br>
 in der Vermittlung von Wohn und Gewerbeimmobilien.<br>
 Das Unternehmen bietet privaten und institutionellen Kunden <br>
 eine professionell abgestimmte Dienstleistungspalette.

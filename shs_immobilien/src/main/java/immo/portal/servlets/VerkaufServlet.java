@@ -24,95 +24,81 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
-
-
 @WebServlet("/VerkaufServlet")
-@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5
-		* 5, location = "/tmp", fileSizeThreshold = 1024 * 1024)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 25, maxRequestSize = 1024 * 1024 * 25, location = "/tmp", fileSizeThreshold = 1024 * 1024)
 public class VerkaufServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
-	private DataSource dataSource;	
+	private DataSource dataSource;
 	private HttpSession session;
-	
+
 	private BautypData bautypData;
 	private HaustypData haustypData;
 	private ObjektData objektData;
-	
-	
-	private void verkaufsSeiteAnzeigen(HttpServletRequest request, HttpServletResponse response)
-	            throws ServletException, IOException {
-	 
-	        	this.bautypData = new BautypData(dataSource);
-	    		this.haustypData = new HaustypData(dataSource);
-	    		this.objektData = new ObjektData(dataSource);
-	    		
-	            List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
-	            List<BautypBean> bautyplist = bautypData.alleBautypen();
-	 
-	    		session.setAttribute("haustyplist", haustyplist);
-	    		session.setAttribute("bautyplist", bautyplist);
-	    		
-	            response.sendRedirect("jsp/verkaufen.jsp");
-	 
-	    }
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-	        // Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also erst servlet dann html gestartet wird -> unknown datum in field list 
-	   		session = request.getSession();
-			
-	  		verkaufsSeiteAnzeigen(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also
+		// erst servlet dann html gestartet wird -> unknown datum in field list
+		session = request.getSession();
 
-		}
-		
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		 
-		 	this.bautypData = new BautypData(dataSource);
- 			this.haustypData = new HaustypData(dataSource);
- 			this.objektData = new ObjektData(dataSource);
-       // Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also erst servlet dann html gestartet wird -> unknown datum in field list 
-  		session = request.getSession();
-  		
-  		session.setAttribute("bautypExistiert", false);
-  		session.setAttribute("haustypExistiert", false);
-  		
-  		//Check ob ein Haustyp hinzugefügt werden soll
+		this.bautypData  = new BautypData(dataSource);
+		this.haustypData = new HaustypData(dataSource);
+		this.objektData  = new ObjektData(dataSource);
+
+		List<HaustypBean> haustyplist = haustypData.alleHaustypen();
+		List<BautypBean> bautyplist   = bautypData.alleBautypen();
+
+		this.session.setAttribute("haustyplist", haustyplist);
+		this.session.setAttribute("bautyplist", bautyplist);
+
+		response.sendRedirect("jsp/verkaufen.jsp");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		this.bautypData = new BautypData(dataSource);
+		this.haustypData = new HaustypData(dataSource);
+		this.objektData = new ObjektData(dataSource);
+		// Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also
+		// erst servlet dann html gestartet wird -> unknown datum in field list
+		session = request.getSession();
+
+		session.setAttribute("bautypExistiert", false);
+		session.setAttribute("haustypExistiert", false);
+
+		// Check ob ein Haustyp hinzugefï¿½gt werden soll
 		if (request.getParameter("htyp_edit_absenden") != null) {
 			String hausTyp = request.getParameter("htyp_edit");
 			if (hausTyp.isEmpty()) {
-				return;	
+				return;
 			}
-			//Check ob Haustyp bereits vorhanden
-			if(haustypData.istHaustypVorhanden(hausTyp)) {
+			// Check ob Haustyp bereits vorhanden
+			if (haustypData.istHaustypVorhanden(hausTyp)) {
 				session.setAttribute("haustypExistiert", true);
-			//Falls nicht neuen Haustyp hinzufügen
+				// Falls nicht neuen Haustyp hinzufï¿½gen
 			} else {
 				haustypData.neuenHaustypHinzufuegen(hausTyp);
 			}
 		}
-		
-		//Bautyp check ob schon vorhanden
+
+		// Bautyp check ob schon vorhanden
 		if (request.getParameter("btyp_edit_absenden") != null) {
 			String bauTyp = request.getParameter("btyp_edit");
 			if (bauTyp.isEmpty()) {
-				return;	
+				return;
 			}
-			//Check ob Bautyp bereits vorhanden
-			if(bautypData.istBautypVorhanden(bauTyp)) {
+			// Check ob Bautyp bereits vorhanden
+			if (bautypData.istBautypVorhanden(bauTyp)) {
 				session.setAttribute("bautypExistiert", true);
-			//Falls nicht neuen Bautyp hinzufügen
+				// Falls nicht neuen Bautyp hinzufï¿½gen
 			} else {
 				bautypData.neuenBautypHinzufuegen(bauTyp);
 			}
 		}
-  		
 
 		if (request.getParameter("vformular_absenden") != null) {
-			DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+
 			Integer fbesitzer = (Integer.valueOf(request.getParameter("vformular_absenden")));
 			String fhaustyp = request.getParameter("haustyp");
 			String fbautyp = request.getParameter("bautyp");
@@ -122,9 +108,12 @@ public class VerkaufServlet extends HttpServlet {
 			Integer fgrundstuecksflaeche = (Integer.valueOf(request.getParameter("grundstuecksflaeche")));
 			java.sql.Date fdatum = null;
 			try {
+				// Eclipse internal browser date format
+				DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 				fdatum = new java.sql.Date(dateFormat.parse(request.getParameter("datum")).getTime());
+				System.out.println(dateFormat.parse(request.getParameter("datum")).getTime());
 			} catch (ParseException e) {
-				e.printStackTrace();
+				e.printStackTrace();				
 			}
 			String fstandort = request.getParameter("standort");
 			Integer fstartgebot = (Integer.valueOf(request.getParameter("startgebot")));
@@ -138,13 +127,13 @@ public class VerkaufServlet extends HttpServlet {
 					|| fgrundstuecksflaeche < 0 || fdatum.before(aktdatum) || fstandort.isEmpty() || fbilder == null)
 				return;
 
-			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche, fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum, fbesitzer);
+			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche,
+					fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum, fbesitzer);
 		}
 
-		response.sendRedirect("html/veingabeerfolgreich.html");	
+		response.sendRedirect("VerkaufServlet");
 //		request.getRequestDispatcher("jsp/verkaufen.jsp").forward(request, response);
-		
-	}
 
+	}
 
 }

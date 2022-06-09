@@ -23,12 +23,6 @@ public class GebotServlet extends HttpServlet {
        
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
-		
-		
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.gebotData = new GebotData(dataSource);
 		session = request.getSession();
@@ -53,6 +47,6 @@ public class GebotServlet extends HttpServlet {
 			}
 		}
 
-		response.sendRedirect("html/geboterfolgreich.html");
-}
+		response.sendRedirect("KaufenServlet");
+	}
 }

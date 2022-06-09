@@ -3,7 +3,7 @@
 <%@page import="immo.portal.servlets.LoginServlet"%>
 <%@page import="immo.portal.servlets.LogoutServlet"%>
 <%@page import="immo.portal.servlets.AnsichtServlet"%>
-<%@page import="immo.portal.bean.RegistrierenBean"%>
+<%@page import="immo.portal.bean.BenutzerBean"%>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -17,13 +17,20 @@
 <title>sps-immobilien.de/Login</title>
 </head>
 <body>
-    <p class="willkommen">
-    </p>
+    <div class="willkommen"></div>
     	<%@ include file="../jspf/allgbutton.jspf"%>
     	<br>
     
 
 <div class="hintergrund">
+
+	<c:if test="${istNichtRegistriert == true}">
+		<h1>Der Benutzer ist nicht registriert. Weiter zur <a class="aregistrieren" href="./registrieren.jsp">Registrierung</a>?</h1>
+	</c:if>
+	
+	<c:if test="${falscheLoginDaten == true}">
+		<h1>Falsche Login Daten</h1>
+	</c:if>
     
     <form class="ansicht" action="../LoginServlet" method="post" accept-charset="utf-8">
     
@@ -37,10 +44,12 @@
       </div>
       <br>
         <button class="loginbutton" type="submit" name="login_absenden" value="absenden">Login</button>
-      <div class="registrieren">
-        Noch nicht registriert? <a class="aregistrieren" href="./registrieren.jsp">Hier Registrieren</a>
+        
+       <div class="registrieren">
+       Noch nicht registriert? <a class="aregistrieren" href="./registrieren.jsp">Hier Registrieren</a>
       </div>
     </form>
+
 </div>
     
 </body>

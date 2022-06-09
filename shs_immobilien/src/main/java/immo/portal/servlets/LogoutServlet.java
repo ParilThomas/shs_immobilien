@@ -12,29 +12,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
-	private DataSource dataSource;
-	private HttpSession session;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-   		session = request.getSession();
-
 		
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
-		
-		if (request.getParameter("logout") != null) {
-			session.setAttribute("email", null);
-			
-		}
-		response.sendRedirect("html/logout.html");
+		HttpSession session = request.getSession();
+		session.setAttribute("benutzer", null);
+		session.setAttribute("ausgeloggt", true);
+		response.sendRedirect("LoginServlet");
 	}
-	}
-
-
+}

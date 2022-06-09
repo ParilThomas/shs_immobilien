@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import immo.portal.bean.RegistrierenBean;
+import immo.portal.bean.BenutzerBean;
 
 public class LoginData {
 
@@ -19,8 +19,7 @@ public class LoginData {
 		this.dataSource = dataSource;
 	}
 
-	public List<RegistrierenBean> holeBenutzer(String email, String passwort) {
-		List<RegistrierenBean> holeBenutzer = new ArrayList<RegistrierenBean>();
+	public BenutzerBean holeBenutzer(String email, String passwort) {
 
 		try {
 			Connection con = dataSource.getConnection();
@@ -30,25 +29,31 @@ public class LoginData {
 
 			ResultSet resultSet = pstmt.executeQuery();
 			while (resultSet.next()) {
-				holeBenutzer.add(new RegistrierenBean(resultSet.getInt("id"), resultSet.getString("vorname"),
-						resultSet.getString("nachname"), resultSet.getString("anschrift"), resultSet.getInt("plz"),
-						resultSet.getString("wohnort"), resultSet.getInt("telefon"), resultSet.getString("email"),
-						resultSet.getString("passwort1")));
+				return new BenutzerBean(
+						resultSet.getInt("id"),
+						resultSet.getString("vorname"),
+						resultSet.getString("nachname"),
+						resultSet.getString("anschrift"),
+						resultSet.getInt("plz"),
+						resultSet.getString("wohnort"),
+						resultSet.getInt("telefon"),
+						resultSet.getString("email"),
+						resultSet.getString("passwort1")
+				);			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return holeBenutzer;
+		return null;
 	}
 
 
-	public boolean istRegistriert(String email, String passwort) {
+	public boolean istRegistriert(String email) {
 		
 		try {
 			Connection connection = dataSource.getConnection();
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM benutzer WHERE email = ? AND passwort1 = ?");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM benutzer WHERE email = ?");
 			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, passwort);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				return true;

@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 
 import data.RegistrierenData;
-import immo.portal.bean.RegistrierenBean;
+import immo.portal.bean.BenutzerBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -50,7 +50,6 @@ public class RegistrierenServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
-	        // Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also erst servlet dann html gestartet wird -> unknown datum in field list 
 	   		session = request.getSession();
 			
 	  		registrierenSeiteAnzeigen(request, response);
@@ -63,11 +62,7 @@ public class RegistrierenServlet extends HttpServlet {
 		this.registrierenData = new RegistrierenData(dataSource);
 		
   		session = request.getSession();
-  		
-  		//Anfänglich auf false setzen 
-//  		session.setAttribute("IstRegistriert", false);
-  		
-  		
+		
 
 		if (request.getParameter("rformular_absenden") != null) {
 			String rvorname = request.getParameter("vorname");
@@ -80,15 +75,6 @@ public class RegistrierenServlet extends HttpServlet {
 			String rpasswort1 = request.getParameter("passwort1");
 			String rpasswort2 = request.getParameter("passwort2");
 			
-			//Check ob Benutzer bereits registriert
-			
-//			if(registrierenData.istRegistriert(remail, rpasswort1)) {
-//				session.setAttribute("istRegistriert", true);
-//			}else {
-//				//Was passiert wenn der Benutzer noch nicht registriert ist 
-//			}
-//			
-
 			if (rvorname.isEmpty() || rnachname.isEmpty() || ranschrift.isEmpty() || rplz <0 || rwohnort.isEmpty()
 					|| rtelefon < 0 || remail.isEmpty() || rpasswort1.isEmpty())
 				return;
@@ -101,7 +87,6 @@ public class RegistrierenServlet extends HttpServlet {
 			}
 			
 		}
-		//Wieder eine HTML Seite damit Seite wieder aktualisert wird -> Es wird geprüft ob Benutzer registriert ist 
 		
 		response.sendRedirect("RegistrierenServlet");		
 		

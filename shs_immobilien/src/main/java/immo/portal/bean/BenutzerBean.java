@@ -2,7 +2,7 @@ package immo.portal.bean;
 
 import java.io.Serializable;
 
-public class RegistrierenBean implements Serializable {
+public class BenutzerBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
@@ -16,7 +16,7 @@ public class RegistrierenBean implements Serializable {
 	private String passwort1;
 	
 	
-	public RegistrierenBean(Integer id, String vorname, String nachname, String anschrift, Integer plz, String wohnort,
+	public BenutzerBean(Integer id, String vorname, String nachname, String anschrift, Integer plz, String wohnort,
 			Integer telefon, String email, String passwort1) {
 		super();
 		this.id = id;
@@ -31,7 +31,7 @@ public class RegistrierenBean implements Serializable {
 	}
 
 
-	public RegistrierenBean() {
+	public BenutzerBean() {
 		
 	}
 

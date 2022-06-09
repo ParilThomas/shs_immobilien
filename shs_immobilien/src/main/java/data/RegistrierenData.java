@@ -11,7 +11,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import immo.portal.bean.ObjektBean;
-import immo.portal.bean.RegistrierenBean;
+import immo.portal.bean.BenutzerBean;
 import jakarta.servlet.http.Part;
 
 public class RegistrierenData {
