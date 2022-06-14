@@ -14,6 +14,24 @@
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 
 <title>sps-immobilien.de/Registrierung</title>
+<script>
+	document.addEventListener("DOMContentLoaded", init);
+	function init() {
+		var form = document.getElementById("myForm");
+		form.addEventListener("submit", checkPasswort);
+	}
+
+	function checkPasswort(evt) {
+
+		var passwort1 = document.getElementById("passwort1").value;
+		var passwort2 = document.getElementById("passwort2").value;
+
+		if (passwort1 != passwort2) {
+			alert("Passwort ist Falsch!! Bitte wiederholen");
+			evt.preventDefault();
+		}
+	}
+</script>
 </head>
 <body>
 	<header>
@@ -28,58 +46,51 @@
 
 
 			<div class="textfeld">
-				<form class="ansicht" action="../RegistrierenServlet" method="post">
+				<form id="myForm" class="ansicht" action="../RegistrierenServlet"
+					method="post">
 					<table>
 						<tr>
 							<td><label for="vorname">Vorname:</label><br> <input
 								type="text" id="vorname" name="vorname" placeholder="Vorname"
-								required /><br>
-							<br></td>
+								required /><br> <br></td>
 							<td><label for="nachname">Nachname:</label><br> <input
 								type="text" id="nachname" name="nachname" placeholder="Nachname"
-								required /><br>
-							<br></td>
+								required /><br> <br></td>
 						</tr>
 						<tr>
 							<td><label for="anschrift">Anschrift:</label><br> <input
 								type="text" id="anschrift" name="anschrift"
-								placeholder="Anschrift" required /><br>
-							<br></td>
+								placeholder="Anschrift" required /><br> <br></td>
 							<td><label for="plz">Postleitzahl:</label><br> <input
 								type="number" id="plz" name="plz" placeholder="Postleitzahl"
-								required /><br>
-							<br></td>
+								required /><br> <br></td>
 
 
 						</tr>
 						<tr>
 							<td><label for="wohnort">Wohnort:</label><br> <input
 								type="text" id="wohnort" name="wohnort" placeholder="Wohnort"
-								required /><br>
-							<br></td>
+								required /><br> <br></td>
 							<td><label for="telefon">Telefon:</label><br> <input
 								type="number" id="telefon" name="telefon"
-								placeholder="Telefonnummer" required /><br>
-							<br></td>
+								placeholder="Telefonnummer" required /><br> <br></td>
 
 						</tr>
 						<tr>
 							<td colspan="2"><label for="mail">E-Mail:</label><br> <input
 								type="email" id="mail" name="email" placeholder="E-Mail"
-								required /><br>
-							<br></td>
+								required /><br> <br></td>
 						</tr>
 						<tr>
-							<td colspan="2"><label for="passwort">Passwort:</label><br>
-								<input type="password" id="passwort" name="passwort1"
-								placeholder="Passwort" required /><br>
-							<br></td>
+							<td colspan="2"><label for="passwort1">Passwort:</label><br>
+								<input type="password" id="passwort1" name="passwort1"
+								placeholder="Passwort" required /><br> <br></td>
 						</tr>
 						<tr>
-							<td colspan="2"><label for="passwort">Passwort
-									wiederholen:</label><br> <input type="password" id="passwort"
+							<td colspan="2"><label for="passwort2">Passwort
+									wiederholen:</label><br> <input type="password" id="passwort2"
 								name="passwort2" placeholder="Passwort wiederholen" required /><br>
-							<br></td>
+								<br></td>
 						</tr>
 
 						<tr>
