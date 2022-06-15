@@ -26,25 +26,20 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet("/kaufen_bild_servlet")
 
+
+// Bild Servlet
 public class kaufen_bild_servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
-	private DataSource ds;
+	private DataSource dataSource;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public kaufen_bild_servlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 	
@@ -53,8 +48,8 @@ public class kaufen_bild_servlet extends HttpServlet {
 		Long id = Long.valueOf(request.getParameter("id"));
 		
 			
-		try (Connection con = ds.getConnection();
-				//Problem könnte sein dass die dynamischen Haustypen in der Tabelle haustypen sind !!!!!
+		try (Connection con = dataSource.getConnection();
+				//Problem kï¿½nnte sein dass die dynamischen Haustypen in der Tabelle haustypen sind !!!!!
 				PreparedStatement pstmt = con.prepareStatement("Select bilder FROM objekte WHERE id=?")) {
 //			pstmt.setString(1, htyp);
 			pstmt.setLong(1, id);
@@ -66,7 +61,7 @@ public class kaufen_bild_servlet extends HttpServlet {
 
 						response.reset();
 						long length = bild.length();
-						response.setHeader("Content-Length", String.valueOf(length)); // Header setzen -> Headerlänge
+						response.setHeader("Content-Length", String.valueOf(length)); // Header setzen -> Headerlï¿½nge
 																						// setzen
 
 						// Stream Verarbeitung von DB -> Browser
@@ -76,7 +71,7 @@ public class kaufen_bild_servlet extends HttpServlet {
 
 							// Output-Stream
 							ServletOutputStream out = response.getOutputStream(); // zum Browser schreiben deswegen
-																					// natürlich response
+																					// natï¿½rlich response
 							while ((length = in.read(buffer)) != -1) { // Lesen vom Input-Stream + schreiben in den
 																		// Output-Stream in while Schleife
 								out.write(buffer, 0, (int) length);
@@ -97,10 +92,8 @@ public class kaufen_bild_servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doGet(request, response);
 	}
 
 }

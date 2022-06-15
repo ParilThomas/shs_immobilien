@@ -30,39 +30,33 @@ public class VerkaufServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;
-	private HttpSession session;
-
-	private BautypData bautypData;
-	private HaustypData haustypData;
-	private ObjektData objektData;
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also
 		// erst servlet dann html gestartet wird -> unknown datum in field list
-		session = request.getSession();
+		HttpSession session = request.getSession();
 
-		this.bautypData  = new BautypData(dataSource);
-		this.haustypData = new HaustypData(dataSource);
-		this.objektData  = new ObjektData(dataSource);
+		BautypData bautypData  = new BautypData(dataSource);
+		HaustypData haustypData = new HaustypData(dataSource);
+		ObjektData objektData  = new ObjektData(dataSource);
 
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen();
 		List<BautypBean> bautyplist   = bautypData.alleBautypen();
 
-		this.session.setAttribute("haustyplist", haustyplist);
-		this.session.setAttribute("bautyplist", bautyplist);
+		session.setAttribute("haustyplist", haustyplist);
+		session.setAttribute("bautyplist", bautyplist);
 
 		response.sendRedirect("jsp/verkaufen.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		this.bautypData = new BautypData(dataSource);
-		this.haustypData = new HaustypData(dataSource);
-		this.objektData = new ObjektData(dataSource);
+		BautypData bautypData = new BautypData(dataSource);
+		HaustypData haustypData = new HaustypData(dataSource);
+		ObjektData objektData = new ObjektData(dataSource);
 		// Scope -Session -> So funktionierts aber nur wenn Session gestartet ist also
 		// erst servlet dann html gestartet wird -> unknown datum in field list
-		session = request.getSession();
+		HttpSession session = request.getSession();
 
 		session.setAttribute("bautypExistiert", false);
 		session.setAttribute("haustypExistiert", false);
@@ -131,8 +125,7 @@ public class VerkaufServlet extends HttpServlet {
 					fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum, fbesitzer);
 		}
 
-		response.sendRedirect("VerkaufServlet");
-//		request.getRequestDispatcher("jsp/verkaufen.jsp").forward(request, response);
+		this.doGet(request, response);
 
 	}
 

@@ -18,14 +18,11 @@ public class GebotServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
-	private HttpSession session;
-	private GebotData gebotData;
-       
-
+  
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.gebotData = new GebotData(dataSource);
-		session = request.getSession();
+		GebotData gebotData = new GebotData(dataSource);
+		HttpSession session = request.getSession();
 		
 		session.setAttribute("GebotZuNiedrig", false);
 		session.setAttribute("GebotIstOk", false);

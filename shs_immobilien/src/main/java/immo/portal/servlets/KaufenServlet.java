@@ -25,16 +25,10 @@ public class KaufenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
-	private HttpSession session;
-	private HaustypData haustypData;
-	private ObjektData objektData;
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
-
-		this.haustypData = new HaustypData(dataSource);
-		this.objektData = new ObjektData(dataSource);
+		HttpSession session = request.getSession();
+		HaustypData haustypData = new HaustypData(dataSource);
 		
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
 		  		    		
@@ -46,11 +40,15 @@ public class KaufenServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
+		HttpSession session = request.getSession();
+		
+		HaustypData haustypData = new HaustypData(dataSource);
+		ObjektData objektData   = new ObjektData(dataSource);
+		
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
 		for (HaustypBean bean : haustyplist) {
 			if (request.getParameter(bean.getTyp()) != null) {
-				List<ObjektBean> objekte = this.objektData.getObjekte(bean.getTyp());
+				List<ObjektBean> objekte = objektData.getObjekte(bean.getTyp());
 				session.setAttribute("objekte", objekte);
 				session.setAttribute("haustypSelektiert", true);
 				response.sendRedirect("jsp/kaufen.jsp");	

@@ -3,24 +3,25 @@
 
 <nav class="nav">
 	<div class="icon-bar">
+	
 		<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a> <a
 			href="../VerkaufServlet"><i class="fa fa-dollar"></i> Verkaufen</a> <a
 			href="./ueberuns.jsp"><i class="fa fa-globe"></i> Unser Team</a> <a
 			href="./login.jsp"><i class="fa fa-user"></i> Login</a> <a
-			href="../html/startseite.html"><i class="fa fa-search"></i>
-			Suchen</a>
+			href="../jsp/startseite.jsp#suchvar"><i class="fa fa-search"></i> Suchen</a>
+			
 		<c:if test="${benutzer != null}">
 			<div class="dropdown">
 				<button class="dropbtn">Profil</button>
 				<div class="dropdown-content">
 					<form action="../AnsichtServlet" method="post">
 						<br>
-						<button class="ansichtbutton" type="submit" name="ihrangebot" value="${benutzer.id}">Angebote</button>
-						<br>
-						<br>
-						<button class="ansichtbutton" type="submit" name="ihrgebot" value="${benutzer.id}">Gebote</button>
-						<br>
-						<br>
+						<button class="ansichtbutton" type="submit" name="ihrangebot"
+							value="${benutzer.id}">Angebote</button>
+						<br> <br>
+						<button class="ansichtbutton" type="submit" name="ihrgebot"
+							value="${benutzer.id}">Gebote</button>
+						<br> <br>
 					</form>
 					<form action="../LogoutServlet" method="post">
 						<button class="logoutbutton" type="submit" name="logout"

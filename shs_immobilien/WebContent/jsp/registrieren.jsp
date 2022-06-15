@@ -13,25 +13,10 @@
 <link rel="stylesheet" href="../css/registrieren.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 
+<script src="../js/registrieren.js"></script>
+
 <title>sps-immobilien.de/Registrierung</title>
-<script>
-	document.addEventListener("DOMContentLoaded", init);
-	function init() {
-		var form = document.getElementById("myForm");
-		form.addEventListener("submit", checkPasswort);
-	}
 
-	function checkPasswort(evt) {
-
-		var passwort1 = document.getElementById("passwort1").value;
-		var passwort2 = document.getElementById("passwort2").value;
-
-		if (passwort1 != passwort2) {
-			alert("Passwort ist Falsch!! Bitte wiederholen");
-			evt.preventDefault();
-		}
-	}
-</script>
 </head>
 <body>
 	<header>

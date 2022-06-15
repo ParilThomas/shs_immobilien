@@ -21,33 +21,27 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/AnsichtServlet")
 public class AnsichtServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;
-	private HttpSession session;
-	private AnsichtData ansichtData;
+	
 
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		session = request.getSession();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect("jsp/ansicht.jsp");
 	}
 
 	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		this.ansichtData = new AnsichtData(dataSource);
-		session = request.getSession();
+		AnsichtData ansichtData = new AnsichtData(dataSource);
+		HttpSession session = request.getSession();
 		
 		if (request.getParameter("ihrangebot") != null) {
 			Integer benutzerid = Integer.valueOf(request.getParameter("ihrangebot"));
 			if (benutzerid != null) {
 				List<ObjektBean> eigeneobjekte = ansichtData.eigeneAngebote(benutzerid);
 				session.setAttribute("eigeneobjekte", eigeneobjekte);
-				
 			}
-
 		}
 		
 
@@ -61,10 +55,7 @@ public class AnsichtServlet extends HttpServlet {
 
 		}
 		
-		
-		
-		
-		response.sendRedirect("jsp/ansicht.jsp");
+		this.doGet(request, response);
 	}
 		
 }

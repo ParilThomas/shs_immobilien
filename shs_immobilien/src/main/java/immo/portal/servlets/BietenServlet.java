@@ -1,3 +1,9 @@
+/**
+ * @author Tom1, Tom2
+ * 
+ * fgdfg
+ */
+
 package immo.portal.servlets;
 
 import java.io.IOException;
@@ -24,36 +30,36 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/BietenServlet")
 public class BietenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
-	private HttpSession session;
-	private BietenData bietenData;
-       
+     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
-		
         response.sendRedirect("jsp/bieten.jsp");
 	}
 	
+	
+	/**
+	 * Description of the method
+	 * 
+	 * @param request  - HttpServletRequest asdasdasdasd
+	 * @param response - HttpServletResponse asdasdasdasd
+	 * 
+	 * @throws ServletException
+	 * @throws IOException
+	 * 
+	 * @return void
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.bietenData = new BietenData(dataSource);
-		session = request.getSession();
+		BietenData bietenData = new BietenData(dataSource);
+		HttpSession session = request.getSession();
 				
 		if (request.getParameter("detailid") != null) {
-            String hid = request.getParameter("detailid");
-			if (hid != null) {
-				List<ObjektBean> objekt = this.bietenData.getObjekt(hid);
-				session.setAttribute("objekt", objekt);
-				
-			
-			} 
-			
-			else {
-				return;
-			}	
-	}
+            String hausId = request.getParameter("detailid");
+			session.setAttribute("objekt", bietenData.getObjekt(hausId));
+		}
 
-		response.sendRedirect("BietenServlet");
-}
+		this.doGet(request, response);
+	}
 }

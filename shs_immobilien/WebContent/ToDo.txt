@@ -1,15 +1,15 @@
 ToDo:
 
-1. generische Suche (In welchen Tabellen müssen wir suchen bzw. Spalten ?)
+1. generische Suche (In welchen Tabellen mï¿½ssen wir suchen bzw. Spalten ?)
 
-2. Bei Überprüfung des PW in der Registrieren jsp evtl mit Java Script arbeiten und Ausgabe "Passwort falsch" erzeugen
-   Gleicher Fall beim Haustyp hinzufügen check/ Bautyp hinzufügen check und bei der Überprüfung ob Gebot akzeptiert wird oder nicht 
+2. Bei ï¿½berprï¿½fung des PW in der Registrieren jsp evtl mit Java Script arbeiten und Ausgabe "Passwort falsch" erzeugen
+   Gleicher Fall beim Haustyp hinzufï¿½gen check/ Bautyp hinzufï¿½gen check und bei der ï¿½berprï¿½fung ob Gebot akzeptiert wird oder nicht 
     
    -> Akutell anzeige auf jsp ... Anzeige geht nur durch server neustart weg !!!
 
-3. Cookies !!!!!!!
 
-4. Css
+
+
 
 
 Fragen?
@@ -20,3 +20,5 @@ Fragen?
 
 
 
+3. Cookies !!!!!!!
+4. Css
