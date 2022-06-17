@@ -1,14 +1,11 @@
 @charset "ISO-8859-1";
 
-.hintergrund{
-	width:100%;
-	
-}
 
 h2 {
-	font-family: verdana;
-	font-size: 110%;
+	font-family: 'Poppins', sans-serif;
+	font-size: 100%;
 	text-align: center;
+	color: grey;
 }
 
 .allgemein {
@@ -19,18 +16,21 @@ h2 {
 
 .infotext {
 	text-align: center;
-	font-family: verdana;
+	font-family: 'Poppins', sans-serif;
 }
 
 
 .trenner{
-	width: 650px;
-	color: black;
+	
+	width: 50px;
+	background-color: red;
+	padding: 1.5px;
+
 }
 
 .table{
 	
-	font-family: verdana;
+	font-family: 'Poppins', sans-serif;
 	text-align: center;
 	margin: 0 auto;
 	
@@ -61,4 +61,18 @@ td{
 
 .profilsimons {
 	background: url(../img/profil_simons.jpg)
+}
+main{
+	margin-bottom: 50px;
+}
+footer {
+	text-align: center;
+	margin: auto;
+	font-family: 'Poppins', sans-serif;
+	flex-grow: 0;
+	background-color: #26272b;
+	padding: 45px 0 20px;
+	font-size: 20px;
+	line-height: 20px;
+	color: #ffffff;
 }

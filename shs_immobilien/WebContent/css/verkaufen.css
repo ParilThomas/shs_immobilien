@@ -98,10 +98,35 @@ table,td{
 }
 
 .login{
-	 background: #c0c0c0;
-  color: #000000;
-  border: 1px solid black;
+  color: #ff0000;
   border-radius: 7px;
   font-size: 17px;
   width:20%;
+}
+
+.fehlerbutton{
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 25px;
+	background: red;
+	color: white;
+	width: 250px;
+	margin: auto;
+	text-align: center;
+}
+main{
+	margin-bottom: 50px;
+}
+footer {
+	text-align: center;
+	margin: auto;
+	font-family: 'Poppins', sans-serif;
+	flex-grow: 0;
+	background-color: #26272b;
+	padding: 45px 0 20px;
+	font-size: 20px;
+	line-height: 20px;
+	color: #ffffff;
 }

@@ -22,10 +22,26 @@
 <body>
 	<header>
 		<div class="willkommen"></div>
+	<%@ include file="../jspf/allgbutton.jspf"%>
 	</header>
 	
-	<%@ include file="../jspf/allgbutton.jspf"%>
-	<br>
+	
+	<nav>
+	<c:if test="${benutzer == null}">
+		<table class="meldung">
+			<tr>
+				<td>Bitte loggen Sie sich ein um ein Gebot abzugeben!</td>
+			</tr>
+			<tr>
+				<td>
+				<a class="login" href="../LoginServlet">Login</a>
+				</td>
+			</tr>
+		</table>
+	</c:if>
+	</nav>
+	
+	<main>
 	<c:if test="${benutzer != null}">
 
 		<c:if test="${bautypExistiert == true}">
@@ -36,10 +52,6 @@
 		<c:if test="${haustypExistiert == true}">
 			<h1 class="fehlerbutton">Haustyp existiert bereits!</h1>
 		</c:if>
-
-
-
-
 
 		<div class="hintergrund">
 			<div class="textfeld">
@@ -145,19 +157,7 @@
 			</div>
 		</div>
 	</c:if>
-	<c:if test="${benutzer == null}">
-		<table class="meldung">
-			<tr>
-				<td>Bitte loggen Sie sich ein um ein Gebot abzugeben!</td>
-			</tr>
-			<tr>
-				<td>
-				<a class="login" href="../LoginServlet">Login</a>
-				</td>
-			</tr>
-		</table>
-	</c:if>
-	
+	</main>
 	<%
 		if (session.getAttribute("haustypExistiert") != null) {
 			session.removeAttribute("haustypExistiert");
@@ -166,7 +166,13 @@
 			session.removeAttribute("bautypExistiert");
 		}
 	%>
-	
+		<footer>
+			<i class="fa fa-building-o">&nbsp;SPS-Immobilien |</i> <i
+				class="fa fa-map-marker">&nbsp; Baumweg 10 - 85296 Rohrbach |</i> <i
+				class="fa fa-phone">&nbsp; +49-8442-4563-0 |</i> <i
+				class="fa fa-envelope-o">&nbsp; contact@sps.com |</i> <i
+				class="fa fa-fax">&nbsp; +49-8442-4563-4 </i>
+		</footer>
 </body>
 
 </html>

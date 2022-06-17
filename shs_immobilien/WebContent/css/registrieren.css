@@ -74,3 +74,17 @@ table,td{
   font-size: 17px;
   width:60%;
 }
+main{
+	margin-bottom: 50px;
+}
+footer {
+	text-align: center;
+	margin: auto;
+	font-family: 'Poppins', sans-serif;
+	flex-grow: 0;
+	background-color: #26272b;
+	padding: 45px 0 20px;
+	font-size: 20px;
+	line-height: 20px;
+	color: #ffffff;
+}

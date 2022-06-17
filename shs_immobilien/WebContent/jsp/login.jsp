@@ -21,24 +21,35 @@
 <title>sps-immobilien.de/Login</title>
 </head>
 <body>
+<header>
 	<div class="willkommen"></div>
 	<%@ include file="../jspf/allgbutton.jspf"%>
 	<br>
-
-
+</header>
+<nav>
 	<div class="hintergrund">
-
+		
 		<c:if test="${istNichtRegistriert == true}">
+			<div class="schonregistriert"> 
 			<h1>
-				Der Benutzer ist nicht registriert. Weiter zur <a
-					class="aregistrieren" href="./registrieren.jsp">Registrierung</a>?
-			</h1>
+			!! Der Benutzer ist nicht registriert !!
+<!-- 			<a href="./registrieren.jsp">Registrierung</a>? -->
+				</h1>
+			
+			</div>
+			
 		</c:if>
 
 		<c:if test="${falscheLoginDaten == true}">
-			<h1>Falsche Login Daten</h1>
+			<div class="schonregistriert"> 
+			<h1>!! Falsche Login Daten !!</h1>
+		</div>
 		</c:if>
-
+		
+</div>
+</nav>
+<main>
+<div class="hintergrund">
 		<form id="login-form" class="ansicht" action="../LoginServlet" method="post"
 			accept-charset="utf-8">
 
@@ -71,6 +82,22 @@
 		</form>
 
 	</div>
+</main>
+<%
+		if (session.getAttribute("istNichtRegistriert") != null) {
+			session.removeAttribute("istNichtRegistriert");
+		}
+		if (session.getAttribute("falscheLoginDaten") != null) {
+			session.removeAttribute("falscheLoginDaten");
+		}
+	%>
+<footer>
+			<i class="fa fa-building-o">&nbsp;SPS-Immobilien |</i> <i
+				class="fa fa-map-marker">&nbsp; Baumweg 10 - 85296 Rohrbach |</i> <i
+				class="fa fa-phone">&nbsp; +49-8442-4563-0 |</i> <i
+				class="fa fa-envelope-o">&nbsp; contact@sps.com |</i> <i
+				class="fa fa-fax">&nbsp; +49-8442-4563-4 </i>
+		</footer>
 
 </body>
 

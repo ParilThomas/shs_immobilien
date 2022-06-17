@@ -19,23 +19,27 @@
 
 </head>
 <body>
+	
 	<header>
 		<p class="willkommen"></p>
-	</header>
 	<%@ include file="../jspf/allgbutton.jspf"%>
-	<br>
-	
+	</header>
 	
 	<c:if test="${haustypSelektiert == false}">
 	<form action="../KaufenServlet" method=post>	
-	<div class="center">
-	<c:if test="${GebotZuNiedrig == true}"><h1 class="gebotfehlermeldung">Ihr Gebot konnte nicht akzeptiert werden, da es unter dem aktuellen Höchstpreis liegt!</h1></c:if>
+	<c:if test="${GebotZuNiedrig == true}">
+	<div class="gebotfehlermeldung">
+	<h1>Ihr Gebot konnte nicht akzeptiert werden, da es unter dem aktuellen Höchstpreis liegt!</h1>
 	</div>
-	<div class="center">
-	<c:if test="${GebotIstOk == true}">
-	<h1 class="gebotakzeptiert">Ihr Gebot wurde Akzeptiert!!</h1>
 	</c:if>
+	
+	<c:if test="${GebotIstOk == true}">
+	<div class="gebotakzeptiert">
+	<h1>Ihr Gebot wurde Akzeptiert!!</h1>
 	</div>
+	<br>
+	</c:if>
+	
 	
 
 					<c:forEach items="${haustyplist}" var="haustyp">
@@ -45,7 +49,7 @@
 	</c:if>
 	
 	
-	
+	<main>
 	<c:if test="${haustypSelektiert == true}">
 	<table class="tabelle">
 	<tr>
@@ -79,7 +83,7 @@
 	</table>
 
 	</c:if>
-
+</main>
 	<%
 		if (session.getAttribute("GebotZuNiedrig") != null) {
 			session.removeAttribute("GebotZuNiedrig");
@@ -88,6 +92,16 @@
 			session.removeAttribute("GebotIstOk");
 		}
 	%>
+	
+	<footer>
+			<i class="fa fa-building-o">&nbsp;SPS-Immobilien |</i> <i
+				class="fa fa-map-marker">&nbsp; Baumweg 10 - 85296 Rohrbach |</i> <i
+				class="fa fa-phone">&nbsp; +49-8442-4563-0 |</i> <i
+				class="fa fa-envelope-o">&nbsp; contact@sps.com |</i> <i
+				class="fa fa-fax">&nbsp; +49-8442-4563-4 </i>
+		</footer>
+	
+
 
 	</body>
 </html>

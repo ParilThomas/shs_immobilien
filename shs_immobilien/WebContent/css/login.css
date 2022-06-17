@@ -5,8 +5,12 @@
 	height: 350px;
 	background:url(../img/willkommen_img.jpg) 
 }
-
-
+nav{
+	margin-bottom: 10px;
+}
+main{
+	margin-bottom: 100px;
+}
 /* *{ */
 /*   margin: 0; */
 /*   padding: 0; */
@@ -30,7 +34,7 @@
   
 }
 .ansicht {
-  margin-top: 25px;
+/*   margin-top: 25px; */
   width: 400px;
   padding: 40px;
   border-radius: 8px;
@@ -80,8 +84,14 @@
   color: #ff0000;
 }
 
-.aregistrieren{
-	margin: auto;
+.schonregistriert{
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 10px;
+	background: red;
+	color: white;
 }
 
 .loginbutton{
@@ -98,3 +108,14 @@
 	display: inline-block;
 }
 
+footer {
+	text-align: center;
+	margin: auto;
+	font-family: 'Poppins', sans-serif;
+	flex-grow: 0;
+	background-color: #26272b;
+	padding: 45px 0 20px;
+	font-size: 20px;
+	line-height: 20px;
+	color: #ffffff;
+}
