@@ -30,7 +30,7 @@
 		<c:if test="${istNichtRegistriert == true}">
 			<div class="schonregistriert"> 
 			<h1>
-			!! Der Benutzer ist nicht registriert !!
+			!! Der Benutzer mit dieser E-Mail existiert nicht !!
 <!-- 			<a href="./registrieren.jsp">Registrierung</a>? -->
 				</h1>
 			
@@ -40,7 +40,7 @@
 
 		<c:if test="${falscheLoginDaten == true}">
 			<div class="schonregistriert"> 
-			<h1>!! Falsche Login Daten !!</h1>
+			<h1>!! Falsches Passwort !!</h1>
 		</div>
 		</c:if>
 		
