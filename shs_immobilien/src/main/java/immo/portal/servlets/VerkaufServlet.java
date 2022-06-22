@@ -38,7 +38,6 @@ public class VerkaufServlet extends HttpServlet {
 
 		BautypData bautypData  = new BautypData(dataSource);
 		HaustypData haustypData = new HaustypData(dataSource);
-		ObjektData objektData  = new ObjektData(dataSource);
 
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen();
 		List<BautypBean> bautyplist   = bautypData.alleBautypen();
