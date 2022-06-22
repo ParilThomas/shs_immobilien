@@ -2,11 +2,13 @@ package data;
 
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.sql.DataSource;
 
 import immo.portal.bean.ObjektBean;
@@ -22,10 +24,11 @@ public class ObjektData {
 		this.dataSource = dataSource;
 	}
 
-	//dateiname hinzugefügt 
-	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, String fbaujahr,
+	//dateiname hinzugefï¿½gt 
+	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, Integer fbaujahr,
 			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
-			String fbeschreibung,Part fbilder,java.sql.Date fdatum, Integer fbesitzer) {
+			String fbeschreibung,Part fbilder,String fdatum, Integer fbesitzer) {
+		//java.sql.Date
 		try {
 			Connection connection = dataSource.getConnection();
 			InputStream inputStream = fbilder.getInputStream();
@@ -35,14 +38,14 @@ public class ObjektData {
 			preparedStatement.setString(1, fhaustyp);
 			preparedStatement.setString(2, fbautyp);
 			preparedStatement.setString(3, ftitel);
-			preparedStatement.setString(4, fbaujahr);
+			preparedStatement.setInt(4, fbaujahr);
 			preparedStatement.setInt(5, fwohnflaeche);
 			preparedStatement.setInt(6, fgrundstuecksflaeche);
 			preparedStatement.setString(7, fstandort);
-			preparedStatement.setDate(8, fdatum);
+			preparedStatement.setString(8, fdatum);
 			preparedStatement.setInt(9, fstartgebot);
 			preparedStatement.setString(10, fbeschreibung);
-			preparedStatement.setBinaryStream(11, inputStream); //setter geändert 
+			preparedStatement.setBinaryStream(11, inputStream); //setter geï¿½ndert 
 			preparedStatement.setInt(12, fbesitzer);
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
@@ -83,4 +86,5 @@ public class ObjektData {
 		
 		return objekte;
 	}
+	
 }

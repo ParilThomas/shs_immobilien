@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- Stylesheet Test TP-->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/startseite.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
+<link rel="stylesheet" href="../css/hauptbild.css">
 
 
 <title>sps-immobilien.de/home</title>
@@ -17,8 +17,7 @@
 
 <body>
 	<header>
-		<p class="willkommen"></p>
-		<%@ include file="../jspf/allgbutton.jspf"%>
+		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 
 	<main>
@@ -51,10 +50,10 @@
 
 			<section>
 				<hr class="trennung">
-				<h2>Erfahren Sie mehr über uns</h2>
-				<h1>IMMOBILIEN, WOHNUNGEN &amp; HÄUSER KAUFEN</h1>
+				<h2>Erfahren Sie mehr ï¿½ber uns</h2>
+				<h1>IMMOBILIEN, WOHNUNGEN &amp; Hï¿½USER KAUFEN</h1>
 				<p class="infotext">
-					SPS Immobilien ist ein weltweit führendes
+					SPS Immobilien ist ein weltweit fï¿½hrendes
 					Dienstleistungsunternehmen <br> in der Vermittlung von Wohn
 					und Gewerbeimmobilien.<br> Das Unternehmen bietet privaten und
 					institutionellen Kunden <br> eine professionell abgestimmte

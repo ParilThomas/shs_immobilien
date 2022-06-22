@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- Stylesheet Test TP-->
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/kaufen.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 
@@ -21,8 +21,7 @@
 <body>
 	
 	<header>
-		<p class="willkommen"></p>
-	<%@ include file="../jspf/allgbutton.jspf"%>
+		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 	
 	<c:if test="${haustypSelektiert == false}">

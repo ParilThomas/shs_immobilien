@@ -12,7 +12,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import immo.portal.bean.ObjektBean;
-import immo.portal.bean.kaufen_bean;
+import immo.portal.bean.KaufenBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletOutputStream;
@@ -28,7 +28,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 // Bild Servlet
-public class kaufen_bild_servlet extends HttpServlet {
+public class KaufenBildServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")

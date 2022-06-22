@@ -7,18 +7,16 @@
 <meta charset="UTF-8">
 <title>sps-immobilien.de/Über-Uns</title>
 
-<!-- Test- Kontakdaten SHS - TS -->
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/ueberuns.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 
 </head>
 <body>
 	<header>
-		<p class="allgemein"></p>
+		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
-    
-	<%@ include file="../jspf/allgbutton.jspf"%>
-	
+
 	<main>
 		<br>
 		<h2>Ihr Ansprechpartner rund um Immoblilien</h2>

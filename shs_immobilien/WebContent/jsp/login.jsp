@@ -11,10 +11,10 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <link rel="stylesheet" href="../css/login.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
+<link rel="stylesheet" href="../css/hauptbild.css">
 
 <script src="../js/login.js"></script>
 
@@ -22,9 +22,7 @@
 </head>
 <body>
 <header>
-	<div class="willkommen"></div>
-	<%@ include file="../jspf/allgbutton.jspf"%>
-	<br>
+	<%@ include file="../jspf/navBarHauptbild.jspf"%>
 </header>
 <nav>
 	<div class="hintergrund">

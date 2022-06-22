@@ -4,44 +4,39 @@ create table objekte
     bautyp varchar(30),
     titel varchar(100),
     baujahr int(4),
-    wohnflaeche int (5),
+    wohnflaeche int (4),
     grundstuecksflaeche int(6),
-    standort varchar(100),
+    standort varchar(32),
     datum date,
-    startgebot int(10),
+    startgebot int(9),
     beschreibung varchar(500),
     bilder mediumblob,
-    besitzer int(10),
-    hoechstbietender int(10)
+    besitzer int(8),
+    hoechstbietender int(8)
     );
     
     ALTER TABLE objekte ADD besitzer int(10) AFTER bilder;
     ALTER TABLE objekte ADD hoechstbietender int(10) AFTER besitzer;
     
-    create table benutzer
-    (loginname varchar(80) primary key,
-    passwort varchar(128)
-    );
-    
     create table haustyp
     (id int primary key auto_increment,
-    typ varchar(255)
+    typ varchar(64)
     );
     
     create table bautyp
     (id int primary key auto_increment,
-    typ varchar(255)
+    typ varchar(64)
     );
     
     
     CREATE TABLE benutzer 
     (id int primary key auto_increment,
-    vorname varchar(30),
-    nachname varchar(30),
-    anschrift varchar(50),
-    plz int(10),
-    wohnort varchar(30),
+    vorname varchar(32),
+    nachname varchar(32),
+    anschrift varchar(64),
+    plz int(5),
+    wohnort varchar(32),
     telefon int(20),
-    email varchar(50),
-    passwort1 varchar(20)
+    email varchar(64),
+    passwort1 varchar(32)
     );

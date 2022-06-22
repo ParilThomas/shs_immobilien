@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<!-- Stylesheet Test TP-->
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/registrieren.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 
@@ -20,10 +20,9 @@
 </head>
 <body>
 	<header>
-		<div class="willkommen"></div>
-
+		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
-	<%@ include file="../jspf/allgbutton.jspf"%>
+	
 	<br>
 
 	<main>
@@ -31,50 +30,51 @@
 
 
 			<div class="textfeld">
-				<form id="myForm" class="ansicht" action="../RegistrierenServlet"
-					method="post">
+				<form id="myForm" class="ansicht" action="../RegistrierenServlet"	method="post">
 					<table>
 						<tr>
 							<td><label for="vorname">Vorname:</label><br> <input
-								type="text" id="vorname" name="vorname" placeholder="Vorname"
+								type="text" id="vorname" name="vorname" placeholder="Vorname" maxlength="32"
 								required /><br> <br></td>
+								
 							<td><label for="nachname">Nachname:</label><br> <input
-								type="text" id="nachname" name="nachname" placeholder="Nachname"
+								type="text" id="nachname" name="nachname" placeholder="Nachname" maxlength="32"
 								required /><br> <br></td>
 						</tr>
 						<tr>
 							<td><label for="anschrift">Anschrift:</label><br> <input
 								type="text" id="anschrift" name="anschrift"
-								placeholder="Anschrift" required /><br> <br></td>
+								placeholder="Anschrift" maxlength="64" required /><br> <br></td>
+								
 							<td><label for="plz">Postleitzahl:</label><br> <input
-								type="number" id="plz" name="plz" placeholder="Postleitzahl"
+								type="number" id="plz" name="plz" placeholder="Postleitzahl" maxlength="5"
 								required /><br> <br></td>
 
 
 						</tr>
 						<tr>
 							<td><label for="wohnort">Wohnort:</label><br> <input
-								type="text" id="wohnort" name="wohnort" placeholder="Wohnort"
+								type="text" id="wohnort" name="wohnort" placeholder="Wohnort" maxlength="32"
 								required /><br> <br></td>
 							<td><label for="telefon">Telefon:</label><br> <input
 								type="number" id="telefon" name="telefon"
-								placeholder="Telefonnummer" required /><br> <br></td>
+								placeholder="Telefonnummer" maxlength="20" required /><br> <br></td>
 
 						</tr>
 						<tr>
 							<td colspan="2"><label for="mail">E-Mail:</label><br> <input
-								type="email" id="mail" name="email" placeholder="E-Mail"
+								type="email" id="mail" name="email" placeholder="E-Mail" maxlength="64"
 								required /><br> <br></td>
 						</tr>
 						<tr>
 							<td colspan="2"><label for="passwort1">Passwort:</label><br>
 								<input type="password" id="passwort1" name="passwort1"
-								placeholder="Passwort" required /><br> <br></td>
+								placeholder="Passwort" maxlength="32" required /><br> <br></td>
 						</tr>
 						<tr>
 							<td colspan="2"><label for="passwort2">Passwort
 									wiederholen:</label><br> <input type="password" id="passwort2"
-								name="passwort2" placeholder="Passwort wiederholen" required /><br>
+								name="passwort2" placeholder="Passwort wiederholen" maxlength="32" required /><br>
 								<br></td>
 						</tr>
 

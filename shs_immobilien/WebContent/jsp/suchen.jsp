@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- Stylesheet Test TP-->
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/kaufen.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 
@@ -22,9 +22,9 @@
 </head>
 <body>
 	<header>
-		<p class="willkommen"></p>
+		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
-	<%@ include file="../jspf/allgbutton.jspf"%>
+	
 	<br>
 
 	<form action="../BietenServlet" method=post>

@@ -10,15 +10,16 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/kaufen.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
 <title>sps-immobilien.de/Übersicht</title>
 </head>
 <body>
 	<header>
-	<p class="willkommen"></p>
+	<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
-	<%@ include file="../jspf/allgbutton.jspf"%>
+	
 	<br>
 
 	<c:if test="${benutzer != null}">

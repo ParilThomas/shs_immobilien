@@ -57,13 +57,8 @@ public class RegistrierenServlet extends HttpServlet {
 		String rpasswort1 = request.getParameter("passwort1");
 		String rpasswort2 = request.getParameter("passwort2");
 		
-		if (rvorname.isEmpty() || rnachname.isEmpty() || ranschrift.isEmpty() || rplz <0 || rwohnort.isEmpty()
-				|| rtelefon < 0 || remail.isEmpty() || rpasswort1.isEmpty())
-			return;
-		
-		if (rpasswort1.equals(rpasswort2)) {
 			registrierenData.registrierenFormularabschicken(rvorname, rnachname, ranschrift, rplz, rwohnort, rtelefon, remail, rpasswort1);
-		}
+
 		
 		response.sendRedirect("LoginServlet");		
 		

@@ -12,16 +12,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/kaufen.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
+
+<script src="../js/bieten.js"></script>
 
 <title>sps-immobilien.de/Kaufen/Details</title>
 </head>
 <body>
 	<header>
-		<p class="willkommen"></p>
-			<%@ include file="../jspf/allgbutton.jspf"%>
-			<br>
+			<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 		<div class="bietenseite">
 
@@ -31,7 +32,7 @@
 		<%@ include file="../jspf/hausauswahl.jspf"%>
 		</td>
 	<td>
-<form action="../GebotServlet" method=post>
+<form id="bietenForm" action="../GebotServlet" method=post>
 				<c:forEach var="bieten" items="${objekt}">
 				<p class="titel">${bieten.titel}</p>
 				<img src="../kaufen_bild_servlet?id=${bieten.id}"></img>
@@ -84,7 +85,7 @@
 				
 				<c:if test="${benutzer != null}">
 				<label for="startgebot">Ihr Gebot (€):</label><br>
-				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot"/><br>
+				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot" maxlength="9"/><br>
 				<input type="hidden" name="benutzer" value="${benutzer.id}"/><br>
 				<button type="submit" name="gebot_absenden" value="${bieten.id}" onclick="myFunction()">Absenden</button>
 				</c:if>

@@ -97,28 +97,14 @@ public class VerkaufServlet extends HttpServlet {
 			String fhaustyp = request.getParameter("haustyp");
 			String fbautyp = request.getParameter("bautyp");
 			String ftitel = request.getParameter("titel");
-			String fbaujahr = request.getParameter("baujahr");
+			Integer fbaujahr = (Integer.valueOf(request.getParameter("baujahr")));
 			Integer fwohnflaeche = (Integer.valueOf(request.getParameter("wohnflaeche")));
 			Integer fgrundstuecksflaeche = (Integer.valueOf(request.getParameter("grundstuecksflaeche")));
-			java.sql.Date fdatum = null;
-			try {
-				// Eclipse internal browser date format
-				DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-				 fdatum = new java.sql.Date(dateFormat.parse(request.getParameter("datum")).getTime());
-			} catch (ParseException e) {
-				e.printStackTrace();				
-			}
+			String fdatum = request.getParameter("datum");
 			String fstandort = request.getParameter("standort");
 			Integer fstartgebot = (Integer.valueOf(request.getParameter("startgebot")));
 			String fbeschreibung = request.getParameter("beschreibung");
 			Part fbilder = request.getPart("bilder");
-
-			java.util.Date date = new java.util.Date();
-			java.sql.Date aktdatum = new Date(date.getTime());
-
-			if (fhaustyp.isEmpty() || fbautyp.isEmpty() || ftitel.isEmpty() || fbaujahr.isEmpty() || fwohnflaeche < 0
-					|| fgrundstuecksflaeche < 0 || fdatum==null || fdatum.before(aktdatum) || fstandort.isEmpty() || fbilder == null)
-				return;
 
 			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche,
 					fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum, fbesitzer);

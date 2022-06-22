@@ -11,9 +11,11 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- Stylesheet Test TP-->
+<link rel="stylesheet" href="../css/hauptbild.css">
 <link rel="stylesheet" href="../css/verkaufen.css">
 <link rel="stylesheet" href="../css/dropdownNavBar.css">
+
+<script src="../js/verkaufen.js"></script>
 
 <title>sps-immobilien.de/Verkaufen</title>
 
@@ -21,8 +23,7 @@
 
 <body>
 	<header>
-		<div class="willkommen"></div>
-	<%@ include file="../jspf/allgbutton.jspf"%>
+		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 	
 	
@@ -55,17 +56,17 @@
 
 		<div class="hintergrund">
 			<div class="textfeld">
-				<form class="ansicht" action="../VerkaufServlet" method=post
+				<form id="verkaufForm" class="ansicht" action="../VerkaufServlet" method=post
 					accept-charset="utf-8" enctype="multipart/form-data">
 					<table>
 						<tr>
-							<td><label for="htyp">Haustyp:</label><br> <select
+							<td><label for="htyp">Haustyp</label><br> <select
 								name="haustyp" id="htyp">
 									<c:forEach items="${haustyplist}" var="haustyp">
 										<option id="${haustyp.typ}" value="${haustyp.typ}">${haustyp.typ}</option>
 									</c:forEach>
 							</select></td>
-							<td><label for="btyp">Bautyp:</label><br> <select
+							<td><label for="btyp">Bautyp</label><br> <select
 								name="bautyp" id="btyp">
 									<c:forEach items="${bautyplist}" var="bautyp">
 										<option id="${bautyp.typ}" value="${bautyp.typ}">${bautyp.typ}</option>
@@ -73,50 +74,47 @@
 							</select></td>
 						</tr>
 						<tr>
-							<td colspan="2"><label for="titel">Titel:</label><br> <input
-								type="text" id="titel" name="titel" placeholder="Objekttitel"
+							<td colspan="2"><label for="titel">Titel</label><br> <input
+								type="text" id="titel" name="titel" placeholder="Objekttitel" maxlength="100"
 								required /><br>
 							<br></td>
 						</tr>
 						<tr>
-							<td><label for="baujahr">Baujahr:</label><br> <input
-								type="number" id="baujahr" name="baujahr" placeholder="Baujahr"
+							<td><label for="baujahr">Baujahr</label><br> <input
+								type="number" id="baujahr" name="baujahr" placeholder="Baujahr" maxlength="4"
 								required /><br>
 							<br></td>
-							<td><label for="standort">Objektstandort:</label><br> <input
-								type="text" id="standort" name="standort" placeholder="Ort"
+							<td><label for="standort">Objektstandort</label><br> <input
+								type="text" id="standort" name="standort" placeholder="Ort" maxlength="32"
 								required /><br>
 							<br></td>
 						</tr>
 						<tr>
-							<td><label for="wohnflaeche">Wohnfläche in m²:</label><br>
-								<input type="number" id="wohnflaeche" name="wohnflaeche"
-								placeholder="125" required /><br>
+							<td><label for="wohnflaeche">Wohnfläche</label><br>
+								<input type="number" id="wohnflaeche" name="wohnflaeche" placeholder="125" maxlength="4" required /> m²<br>
 							<br></td>
-							<td><label for="grundstuecksflaeche">Grundstück in
-									m²:</label><br> <input type="number" id="grundstuecksflaeche"
-								name="grundstuecksflaeche" placeholder="250" required /><br>
+							<td><label for="grundstuecksflaeche">Grundstück</label><br> <input type="number" id="grundstuecksflaeche" name="grundstuecksflaeche" placeholder="250" maxlength="6" required /> m²<br>
 							<br></td>
 						</tr>
 						<tr>
-							<td><label for="datum">Ende der Auktion:</label><br> <input
-								type="date" id="datum" name="datum" required /><br>
+							<td><label for="datum2">Auktionsende</label><br>
+							<input type="date" id="datum" min="2022-08-01" name="datum" required /><br>
 							<br></td>
-							<td><label for="startgebot">Startgebot in €:</label><br>
+							<td><label for="startgebot">Startgebot</label><br>
 								<input type="number" id="startgebot" name="startgebot"
-								placeholder="500000" required /><br>
+								placeholder="500000" maxlength="9" required /> €<br>
 							<br></td>
 						</tr>
 
 						<tr>
-							<td colspan="2"><label for="beschreibung">Objektbeschreibung:</label><br>
+							<td colspan="2"><label for="beschreibung">Objektbeschreibung</label><br>
 								<textarea rows="5" cols="50" maxlength="500" id="beschreibung"
-									name="beschreibung" required></textarea><br>
+									name="beschreibung" maxlength="500" required></textarea><br>
 							<br></td>
 						</tr>
 
 						<tr>
-							<td colspan="2"><label for="bilder">Objektbilder:</label><br>
+							<td colspan="2"><label for="bilder">Objektbilder</label><br>
 								<input type="file" id="bilder" name="bilder" accept="image/*"
 								required /><br>
 							<br></td>
@@ -141,13 +139,13 @@
 
 							<td><label for="htyp_edit">Ihr Haustyp ist nicht
 									dabei?</label><br> <input type="text" id="htyp_edit"
-								name="htyp_edit" placeholder="Haustyp" /><br>
+								name="htyp_edit" placeholder="Haustyp" maxlength="64"/><br>
 							<br>
 								<button class="anlegenbutton" type="submit"
 									name="htyp_edit_absenden" value="absenden">Absenden</button></td>
 							<td><label for="btyp_edit">Ihr Bautyp ist nicht
 									dabei?</label><br> <input type="text" id="btyp_edit"
-								name="btyp_edit" placeholder="Bautyp" /><br>
+								name="btyp_edit" placeholder="Bautyp" maxlength="64"/><br>
 							<br>
 								<button class="anlegenbutton" type="submit"
 									name="btyp_edit_absenden" value="absenden">Absenden</button></td>
