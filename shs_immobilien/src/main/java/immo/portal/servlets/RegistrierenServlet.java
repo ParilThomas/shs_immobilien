@@ -39,26 +39,36 @@ public class RegistrierenServlet extends HttpServlet {
 	}
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {			
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		registrierenSeiteAnzeigen(request, response);
 	}
 		
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RegistrierenData registrierenData = new RegistrierenData(dataSource);		
+		RegistrierenData registrierenData = new RegistrierenData(dataSource);	
+		HttpSession session = request.getSession();
+		session.setAttribute("emailExistiert", false);
+		
 
 		String rvorname = request.getParameter("vorname");
 		String rnachname = request.getParameter("nachname");
 		String ranschrift = request.getParameter("anschrift");
-		Integer rplz = (Integer.valueOf(request.getParameter("plz")));
+		String rplz = request.getParameter("plz");
 		String rwohnort = request.getParameter("wohnort");
 		Integer rtelefon = (Integer.valueOf(request.getParameter("telefon")));
 		String remail = request.getParameter("email");
-		String rpasswort1 = request.getParameter("passwort1");
-		String rpasswort2 = request.getParameter("passwort2");
+		String rpasswort = request.getParameter("passwort");
+		String passwortwdh = request.getParameter("passwortwdh");
 		
-			registrierenData.registrierenFormularabschicken(rvorname, rnachname, ranschrift, rplz, rwohnort, rtelefon, remail, rpasswort1);
-
+			// Check ob Email bereits vorhanden
+		if (registrierenData.emailVorhanden(remail)) {
+			session.setAttribute("emailExistiert", true);
+			response.sendRedirect("RegistrierenServlet");
+			return;
+			} else if (rpasswort.equals(passwortwdh)) {
+			registrierenData.registrierenFormularabschicken(rvorname, rnachname, ranschrift, rplz, rwohnort, rtelefon, remail, rpasswort);
+			}
+			
 		
 		response.sendRedirect("LoginServlet");		
 		

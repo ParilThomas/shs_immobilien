@@ -62,6 +62,20 @@ table,td{
   font-size: 17px;
   width:60%;
 }
+
+.fehlerbutton{
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 25px;
+	background: red;
+	color: white;
+	width: 250px;
+	margin: auto;
+	text-align: center;
+}
+
 main{
 	margin-bottom: 50px;
 }
@@ -76,3 +90,4 @@ footer {
 	line-height: 20px;
 	color: #ffffff;
 }
+
