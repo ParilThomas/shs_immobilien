@@ -20,8 +20,7 @@ public class SuchenData {
 
 	public List<ObjektBean> getSuchObjekte(String suchvar) {
 		List<ObjektBean> suchObjekte = new ArrayList<ObjektBean>();
-		try {
-			
+		try {			
 			Connection con = dataSource.getConnection();
 			PreparedStatement prsmt = con.prepareStatement(
 				"Select * FROM objekte WHERE "
@@ -35,7 +34,6 @@ public class SuchenData {
 				+ "beschreibung LIKE ? OR "
 				+ "startgebot LIKE ?"
 			);
-
 			
 			prsmt.setString(1, "%" + suchvar + "%");
 			prsmt.setString(2, "%" + suchvar + "%");
@@ -46,8 +44,7 @@ public class SuchenData {
 			prsmt.setString(7, "%" + suchvar + "%");
 			prsmt.setString(8, "%" + suchvar + "%");
 			prsmt.setString(9, "%" + suchvar + "%");
-			
-			
+						
 			ResultSet resultSet = prsmt.executeQuery();
 			while (resultSet.next()) {
 				suchObjekte.add(new ObjektBean(
@@ -72,6 +69,5 @@ public class SuchenData {
 		}
 		return suchObjekte;
 	}
-	
 
 }

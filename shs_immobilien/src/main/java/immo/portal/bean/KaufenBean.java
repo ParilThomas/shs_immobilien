@@ -18,10 +18,7 @@ public class KaufenBean implements Serializable {
 	private byte[] bilder;
 
 	public KaufenBean() {
-
 	}
-
-	
 
 	public KaufenBean( String haustyp, String bautyp, String titel, Integer baujahr, Integer wohnflaeche,
 			Integer grundstuecksflaeche, String standort, Integer startgebot, String beschreibung, String dateiname,
@@ -40,133 +37,100 @@ public class KaufenBean implements Serializable {
 		this.bilder = bilder;
 	}
 
-
-
-
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getHaustyp() {
 		return haustyp;
 	}
-
 
 	public void setHaustyp(String haustyp) {
 		this.haustyp = haustyp;
 	}
 
-
 	public String getBautyp() {
 		return bautyp;
 	}
-
 
 	public void setBautyp(String bautyp) {
 		this.bautyp = bautyp;
 	}
 
-
 	public String getTitel() {
 		return titel;
 	}
-
 
 	public void setTitel(String titel) {
 		this.titel = titel;
 	}
 
-
 	public Integer getBaujahr() {
 		return baujahr;
 	}
-
 
 	public void setBaujahr(Integer baujahr) {
 		this.baujahr = baujahr;
 	}
 
-
 	public Integer getWohnflaeche() {
 		return wohnflaeche;
 	}
-
 
 	public void setWohnflaeche(Integer wohnflaeche) {
 		this.wohnflaeche = wohnflaeche;
 	}
 
-
 	public Integer getGrundstuecksflaeche() {
 		return grundstuecksflaeche;
 	}
-
 
 	public void setGrundstuecksflaeche(Integer grundstuecksflaeche) {
 		this.grundstuecksflaeche = grundstuecksflaeche;
 	}
 
-
 	public String getStandort() {
 		return standort;
 	}
-
 
 	public void setStandort(String standort) {
 		this.standort = standort;
 	}
 
-
 	public Integer getStartgebot() {
 		return startgebot;
 	}
-
 
 	public void setStartgebot(Integer startgebot) {
 		this.startgebot = startgebot;
 	}
 
-
 	public String getBeschreibung() {
 		return beschreibung;
 	}
-
-
 
 	public String getDateiname() {
 		return dateiname;
 	}
 
-
-
 	public void setDateiname(String dateiname) {
 		this.dateiname = dateiname;
 	}
-
-
 
 	public byte[] getBilder() {
 		return bilder;
 	}
 
-
-
 	public void setBilder(byte[] bilder) {
 		this.bilder = bilder;
 	}
-
-
 
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
 
-	
 }

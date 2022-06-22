@@ -1,5 +1,4 @@
-@charset "ISO-8859-1";
-
+@charset "UTF-8";
 
 h2 {
 	font-family: 'Poppins', sans-serif;
@@ -13,22 +12,16 @@ h2 {
 	font-family: 'Poppins', sans-serif;
 }
 
-
-.trenner{
-	
+.trenner{	
 	width: 50px;
 	background-color: red;
 	padding: 1.5px;
-
 }
 
-.table{
-	
+.table{	
 	font-family: 'Poppins', sans-serif;
 	text-align: center;
-	margin: 0 auto;
-	
-	
+	margin: 0 auto;	
 }
 
 th{
@@ -56,17 +49,7 @@ td{
 .profilsimons {
 	background: url(../img/profil_simons.jpg)
 }
+
 main{
 	margin-bottom: 50px;
-}
-footer {
-	text-align: center;
-	margin: auto;
-	font-family: 'Poppins', sans-serif;
-	flex-grow: 0;
-	background-color: #26272b;
-	padding: 45px 0 20px;
-	font-size: 20px;
-	line-height: 20px;
-	color: #ffffff;
 }

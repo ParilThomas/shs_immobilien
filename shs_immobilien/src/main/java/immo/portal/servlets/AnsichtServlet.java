@@ -6,9 +6,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import data.AnsichtData;
-import data.HaustypData;
-import data.ObjektData;
-import immo.portal.bean.HaustypBean;
 import immo.portal.bean.ObjektBean;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -30,7 +27,6 @@ public class AnsichtServlet extends HttpServlet {
 		response.sendRedirect("jsp/ansicht.jsp");
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		AnsichtData ansichtData = new AnsichtData(dataSource);
@@ -49,12 +45,9 @@ public class AnsichtServlet extends HttpServlet {
 			Integer benutzerid = Integer.valueOf(request.getParameter("ihrgebot"));
 			if (benutzerid != null) {
 				List<ObjektBean> eigeneobjekte = ansichtData.eigeneGebote(benutzerid);
-				session.setAttribute("eigeneobjekte", eigeneobjekte);
-				
+				session.setAttribute("eigeneobjekte", eigeneobjekte);	
 			}
-
 		}
-		
 		this.doGet(request, response);
 	}
 		

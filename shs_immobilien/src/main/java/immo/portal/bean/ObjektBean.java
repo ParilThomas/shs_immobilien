@@ -32,8 +32,7 @@ public class ObjektBean implements Serializable {
 	private Integer besitzer;
 	private Integer hoechstbietender;
 	
-	public ObjektBean() {
-		
+	public ObjektBean() {	
 	}
 	
 	public ObjektBean(Long id, String haustyp, String bautyp, String titel, int baujahr, int wohnflaeche, int grundstuecksflaeche, String standort, Date datum,
@@ -55,7 +54,6 @@ public class ObjektBean implements Serializable {
 		this.hoechstbietender = hoechstbietender;
 	}
 
-	
 	public Integer getHoechstbietender() {
 		return hoechstbietender;
 	}
@@ -144,12 +142,5 @@ public class ObjektBean implements Serializable {
 	public void setBilder(byte[] bilder) {
 		this.bilder = bilder;
 	}
-	
-//	public BufferedImage getBild() throws SQLException, IOException {
-//		Blob b = bilder.getBilder();
-//		InputStream is = b.getBinaryStream();
-//	    return ImageIO.read(is);
-//	}
-	
 	
 }

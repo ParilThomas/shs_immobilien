@@ -21,8 +21,7 @@ public class BautypData {
 	}
 
 	public List<BautypBean> alleBautypen() {
-		List<BautypBean> bautypen = new ArrayList<>();
-		
+		List<BautypBean> bautypen = new ArrayList<>();	
 		try {
 			Connection connection = dataSource.getConnection();
 			ResultSet bautyp = connection.createStatement().executeQuery("SELECT * FROM bautyp ORDER BY typ");
@@ -65,6 +64,5 @@ public class BautypData {
 		}
 		
 	}
-	
 	
 }

@@ -1,10 +1,6 @@
 package immo.portal.servlets;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -28,6 +24,7 @@ import jakarta.servlet.http.Part;
 @MultipartConfig(maxFileSize = 1024 * 1024 * 25, maxRequestSize = 1024 * 1024 * 25, location = "/tmp", fileSizeThreshold = 1024 * 1024)
 public class VerkaufServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;
 	
@@ -108,9 +105,7 @@ public class VerkaufServlet extends HttpServlet {
 			objektData.verkaufFormularAbschicken(fhaustyp, fbautyp, ftitel, fbaujahr, fwohnflaeche,
 					fgrundstuecksflaeche, fstandort, fstartgebot, fbeschreibung, fbilder, fdatum, fbesitzer);
 		}
-
 		this.doGet(request, response);
-
 	}
 
 }

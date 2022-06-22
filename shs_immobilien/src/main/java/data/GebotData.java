@@ -17,8 +17,7 @@ private DataSource dataSource;
 	}
 	
 	public void gebotAktualisieren (Integer gebot, String id, Integer benutzerid) {
-		try {
-			
+		try {		
 			Connection con = dataSource.getConnection();
 			PreparedStatement prsmt = con.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id LIKE ?");
 			prsmt.setInt(1, gebot);
@@ -43,18 +42,17 @@ private DataSource dataSource;
 			preparedStatement.setString(1, id);			 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-			if(resultSet.getInt(1) >= gebot) {
-				return true;
-			}
+				if(resultSet.getInt(1) >= gebot) {
+					return true;
+				}
 			}
 
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
-	return false;
-	
-	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;	
 	}	
+	
 	public boolean istGebotOk(Integer gebot, String id) {
 		try {
 			Connection connection = dataSource.getConnection();
@@ -62,16 +60,15 @@ private DataSource dataSource;
 			preparedStatement.setString(1, id);			 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-			if(resultSet.getInt(1) < gebot) {
-				return true;
-			}
+				if(resultSet.getInt(1) < gebot) {
+					return true;
+				}
 			}
 
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
 	return false;
-	
-	
 	}	
+	
 }

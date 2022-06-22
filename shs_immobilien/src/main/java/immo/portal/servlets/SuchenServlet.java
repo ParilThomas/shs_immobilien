@@ -23,15 +23,12 @@ public class SuchenServlet extends HttpServlet {
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
       
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("doPost SuchenServlet");
 		HttpSession session = request.getSession();
 		
 		SuchenData suchenData = new SuchenData(dataSource);			
 		String suchvar = request.getParameter("suchvar");
-		System.out.println(suchvar);
 		List<ObjektBean> objekte = suchenData.getSuchObjekte(suchvar);
 		session.setAttribute("objekte", objekte);
 		

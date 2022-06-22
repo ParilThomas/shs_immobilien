@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -20,25 +18,23 @@ public class LoginData {
 	}
 
 	public BenutzerBean holeBenutzer(String email, String passwort) {
-
 		try {
 			Connection con = dataSource.getConnection();
 			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM benutzer WHERE email = ? AND passwort1 = ?");
 			pstmt.setString(1, email);
 			pstmt.setString(2, passwort);
-
 			ResultSet resultSet = pstmt.executeQuery();
 			while (resultSet.next()) {
 				return new BenutzerBean(
-						resultSet.getInt("id"),
-						resultSet.getString("vorname"),
-						resultSet.getString("nachname"),
-						resultSet.getString("anschrift"),
-						resultSet.getInt("plz"),
-						resultSet.getString("wohnort"),
-						resultSet.getInt("telefon"),
-						resultSet.getString("email"),
-						resultSet.getString("passwort1")
+					resultSet.getInt("id"),
+					resultSet.getString("vorname"),
+					resultSet.getString("nachname"),
+					resultSet.getString("anschrift"),
+					resultSet.getInt("plz"),
+					resultSet.getString("wohnort"),
+					resultSet.getInt("telefon"),
+					resultSet.getString("email"),
+					resultSet.getString("passwort1")
 				);			
 			}
 		} catch (Exception e) {
@@ -48,8 +44,7 @@ public class LoginData {
 	}
 
 
-	public boolean istRegistriert(String email) {
-		
+	public boolean istRegistriert(String email) {	
 		try {
 			Connection connection = dataSource.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM benutzer WHERE email = ?");
@@ -64,6 +59,4 @@ public class LoginData {
 		return false;	
 	}
 	
-	
-
 }

@@ -17,12 +17,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class KaufenServlet
- */
 @WebServlet("/KaufenServlet")
 public class KaufenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
 	
@@ -54,9 +52,7 @@ public class KaufenServlet extends HttpServlet {
 				response.sendRedirect("jsp/kaufen.jsp");	
 				return;
 			}
-		}
-		
+		}	
 	}
 	
-
 }

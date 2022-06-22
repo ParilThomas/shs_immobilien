@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 .suchen {
 	width: 60%;
@@ -14,21 +14,25 @@
 html, body {
 	height: 100%;
 }
+
 section{
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
+
 .ansicht {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
+
  table, tr{
  text-align: center;
  width: 80%;
 
  }
+ 
 .textfeld {
 	margin: auto;
 	height: 50px;
@@ -36,7 +40,6 @@ section{
 	position: relative;
 	margin-top: 15px;
 	margin-bottom: 30px;
-	
 }
 
 .textfeld input {
@@ -103,16 +106,4 @@ h3{
 	width: 50px;
 	background-color: red;
 	padding: 1.5px;
-}
-
-footer {
-	text-align: center;
-	margin: auto;
-	font-family: 'Poppins', sans-serif;
-	flex-grow: 0;
-	background-color: #26272b;
-	padding: 45px 0 20px;
-	font-size: 20px;
-	line-height: 20px;
-	color: #ffffff;
 }

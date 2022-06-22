@@ -1,18 +1,11 @@
 package data;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.sql.DataSource;
-
-import immo.portal.bean.ObjektBean;
-import immo.portal.bean.BenutzerBean;
-import jakarta.servlet.http.Part;
 
 public class RegistrierenData {
 private DataSource dataSource;
@@ -28,8 +21,7 @@ private DataSource dataSource;
 		try {
 			Connection connection = dataSource.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO benutzer (vorname, nachname, anschrift, plz, wohnort, "
-					+ "telefon,email, passwort1) VALUES (?,?,?,?,?,?,?,?)");
-					
+																				+ "telefon,email, passwort1) VALUES (?,?,?,?,?,?,?,?)");				
 			preparedStatement.setString(1, vorname);
 			preparedStatement.setString(2, nachname);
 			preparedStatement.setString(3, anschrift);
@@ -58,4 +50,5 @@ private DataSource dataSource;
 		}
 		return false;	
 	}
+	
 }

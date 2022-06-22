@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 .button{
 	padding: 10px;
@@ -77,11 +77,11 @@ img{
 	margin-right: 30px;
 }
 
-
 .bietentabelle{
 	width: 200px;
 	font-family: 'Poppins',sans-serif;
-	}
+}
+	
 .trennung{
 	width:100px;
 }
@@ -114,16 +114,4 @@ img{
 
 main{
 	margin-bottom: 100px;
-}
-
-footer {
-	text-align: center;
-	margin: auto;
-	font-family: 'Poppins', sans-serif;
-	flex-grow: 0;
-	background-color: #26272b;
-	padding: 45px 0 20px;
-	font-size: 20px;
-	line-height: 20px;
-	color: #ffffff;
 }

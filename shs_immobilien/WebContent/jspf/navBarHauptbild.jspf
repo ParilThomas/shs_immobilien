@@ -1,35 +1,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="hauptbild"></div>
 
 <nav class="nav">
-	<div class="icon-bar">
-	
-		<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a> <a
-			href="../VerkaufServlet"><i class="fa fa-dollar"></i> Verkaufen</a> <a
-			href="./ueberuns.jsp"><i class="fa fa-globe"></i> Unser Team</a> <a
-			href="./login.jsp"><i class="fa fa-user"></i> Login</a> <a
-			href="../jsp/startseite.jsp#suchvar"><i class="fa fa-search"></i> Suchen</a>
+	<div class="icon-bar">	
+		<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a>
+		<a href="../VerkaufServlet"><i class="fa fa-dollar"></i> Verkaufen</a>
+		<a href="./ueberuns.jsp"><i class="fa fa-globe"></i> Unser Team</a>
+		<a href="./login.jsp"><i class="fa fa-user"></i> Login</a>
+		<a href="../jsp/startseite.jsp#suchvar"><i class="fa fa-search"></i> Suchen</a>
 			
 		<c:if test="${benutzer != null}">
 			<div class="dropdown">
 				<button class="dropbtn">Profil</button>
 				<div class="dropdown-content">
-					<form action="../AnsichtServlet" method="post">
-						<br>
-						<button class="ansichtbutton" type="submit" name="ihrangebot"
-							value="${benutzer.id}">Angebote</button>
-						<br> <br>
-						<button class="ansichtbutton" type="submit" name="ihrgebot"
-							value="${benutzer.id}">Gebote</button>
-						<br> <br>
+				
+					<form action="../AnsichtServlet" method="post"><br>
+						<button class="ansichtbutton" type="submit" name="ihrangebot" value="${benutzer.id}">Angebote</button><br><br>
+						<button class="ansichtbutton" type="submit" name="ihrgebot"	value="${benutzer.id}">Gebote</button><br><br>
 					</form>
+					
 					<form action="../LogoutServlet" method="post">
-						<button class="logoutbutton" type="submit" name="logout"
-							value="logout">Logout</button>
+						<button class="logoutbutton" type="submit" name="logout" value="logout">Logout</button>
 					</form>
+					
 				</div>
 			</div>
 		</c:if>

@@ -12,7 +12,7 @@ function init() {
 function checkGebot(evt) {
 
 	var gebot = document.getElementById("gebot").value;
-
+	
 	if (gebot > 100000000) {
 		alert("Das maximal zulässige Gebot liegt bei 100.000.000€!");
 		evt.preventDefault();

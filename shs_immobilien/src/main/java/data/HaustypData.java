@@ -15,18 +15,15 @@ public class HaustypData {
 	
 	private DataSource dataSource;
 	
-	
 	public HaustypData(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 	
 	public List<HaustypBean> alleHaustypen() {
-		List<HaustypBean> haustypen = new ArrayList<>();
-		
+		List<HaustypBean> haustypen = new ArrayList<>();	
 		try {
 			Connection connection = dataSource.getConnection();
-			ResultSet haustyp = connection.createStatement().executeQuery("SELECT * FROM haustyp ORDER BY typ");
-			
+			ResultSet haustyp = connection.createStatement().executeQuery("SELECT * FROM haustyp ORDER BY typ");		
 			while (haustyp.next()) {	
 				haustypen.add(new HaustypBean(haustyp.getInt("id"), haustyp.getString("typ")));
 			}
@@ -56,7 +53,6 @@ public class HaustypData {
 	
 	public void neuenHaustypHinzufuegen(String haustyp) {
 		try {
-			System.out.println(haustyp);
 			Connection connection = dataSource.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO haustyp (typ) VALUES (?)");
 			//1 -> 1. Fragezeichen aus SQL Abfrage

@@ -21,7 +21,6 @@ public class VerkaufBean implements Serializable {
 	private byte[] bilder;
 
 	public VerkaufBean() {
-
 	}
 
 	public VerkaufBean(Long id, String haustyp, String bautyp, String titel, Integer baujahr, Integer wohnflaeche,

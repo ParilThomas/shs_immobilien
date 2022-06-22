@@ -2,33 +2,34 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="immo.portal.bean.BenutzerBean"%>
 <%@page import="immo.portal.servlets.RegistrierenServlet"%>
+
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<link rel="stylesheet" href="../css/hauptbild.css">
-<link rel="stylesheet" href="../css/registrieren.css">
-<link rel="stylesheet" href="../css/dropdownNavBar.css">
+	<link rel="stylesheet" href="../css/hauptbild.css">
+	<link rel="stylesheet" href="../css/registrieren.css">
+	<link rel="stylesheet" href="../css/dropdownNavBar.css">
+	<link rel="stylesheet" href="../css/footer.css">
 
-<script src="../js/registrieren.js"></script>
+	<script src="../js/registrieren.js"></script>
 
-<title>sps-immobilien.de/Registrierung</title>
-
+	<title>sps-immobilien.de/Registrierung</title>
 </head>
+
 <body>
 	<header>
 		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 	<br>
-	<main>
+
+<main>
+	<c:if test="${emailExistiert == true}">
+		<h1 class="fehlerbutton">E-Mail existiert bereits!</h1>
+	</c:if>
 	
-		<c:if test="${emailExistiert == true}">
-			<h1 class="fehlerbutton">E-Mail existiert bereits!</h1>
-		</c:if>
-	
-		<div class="hintergrund">
+	<div class="hintergrund">
 		<div class="textfeld">
 		<form id="registForm" class="ansicht" action="../RegistrierenServlet"	method="post">
 			<table>			
@@ -87,15 +88,9 @@
 			</table>
 		</form>
 		</div>
-		</div>
-	</main>
+	</div>
+</main>
 	
-	<footer>
-		<i class="fa fa-building-o">&nbsp;SPS-Immobilien |</i> <i
-			class="fa fa-map-marker">&nbsp; Baumweg 10 - 85296 Rohrbach |</i> <i
-			class="fa fa-phone">&nbsp; +49-8442-4563-0 |</i> <i
-			class="fa fa-envelope-o">&nbsp; contact@sps.com |</i> <i
-			class="fa fa-fax">&nbsp; +49-8442-4563-4 </i>
-	</footer>
+<%@ include file="../jspf/footer.jspf"%>
 </body>
 </html>

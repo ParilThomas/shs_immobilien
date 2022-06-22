@@ -8,8 +8,7 @@ public class HaustypBean implements Serializable{
 	private int id;
 	private String typ;
 	
-	public HaustypBean() {
-		
+	public HaustypBean() {	
 	}
 	
 	public HaustypBean(int id, String typ) {

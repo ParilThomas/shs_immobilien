@@ -2,9 +2,6 @@ package immo.portal.servlets;
 
 import java.io.IOException;
 
-import javax.sql.DataSource;
-
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

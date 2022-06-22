@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/GebotServlet")
 public class GebotServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
   
@@ -43,7 +44,7 @@ public class GebotServlet extends HttpServlet {
 				session.setAttribute("GebotIstOk", true);
 			}
 		}
-
 		response.sendRedirect("KaufenServlet");
 	}
+	
 }
