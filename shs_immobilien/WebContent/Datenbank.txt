@@ -36,7 +36,7 @@ create table objekte
     anschrift varchar(64),
     plz varchar(5),
     wohnort varchar(32),
-    telefon int(20),
+    telefon varchar(16),
     email varchar(64),
     passwort1 varchar(32)
     );

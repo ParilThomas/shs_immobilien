@@ -57,7 +57,7 @@
 				</td>
 								
 				<td><label for="telefon">Telefon</label><br>
-					<input type="text" id="telefon" name="telefon" placeholder="Telefonnummer" pattern="[0-9]{20}" required /><br><br>
+					<input type="text" id="telefon" name="telefon" placeholder="Telefonnummer" pattern="[0-9]{3,}" required /><br><br>
 				</td>
 			</tr>
 						
