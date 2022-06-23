@@ -8,7 +8,18 @@ function init() {
 	form.addEventListener("submit", checkWohnflaeche);
 	form.addEventListener("submit", checkGrundflaeche);
 	form.addEventListener("submit", checkStartgebot);
+	form.addEventListener("submit",checkDatum);
+	form.addEventListener("submit",checkReset);
 }
+
+function checkReset(evt){
+	var wirklichReset = confirm("Wollen Sie wirklich ihre Eingabe zurücksetzen?");
+	if(!wirklichReset){
+		evt.preventDefault();
+	}
+	
+}
+
 
 function checkBaujahr(evt) {
 	var aktuellesJahr = new Date();
@@ -23,16 +34,25 @@ function checkBaujahr(evt) {
 
 function checkDatum(evt){
 	
-	var eingDatum = new Date(document.getElementById("datum"))
+	var eingDatum = document.getElementById("datum").value;
 	
 	var heute = new Date();
-	var dd = today.getDate();
-	var mm = today.getMonth() + 1;
-	var yyyy = today.getFullYear();
+	var dd = heute.getDate();
+	var mm = heute.getMonth() + 1;
+	var yyyy = heute.getFullYear();
+    
+    	if (dd < 10){
+		dd = "0" + dd;
+	}
+
+	if (mm < 10){
+		mm = "0" + mm;
+	}
+    
     
 	heute = yyyy + '-' + mm + '-' + dd;
 	
-	if(eingDatum < today){
+	if(eingDatum < heute){
 		alert("Bitte ein Datum wählen, das nicht in der Vergangenheit liegt!");
 		evt.preventDefault();	
 	}

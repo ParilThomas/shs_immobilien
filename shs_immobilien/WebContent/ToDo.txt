@@ -1,27 +1,11 @@
-ToDo:
+Warum hängt sich der Server bzw. die Datenbank auf 
 
-1. generische Suche (In welchen Tabellen mï¿½ssen wir suchen bzw. Spalten ?)
+1. Kommentare hinzufügen
+2. Authoren defnieren
+3. Datenbanken neu anlegen mit geeigneten Werten
+4. Alles nochmal überprüfen, jegliche Funktion nochmal jecken & jeglichen Fall 
+4. Validator Check
 
-2. Bei ï¿½berprï¿½fung des PW in der Registrieren jsp evtl mit Java Script arbeiten und Ausgabe "Passwort falsch" erzeugen
-   Gleicher Fall beim Haustyp hinzufï¿½gen check/ Bautyp hinzufï¿½gen check und bei der ï¿½berprï¿½fung ob Gebot akzeptiert wird oder nicht 
-    
-   -> Akutell anzeige auf jsp ... Anzeige geht nur durch server neustart weg !!!
-
-
-
-
-
-
-Fragen?
-
-
-- Warum wirft er einen Fehler bei externen Browser fehler beim abschicken von Objekten 
-
-
-
-
-3. Cookies !!!!!!!
-4. Css
 
 
 	/**

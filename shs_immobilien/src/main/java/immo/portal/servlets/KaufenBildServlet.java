@@ -48,7 +48,7 @@ public class KaufenBildServlet extends HttpServlet {
 
 						// Output-Stream
 						ServletOutputStream out = response.getOutputStream(); // zum Browser schreiben deswegen
-																					// natï¿½rlich response
+																					// natürlich response
 						while ((length = in.read(buffer)) != -1) { // Lesen vom Input-Stream + schreiben in den
 							out.write(buffer, 0, (int) length);	// Output-Stream in while Schleife
 						}
