@@ -17,7 +17,7 @@ private DataSource dataSource;
 
 	
 	public void registrierenFormularabschicken(String vorname, String nachname, String anschrift,
-			String rplz, String wohnort, Integer telefon, String email,	String passwort1) {
+			String rplz, String wohnort, String rtelefon, String email,	String passwort1) {
 		try {
 			Connection connection = dataSource.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO benutzer (vorname, nachname, anschrift, plz, wohnort, "
@@ -27,7 +27,7 @@ private DataSource dataSource;
 			preparedStatement.setString(3, anschrift);
 			preparedStatement.setString(4, rplz);
 			preparedStatement.setString(5, wohnort);
-			preparedStatement.setInt(6, telefon);
+			preparedStatement.setString(6, rtelefon);
 			preparedStatement.setString(7, email);
 			preparedStatement.setString(8, passwort1);
 			preparedStatement.executeUpdate();

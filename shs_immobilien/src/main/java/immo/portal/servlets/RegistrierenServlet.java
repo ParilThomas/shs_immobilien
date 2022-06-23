@@ -37,7 +37,7 @@ public class RegistrierenServlet extends HttpServlet {
 		String ranschrift = request.getParameter("anschrift");
 		String rplz = request.getParameter("plz");
 		String rwohnort = request.getParameter("wohnort");
-		Integer rtelefon = (Integer.valueOf(request.getParameter("telefon")));
+		String rtelefon = request.getParameter("telefon");
 		String remail = request.getParameter("email");
 		String rpasswort = request.getParameter("passwort");
 		String passwortwdh = request.getParameter("passwortwdh");

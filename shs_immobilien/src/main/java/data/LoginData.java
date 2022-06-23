@@ -30,9 +30,9 @@ public class LoginData {
 					resultSet.getString("vorname"),
 					resultSet.getString("nachname"),
 					resultSet.getString("anschrift"),
-					resultSet.getInt("plz"),
+					resultSet.getString("plz"),
 					resultSet.getString("wohnort"),
-					resultSet.getInt("telefon"),
+					resultSet.getString("telefon"),
 					resultSet.getString("email"),
 					resultSet.getString("passwort1")
 				);			

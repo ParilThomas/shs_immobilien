@@ -9,14 +9,14 @@ public class BenutzerBean implements Serializable {
 	private String vorname;
 	private String nachname;
 	private String anschrift;
-	private Integer plz;
+	private String plz;
 	private String wohnort;
-	private Integer telefon;
+	private String telefon;
 	private String email;
 	private String passwort1;
 	
-	public BenutzerBean(Integer id, String vorname, String nachname, String anschrift, Integer plz, String wohnort,
-			Integer telefon, String email, String passwort1) {
+	public BenutzerBean(Integer id, String vorname, String nachname, String anschrift, String plz, String wohnort,
+			String telefon, String email, String passwort1) {
 		super();
 		this.id = id;
 		this.vorname = vorname;
@@ -65,11 +65,11 @@ public class BenutzerBean implements Serializable {
 		this.anschrift = anschrift;
 	}
 
-	public Integer getPlz() {
+	public String getPlz() {
 		return plz;
 	}
 
-	public void setPlz(Integer plz) {
+	public void setPlz(String plz) {
 		this.plz = plz;
 	}
 
@@ -81,11 +81,11 @@ public class BenutzerBean implements Serializable {
 		this.wohnort = wohnort;
 	}
 
-	public Integer getTelefon() {
+	public String getTelefon() {
 		return telefon;
 	}
 
-	public void setTelefon(Integer telefon) {
+	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
 
