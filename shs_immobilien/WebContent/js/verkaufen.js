@@ -1,6 +1,7 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded",reset)
 
 function init() {		
 	var form = document.getElementById("verkaufForm");
@@ -9,7 +10,7 @@ function init() {
 	form.addEventListener("submit", checkGrundflaeche);
 	form.addEventListener("submit", checkStartgebot);
 	form.addEventListener("submit",checkDatum);
-	form.addEventListener("submit",checkReset);
+	form.addEventListener("reset",checkReset);
 }
 
 function checkReset(evt){

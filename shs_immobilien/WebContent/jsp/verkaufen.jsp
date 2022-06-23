@@ -124,7 +124,7 @@
 									<button class="abschicken" type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
 							</td>
 							<td>
-								<button class="abbrechen" type="submit" value="Abbrechen">Reset</button>
+								<button class="abbrechen" type="reset" value="Abbrechen">Reset</button>
 							</td>
 						</tr>
 
