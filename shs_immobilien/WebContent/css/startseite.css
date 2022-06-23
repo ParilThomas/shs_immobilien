@@ -77,17 +77,17 @@ section{
 	flex-grow: 1;
 }
 
-h2 {
-	text-align: center;
+h1 {
 	font-size: 100%;
-	color: grey;
 	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	color: grey;
 }
 
-h1 {
+h2 {
+	text-align: center;
 	font-size: 150%;
 	font-family: 'Poppins', sans-serif;
-	text-align: center;
 }
 
 h3{

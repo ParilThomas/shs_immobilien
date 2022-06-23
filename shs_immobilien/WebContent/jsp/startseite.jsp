@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="immo.portal.servlets.SuchenServlet"%>
 <!DOCTYPE html>
 <html>
 
@@ -50,8 +52,8 @@
 
 	<section>
 		<hr class="trennung">
-			<h2>Erfahren Sie mehr über uns</h2>
-			<h1>IMMOBILIEN, WOHNUNGEN &amp; HÄUSER KAUFEN</h1>
+			<h1>Erfahren Sie mehr über uns</h1>
+			<h2>IMMOBILIEN, WOHNUNGEN &amp; HÄUSER KAUFEN</h2>
 			<p class="infotext">
 				SPS Immobilien ist das führende Dienstleistungsunternehmen <br>
 				in Deutschland bei der Vermittlung von Wohn- und Gewerbeimmobilien.<br>
