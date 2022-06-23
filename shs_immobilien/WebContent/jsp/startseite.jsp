@@ -4,15 +4,13 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/startseite.css">
 	<link rel="stylesheet" href="../css/dropdownNavBar.css">
 	<link rel="stylesheet" href="../css/hauptbild.css">
 	<link rel="stylesheet" href="../css/footer.css">
 
-	<title>sps-immobilien.de/home</title>
+	<title>sps-immobilien.de/Startseite</title>
 </head>
 
 

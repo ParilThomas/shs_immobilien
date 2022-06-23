@@ -5,8 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-
 	<link rel="stylesheet" href="../css/hauptbild.css">
 	<link rel="stylesheet" href="../css/ueberuns.css">
 	<link rel="stylesheet" href="../css/dropdownNavBar.css">

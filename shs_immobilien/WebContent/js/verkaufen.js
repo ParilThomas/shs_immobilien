@@ -21,6 +21,23 @@ function checkBaujahr(evt) {
 	}
 }
 
+function checkDatum(evt){
+	
+	var eingDatum = new Date(document.getElementById("datum"))
+	
+	var heute = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+    
+	heute = yyyy + '-' + mm + '-' + dd;
+	
+	if(eingDatum < today){
+		alert("Bitte ein Datum wählen, das nicht in der Vergangenheit liegt!");
+		evt.preventDefault();	
+	}
+}
+
 function checkWohnflaeche(evt) {
 
 	var wohnflaeche = document.getElementById("wohnflaeche").value;

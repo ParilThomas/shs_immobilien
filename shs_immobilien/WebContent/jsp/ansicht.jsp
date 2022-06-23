@@ -10,14 +10,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		
 		<link rel="stylesheet" href="../css/hauptbild.css">
-	<link rel="stylesheet" href="../css/ansichtbietenkaufensuchen.css">
+		<link rel="stylesheet" href="../css/ansichtbietenkaufensuchen.css">
 		<link rel="stylesheet" href="../css/dropdownNavBar.css">
 		<link rel="stylesheet" href="../css/footer.css">
 		
-		<title>sps-immobilien.de/Übersicht</title>
+		<title>sps-immobilien.de/Profil</title>
 	</head>
 	
 <body>

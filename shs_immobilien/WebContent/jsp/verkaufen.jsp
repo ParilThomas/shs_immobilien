@@ -9,8 +9,6 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-
 	<link rel="stylesheet" href="../css/hauptbild.css">
 	<link rel="stylesheet" href="../css/verkaufen.css">
 	<link rel="stylesheet" href="../css/dropdownNavBar.css">
@@ -102,7 +100,7 @@
 						
 						<tr>
 							<td><label for="datum2">Auktionsende</label><br>
-								<input type="date" id="datum" min="2022-08-01" name="datum" required /><br><br>
+								<input type="date" id="datum" name="datum" required /><br><br>
 							</td>
 							<td><label for="startgebot">Startgebot</label><br>
 								<input type="number" id="startgebot" name="startgebot" placeholder="500000" max="999999999" required /> €<br><br>
@@ -126,7 +124,7 @@
 									<button class="abschicken" type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
 							</td>
 							<td>
-								<button class="abbrechen" type="submit" value="Abbrechen" onclick="location.href = '../html/hauptseite.html'">Abbrechen</button>
+								<button class="abbrechen" type="submit" value="Abbrechen" onclick="location.href = '../jsp/startseite.jsp'">Abbrechen</button>
 							</td>
 						</tr>
 
