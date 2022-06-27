@@ -21,31 +21,78 @@ import jakarta.servlet.http.HttpSession;
 public class KaufenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Ressourcenreferenz deklarieren
+	 */
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
 	
+	/**
+	 * doGet wird standardmäßig aufgerufen
+	 * 
+	 * @Fehler ServletException - Servlet Ablauffehler 
+	 * @Fehler IOException		- Input / Output Fehler
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		/**
+		 * Neues HaustypData Objekt wird erstellt mit der übergebenen dataSource
+		 * Ruft in der Klasse haustpData die Methode "alleHaustypen()" auf bekommt dadurch
+		 * alles Haustypen die in der DB vorhanden sind und speichert diese in haustyplist
+		 */
 		HaustypData haustypData = new HaustypData(dataSource);
-		
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
-		  		    		
+		
+		/**
+		 * Session wird initialisiert
+		 * Sessionvariable haustyplist wird gesetzt
+		 * Sessionvariable haustypSelektiert wird auf false gesetzt
+		 */
+		HttpSession session = request.getSession();	    		
 		session.setAttribute("haustyplist", haustyplist);
 		session.setAttribute("haustypSelektiert", false);  		
 			
+		/**
+		 * leitet auf die kaufen.jsp weiter
+		 */
         response.sendRedirect("jsp/kaufen.jsp");
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/**
+		 * Session wird initialisiert
+		 */
 		HttpSession session = request.getSession();
 		
+		/**
+		 * Neues HaustypData & ObjektData Objekt wird erstellt mit der übergebenen dataSource
+		 * Ruft in der Klasse haustpData die Methode "alleHaustypen()" auf bekommt dadurch
+		 * alles Haustypen die in der DB vorhanden sind und speichert diese in haustyplist
+		 */
 		HaustypData haustypData = new HaustypData(dataSource);
-		ObjektData objektData   = new ObjektData(dataSource);
-		
+		ObjektData objektData   = new ObjektData(dataSource);	
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
+		
+		/**
+		 * Datentyp: 	HaustypBean
+		 * Element: 	bean
+		 * Kollektion: 	haustyplist
+		 * 
+		 * Für jedes Element vom Typ HaustypBean...
+		 */
 		for (HaustypBean bean : haustyplist) {
+			/**
+			 * Ist der Typ des Element nicht NULL
+			 */
 			if (request.getParameter(bean.getTyp()) != null) {
+				/**
+				 * Rufe in der Klasse objektData die Methode "getObjekte" mit dem Wert des Typs des Elements
+				 * und speichere den Rückgabewert in objekte und lege die variable in die Session
+				 * 
+				 * Setze die Sessionvariable "haustypSelektiert" auf true -> Liste des gewählten Haustyps öffnet sich
+				 * 
+				 * leite direkt weiter auf die kaufen.jsp
+				 */
 				List<ObjektBean> objekte = objektData.getObjekte(bean.getTyp());
 				session.setAttribute("objekte", objekte);
 				session.setAttribute("haustypSelektiert", true);

@@ -10,11 +10,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/LogoutServlet")
-public class LogoutServlet extends HttpServlet {
-	
+public class LogoutServlet extends HttpServlet {	
 	private static final long serialVersionUID = 1L;
 		
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		/**
+		 * Session wird initialisiert
+		 * Sessionvariable benutzer wird auf null gesetzt
+		 * Sessionvariable ausgeloggt wird auf true gesetzt
+		 * Weiterleitung auf das LoginServlet durch die doGet dann auf login.jsp
+		 */
 		HttpSession session = request.getSession();
 		session.setAttribute("benutzer", null);
 		session.setAttribute("ausgeloggt", true);

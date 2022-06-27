@@ -36,11 +36,10 @@ public class BautypData {
 		 * Erzeugen einer ArrayList
 		 */
 		List<BautypBean> bautypen = new ArrayList<>();	
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {	
 			/**
 			 * ResultSet		 -> Behinhaltet gefundene Datenbankeinträge
 			 * createStatement() -> Erstellt einen SQL-Befehl
@@ -93,11 +92,10 @@ public class BautypData {
 	 *@Rückgabetyp boolean - True / False
 	 */
 	public boolean istBautypVorhanden(String bautyp) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 	-> Wählt alle Spalten in der Datenbank aus
@@ -152,11 +150,10 @@ public class BautypData {
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
 	 */
 	public void neuenBautypHinzufuegen(String bautyp) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * INSTER INTO 	-> Speichert den Wert in der Tabelle "bautyp" in der Spalte "typ"

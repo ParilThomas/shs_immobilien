@@ -37,11 +37,10 @@ public class HaustypData {
 		 * Erzeugen einer ArrayList
 		 */
 		List<HaustypBean> haustypen = new ArrayList<>();	
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * ResultSet		 -> Behinhaltet gefundene Datenbankeinträge
 			 * createStatement() -> Erstellt einen SQL-Befehl
@@ -93,11 +92,10 @@ public class HaustypData {
 	 *@Rückgabetyp boolean - True / False
 	 */
 	public boolean istHaustypVorhanden(String haustyp) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 	-> Wählt alle Spalten in der Datenbank aus
@@ -151,11 +149,10 @@ public class HaustypData {
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
 	 */
 	public void neuenHaustypHinzufuegen(String haustyp) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * INSTER INTO 	-> Speichert den Wert in der Tabelle "haustyp" in der Spalte "typ"

@@ -1,18 +1,7 @@
 package immo.portal.bean;
 
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Serializable;
-import java.sql.Blob;
 import java.sql.Date;
-import java.sql.SQLException;
-
-import javax.imageio.ImageIO;
-
-import jakarta.servlet.ServletOutputStream;
 
 public class ObjektBean implements Serializable {
 	private static final long serialVersionUID = 1L;

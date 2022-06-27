@@ -32,11 +32,10 @@ private DataSource dataSource;
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
 	 */
 	public void gebotAktualisieren(Integer gebot, String id, Integer benutzerid) {
-		try {		
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){		
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * UPDATE objekte		-> Überspeichert den vorhandenen Datensatz der Tabelle "objekte"
@@ -90,11 +89,10 @@ private DataSource dataSource;
 	 *@Rückgabetyp boolean - True / False
 	 */
 	public boolean istGebotZuKlein(Integer gebot, String id) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * SELECT startgebot	-> Wählt die Spalte "startgebot"
@@ -151,11 +149,10 @@ private DataSource dataSource;
 	 *@Rückgabetyp boolean - True / False
 	 */
 	public boolean istGebotOk(Integer gebot, String id) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * SELECT startgebot	-> Wählt die Spalte "startgebot"

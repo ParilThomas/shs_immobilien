@@ -37,11 +37,10 @@ private DataSource dataSource;
 	 */
 	public void registrierenFormularabschicken(String vorname, String nachname, String anschrift,
 			String rplz, String wohnort, String rtelefon, String email,	String passwort1) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * INSERT INTO benutzer 	-> Speichert den Wert in der Tabelle "benutzer" in den Spalten(...,...,...)
@@ -86,11 +85,10 @@ private DataSource dataSource;
 	 *@Rückgabetyp boolean - True / False
 	 */
 	public boolean emailVorhanden(String email) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 		-> Wählt alle Spalten in der Datenbank aus

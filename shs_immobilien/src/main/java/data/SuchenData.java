@@ -38,11 +38,10 @@ public class SuchenData {
 		 * Erzeugen einer ArrayList
 		 */
 		List<ObjektBean> suchObjekte = new ArrayList<>();
-		try {		
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {		
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 			-> Wählt alle Spalten in der Datenbank aus

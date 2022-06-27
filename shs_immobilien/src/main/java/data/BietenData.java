@@ -33,16 +33,15 @@ private DataSource dataSource;
 	 *
 	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
 	 */
-	public List<ObjektBean> getObjekt(String detailid){
+	public List<ObjektBean> getObjekt(String detailid) {
 		/**
 		 * Erzeugen einer ArrayList
 		 */
 		List<ObjektBean> objektIdDaten = new ArrayList<>();
-		try {	
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {	
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 	-> Wählt alle Spalten in der Datenbank aus
@@ -89,9 +88,9 @@ private DataSource dataSource;
 		/**
 		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
-		catch (Exception e){
+		catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 		/**
 		 * Rückgabe der Liste "objektIdDaten"
 		 */

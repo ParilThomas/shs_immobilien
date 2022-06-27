@@ -31,11 +31,10 @@ public class LoginData {
 	 *@Rückgabetyp BenutzerBean - gibt eine Liste von Objekten zurück
 	 */
 	public BenutzerBean holeBenutzer(String email, String passwort) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 			-> Wählt alle Spalten in der Datenbank aus
@@ -100,11 +99,10 @@ public class LoginData {
 	 *@Rückgabetyp boolean - True / False
 	 */
 	public boolean istRegistriert(String email) {	
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 	-> Wählt alle Spalten in der Datenbank aus

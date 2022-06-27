@@ -37,11 +37,10 @@ public class AnsichtData {
 		 * Erzeugen einer ArrayList
 		 */
 		List<ObjektBean> eigeneobjekte = new ArrayList<>();
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 		-> Wählt alle Spalten in der Datenbank aus
@@ -115,11 +114,10 @@ public class AnsichtData {
 		 * Erzeugen einer ArrayList vom Typ ObjektBean
 		 */
 		List<ObjektBean> eigeneobjekte = new ArrayList<>();
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 				-> Wählt alle Spalten in der Datenbank aus

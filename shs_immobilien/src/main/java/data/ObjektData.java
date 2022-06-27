@@ -49,11 +49,11 @@ public class ObjektData {
 	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, Integer fbaujahr,
 			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
 			String fbeschreibung,Part fbilder,String fdatum, Integer fbesitzer) {
-		try {
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
 			 * Speichern des inputStreams
 			 */
@@ -103,11 +103,10 @@ public class ObjektData {
 		 * Erzeugen einer ArrayList
 		 */
 		List<ObjektBean> objekte = new ArrayList<>();
-		try {	
-			/**
-			 * Datenbankverbindung erstellen
-			 */
-			Connection dbVerbindung = dataSource.getConnection();
+		/**
+		 * Datenbankverbindung erstellen
+		 */
+		try(Connection dbVerbindung = dataSource.getConnection();) {	
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 		-> Wählt alle Spalten in der Datenbank aus
