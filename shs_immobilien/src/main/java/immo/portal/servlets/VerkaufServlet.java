@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
 @WebServlet("/VerkaufServlet")
-@MultipartConfig(maxFileSize = 1024 * 1024 * 25, maxRequestSize = 1024 * 1024 * 25, location = "img/tmp", fileSizeThreshold = 1024 * 1024)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 25, maxRequestSize = 1024 * 1024 * 25, location = "/tmp", fileSizeThreshold = 1024 * 1024)
 public class VerkaufServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

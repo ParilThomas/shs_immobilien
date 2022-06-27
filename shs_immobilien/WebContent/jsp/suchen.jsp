@@ -62,11 +62,10 @@
 				</tr>
 				
 				<tr>
-					<td colspan="2" class="detailbutton"><Button type="submit" name="detailid" value="${haus.id}">Details ansehen</Button></td>
+					<td colspan="2" class="detailbutton"><button class="buttonpointer" type="submit" name="detailid" value="${haus.id}">Details ansehen</button></td>
 				</tr>
 				
-				<tr>
-					<td></td>
+				<tr><td colspan="2" class="trennung"><hr></td></tr>
 			</table>
 			<br>
 		</c:forEach>
