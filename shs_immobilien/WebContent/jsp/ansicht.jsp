@@ -25,11 +25,11 @@
 	<br>
 
 <c:if test="${benutzer != null}">
-	<table class="tabelle">
+	<table>
 		<tr>
 		<td>
 			<c:forEach var="haus" items="${eigeneobjekte}">
-				<table class="objekttabelle">
+				<table class="objektansicht">
 				<tr><td class="titel" colspan="3">${haus.titel}</td></tr>
 				<tr><td rowspan="6"><img src="../kaufen_bild_servlet?id=${haus.id}" alt="" /></td>
 					<td>Baujahr: </td><td>${haus.baujahr}</td></tr>

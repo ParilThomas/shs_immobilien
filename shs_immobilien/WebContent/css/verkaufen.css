@@ -1,113 +1,129 @@
 @charset "UTF-8";
 
-.hintergrund{
-  background:#ffffff;
-  background-repeat: no-repeat;
-  background-attachment:fixed;
-  background-size: cover;
-  justify-content: center; 
-  align-items: center;
-  font-family: 'Poppins',sans-serif;
-  color: white;
-  display: flex;
+/* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
+/* 1.Inline-style-Elemente: - */
+/* 2.ID-Selektoren: - */
+/* 3. Klassenselektoren/Pseudoklassen: */
+.hintergrund {
+	background: #ffffff;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	display: flex;
 }
 
-.ansicht {
-  justify-content: center; 
-  margin-top: 25px;
-  width: 500px;
-  padding: 40px;
-  border-radius: 8px;
-  background-color: #222831;
-  box-shadow: 4px 4px 1px rgba(0,0,0,0.404);
-
+.verkaufsdaten input {
+	height: 100%;
+	width: 60%;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 15px;
 }
 
-select{
-border: 1px solid black;
-  border-radius: 7px;
-  font-size: 15px;
-  width:100%;
+.verkaufsdaten input:focus {
+	border-color: #0080ff;
 }
 
-table,td{
+.verkaufformular {
+	justify-content: center;
+	margin-top: 25px;
 	width: 500px;
-	text-align: center;
+	padding: 40px;
+	border-radius: 8px;
+	background-color: #222831;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.404);
 }
 
-.textfeld input{
-  height: 100%;
-  width: 60%;
-  outline: none;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 15px;
-}
-
-.textfeld input:focus{
-  border-color: #0080ff;
-}
-
-.abschicken{
-  background: #c0c0c0;
-  color: #000000;
-  border: 1px solid black;
-  border-radius: 7px;
-  font-size: 17px;
-  width:60%;
-}
-
-.abbrechen{
-  background: #ff0000;
-  color: #000000;
-  border: 1px solid black;
-  border-radius: 7px;
-  font-size: 17px;
-  width:60%;
-}
-
-.anlegenbutton{
+.abschicken {
 	background: #c0c0c0;
-  	color: #000000;
-  	border: 1px solid black;
-  	border-radius: 7px;
-  	font-size: 15px;
-  	width:100px;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 17px;
+	width: 60%;
+	cursor: pointer;
 }
 
-.meldung{
-  display: flex;
-  margin: auto;
-  margin-top: 40px;
-  font-family: 'Poppins',sans-serif;
-  width: 500px;
-  padding: 40px;
-  border-radius: 8px;
-  background-color: #222831;
-  box-shadow: 4px 4px 1px rgba(0,0,0,0.404);
-  color: white;
+.zurücksetzen {
+	background: #ff0000;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 17px;
+	width: 60%;
+	cursor: pointer;
 }
 
-.login{
-  color: #ff0000;
-  border-radius: 7px;
-  font-size: 17px;
-  width:20%;
+.anlegenbutton {
+	background: #c0c0c0;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 15px;
+	width: 100px;
+	cursor: pointer;
 }
 
-.fehlerbutton{
+.einloggenmeldung {
+	display: flex;
+	margin: auto;
+	margin-top: 40px;
+	font-family: 'Poppins', sans-serif;
+	width: 500px;
+	padding: 40px;
+	border-radius: 8px;
+	background-color: #222831;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.404);
+	color: white;
+}
+
+.login {
+	color: #ff0000;
+	border-radius: 7px;
+	font-size: 17px;
+	width: 20%;
+	cursor: pointer;
+}
+
+.fehlerbutton {
 	border: 1px solid black;
 	border-radius: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	font-size: 25px;
+	font-size: 17px;
 	background: red;
-	color: white;
-	width: 250px;
+	width: 150px;
 	margin: auto;
 	text-align: center;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
 }
 
-main{
+.buttonpointer{
+	cursor: pointer;
+}
+
+/* 4. Typ- / Elementselektoren: */
+html, body {
+	height: 100%;
+}
+
+main {
+	margin-top: 20px;
 	margin-bottom: 50px;
+}
+
+select {
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 15px;
+	width: 100%;
+}
+
+table, td {
+	width: 500px;
+	text-align: center;
 }

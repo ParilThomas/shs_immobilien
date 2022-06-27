@@ -3,7 +3,7 @@
 
 <div class="hauptbild"></div>
 
-<nav class="nav">
+<nav>
 	<div class="icon-bar">	
 		<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a>
 		<a href="../VerkaufServlet"><i class="fa fa-dollar"></i> Verkaufen</a>
@@ -13,7 +13,7 @@
 			
 		<c:if test="${benutzer != null}">
 			<div class="dropdown">
-				<button class="dropbtn">Profil</button>
+				<button class="dropdownfenster">Profil</button>
 				<div class="dropdown-content">
 				
 					<form action="../AnsichtServlet" method="post"><br>

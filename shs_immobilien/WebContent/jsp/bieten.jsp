@@ -24,6 +24,7 @@
 	<header>
 		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
+<main>
 
 <div>
 
@@ -87,12 +88,12 @@
 			<label for="startgebot">Ihr Gebot (€):</label><br>
 				<input type="number" id="gebot" name="gebot" placeholder="Ihr Gebot" maxlength="9"/><br>
 				<input type="hidden" name="benutzer" value="${benutzer.id}"/><br>
-				<button type="submit" name="gebot_absenden" value="${bieten.id}" onclick="myFunction()">Absenden</button>
+				<button class="buttonpointer" type="submit" name="gebot_absenden" value="${bieten.id}" onclick="myFunction()">Absenden</button>
 		</c:if>
 
 		<c:if test="${benutzer == null}">
 			Bitte loggen Sie sich ein um ein Gebot abzugeben!
-			<input type="button" value="Login" onclick="location.href = 'login.jsp'"/>
+			<input class="buttonpointer" type="button" value="Login" onclick="location.href = 'login.jsp'"/>
 		</c:if>
 				
 	</c:forEach>
@@ -102,7 +103,7 @@
 </table>
 
 </div>
-
+</main>
 <%@ include file="../jspf/footer.jspf"%>
 </body>
 </html>

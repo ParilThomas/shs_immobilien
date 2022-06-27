@@ -20,8 +20,8 @@
 	</header>
 
 <main>
-	<div class="header">
-		<form class="ansicht" action="../SuchenServlet" method="post">
+	<div class="kopfbereich">
+		<form action="../SuchenServlet" method="post">
 			<div class="suchen">
 				<table>
 					<tr>

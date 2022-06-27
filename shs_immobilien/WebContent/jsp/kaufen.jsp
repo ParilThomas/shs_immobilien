@@ -39,7 +39,7 @@
 	</c:if>
 	
 		<c:forEach items="${haustyplist}" var="haustyp">
-			<button type="submit" class="button" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
+			<button type="submit" class="haustypauswählen" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
 		</c:forEach>
 	</form>
 </c:if>
@@ -47,12 +47,12 @@
 	
 <main>
 	<c:if test="${haustypSelektiert == true}">
-		<table class="tabelle">
+		<table>
 		<tr>
 		<td>
 		<form action="../KaufenServlet" method=post>	
 			<c:forEach items="${haustyplist}" var="haustyp">
-				<button type="submit" class="button" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
+				<button type="submit" class="haustypauswählen" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>
 			</c:forEach>
 		</form>
 		</td>
@@ -68,7 +68,8 @@
 				<tr><td>Standort: </td><td>${haus.standort}</td></tr>
 				<tr><td>Angebotsende: </td><td>${haus.datum}</td></tr>
 				<tr><td>Aktuelles Gebot: </td><td>${haus.startgebot} €</td></tr>
-				<tr><td colspan="2" class="detailbutton"><Button type="submit" name="detailid" value="${haus.id}">Details ansehen</Button></td></tr>
+				<tr><td colspan="2" class="detailbutton"><button class="buttonpointer" type="submit" name="detailid" value="${haus.id}">Details ansehen</button></td></tr>
+				<tr><td colspan="2" class="trennung"><hr></td></tr>
 				<tr><td></td>
 				</table>
 				<br>				

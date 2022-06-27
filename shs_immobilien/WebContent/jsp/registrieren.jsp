@@ -29,7 +29,7 @@
 	
 	<div class="hintergrund">
 		<div class="textfeld">
-		<form id="registForm" class="ansicht" action="../RegistrierenServlet"	method="post">
+		<form id="registForm" class="registrierenfenster" action="../RegistrierenServlet"	method="post">
 			<table>			
 			<tr>
 				<td><label for="vorname">Vorname</label><br>
@@ -88,6 +88,11 @@
 		</div>
 	</div>
 </main>
+	<%
+	if (session.getAttribute("emailExistiert") != null) {
+		session.removeAttribute("emailExistiert");
+	}
+%>
 	
 <%@ include file="../jspf/footer.jspf"%>
 </body>

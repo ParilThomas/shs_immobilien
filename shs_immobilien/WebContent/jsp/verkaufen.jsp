@@ -26,7 +26,7 @@
 		
 <nav>
 	<c:if test="${benutzer == null}">
-		<table class="meldung">
+		<table class="einloggenmeldung">
 			<tr>
 				<td>Bitte loggen Sie sich ein um ein Gebot abzugeben!</td>
 			</tr>
@@ -44,17 +44,17 @@
 	<c:if test="${benutzer != null}">
 
 		<c:if test="${bautypExistiert == true}">
-			<h1 class="fehlerbutton">Bautyp existiert bereits!</h1>
+			<h1 class="fehlerbutton">Bautyp existiert bereits!!</h1>
 		</c:if>
 
 
 		<c:if test="${haustypExistiert == true}">
-			<h1 class="fehlerbutton">Haustyp existiert bereits!</h1>
+			<h1 class="fehlerbutton">Haustyp existiert bereits!!</h1>
 		</c:if>
 
 		<div class="hintergrund">
-			<div class="textfeld">
-				<form id="verkaufForm" class="ansicht" action="../VerkaufServlet" method=post accept-charset="utf-8" enctype="multipart/form-data">
+			<div class="verkaufsdaten">
+				<form id="verkaufForm" class="verkaufformular" action="../VerkaufServlet" method=post accept-charset="utf-8" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<td><label for="htyp">Haustyp</label><br>
@@ -115,7 +115,7 @@
 
 						<tr>
 							<td colspan="2"><label for="bilder">Objektbilder</label><br>
-								<input type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
+								<input class="buttonpointer" type="file" id="bilder" name="bilder" accept="image/*" required /><br><br>
 							</td>
 						</tr>
 
@@ -124,14 +124,14 @@
 									<button class="abschicken" type="submit" name="vformular_absenden" value="${benutzer.id}">Absenden</button>
 							</td>
 							<td>
-								<button class="abbrechen" type="reset" value="Abbrechen">Reset</button>
+								<button class="zurücksetzen" type="reset" value="Abbrechen">Reset</button>
 							</td>
 						</tr>
 
 					</table>
 				</form>
 				
-				<form class="ansicht" action="../VerkaufServlet" method=post>
+				<form class="verkaufformular" action="../VerkaufServlet" method=post>
 					<table>
 						<tr>
 							<td><label for="htyp_edit">Ihr Haustyp ist nicht dabei?</label><br> <input type="text" id="htyp_edit" name="htyp_edit" placeholder="Haustyp" maxlength="64"/><br><br>

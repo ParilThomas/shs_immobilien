@@ -1,79 +1,86 @@
 @charset "UTF-8";
-
-.hintergrund{
-  background:#ffffff;
-  background-repeat: no-repeat;
-  background-attachment:fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  font-family: 'Poppins',sans-serif;
-  color: white;  
+/* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
+/* 1.Inline-style-Elemente: - */
+/* 2.ID-Selektoren: - */
+/* 3. Klassenselektoren/Pseudoklassen: */
+.hintergrund {
+	background: #ffffff;
+/* 	Inhalt der Webiste "zentriert" anzeigen: */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
+	color: white;
 }
 
-.ansicht {
-  margin-top: 25px;
-  width: 400px;
-  padding: 40px;
-  border-radius: 8px;
-  background-color: #222831;
-  box-shadow: 4px 4px 1px rgba(0,0,0,0.404);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+.textfeld input {
+	height: 100%;
+	width: 60%;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 15px;
 }
 
-table,td{
+.textfeld input:focus {
+	border-color: #0080ff;
+}
+
+.registrierenfenster {
+	margin-top: 25px;
 	width: 400px;
-	text-align: center;
+	padding: 40px;
+	border-radius: 8px;
+	background-color: #222831;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.404);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.textfeld input{
-  height: 100%;
-  width: 60%;
-  outline: none;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 15px;
+.registrieren {
+	background: #c0c0c0;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 17px;
+	width: 60%;
 }
 
-.textfeld input:focus{
-  border-color: #0080ff;
+.abbrechen {
+	background: #ff0000;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 17px;
+	width: 60%;
 }
 
-.registrieren{
-  background: #c0c0c0;
-  color: #000000;
-  border: 1px solid black;
-  border-radius: 7px;
-  font-size: 17px;
-  width:60%;
-}
-
-.abbrechen{
-  background: #ff0000;
-  color: #000000;
-  border: 1px solid black;
-  border-radius: 7px;
-  font-size: 17px;
-  width:60%;
-}
-
-.fehlerbutton{
+.fehlerbutton {
 	border: 1px solid black;
 	border-radius: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	font-size: 25px;
+	font-size: 17px;
 	background: red;
-	color: white;
-	width: 250px;
+	width:150px;
 	margin: auto;
 	text-align: center;
+	color: white;
+	font-family: 'Poppins', sans-serif;
 }
 
-main{
+/* 4. Typ- / Elementselektoren: */
+html, body {
+	height: 100%;
+}
+
+main {
 	margin-bottom: 50px;
+	margin-top: 20px;
+}
+
+table, td {
+	width: 400px;
+	text-align: center;
 }

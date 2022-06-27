@@ -1,55 +1,63 @@
 @charset "UTF-8";
 
-h2 {
+/* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
+/* 1.Inline-style-Elemente: - */
+/* 2.ID-Selektoren: - */
+/* 3. Klassenselektoren/Pseudoklassen: */
+.infotext {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+.trenner {
+	width: 50px;
+	background-color: red;
+	padding: 1.5px;
+}
+
+.abstand {
+	width: 50px;
+}
+
+.profilthomass {
+	height: 150px;
+	width: 150px;
+	background: url(../img/profil_thomass.jpg)
+	
+}
+
+.profilthomasp {
+	height: 150px;
+	width: 150px;
+	background: url(../img/profil_thomasp.jpg)
+}
+
+.profilsimons {
+	height: 150px;
+	width: 150px;
+	background: url(../img/profil_simons.jpg)
+}
+
+/* 4. Typ- / Elementselektoren: */
+
+html, body {
+	height: 100%;
+}
+
+main {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+h1 {
 	font-family: 'Poppins', sans-serif;
 	font-size: 100%;
 	text-align: center;
 	color: grey;
 }
 
-.infotext {
-	text-align: center;
-	font-family: 'Poppins', sans-serif;
-}
-
-.trenner{	
-	width: 50px;
-	background-color: red;
-	padding: 1.5px;
-}
-
-.table{	
+table, tr {
 	font-family: 'Poppins', sans-serif;
 	text-align: center;
-	margin: 0 auto;	
-}
-
-th{
-	height:50px;
-	width: 150px;		
-}
-
-.th2{
-	width: 50px;		
-}
-
-td{
-	width: 10px;
-}
-
-.profilthomass {
-	height: 150px;
-	background: url(../img/profil_thomass.jpg)
-}
-
-.profilthomasp {
-	background: url(../img/profil_thomasp.jpg)
-}
-
-.profilsimons {
-	background: url(../img/profil_simons.jpg)
-}
-
-main{
-	margin-bottom: 50px;
+	margin: auto;
 }

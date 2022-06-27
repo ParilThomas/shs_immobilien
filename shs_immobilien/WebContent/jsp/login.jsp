@@ -42,14 +42,14 @@
 
 <main>
 <div class="hintergrund">
-	<form id="login-form" class="ansicht" action="../LoginServlet" method="post" accept-charset="utf-8">
-		<div class="textfeld">
+	<form id="login-form" class="loginfenster" action="../LoginServlet" method="post" accept-charset="utf-8">
+		<div class="logintextfeld">
 			<input type="email" id="mail" name="email" placeholder="Ihre Email" required />
 				<div class="icon">
 					<i class="fas fa-user"></i>
 				</div>
 		</div>
-		<div class="textfeld">
+		<div class="logintextfeld">
 			<input type="password" id="passwort" name="passwort" placeholder="Ihr Passwort" required />
 				<div class="icon">
 					<i class="fas fa-lock"></i>
@@ -57,7 +57,7 @@
 		</div>
 		<br>
 			
-		<div class="remember">
+		<div class="benutzermerken">
 			<label for="remember">Benutzer merken</label>
 			<input type="checkbox" id="remember" name="remember" checked>			
 		</div>

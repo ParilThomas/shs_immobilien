@@ -1,45 +1,17 @@
 @charset "UTF-8";
+/* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
+/* 1.Inline-style-Elemente: - */
+/* 2.ID-Selektoren: - */
+/* 3. Klassenselektoren/Pseudoklassen: */
 
-.nav {
-  list-style-type: none;
-  text-align: center;
-  margin: 10;
-  padding: 10;
-  cursor:pointer;
-  font-size: 100%;
-  font-family: 'Poppins',sans-serif;
-  margin-top: 15px;
-}
-
-.nav li {
+/* Position und Art des Dropdown Fensters festlegen */
+.dropdown {
+  position: relative;
   display: inline-block;
-  font-size: 16px;
-  padding: 10px;
 }
 
-a {
-  color: black;
-  padding-top: 30px;
-  margin: 30px;
-}
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:active {
-  text-decoration: underline;
-}
-
-.dropbtn {
+/* Farbe und Größe Dropdown Fenster festlegen */
+.dropdownfenster {
   background-color: #ff0000;
   color: white;
   padding: 16px;
@@ -49,14 +21,10 @@ a:active {
   border-radius:8px;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
+/* Inhalt des Dropdown Fensters festlegen */
+.dropdown .dropdown-content {
   position: absolute;
+  display: none;
   background-color: #c0c0c0;
   width: 100px;
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
@@ -64,13 +32,9 @@ a:active {
   border-radius: 7px;
 }
 
-
+/* Beim "drüberfahren" soll Dropdown Inhalt angezeigt werden */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color:#222831;
 }
 
 .logoutbutton{
@@ -92,3 +56,42 @@ a:active {
   width:90%;
   cursor: pointer;
 }
+
+/* 4. Typ- / Elementselektoren: */
+
+/* Navigationleiste festlegen  */
+nav {
+  list-style-type: none;
+  text-align: center;
+  margin: 10;
+  padding: 10;
+  cursor:pointer;
+  font-size: 100%;
+  font-family: 'Poppins',sans-serif;
+  margin-top: 15px;
+}
+nav li {
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+}
+
+a {
+  color: black;
+  padding-top: 30px;
+  margin: 30px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+
