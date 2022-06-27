@@ -50,6 +50,7 @@ table,td{
   border-radius: 7px;
   font-size: 17px;
   width:60%;
+  cursor: pointer;
 }
 
 .abbrechen{
@@ -59,6 +60,7 @@ table,td{
   border-radius: 7px;
   font-size: 17px;
   width:60%;
+  cursor: pointer;
 }
 
 .fehlerbutton{
