@@ -14,20 +14,59 @@ public class BietenData {
 	
 private DataSource dataSource;
 	
-	
+	/**
+	 * Konstruktor speichert die dataSource
+	 */
 	public BietenData(DataSource dataSource) {
 		this.dataSource = dataSource;	
 	}
 
 
-	
+	/**
+	 * Methoden Beschreibung
+	 * 
+	 *@Sichtbarkeit public - In anderen Klassen verwendbar
+	 *@Methodentyp nonstatic - Instanzmethode für ein bestimtmes Objekt
+	 *
+	 *@Methodenname getObjekt
+	 *@Parameter detailid - erwartet beim Aufruf einen String
+	 *
+	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 */
 	public List<ObjektBean> getObjekt(String detailid){
-		List<ObjektBean> objektIdDaten = new ArrayList<ObjektBean>();
-		try {		
-			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("Select * FROM objekte WHERE id = ?");
-			prsmt.setString(1, detailid);		
-			ResultSet resultSet = prsmt.executeQuery();
+		/**
+		 * Erzeugen einer ArrayList
+		 */
+		List<ObjektBean> objektIdDaten = new ArrayList<>();
+		try {	
+			/**
+			 * Datenbankverbindung erstellen
+			 */
+			Connection dbVerbindung = dataSource.getConnection();
+			/**
+			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
+			 * Select * 	-> Wählt alle Spalten in der Datenbank aus
+			 * FROM objekte -> legt die zu verwendende DB Tabelle fest "bautyp"
+			 * WHERE id		-> filtert den Datensatz nach der Spalte "id"
+			 * = ? 			-> sucht in der Spalte anhand eines festgelegten Musters "?"
+			 */
+			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("Select * FROM objekte WHERE id = ?");
+			/**
+			 * Setzen des Wertes "?" der in die DB geschrieben werden soll
+			 */
+			sqlBefehl.setString(1, detailid);	
+			/**
+			 * ResultSet 	-> Behinhaltet gefundene Datenbankeinträge
+			 * executeQuery -> Beendet den SQL-Befehl
+			 */
+			ResultSet resultSet = sqlBefehl.executeQuery();
+			/**
+			 * Mit "while" wird durch den resultSet interiert mit "next()" gelangt man
+			 * auf das 1. Element vom resultSet.
+			 * 
+			 * Der Liste "objektIdDaten" wird für jedes Element des resultSets ein neues
+			 * Objekt mit dessen Variablen hinzugefügt "add"
+			 */
 			while (resultSet.next()) {
 				objektIdDaten.add(new ObjektBean(
 					resultSet.getLong("id"),
@@ -47,24 +86,16 @@ private DataSource dataSource;
 				));	
 			}
 		}
+		/**
+		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 */
 		catch (Exception e){
-			return objektIdDaten;
+			e.printStackTrace();
 		}	
+		/**
+		 * Rückgabe der Liste "objektIdDaten"
+		 */
 		return objektIdDaten;
 	}
-	
-	
-	public void gebotAktualisieren (Integer gebot, String id) {
-		try {		
-			Connection con = dataSource.getConnection();
-			PreparedStatement prsmt = con.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id LIKE ?");
-			prsmt.setInt(1, gebot);
-			prsmt.setString(2, id);
-			prsmt.executeUpdate();
-		}
-		catch (Exception e){
-			return ;
-		}
-	}	
 	
 }
