@@ -57,6 +57,7 @@
 	border: none;
 	font-size: 17px;
 	width: 15%;
+	cursor: pointer;
 }
 
 .infotext {
