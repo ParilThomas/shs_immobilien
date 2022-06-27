@@ -45,6 +45,7 @@
 	border-radius: 7px;
 	font-size: 17px;
 	width: 60%;
+	cursor: pointer;
 }
 
 .abbrechen {
@@ -54,6 +55,7 @@
 	border-radius: 7px;
 	font-size: 17px;
 	width: 60%;
+	cursor: pointer;
 }
 
 .fehlerbutton {
@@ -68,6 +70,7 @@
 	text-align: center;
 	color: white;
 	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
 }
 
 /* 4. Typ- / Elementselektoren: */
