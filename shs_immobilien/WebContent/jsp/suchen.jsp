@@ -7,22 +7,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
+	<!-- Verwendete CSS Imports -->
 	<link rel="stylesheet" href="../css/hauptbild.css">
 	<link rel="stylesheet" href="../css/ansichtbietenkaufensuchen.css">
 	<link rel="stylesheet" href="../css/dropdownNavBar.css">
 	<link rel="stylesheet" href="../css/footer.css">
 
-	<title>sps-immobilien.de/Kaufen</title>
+	<!-- Homepage Titel -->
+	<title>sps-immobilien.de/Suchen/Ergebnisse</title>
 </head>
 
 <body>
 	<header>
+		<!-- Einbindung der Navigationsleiste -->
 		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 	<br>
-
+	
+	<!-- Form für die Ausgabe der gesuchten Objekte -->
 	<form action="../BietenServlet" method=post>
 		<c:forEach var="haus" items="${objekte}">
 			<table class="objekttabelle">
@@ -31,7 +35,7 @@
 				</tr>
 				
 				<tr>
-					<td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}" alt="" /></td>
+					<td rowspan="7"><img src="../kaufen_bild_servlet?id=${haus.id}" alt="Kein Bild vorhanden!" /></td>
 					<td>Baujahr:</td>
 					<td>${haus.baujahr}</td>
 				</tr>
@@ -62,16 +66,18 @@
 				</tr>
 				
 				<tr>
+					<!-- Öffnet das Objekt mit den Detailinformationen und Bietfunktion -->
 					<td colspan="2" class="detailbutton"><button class="buttonpointer" type="submit" name="detailid" value="${haus.id}">Details ansehen</button></td>
 				</tr>
 				
-				<tr><td colspan="2" class="trennung"><hr></td></tr>
+				<tr><td colspan="3" class="trennung"><hr></td></tr>
 			</table>
 			<br>
 		</c:forEach>
 	</form>
 
-<%@ include file="../jspf/footer.jspf"%>
+<!-- Einbindung der Fußzeile -->
+<%@ include file="../jspf/fußzeile.jspf"%>
 </body>
 </html>
 

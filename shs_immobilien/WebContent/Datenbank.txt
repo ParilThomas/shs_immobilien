@@ -1,35 +1,34 @@
-create table objekte
+CREATE TABLE objekte
     (id int primary key auto_increment,
-    haustyp varchar(30),
-    bautyp varchar(30),
+    haustyp varchar(64),
+    bautyp varchar(64),
     titel varchar(100),
     baujahr int(4),
     wohnflaeche int (4),
     grundstuecksflaeche int(6),
     standort varchar(32),
     datum date,
-    startgebot int(9),
+    gebot int(9),
     beschreibung varchar(500),
     bilder mediumblob,
     besitzer int(8),
     hoechstbietender int(8)
     );
     
-    ALTER TABLE objekte ADD besitzer int(10) AFTER bilder;
-    ALTER TABLE objekte ADD hoechstbietender int(10) AFTER besitzer;
     
-    create table haustyp
-    (id int primary key auto_increment,
-    typ varchar(64)
-    );
-    
-    create table bautyp
+CREATE TABLE haustyp
     (id int primary key auto_increment,
     typ varchar(64)
     );
     
     
-    CREATE TABLE benutzer 
+CREATE TABLE bautyp
+    (id int primary key auto_increment,
+    typ varchar(64)
+    );
+    
+    
+CREATE TABLE benutzer 
     (id int primary key auto_increment,
     vorname varchar(32),
     nachname varchar(32),

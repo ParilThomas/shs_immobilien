@@ -1,3 +1,5 @@
+<!-- Form gibt für jeden übergebenen Haustyp einen eigenen Button aus
+der mit dem Wert des Haustpys belegt wird, wichtig für weitere Verarbeitung -->
 <form action="../KaufenServlet" method=post>	
 	<c:forEach items="${haustyplist}" var="haustyp">
 		<button type="submit" class="haustypauswählen" name="${haustyp.typ}"><span>${haustyp.typ}</span></button><br>

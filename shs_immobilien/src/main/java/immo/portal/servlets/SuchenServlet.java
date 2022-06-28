@@ -26,8 +26,7 @@ public class SuchenServlet extends HttpServlet {
 	@Resource(lookup = "java:jboss/datasources/MySqlweb_db_ttsDS")
 	private DataSource dataSource;	
       
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		/**
 		 * Session wird initialisiert
 		 */

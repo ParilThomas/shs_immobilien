@@ -31,6 +31,9 @@ public class AnsichtData {
 	 *@Parameter besitzerid - erwartet beim Aufruf einen Integer
 	 *
 	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 *
+	 *Methode gibt alle eigenen Objekte zurück und zeigt diese
+	 *im "Profil" an
 	 */
 	public List<ObjektBean> eigeneAngebote(Integer besitzerid){ 
 		/**
@@ -39,6 +42,7 @@ public class AnsichtData {
 		List<ObjektBean> eigeneobjekte = new ArrayList<>();
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -76,7 +80,7 @@ public class AnsichtData {
 					resultSet.getInt("grundstuecksflaeche"),
 					resultSet.getString("standort"),
 					resultSet.getDate("datum"),
-					resultSet.getInt("startgebot"),
+					resultSet.getInt("gebot"),
 					resultSet.getString("beschreibung"),
 					resultSet.getBytes("bilder"),
 					resultSet.getInt("besitzer"),
@@ -85,7 +89,7 @@ public class AnsichtData {
 			}
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e){
 			e.printStackTrace();
@@ -108,14 +112,18 @@ public class AnsichtData {
 	 *@Parameter besitzerid - erwartet beim Aufruf einen Integer
 	 *
 	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 *
+	 *Methode gibt alle eigenen Objekte zurück und zeigt diese
+	 *im "Profil" an
 	 */
 	public List<ObjektBean> eigeneGebote(Integer besitzerid){ 
 		/**
-		 * Erzeugen einer ArrayList vom Typ ObjektBean
+		 * Erzeugen einer ArrayList
 		 */
 		List<ObjektBean> eigeneobjekte = new ArrayList<>();
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -153,7 +161,7 @@ public class AnsichtData {
 					resultSet.getInt("grundstuecksflaeche"),
 					resultSet.getString("standort"),
 					resultSet.getDate("datum"),
-					resultSet.getInt("startgebot"),
+					resultSet.getInt("gebot"),
 					resultSet.getString("beschreibung"),
 					resultSet.getBytes("bilder"),
 					resultSet.getInt("besitzer"),
@@ -162,7 +170,7 @@ public class AnsichtData {
 			}
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e){
 			e.printStackTrace();

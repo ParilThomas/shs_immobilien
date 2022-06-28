@@ -1,32 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="immo.portal.servlets.SuchenServlet"%>
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
+	<!-- Verwendete CSS Imports -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/startseite.css">
 	<link rel="stylesheet" href="../css/dropdownNavBar.css">
 	<link rel="stylesheet" href="../css/hauptbild.css">
 	<link rel="stylesheet" href="../css/footer.css">
 
+	<!-- Homepage Titel -->
 	<title>sps-immobilien.de/Startseite</title>
 </head>
 
 
 <body>
 	<header>
+		<!-- Einbindung der Navigationsleiste -->
 		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 
 <main>
 	<div class="kopfbereich">
+		<!-- Such Form auf der Startseite zum Suchen von Objekten aller Art in der Datenbank -->
 		<form action="../SuchenServlet" method="post">
 			<div class="suchen">
 				<table>
 					<tr>
-						<td><h3>Finden Sie Ihr Wunschobjekt</h3>
-						<td>
+						<td><h3>Finden Sie Ihr Wunschobjekt</h3></td>
 					</tr>
 	
 					<tr>
@@ -63,6 +66,7 @@
 </div>
 </main>
 
-<%@ include file="../jspf/footer.jspf"%>
+<!-- Einbindung der Fußzeile -->
+<%@ include file="../jspf/fußzeile.jspf"%>
 </body>
 </html>

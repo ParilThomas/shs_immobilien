@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
-/* 1.Inline-style-Elemente: - */
-/* 2.ID-Selektoren: - */
+/* 1. Inline-style-Elemente: - */
+/* 2. ID-Selektoren: - */
 /* 3. Klassenselektoren/Pseudoklassen: */
 .hintergrund {
 	background: #ffffff;

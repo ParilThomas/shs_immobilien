@@ -45,6 +45,8 @@ public class ObjektData {
 	 *@Parameter fbesitzer 				- erwartet beim Aufruf einen Integer
 	 *
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
+	 *
+	 *Methode speichert ein neues Verkaufsobjekt in der Datenbank
 	 */
 	public void verkaufFormularAbschicken(String fhaustyp, String fbautyp, String ftitel, Integer fbaujahr,
 			Integer fwohnflaeche, Integer fgrundstuecksflaeche, String fstandort, Integer fstartgebot,
@@ -52,6 +54,7 @@ public class ObjektData {
 		
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -64,7 +67,7 @@ public class ObjektData {
 			 * VALUES (?,?,?,?,?,?,?,?,?,?,?,?) -> legt die entsprechenden Werte die abgelegt werden sollen fest
 			 */
 			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("INSERT INTO objekte (haustyp, bautyp, titel, baujahr, wohnflaeche, "
-																			+ "grundstuecksflaeche, standort, datum, startgebot, beschreibung, bilder,"
+																			+ "grundstuecksflaeche, standort, datum, gebot, beschreibung, bilder,"
 																			+ "besitzer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");	
 			
 			/**
@@ -88,7 +91,7 @@ public class ObjektData {
 			sqlBefehl.executeUpdate();
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();
@@ -97,7 +100,20 @@ public class ObjektData {
 	
 	
 	
-	
+	/**
+	 * Methoden Beschreibung
+	 * 
+	 *@Sichtbarkeit public - In anderen Klassen verwendbar
+	 *@Methodentyp nonstatic - Instanzmethode für ein bestimtmes Objekt
+	 *
+	 *@Methodenname getObjekte
+	 *@Parameter haustyp				- erwartet beim Aufruf einen String
+	 *
+	 *@Rückgabetyp List - Methode gibt eine Liste zurück
+	 *
+	 *Methode holt sich alle Objekte mit dem Wert "haustyp"
+	 *und gibt diese zurück
+	 */
 	public List<ObjektBean> getObjekte(String haustyp){
 		/**
 		 * Erzeugen einer ArrayList
@@ -105,6 +121,7 @@ public class ObjektData {
 		List<ObjektBean> objekte = new ArrayList<>();
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {	
 			/**
@@ -142,7 +159,7 @@ public class ObjektData {
 					resultSet.getInt("grundstuecksflaeche"),
 					resultSet.getString("standort"),
 					resultSet.getDate("datum"),
-					resultSet.getInt("startgebot"),
+					resultSet.getInt("gebot"),
 					resultSet.getString("beschreibung"),
 					resultSet.getBytes("bilder"),
 					resultSet.getInt("besitzer"),
@@ -151,7 +168,7 @@ public class ObjektData {
 			}
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e){
 			e.printStackTrace();

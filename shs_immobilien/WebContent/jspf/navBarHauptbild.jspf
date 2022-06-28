@@ -1,8 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!-- Externe CSS Einbindung der Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!-- Setzt das Hauptbild auf allen Seiten -->
 <div class="hauptbild"></div>
 
+<!-- Horizontale Navigationsleiste auf allen Seiten -->
 <nav>
 	<div class="icon-bar">	
 		<a href="../KaufenServlet"><i class="fa fa-home"></i> Kaufen</a>
@@ -11,16 +15,21 @@
 		<a href="./login.jsp"><i class="fa fa-user"></i> Login</a>
 		<a href="../jsp/startseite.jsp#suchvar"><i class="fa fa-search"></i> Suchen</a>
 			
+		<!-- Überprüft ob ein benutzer in der Session hinterlegt ist,
+		falls ja zeige das Dropdown Menü "Profil" an -->
 		<c:if test="${benutzer != null}">
 			<div class="dropdown">
 				<button class="dropdownfenster">Profil</button>
 				<div class="dropdown-content">
 				
+					<!-- Form zum Ansicht von eigenen Angeboten und Geboten -->
 					<form action="../AnsichtServlet" method="post"><br>
 						<button class="ansichtbutton" type="submit" name="ihrangebot" value="${benutzer.id}">Angebote</button><br><br>
 						<button class="ansichtbutton" type="submit" name="ihrgebot"	value="${benutzer.id}">Gebote</button><br><br>
 					</form>
-					
+
+					<!-- Form zum Ausloggen, löscht den Benutzer aus der Session,
+					somit wird dann auch das Dropdown Menü nicht mehr angezeigt -->
 					<form action="../LogoutServlet" method="post">
 						<button class="logoutbutton" type="submit" name="logout" value="logout">Logout</button>
 					</form>

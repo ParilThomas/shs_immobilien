@@ -30,19 +30,23 @@ private DataSource dataSource;
 	 *@Parameter benutzerid - erwartet beim Aufruf einen Integer
 	 *
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
+	 *
+	 *Methode aktualisiert das Gebot zum jeweils ausgewählten Objekt
+	 *und setzt die ID des eingeloggten Benutzers als höchstbietenden
 	 */
 	public void gebotAktualisieren(Integer gebot, String id, Integer benutzerid) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){		
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * UPDATE objekte		-> Überspeichert den vorhandenen Datensatz der Tabelle "objekte"
-			 * SET startgebot = ? 	-> Setzt das Startgebot mit dem übergebenen Wert "?"
+			 * SET gebot = ? 	-> Setzt das gebot mit dem übergebenen Wert "?"
 			 * WHERE id	LIKE ? 		-> im Datensatz mit der id = ?
 			 */
-			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("UPDATE objekte SET startgebot = ? WHERE id LIKE ?");
+			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("UPDATE objekte SET gebot = ? WHERE id LIKE ?");
 			/**
 			 * Setzen der Werte im SQL-Befehl der Reihe nach
 			 * executeUpdate -> Beendet den SQL-Befehl
@@ -87,19 +91,23 @@ private DataSource dataSource;
 	 *@Parameter id 		- erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp boolean - True / False
+	 *
+	 *Methode überprft ob das eingegebene Gebot kleiner ist als das
+	 *bereits vorhandene
 	 */
 	public boolean istGebotZuKlein(Integer gebot, String id) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
-			 * SELECT startgebot	-> Wählt die Spalte "startgebot"
+			 * SELECT gebot	-> Wählt die Spalte "gebot"
 			 * FROM objekte 		-> der Tabelle "objekte"
 			 * WHERE id	LIKE ? 		-> im Datensatz mit indem die Spalte "id" den Wertk "Like ?" enthält
 			 */
-			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("SELECT startgebot FROM objekte WHERE id LIKE ?");
+			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("SELECT gebot FROM objekte WHERE id LIKE ?");
 			/**
 			 * Setzen der Werte im SQL-Befehl
 			 */
@@ -124,7 +132,7 @@ private DataSource dataSource;
 
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();
@@ -147,19 +155,23 @@ private DataSource dataSource;
 	 *@Parameter id 		- erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp boolean - True / False
+	 *
+	 *Methode überprüft ob das eingegebene Gebot größer als das
+	 *bereits vorhandene ist
 	 */
 	public boolean istGebotOk(Integer gebot, String id) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
-			 * SELECT startgebot	-> Wählt die Spalte "startgebot"
+			 * SELECT gebot	-> Wählt die Spalte "gebot"
 			 * FROM objekte 		-> der Tabelle "objekte"
 			 * WHERE id	LIKE ? 		-> im Datensatz mit indem die Spalte "id" den Wertk "Like ?" enthält
 			 */
-			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("SELECT startgebot FROM objekte WHERE id LIKE ?");
+			PreparedStatement sqlBefehl = dbVerbindung.prepareStatement("SELECT gebot FROM objekte WHERE id LIKE ?");
 			/**
 			 * Setzen der Werte im SQL-Befehl
 			 */
@@ -184,7 +196,7 @@ private DataSource dataSource;
 
 	} 
 	/**
-	 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+	 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 	 */
 	catch (Exception e) {
 		e.printStackTrace();

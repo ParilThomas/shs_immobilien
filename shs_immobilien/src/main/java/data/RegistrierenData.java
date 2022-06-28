@@ -34,11 +34,14 @@ private DataSource dataSource;
 	 *@Parameter passwort1 	- erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
+	 *
+	 *Methode legt einen neuen Benutzer in der DB an
 	 */
 	public void registrierenFormularabschicken(String vorname, String nachname, String anschrift,
 			String rplz, String wohnort, String rtelefon, String email,	String passwort1) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -65,7 +68,7 @@ private DataSource dataSource;
 			sqlBefehl.executeUpdate();
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,10 +86,13 @@ private DataSource dataSource;
 	 *@Parameter email - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp boolean - True / False
+	 *
+	 *Methode überprüft ob die email bereits in der DB vorhanden ist
 	 */
 	public boolean emailVorhanden(String email) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
@@ -118,7 +124,7 @@ private DataSource dataSource;
 			}		
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();

@@ -55,7 +55,7 @@ public class VerkaufServlet extends HttpServlet {
 		 * anschließend werdne die Objekte in die haustyplist gespeichert
 		 * 
 		 * In der Klasse bautyplist wird die Methode alleBautypen aufgerufen und gibt alle Bautypen zurück
-		 * anschließend werdne die Objekte in die haustyplist bautyplist
+		 * anschließend werdne die Objekte in die bautyplist
 		 */
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen();
 		List<BautypBean> bautyplist   = bautypData.alleBautypen();

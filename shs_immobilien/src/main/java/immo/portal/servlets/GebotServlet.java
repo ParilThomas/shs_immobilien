@@ -79,7 +79,7 @@ public class GebotServlet extends HttpServlet {
 			}
 		}
 		/**
-		 * responsed auf das KaufenServlet und ruft durch die doGet die kaufen.jsp auf
+		 * Weiterleitung auf das KaufenServlet und ruft durch die doGet die kaufen.jsp auf
 		 */
 		response.sendRedirect("KaufenServlet");
 	}

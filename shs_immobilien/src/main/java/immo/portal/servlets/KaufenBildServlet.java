@@ -33,21 +33,28 @@ public class KaufenBildServlet extends HttpServlet {
 	 * @Fehler IOException		- Input / Output Fehler
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		/**
+		 * Neues BildData Objekt wird erstellt mit der übergebenen dataSource
+		 */
 		BildData bildData = new BildData(dataSource);
 		
-		// utf-8
+		/**
+		 * Response wird zurückgesetzt
+		 * Setzt den Content Type vom Response auf UTF-8
+		 */
 		response.reset();
 		response.setCharacterEncoding("UTF-8");
 
 		/**
-		 * Hole die id zum Objekt und speichere sie lokal ab
+		 * Hole die id aus der Session und speichere sie lokal ab
+		 * Rufe in der KLasse bildData die Methode getBild mit der lokalen id auf
 		 */
 		Long id = Long.valueOf(request.getParameter("id"));
-		
 		Blob bild = bildData.getBild(id);
 		
-		// wenn kein Bild vorhanden ist nichts ausgeben
+		/**
+		 * Ist das bild Objekt null mach nichts
+		 */
 		if (bild == null) {
 			return;
 		}
@@ -68,31 +75,30 @@ public class KaufenBildServlet extends HttpServlet {
 			/**
 			 * bufferSize festlegen
 			 */
-			byte[] buffer = new byte[4096];
+			byte[] puffer = new byte[4096];
 
 			/**
 			 * Browserausgabe über response 
 			 */
 			ServletOutputStream servletOutputStream = response.getOutputStream();
 			/**
-			 * Liest den InputStram von 0 bis zur vorgegebenen Länge des buffers und speichert
-			 * den Integer Wet in "length"
+			 * Liest den InputStram von 0 bis zur vorgegebenen Länge des puffers und speichert
+			 * den Integer Wert in "currentLength"
 			 * 
 			 * Solange der Wert nicht kleiner ist als -1
-			 * Schreibe von 0 bis maximal "lenght" 
+			 * Schreibe in den OutputStream von 0 bis maximal "currentLength" 
 			 */
 			long currentLength;
-			while ((currentLength = inputStream.read(buffer)) != -1) {
-				servletOutputStream.write(buffer, 0, (int) currentLength);
+			while ((currentLength = inputStream.read(puffer)) != -1) {
+				servletOutputStream.write(puffer, 0, (int) currentLength);
 			}
 							
 			/**
-			 * Schließt den OutputStream
+			 * Schließt den OutputStream und leer den kompletten Cache
 			 */
 			servletOutputStream.flush();
 						
 		} catch (Exception e) {
-			System.out.println("KaufenBildServlet Fehlertestung");
 			throw new ServletException(e.getMessage());
 		}
 	}

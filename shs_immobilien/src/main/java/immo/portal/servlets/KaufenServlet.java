@@ -36,6 +36,7 @@ public class KaufenServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/**
 		 * Neues HaustypData Objekt wird erstellt mit der übergebenen dataSource
+		 * 
 		 * Ruft in der Klasse haustpData die Methode "alleHaustypen()" auf bekommt dadurch
 		 * alles Haustypen die in der DB vorhanden sind und speichert diese in haustyplist
 		 */
@@ -66,11 +67,13 @@ public class KaufenServlet extends HttpServlet {
 		
 		/**
 		 * Neues HaustypData & ObjektData Objekt wird erstellt mit der übergebenen dataSource
+		 * 
 		 * Ruft in der Klasse haustpData die Methode "alleHaustypen()" auf bekommt dadurch
 		 * alles Haustypen die in der DB vorhanden sind und speichert diese in haustyplist
 		 */
 		HaustypData haustypData = new HaustypData(dataSource);
-		ObjektData objektData   = new ObjektData(dataSource);	
+		ObjektData objektData   = new ObjektData(dataSource);
+		
 		List<HaustypBean> haustyplist = haustypData.alleHaustypen(); 
 		
 		/**
@@ -82,19 +85,21 @@ public class KaufenServlet extends HttpServlet {
 		 */
 		for (HaustypBean bean : haustyplist) {
 			/**
-			 * Ist der Typ des Element nicht NULL
+			 * Ist der Typ des Elements nicht NULL
 			 */
 			if (request.getParameter(bean.getTyp()) != null) {
 				/**
-				 * Rufe in der Klasse objektData die Methode "getObjekte" mit dem Wert des Typs des Elements
+				 * Rufe in der Klasse objektData die Methode "getObjekte" mit dem Wert des Typs des Elements auf
 				 * und speichere den Rückgabewert in objekte und lege die variable in die Session
 				 * 
 				 * Setze die Sessionvariable "haustypSelektiert" auf true -> Liste des gewählten Haustyps öffnet sich
 				 * 
-				 * leite direkt weiter auf die kaufen.jsp
+				 * leite direkt weiter auf die kaufen.jsp, da wir dort zwei Seiten ineinander integriert haben,
+				 * deshalb keine Weiterleitung auf die doGet, sonst werden die Sessionvariablen überspeichert
 				 */
 				List<ObjektBean> objekte = objektData.getObjekte(bean.getTyp());
 				session.setAttribute("objekte", objekte);
+				
 				session.setAttribute("haustypSelektiert", true);
 				response.sendRedirect("jsp/kaufen.jsp");	
 				return;

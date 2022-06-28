@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 		String passwort = request.getParameter("passwort");
 		
 		/**
-		 * Ist die email ODER das passwort leer return nichts
+		 * Ist die email ODER das passwort leer mach nichts
 		 */
 		if (email.isEmpty() || passwort.isEmpty()) {
 			return;

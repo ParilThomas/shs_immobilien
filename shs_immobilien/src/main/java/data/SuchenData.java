@@ -21,7 +21,6 @@ public class SuchenData {
 		this.dataSource = dataSource;
 	}
 
-	
 	/**
 	 * Methoden Beschreibung
 	 * 
@@ -32,6 +31,8 @@ public class SuchenData {
 	 *@Parameter suchvar - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 *
+	 *Methode gibt alle DB-Einträge zum eingegebenen Such-String zurück
 	 */
 	public List<ObjektBean> getSuchObjekte(String suchvar) {
 		/**
@@ -40,6 +41,7 @@ public class SuchenData {
 		List<ObjektBean> suchObjekte = new ArrayList<>();
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {		
 			/**
@@ -59,7 +61,7 @@ public class SuchenData {
 				+ "grundstuecksflaeche LIKE ? OR "
 				+ "standort LIKE ? OR "
 				+ "beschreibung LIKE ? OR "
-				+ "startgebot LIKE ?"
+				+ "gebot LIKE ?"
 			);
 			
 			/**
@@ -69,7 +71,7 @@ public class SuchenData {
 			 * 
 			 * Bsp. Suchbegriff "tz"
 			 * Somit werden alle Objekte die in den oben angegebenen Zeilen
-			 * irgendwo das Fragmet "tz" behinhalten.
+			 * irgendwo das Fragmet "tz" behinhalten ausgegeben.
 			 * 
 			 * Katze; Baum -> Das gesamte Objekt "Katze" würde hinzugefügt werden.
 			 * 
@@ -107,7 +109,7 @@ public class SuchenData {
 					resultSet.getInt("grundstuecksflaeche"),
 					resultSet.getString("standort"),
 					resultSet.getDate("datum"),
-					resultSet.getInt("startgebot"),
+					resultSet.getInt("gebot"),
 					resultSet.getString("beschreibung"),
 					resultSet.getBytes("bilder"),
 					resultSet.getInt("besitzer"),
@@ -116,7 +118,7 @@ public class SuchenData {
 			}
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e){
 			e.printStackTrace();

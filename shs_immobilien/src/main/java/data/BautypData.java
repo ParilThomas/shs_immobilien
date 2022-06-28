@@ -30,6 +30,8 @@ public class BautypData {
 	 *@Methodenname alleBautypen
 	 *
 	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 *
+	 *Methode gibt alle in der DB stehnden Einträge für Bautypen zurück
 	 */
 	public List<BautypBean> alleBautypen() {
 		/**
@@ -38,6 +40,7 @@ public class BautypData {
 		List<BautypBean> bautypen = new ArrayList<>();	
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {	
 			/**
@@ -46,10 +49,10 @@ public class BautypData {
 			 * 
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 		-> Wählt alle Spalten in der Datenbank aus
-			 * FROM bautyp 	-> legt die zu verwendende DB Tabelle fest "bautyp"
-			 * ORDER BY typ	-> sortiert Alphabetisch von A - Z nach dem "typ"
+			 * FROM bautyp 		-> legt die zu verwendende DB Tabelle fest "bautyp"
+			 * ORDER BY typ		-> sortiert Alphabetisch von A - Z nach dem "typ"
 			 * 
-			 * executeQuery		 -> Beendet den SQL-Befehl
+			 * executeQuery		-> Beendet den SQL-Befehl
 			 */
 			ResultSet resultSet = dbVerbindung.createStatement().executeQuery("SELECT * FROM bautyp ORDER BY typ");
 			/**
@@ -67,7 +70,7 @@ public class BautypData {
 			}
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();
@@ -90,10 +93,14 @@ public class BautypData {
 	 *@Parameter bautyp - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp boolean - True / False
+	 *
+	 *Methode überprüft ob der eingegebene Bautyp bereits
+	 *in der DB vorhanden ist
 	 */
 	public boolean istBautypVorhanden(String bautyp) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -148,10 +155,13 @@ public class BautypData {
 	 *@Parameter bautyp - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp void - es wird nichts zurückgegeben
+	 *
+	 *Methode fügt einen neuen Bautyp hinzu
 	 */
 	public void neuenBautypHinzufuegen(String bautyp) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -170,7 +180,7 @@ public class BautypData {
 			sqlBefehl.executeUpdate();			
 		} 
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();

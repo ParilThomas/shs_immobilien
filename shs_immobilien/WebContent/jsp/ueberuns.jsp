@@ -3,18 +3,21 @@
 <%@page import="immo.portal.servlets.LogoutServlet"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
+	<!-- Verwendete CSS Imports -->
 	<link rel="stylesheet" href="../css/hauptbild.css">
 	<link rel="stylesheet" href="../css/ueberuns.css">
 	<link rel="stylesheet" href="../css/dropdownNavBar.css">
 	<link rel="stylesheet" href="../css/footer.css">
 
+	<!-- Homepage Titel -->
 	<title>sps-immobilien.de/Über-Uns</title>
 </head>
 
 <body>
 	<header>
+		<!-- Einbindung der Navigationsleiste -->
 		<%@ include file="../jspf/navBarHauptbild.jspf"%>
 	</header>
 
@@ -84,7 +87,8 @@
 		</tbody>
 	</table>
 </main>
-	
-<%@ include file="../jspf/footer.jspf"%>
+
+<!-- Einbindung der Fußzeile -->	
+<%@ include file="../jspf/fußzeile.jspf"%>
 </body>
 </html>

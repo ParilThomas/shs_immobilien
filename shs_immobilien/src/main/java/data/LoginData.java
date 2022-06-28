@@ -29,10 +29,13 @@ public class LoginData {
 	 *@Methodenname alleBautypen
 	 *
 	 *@Rückgabetyp BenutzerBean - gibt eine Liste von Objekten zurück
+	 *
+	 *Methode holt sein den eingeloggten Benutzer und gibt seine Daten zurück
 	 */
 	public BenutzerBean holeBenutzer(String email, String passwort) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {
 			/**
@@ -74,7 +77,7 @@ public class LoginData {
 			}
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();
@@ -97,10 +100,13 @@ public class LoginData {
 	 *@Parameter email - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp boolean - True / False
+	 *
+	 *Methode überprüft ob die email bereits in der DB vorhanden ist
 	 */
 	public boolean istRegistriert(String email) {	
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
@@ -132,7 +138,7 @@ public class LoginData {
 			}		
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();

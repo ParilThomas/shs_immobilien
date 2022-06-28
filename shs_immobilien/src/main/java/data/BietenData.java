@@ -32,6 +32,8 @@ private DataSource dataSource;
 	 *@Parameter detailid - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 *
+	 *Methode gibt ein Objekt aus der DB mit der gesuchen ID zurück
 	 */
 	public List<ObjektBean> getObjekt(String detailid) {
 		/**
@@ -40,12 +42,13 @@ private DataSource dataSource;
 		List<ObjektBean> objektIdDaten = new ArrayList<>();
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {	
 			/**
 			 * Aufruf der Datenbankverbindung mit einem SQL-Befehl
 			 * Select * 	-> Wählt alle Spalten in der Datenbank aus
-			 * FROM objekte -> legt die zu verwendende DB Tabelle fest "bautyp"
+			 * FROM objekte -> legt die zu verwendende DB Tabelle fest "objekte"
 			 * WHERE id		-> filtert den Datensatz nach der Spalte "id"
 			 * = ? 			-> sucht in der Spalte anhand eines festgelegten Musters "?"
 			 */
@@ -77,7 +80,7 @@ private DataSource dataSource;
 					resultSet.getInt("grundstuecksflaeche"),
 					resultSet.getString("standort"),
 					resultSet.getDate("datum"),
-					resultSet.getInt("startgebot"),
+					resultSet.getInt("gebot"),
 					resultSet.getString("beschreibung"),
 					resultSet.getBytes("bilder"),
 					resultSet.getInt("besitzer"),
@@ -86,7 +89,7 @@ private DataSource dataSource;
 			}
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();

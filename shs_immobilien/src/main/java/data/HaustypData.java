@@ -31,6 +31,8 @@ public class HaustypData {
 	 *@Methodenname alleHaustypen
 	 *
 	 *@Rückgabetyp List<> - es wird eine Liste zurückgegeben
+	 *
+	 *Methode gibt alle Haustypen aus der DB zurück
 	 */
 	public List<HaustypBean> alleHaustypen() {
 		/**
@@ -39,6 +41,7 @@ public class HaustypData {
 		List<HaustypBean> haustypen = new ArrayList<>();	
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
@@ -68,7 +71,7 @@ public class HaustypData {
 			}
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();
@@ -90,10 +93,14 @@ public class HaustypData {
 	 *@Parameter haustyp - erwartet beim Aufruf einen String
 	 *
 	 *@Rückgabetyp boolean - True / False
+	 *
+	 *Methode überprüft ob der eingegebene Haustyp bereits
+	 *in der DB vorhanden ist
 	 */
 	public boolean istHaustypVorhanden(String haustyp) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();){
 			/**
@@ -125,7 +132,7 @@ public class HaustypData {
 			}		
 		}
 		/**
-		 * catch fägt die Fehler bei der Ausführung der "try" Anweisungen
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
 		 */
 		catch (Exception e) {
 			e.printStackTrace();

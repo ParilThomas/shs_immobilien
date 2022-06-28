@@ -25,14 +25,15 @@ public class BildData {
 	 *@Sichtbarkeit public - In anderen Klassen verwendbar
 	 *@Methodentyp nonstatic - Instanzmethode für ein bestimtmes Objekt
 	 *
-	 *@Methodenname eigeneAngebote
-	 *@Parameter suchvar - erwartet beim Aufruf einen String
+	 *@Methodenname getBild
+	 *@Parameter id - erwartet beim Aufruf einen Long
 	 *
-	 *@Rückgabetyp List<> - gibt eine Liste von Objekten zurück
+	 *@Rückgabetyp Blob - gibt ein Binary Large Objekt zurück
 	 */
 	public Blob getBild(Long id) {
 		/**
 		 * Datenbankverbindung erstellen
+		 * Verbindung wird nach Durchlauf geschlossen
 		 */
 		try(Connection dbVerbindung = dataSource.getConnection();) {		
 			/**
@@ -46,25 +47,30 @@ public class BildData {
 			 * Ersetzt im sqlBefehl das ? mit der id
 			 */
 			sqlBefehl.setLong(1, id);
-		
 			/**
-			 * Beendet den SQL-Befehl
+			 * ResultSet 	-> Behinhaltet gefundene Datenbankeinträge
+			 * executeQuery -> Beendet den SQL-Befehl
 			 */
-			
 			ResultSet resultSet = sqlBefehl.executeQuery();
 			/**
-			 * Ist der resultSet NICHT null ODER gibt es ein reslutSet Element...
+			 * Ist der resultSet NICHT null UND gibt es ein reslutSet Element...
 			 */
 			if (resultSet != null && resultSet.next()) {
 				/**
-				 * Speichere den Part aus der DB in ein Blob "bild"
+				 * dann gib das Blob Objekt zurück
 				 */
 				return resultSet.getBlob("bilder");
-			}
-			
-		} catch (Exception e){
+			}		
+		} 
+		/**
+		 * catch fängt die Fehler bei der Ausführung der "try" Anweisungen
+		 */
+		catch (Exception e){
 			e.printStackTrace();
 		}
+		/**
+		 * Ansonsten gib nichts zurück
+		 */
 		return null;
 	}
 
