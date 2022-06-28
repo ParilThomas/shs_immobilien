@@ -127,7 +127,8 @@
 
 						<tr>
 							<td colspan="2"><label for="beschreibung">Objektbeschreibung</label><br>
-								<textarea rows="5" cols="50" id="beschreibung" name="beschreibung" placeholder="Maximal 500 Zeichen" maxlength="500" required></textarea><br><br>
+								<!-- Maximal 450 Zeichen mit 50 Zeichen Puffer in der Datenbank für Zeilenumbrüche etc. -->
+								<textarea rows="5" cols="50" id="beschreibung" name="beschreibung" placeholder="Maximal 450 Zeichen" maxlength="450" required></textarea><br><br>
 							</td>
 						</tr>
 
