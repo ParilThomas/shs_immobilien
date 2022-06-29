@@ -1,3 +1,5 @@
+/** @author Thomas Paril */
+
 package immo.portal.bean;
 
 import java.io.Serializable;

@@ -1,3 +1,5 @@
+/** @author Simon Schrödl */
+
 /**
 Alle Variablen müssen deklariert werden Fehler werden in der Konsole ausgegeben,
 da JS diese sonst übergehen würde

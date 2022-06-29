@@ -1,3 +1,5 @@
+/** @author Thomas Schwarzmeier */
+
 package data;
 
 import java.sql.Connection;

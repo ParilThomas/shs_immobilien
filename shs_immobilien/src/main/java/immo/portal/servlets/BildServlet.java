@@ -1,3 +1,5 @@
+/** @author Thomas Schwarzmeier */
+
 package immo.portal.servlets;
 
 import java.io.IOException;
@@ -17,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/kaufen_bild_servlet")
 
-public class KaufenBildServlet extends HttpServlet {
+public class BildServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**

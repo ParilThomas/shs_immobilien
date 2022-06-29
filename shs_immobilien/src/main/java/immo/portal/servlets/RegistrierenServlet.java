@@ -1,3 +1,5 @@
+/** @author Simon Schrödl */
+
 package immo.portal.servlets;
 
 import java.io.IOException;

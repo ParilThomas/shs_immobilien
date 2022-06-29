@@ -1,3 +1,5 @@
+/** @author Thomas Paril, Thomas Schwarzmeier */
+
 package immo.portal.servlets;
 
 import java.io.IOException;

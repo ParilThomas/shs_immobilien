@@ -1,3 +1,5 @@
+/** @author Thomas Paril */
+
 package data;
 
 import java.io.InputStream;

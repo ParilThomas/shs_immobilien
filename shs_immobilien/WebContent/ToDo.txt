@@ -1,9 +1,9 @@
-Warum hängt sich der Server bzw. die Datenbank auf 
+Warum hï¿½ngt sich der Server bzw. die Datenbank auf 
 
-1. Kommentare hinzufügen
+1. Kommentare hinzufï¿½gen
 2. Authoren defnieren
 3. Datenbanken neu anlegen mit geeigneten Werten
-4. Alles nochmal überprüfen, jegliche Funktion nochmal jecken & jeglichen Fall 
+4. Alles nochmal ï¿½berprï¿½fen, jegliche Funktion nochmal jecken & jeglichen Fall 
 4. Validator Check
 
 
@@ -20,5 +20,6 @@ Warum hängt sich der Server bzw. die Datenbank auf
 	 * @return void
 	 */
 	 
-	 /**
- * @author Tom1, Tom2
+/**
+* @author Thomas Paril
+*/

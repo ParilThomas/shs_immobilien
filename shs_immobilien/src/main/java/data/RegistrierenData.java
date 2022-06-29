@@ -1,3 +1,5 @@
+/** @author Simon Schrödl */
+
 package data;
 
 import java.sql.Connection;

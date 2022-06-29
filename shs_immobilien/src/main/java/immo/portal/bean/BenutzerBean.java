@@ -1,3 +1,5 @@
+/** @author Simon Schrödl */
+
 package immo.portal.bean;
 
 import java.io.Serializable;

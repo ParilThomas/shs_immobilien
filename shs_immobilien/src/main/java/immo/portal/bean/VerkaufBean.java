@@ -1,7 +1,8 @@
+/** @author Thomas Paril */
+
 package immo.portal.bean;
 
 import java.io.Serializable;
-import java.util.Date;
 
 
 public class VerkaufBean implements Serializable {

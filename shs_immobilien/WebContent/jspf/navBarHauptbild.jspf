@@ -1,3 +1,5 @@
+<!-- @author Thomas Paril -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- Externe CSS Einbindung der Icons -->

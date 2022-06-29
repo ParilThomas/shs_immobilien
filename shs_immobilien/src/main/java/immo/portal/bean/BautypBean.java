@@ -1,3 +1,5 @@
+/** @author Thomas Schwarzmeier */
+
 package immo.portal.bean;
 
 import java.io.Serializable;
