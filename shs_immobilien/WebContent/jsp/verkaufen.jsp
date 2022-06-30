@@ -6,7 +6,6 @@
 <%@page import="immo.portal.bean.HaustypBean"%>
 <%@page import="immo.portal.servlets.LogoutServlet"%>
 <%@page import="immo.portal.servlets.VerkaufServlet"%>
-
 <!DOCTYPE html>
 <html lang="de">
 

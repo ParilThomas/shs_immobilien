@@ -1,21 +1,19 @@
+@charset "UTF-8"; 
 /* @author Thomas Schwarzmeier */
-
-@charset "UTF-8";
 
 /* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
 /* 1. Inline-style-Elemente: - */
 /* 2. ID-Selektoren: - */
 /* 3. Klassenselektoren/Pseudoklassen: */
-
-.hintergrund{
-  background:#ffffff;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  font-family: 'Poppins',sans-serif;
+.hintergrund {
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
 }
 
-.schonregistriert{
+.schonregistriert {
 	border: 1px solid black;
 	border-radius: 5px;
 	padding-left: 10px;
@@ -25,50 +23,48 @@
 	color: white;
 }
 
-.icon{
-  justify-content: center;
-  
+.icon {
+	justify-content: center;
 }
 
 .loginfenster {
-  width: 400px;
-  padding: 40px;
-  border-radius: 8px;
-  background-color: #222831;
-  box-shadow: 4px 4px 1px rgba(0,0,0,0.404); 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 400px;
+	padding: 40px;
+	border-radius: 8px;
+	background-color: #222831;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.404);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.logintextfeld{
-  height: 50px;
-  width: 92%;
-  position: relative;
-  margin-top: 15px;
+.logintextfeld {
+	height: 50px;
+	width: 92%;
+	position: relative;
+	margin-top: 15px;
 }
 
-.logintextfeld input{
-  height: 100%;
-  width: 92%;
-  outline: none;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding-left: 50px;
-  font-size: 15px;
+.logintextfeld input {
+	height: 100%;
+	width: 92%;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-left: 50px;
+	font-size: 15px;
 }
 
-.logintextfeld input:focus{
-  border-color: #0080ff;
+.logintextfeld input:focus {
+	border-color: #0080ff;
 }
 
-
-.logintextfeld .icon{
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  color: grey;
+.logintextfeld .icon {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+	color: grey;
 }
 
 .benutzermerken {
@@ -76,38 +72,37 @@
 	display: inline-block;
 }
 
-.loginfenster .registrieren{
-  text-align: left;
-  margin-top: 25px;
-  color: white;
+.loginfenster .registrieren {
+	text-align: left;
+	margin-top: 25px;
+	color: white;
 }
 
-.registrieren a{
-  color: #ff0000;
+.registrieren a {
+	color: #ff0000;
 }
 
-.loginbutton{
-  background: #c0c0c0;
-  color: #000000;
-  border: 1px solid black;
-  border-radius: 7px;
-  font-size: 17px;
-  width:20%;
-  cursor: pointer;
+.loginbutton {
+	background: #c0c0c0;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 17px;
+	width: 20%;
+	cursor: pointer;
 }
 
 /* 4. Typ- / Elementselektoren: */
-
 html, body {
 	height: 100%;
 }
 
-main{
+main {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
-nav{
+nav {
 	margin-top: 30px;
 	margin-bottom: 20px;
 }

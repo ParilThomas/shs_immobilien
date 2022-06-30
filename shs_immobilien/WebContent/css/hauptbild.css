@@ -1,9 +1,8 @@
-/* @author Thomas Paril */
-
 @charset "UTF-8";
+/* @author Thomas Paril */
 
 .hauptbild {
 	width: 100%;
 	height: 330px;
-	background:url(../img/Hauptbild_Klein.JPG) 
+	background: url(../img/Hauptbild_Klein.JPG)
 }

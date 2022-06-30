@@ -1,13 +1,13 @@
+@charset "UTF-8";
 /* @author Simon Schrödl */
 
-@charset "UTF-8";
 /* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
 /* 1. Inline-style-Elemente: - */
 /* 2. ID-Selektoren: - */
 /* 3. Klassenselektoren/Pseudoklassen: */
 .hintergrund {
 	background: #ffffff;
-/* 	Inhalt der Webiste "zentriert" anzeigen: */
+	/* 	Inhalt der Webiste "zentriert" anzeigen: */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -67,7 +67,7 @@
 	padding-right: 10px;
 	font-size: 17px;
 	background: red;
-	width:150px;
+	width: 150px;
 	margin: auto;
 	text-align: center;
 	color: white;

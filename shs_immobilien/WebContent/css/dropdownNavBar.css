@@ -1,6 +1,6 @@
+@charset "UTF-8";
 /* @author Thomas Paril */
 
-@charset "UTF-8";
 /* CSS Styleveränderungen von Höchster zu Niedrigster Priorität */
 /* 1.Inline-style-Elemente: - */
 /* 2.ID-Selektoren: - */
@@ -8,92 +8,89 @@
 
 /* Position und Art des Dropdown Fensters festlegen */
 .dropdown {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 /* Farbe und Größe Dropdown Fenster festlegen */
 .dropdownfenster {
-  background-color: #ff0000;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius:8px;
+	background-color: #ff0000;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	border-radius: 8px;
 }
 
 /* Inhalt des Dropdown Fensters festlegen */
 .dropdown .dropdown-content {
-  position: absolute;
-  display: none;
-  background-color: #c0c0c0;
-  width: 100px;
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 7px;
+	position: absolute;
+	display: none;
+	background-color: #c0c0c0;
+	width: 100px;
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	border-radius: 7px;
 }
 
 /* Beim "drüberfahren" soll Dropdown Inhalt angezeigt werden */
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
 
-.logoutbutton{
-  background: #ff0000;
-  color: #ffffff;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 15px;
-  width:90%;
-  cursor: pointer;
+.logoutbutton {
+	background: #ff0000;
+	color: #ffffff;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 15px;
+	width: 90%;
+	cursor: pointer;
 }
 
-.ansichtbutton{
-  background:#222831;
-  color: #ffffff;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 15px;
-  width:90%;
-  cursor: pointer;
+.ansichtbutton {
+	background: #222831;
+	color: #ffffff;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 15px;
+	width: 90%;
+	cursor: pointer;
 }
 
 /* 4. Typ- / Elementselektoren: */
 
 /* Navigationleiste festlegen  */
 nav {
-  list-style-type: none;
-  text-align: center;
-  margin: 10;
-  padding: 10;
-  cursor:pointer;
-  font-size: 100%;
-  font-family: 'Poppins',sans-serif;
-  margin-top: 15px;
+	list-style-type: none;
+	text-align: center;
+	cursor: pointer;
+	font-size: 100%;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 15px;
 }
+
 nav li {
-  display: inline-block;
-  font-size: 16px;
-  padding: 10px;
+	display: inline-block;
+	font-size: 16px;
+	padding: 10px;
 }
 
 a {
-  color: black;
-  padding-top: 30px;
-  margin: 30px;
+	color: black;
+	padding-top: 30px;
+	margin: 30px;
 }
 
 a:link {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 a:active {
-  text-decoration: underline;
+	text-decoration: underline;
 }
-
-
